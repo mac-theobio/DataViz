@@ -58,8 +58,8 @@ update: docs/index.html data/index.html
 %.update:
 	cd $* && $(MAKE) update
 
-subdirs += admin topics
-subdirs += lectures tips assignments
+## subdirs += admin topics
+## subdirs += lectures tips assignments
 
 ######################################################################
 
