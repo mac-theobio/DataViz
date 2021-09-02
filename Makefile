@@ -20,7 +20,7 @@ Sources += $(wildcard html/*.*)
 ## docs/index.html: index.md
 
 ## Current is for stashing stuff that's not current now, but was current before
-Sources += index.md
+Sources += index.md schedule.rmd
 Ignore += index.html
 
 docs/index.html: index.md

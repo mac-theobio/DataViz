@@ -122,10 +122,6 @@ We are looking forward to seeing you on Friday for an organizational meeting!  S
 </ul>
 <h2 id="schedule">Schedule</h2>
 <p>TBA</p>
-<p><code>{r echo=FALSE,message=FALSE,warning=FALSE, results=&quot;asis&quot;, eval=FALSE} ## what do we want to include here? ## do we need to hack format? ##   widths ##   alternating gray background? ## is there something better than pander (e.g. huxtable)? ## how do we associate notes with  library(&quot;pander&quot;) ## library(&quot;huxtable&quot;) library(&quot;dplyr&quot;) library(&quot;readr&quot;) mk_url &lt;- function(x) {   ifelse(nchar(trimws(x))==0,x,          sprintf(&quot;[%s](https://mac-theobio.github.io/DataViz/%s.html)&quot;,                  x,x)) } dd &lt;- (read_csv(&quot;sched.csv&quot;, comment=&quot;#&quot;)   %&gt;% mutate(`lecture notes`=mk_url(`lecture notes`)) ) ## dd &lt;- dd[,1:4] ## topics &lt;- read.csv(&quot;topics.csv&quot;) ## dd2 &lt;- arrange(merge(dd,topics,by.x=&quot;topic&quot;,by.y=&quot;title&quot;,all.x=TRUE),number) panderOptions(&#39;missing&#39;, &#39;&#39;) panderOptions(&#39;table.split.cells&#39;, 15) panderOptions(&#39;table.split.table&#39;,Inf) panderOptions(&#39;table.style&#39;,&#39;multiline&#39;) panderOptions(&#39;table.alignment.default&#39;,&#39;left&#39;) pander(dd) ##print_latex(theme_plain(huxtable(dd)))</code></p>
-<!-- regular html comment
-...
--->
 <h2 id="references">References</h2>
 <div id="footer">
 	<div style="text-align:center">
