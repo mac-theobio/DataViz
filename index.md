@@ -14,17 +14,16 @@ th {background-color: #ccccff;}
 </style>
 
 
-<!-- 
-## Current
+<!-- COMMENT
+	## Current
 
-We are looking forward to seeing you on Friday for an organizational meeting!  Sep 6 from 9:30-10 AM in Hamilton Hall 207 (the main floor of Hamilton Hall)
-
--->
+	We are looking forward to seeing you on Friday for an organizational meeting!  Sep 6 from 9:30-10 AM in Hamilton Hall 207 (the main floor of Hamilton Hall)
 
 ## Info
 
-This course will be offered in Fall 2021. The web page is under construction and may contain some material
-left over from the previous offering of the course.
+-->
+
+This web page is under construction.
 
 ### Course meetings
 
@@ -43,8 +42,6 @@ TBA
 -   [Jonathan Dushoff](http://www.biology.mcmaster.ca/dushoff/)
 
 ## Schedule
-
-TBA
 
 
 

@@ -8,6 +8,8 @@ current: target
 vim_session:
 	bash -cl "vmt index.md rweb.mk"
 
+Sources = Makefile README.md notes.md
+
 ##################################################################
 
 Sources += $(wildcard docs/*.html) $(wildcard docs/*/*.html)
@@ -19,16 +21,29 @@ Sources += $(wildcard html/*.*)
 
 ## docs/index.html: index.md
 
-## Current is for stashing stuff that's not current now, but was current before
 Sources += index.md schedule.rmd
 Ignore += index.html
 
 docs/index.html: index.md
 	pandoc $< -o $@ --mathjax -s -B html/mainheader.html -A html/mainfooter.html --css html/qmee.css --self-contained
 
-## Try suppressing rweb in main directory 2021 Jan 21 (Thu)
+## rweb should be included in subdirectories, but not in main 2021 Sep 04 (Sat)
 Sources += rweb.mk
-## -include rweb.mk
+
+######################################################################
+
+## How to do the schedule? 2021 Sep 04 (Sat)
+
+## How crazy is superPipe?
+
+Sources += $(wildcard *.tsv)
+
+%.Rout: ; $(pipeR)
+%.Rout.html: %.Rout ;
+
+## Failed here; could not @@include the md file; got confused about html
+sched.Rout: sched.R sched.tsv
+## sched.Rout.html: sched.R
 
 ######################################################################
 
@@ -143,8 +158,6 @@ gh-pages:
 
 ### Makestuff
 
-Sources += Makefile README.md notes.md
-
 msrepo = https://github.com/dushoff
 ms = makestuff
 
@@ -156,6 +169,8 @@ makestuff/Makefile:
 	git clone $(msrepo)/makestuff
 
 -include makestuff/os.mk
+
+-include makestuff/pipeR.mk
 
 -include makestuff/git.mk
 -include makestuff/visual.mk
