@@ -55,10 +55,10 @@ mk_url <- function(x) {
                  x,x))
 }
 
-print_md(
+(
 	tsvRead(comment="#")
 	%>% hux()
-   ## %>% mutate(`lecture notes`=mk_url(`lecture notes`))
+	%>% print_html(max_width=1000)
 )
 
 ```

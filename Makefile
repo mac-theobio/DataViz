@@ -84,6 +84,7 @@ alldirs += $(subdirs)
 
 update_all: makestuff $(subdirs) $(subdirs:%=%.update) update
 
+Sources += subdir.mk
 $(subdirs):
 	- $(RMR) $@_tmp
 	mkdir $@_tmp
