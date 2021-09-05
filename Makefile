@@ -21,7 +21,7 @@ Sources += $(wildcard html/*.*)
 
 ## docs/index.html: index.md
 
-Sources += index.rmd schedule.rmd
+Sources += index.rmd vis.bib
 Ignore += index.html
 
 index.rmk: sched.tsv
