@@ -88,7 +88,7 @@ $(subdirs):
 	- $(RMR) $@_tmp
 	mkdir $@_tmp
 	cp subdir.mk $@_tmp/Makefile
-	$(MAKE) $@_tmp/makestuff
+	$(MAKE) $@_tmp.makestuff
 	$(MV) $@_tmp $@
 
 local_site: update_all
