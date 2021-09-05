@@ -6,7 +6,7 @@ current: target
 -include target.mk
 
 vim_session:
-	bash -cl "vmt index.md rweb.mk"
+	bash -cl "vmt index.rmd rweb.mk"
 
 Sources = Makefile README.md notes.md
 
@@ -21,10 +21,11 @@ Sources += $(wildcard html/*.*)
 
 ## docs/index.html: index.md
 
-Sources += index.md schedule.rmd
+Sources += index.rmd schedule.rmd
 Ignore += index.html
 
-docs/index.html: index.md
+index.rmk: sched.tsv
+docs/index.html: index.rmk
 	pandoc $< -o $@ --mathjax -s -B html/mainheader.html -A html/mainfooter.html --css html/qmee.css --self-contained
 
 ## rweb should be included in subdirectories, but not in main 2021 Sep 04 (Sat)
@@ -171,6 +172,7 @@ makestuff/Makefile:
 -include makestuff/os.mk
 
 -include makestuff/pipeR.mk
+-include makestuff/mdyam.mk
 
 -include makestuff/git.mk
 -include makestuff/visual.mk

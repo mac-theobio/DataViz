@@ -43,7 +43,25 @@ TBA
 
 ## Schedule
 
+```{r echo=FALSE,message=FALSE,warning=FALSE, results="asis", eval=TRUE}
+library(huxtable)
+library(dplyr)
+library(readr)
+library(shellpipes)
 
+mk_url <- function(x) {
+  ifelse(nchar(trimws(x))==0,x,
+         sprintf("[%s](https://mac-theobio.github.io/DataViz/%s.html)",
+                 x,x))
+}
+
+print_md(
+	tsvRead(comment="#")
+	%>% hux()
+   ## %>% mutate(`lecture notes`=mk_url(`lecture notes`))
+)
+
+```
 
 ## References
 
