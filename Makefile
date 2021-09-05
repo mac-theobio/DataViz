@@ -74,7 +74,7 @@ update: docs/index.html data/index.html
 %.update:
 	cd $* && $(MAKE) update
 
-## subdirs += admin topics
+subdirs += admin topics
 ## subdirs += lectures tips assignments
 
 ######################################################################
@@ -82,7 +82,14 @@ update: docs/index.html data/index.html
 Ignore += $(subdirs)
 alldirs += $(subdirs)
 
-update_all: makestuff $(subdirs:%=%.makestuff) $(subdirs:%=%.update) update
+update_all: makestuff $(subdirs) $(subdirs:%=%.update) update
+
+$(subdirs):
+	- $(RMR) $@_tmp
+	mkdir $@_tmp
+	cp subdir.mk $@_tmp/Makefile
+	$(MAKE) $@_tmp/makestuff
+	$(MV) $@_tmp $@
 
 local_site: update_all
 	$(MAKE) docs/index.html.go

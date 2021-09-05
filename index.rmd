@@ -23,8 +23,6 @@ th {background-color: #ccccff;}
 
 -->
 
-This web page is under construction.
-
 ### Course meetings
 
 TBA
@@ -42,6 +40,8 @@ TBA
 -   [Jonathan Dushoff](http://www.biology.mcmaster.ca/dushoff/)
 
 ## Schedule
+
+(under development)
 
 ```{r echo=FALSE,message=FALSE,warning=FALSE, results="asis", eval=TRUE}
 library(huxtable)
