@@ -21,7 +21,7 @@ Sources += $(wildcard html/*.*)
 ## Looks like a problem with read_tsv and inconsistent commenting?
 ## REPORT!
 
-Sources += hux.tsv
+Sources += hux.tsv hux.R
 hux.Rout: hux.R hux.tsv
 
 ######################################################################
