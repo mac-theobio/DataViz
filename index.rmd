@@ -17,15 +17,17 @@ th {background-color: #ccccff;}
 <!-- COMMENT
 	## Current
 
-	We are looking forward to seeing you on Friday for an organizational meeting!  Sep 6 from 9:30-10 AM in Hamilton Hall 207 (the main floor of Hamilton Hall)
-
 ## Info
 
 -->
 
 ### Course meetings
 
-TBA
+- 16:30-17:20 Mon, 13:30-14:20 Weds, 11:30-12:20 Fri (all Toronto time)
+- via [Teams channel](https://teams.microsoft.com/_#/school/conversations/General?threadId=19:WMkvwbwYymVUN2AoIc-v8VrcUAxFa2fADOPK2ftOdKA1@thread.tacv2&ctx=channel) for the first two weeks; thereafter, physical location TBA
+- University policy requires masks in all indoor spaces. 2-meter distancing is officially optional, but we'll do the best we can
+- We will record lectures, and will attempt to continue doing so when we move to live lectures
+- You are encouraged but not required to keep your cameras on when participating in virtual course activities
 
 ### Links
 
