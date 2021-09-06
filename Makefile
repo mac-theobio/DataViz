@@ -1,4 +1,4 @@
-# DataViz
+# DataViz CURRENT course and web, started Sep 2021
 # https://mac-theobio.github.io/DataViz21/?version=123
 
 ### Hooks for the editor to set the default target
@@ -74,8 +74,9 @@ update: docs/index.html data/index.html
 %.update:
 	cd $* && $(MAKE) update
 
-subdirs += admin topics
-## subdirs += lectures tips assignments
+## No real topics pages (using table); topics can be used for "tips"
+subdirs += admin topics 
+subdirs += lectures assignments
 
 ######################################################################
 
