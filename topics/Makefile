@@ -1,4 +1,4 @@
-## This is 708/WHICH
+## This is 708/topics
 
 current: target
 -include target.mk
