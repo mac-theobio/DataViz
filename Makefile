@@ -74,7 +74,8 @@ update: docs/index.html data/index.html
 %.update:
 	cd $* && $(MAKE) update
 
-## No real topics pages (using table); topics can be used for "tips"
+## No real topics pages (using table);
+## topics can be used for the stuff in QMEE "tips"
 subdirs += admin topics 
 subdirs += lectures assignments
 
