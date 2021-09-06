@@ -17,19 +17,38 @@ Sources += $(wildcard html/*.*)
 
 ######################################################################
 
+## Insane hanging problem
+## Looks like a problem with read_tsv and inconsistent commenting?
+## REPORT!
+
+Sources += hux.tsv
+hux.Rout: hux.R hux.tsv
+
+######################################################################
+
 ## Root content
 
 ## docs/index.html: index.md
 
 Sources += index.rmd vis.bib refs.csl
-Ignore += index.html
 
 index.rmk: sched.tsv
+## docs/index.html: index.rmd
 docs/index.html: index.rmk
 	pandoc $< -o $@ --mathjax -s -B html/mainheader.html -A html/mainfooter.html --css html/qmee.css --self-contained
 
 ## rweb should be included in subdirectories, but not in main 2021 Sep 04 (Sat)
 Sources += rweb.mk
+
+######################################################################
+
+## Stored images
+## Things mysteriously stopped working with the static link thing whatever
+
+Sources += cache/*
+
+cache/Minard.png:
+	wget -O $@ "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Minard.png/640px-Minard.png"
 
 ######################################################################
 
