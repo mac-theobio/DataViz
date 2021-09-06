@@ -1,4 +1,4 @@
-## This is 708/admin
+## This is 708/assignments
 
 current: target
 -include target.mk
