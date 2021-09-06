@@ -55,7 +55,7 @@ mk_url <- function(x) {
                  x,x))
 }
 
-(
+silent <- (
 	tsvRead()
 	%>% mutate_all(~sub("#.*","", .))
 	%>% hux()
