@@ -42,7 +42,7 @@ update: $(mdhdocs) $(rmdnotes) $(rmdslides)
 site_header = html/header.html
 site_footer = html/footer.html
 site_css = html/qmee.css
-site_bib = ../qmee.bib
+site_bib = ../vis.bib
 site_args = --self-contained
 ## mds = pandoc $< -o $@ --mathjax -s -B $(site_header) -A $(site_footer) --css $(site_css) $(site_args)
 mds = pandoc $< -o $@ --mathjax -s -B $(site_header) -A $(site_footer) $(site_args) --bibliography=$(site_bib)
@@ -62,6 +62,14 @@ slidesrule = echo 'rmarkdown::render($(io), $(slideargs))' | R --vanilla
 io = input="$<", output_file="$(notdir $@)"
 mvrule = $(MVF) $(notdir $@) $@
 
+## This is the route for formatted notes; not activated
+## Need to worry about header image (points at . and doesn't work)
+.PRECIOUS: docs/%.totes.html
+docs/%.notes.html: %.rmk
+	$(MAKE) html docs
+	$(mds)
+
+## Older simpler notes (straight from rmd)
 .PRECIOUS: docs/%.notes.html
 docs/%.notes.html: %.rmd
 	$(MAKE) html docs

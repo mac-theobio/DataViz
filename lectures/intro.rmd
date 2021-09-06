@@ -227,4 +227,3 @@ d_res <- do.call(rbind,d_proc)  ## combine
 
 ## References {.refs}
 
-
