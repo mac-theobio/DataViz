@@ -38,8 +38,9 @@ th {background-color: #ccccff;}
 
 ## Faculty
 
--   [Ben Bolker](http://www.math.mcmaster.ca/~bolker/)
--   [Jonathan Dushoff](http://www.biology.mcmaster.ca/dushoff/)
+- [Ben Bolker](http://www.math.mcmaster.ca/~bolker/)
+- [Jonathan Dushoff](http://www.biology.mcmaster.ca/dushoff/)
+- Best way to reach us is by e-mail to `macdataviz@gmail.com`
 
 ## Schedule
 
@@ -58,8 +59,8 @@ mk_url <- function(x) {
 }
 
 silent <- (
-	tsvRead()
-	%>% mutate_all(~sub("#.*","", .))
+	tsvRead(comment="#")
+	## %>% mutate_all(~sub("#.*","", .))
 	%>% hux()
 	%>% print_html(max_width=1000)
 )
