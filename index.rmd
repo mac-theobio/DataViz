@@ -36,11 +36,12 @@ th {background-color: #ccccff;}
     - [Fall 2019 (previous) assignments](assignments_old.html)
 - [The github back-end for this site](https://github.com/mac-theobio/DataViz/)
 
-## Faculty
+## Faculty/communication
 
 - [Ben Bolker](http://www.math.mcmaster.ca/~bolker/)
 - [Jonathan Dushoff](http://www.biology.mcmaster.ca/dushoff/)
 - Best way to reach us is by e-mail to `macdataviz@gmail.com`
+- General questions (anything you don't consider private) are best asked in the appropriate channel on Teams
 
 ## Schedule
 
@@ -61,6 +62,7 @@ mk_url <- function(x) {
 silent <- (
 	tsvRead(comment="#")
 	## %>% mutate_all(~sub("#.*","", .))
+    ## %>% mutate(across(everything(), stringr::str_remove, "#.*"))
 	%>% hux()
 	%>% print_html(max_width=1000)
 )
