@@ -1,6 +1,11 @@
 
 ## other logistical
 
+- post R script
+- post recording (maybe)
+- archaeologize and post R resources/tips from QMEE
+
+
 ## Teams
 
 - scheduled meetings: don't like having a separate meeting space for each weekday but doesn't seem possible to create a single space with recurrence on different days *at different times* unless we do it in Outlook??? https://microsoftteams.uservoice.com/forums/555103-public/suggestions/32183026-teams-does-not-allow-me-setup-a-recurring-meeting?page=1&per_page=20
