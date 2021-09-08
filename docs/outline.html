@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>outline</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <style>
+  <!-- https://github.com/ryangrose/easy-pandoc-templates/blob/master/css/elegant_bootstrap.css -->
+
+  html {
+    font-size: 100%;
+    overflow-y: scroll;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+  }
+
+  body {
+    color: #444;
+    font-family: Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman', serif;
+    font-size: 12px;
+    line-height: 1.8;
+    background: #fefefe;
+  }
+
+  a {
+    color: #0645ad;
+    text-decoration: none;
+  }
+
+  a:visited {
+    color: #0b0080;
+  }
+
+  a:hover {
+    color: #06e;
+  }
+
+  a:active {
+    color: #faa700;
+  }
+
+  a:focus {
+    outline: thin dotted;
+  }
+
+  *::-moz-selection {
+    background: rgba(255, 255, 0, 0.3);
+    color: #000;
+  }
+
+  *::selection {
+    background: rgba(255, 255, 0, 0.3);
+    color: #000;
+  }
+
+  a::-moz-selection {
+    background: rgba(255, 255, 0, 0.3);
+    color: #0645ad;
+  }
+
+  a::selection {
+    background: rgba(255, 255, 0, 0.3);
+    color: #0645ad;
+  }
+
+  p {
+    margin: 1em 0;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: #111;
+    line-height: 125%;
+    /* margin-top: 2em; */
+    font-weight: normal;
+  }
+
+  h4, h5, h6 {
+    font-weight: bold;
+  }
+
+  h1 {
+    font-size: 2.5em;
+  }
+
+  h2 {
+    font-size: 2em;
+  }
+
+  h3 {
+    font-size: 1.5em;
+  }
+
+  h4 {
+    font-size: 1.2em;
+  }
+
+  h5 {
+    font-size: 1em;
+  }
+
+  h6 {
+    font-size: 0.9em;
+  }
+
+  blockquote {
+    color: #666666;
+    margin: 0;
+    padding-left: 3em;
+    border-left: 0.5em #EEE solid;
+  }
+
+  hr {
+    display: block;
+    height: 2px;
+    border: 0;
+    border-top: 1px solid #aaa;
+    border-bottom: 1px solid #eee;
+    margin: 1em 0;
+    padding: 0;
+  }
+
+  pre, code, kbd, samp {
+    color: #000;
+    font-family: monospace, monospace;
+    _font-family: 'courier new', monospace;
+    font-size: 0.98em;
+  }
+
+  pre {
+    white-space: pre;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+
+  b, strong {
+    font-weight: bold;
+  }
+
+  dfn {
+    font-style: italic;
+  }
+
+  ins {
+    background: #ff9;
+    color: #000;
+    text-decoration: none;
+  }
+
+  mark {
+    background: #ff0;
+    color: #000;
+    font-style: italic;
+    font-weight: bold;
+  }
+
+  sub, sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+  }
+
+  sup {
+    top: -0.5em;
+  }
+
+  sub {
+    bottom: -0.25em;
+  }
+
+  ul, ol {
+    margin: 1em 0;
+    padding: 0 0 0 2em;
+  }
+
+  li {
+    line-height: inherit;
+  }
+
+  li p:last-child {
+    margin-bottom: 0;
+  }
+
+  ul ul, ol ol {
+    margin: .3em 0;
+  }
+
+  dl {
+    margin-bottom: 1em;
+  }
+
+  dt {
+    font-weight: bold;
+    margin-bottom: .8em;
+  }
+
+  dd {
+    margin: 0 0 .8em 2em;
+  }
+
+  dd:last-child {
+    margin-bottom: 0;
+  }
+
+  img {
+    border: 0;
+    -ms-interpolation-mode: bicubic;
+    vertical-align: middle;
+  }
+
+  figure {
+    display: block;
+    text-align: center;
+    margin: 1em 0;
+  }
+
+  figure img {
+    border: none;
+    margin: 0 auto;
+  }
+
+  figcaption {
+    font-size: 0.8em;
+    font-style: italic;
+    margin: 0 0 .8em;
+  }
+
+  table {
+    margin-bottom: 2em;
+    border-bottom: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    border-spacing: 0;
+    border-collapse: collapse;
+  }
+
+  table th {
+    padding: .2em 1em;
+    background-color: #eee;
+    border-top: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+  }
+
+  table td {
+    padding: .2em 1em;
+    border-top: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+    vertical-align: top;
+  }
+
+  .author {
+    font-size: 1.2em;
+    text-align: center;
+  }
+
+  @media only screen and (min-width: 480px) {
+    body {
+      font-size: 14px;
+    }
+  }
+  @media only screen and (min-width: 768px) {
+    body {
+      font-size: 16px;
+    }
+  }
+  @media print {
+    * {
+      background: transparent !important;
+      color: black !important;
+      filter: none !important;
+      -ms-filter: none !important;
+    }
+
+    body {
+      font-size: 12pt;
+      max-width: 100%;
+    }
+
+    a, a:visited {
+      text-decoration: underline;
+    }
+
+    hr {
+      height: 1px;
+      border: 0;
+      border-bottom: 1px solid black;
+    }
+
+    a[href]:after {
+      content: " (" attr(href) ")";
+    }
+
+    abbr[title]:after {
+      content: " (" attr(title) ")";
+    }
+
+    .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after {
+      content: "";
+    }
+
+    pre, blockquote {
+      border: 1px solid #999;
+      padding-right: 1em;
+      page-break-inside: avoid;
+    }
+
+    tr, img {
+      page-break-inside: avoid;
+    }
+
+    img {
+      max-width: 100% !important;
+    }
+
+    @page :left {
+      margin: 15mm 20mm 15mm 10mm;
+  }
+
+    @page :right {
+      margin: 15mm 10mm 15mm 20mm;
+  }
+
+    p, h2, h3 {
+      orphans: 3;
+      widows: 3;
+    }
+
+    h2, h3 {
+      page-break-after: avoid;
+    }
+  }
+
+  </style>
+</head>
+<body>
+<p><em>We recognize and acknowledge that McMaster University meets and learns on the traditional territories of the Mississauga and Haudenosaunee nations, and within the lands protected by the “<u>Dish With One Spoon</u>” wampum, an agreement amongst all allied Nations to peaceably share and care for the resources around the Great Lakes.</em></p>
+<h1 id="stats-744-data-visualization">STATS 744 – Data Visualization</h1>
+<h1 id="fall-term">2021 Fall Term</h1>
+<p><strong>Instructors:</strong> Dr. Ben Bolker and Jonathan Dushoff | <strong>Course e-mail:</strong> <a href="mailto:macdataviz@gmail.com">macdataviz@gmail.com</a> | <strong>Offices:</strong> HH-314 (Bolker), LSB 332 (Dushoff) | <strong>Office hours:</strong> TBA | <strong>Course web page :</strong> <a href="https://mac-theobio.github.io/DataViz/">https://mac-theobio.github.io/DataViz/</a></p>
+<h2 id="course-description">Course Description </h2>
+<p>Theoretical and practical grounding in data visualization in statistics and data science, including both the foundational work of Cleveland, Tufte, and Wilkinson and recent developments and controversies in the area of data visualization. Focus on reproducible production of effective, honest, aesthetically pleasing graphical outputs. For practical applications the course will focus on the ggplot2 package for R, but other more specialized platforms (e.g. ggobi, leaflet, D3.js) will also be discussed. Includes topics such as visualization of uncertainty; dynamic/animated graphics; high-dimensional and spatial data.</p>
+<p><strong>Prerequisite(s):</strong> Intermediate proficiency in R; knowledge of basic inferential statistics</p>
+<h2 id="course-and-learning-objectives">Course and Learning Objectives</h2>
+<h3 id="learning-objectives">Learning Objectives</h3>
+<p><strong>Upon completion of this course, the student will be able to:</strong></p>
+<ol type="1">
+<li><p>Work with R, RStudio (or other interfaces), GitHub, ggplot2 and other related R packages to generate elegant and reproducible graphical presentations of data.</p></li>
+<li><blockquote>
+<p>Understand and apply principles of graphical design for quantitative information.</p>
+</blockquote></li>
+<li><blockquote>
+<p>Effectively manipulate data in R to create reproducible pipelines for visualization.</p>
+</blockquote></li>
+<li><blockquote>
+<p>Explain and justify graphical design choices on the basis of scientific, analytical, psychological, and aesthetic criteria.</p>
+</blockquote></li>
+</ol>
+<h3 id="class-activities">Class Activities: </h3>
+<p><em>The first half of the course will comprise weekly lectures and class discussion (1 2-hour and 1 1-hour in-person session per week; timing and location to be determined following an organizational meeting during the first week of the term). The second half of the course will shift over to mainly in-class work in groups on a term project. There will be some weekly reading assignments and 3-7 homework assignments, as well as a final project (possibly in pairs or groups).</em></p>
+<h2 id="materials-fees">Materials &amp; Fees </h2>
+<h3 id="required-materials-resources">Required Materials/ Resources </h3>
+<p><em>Textbook:</em> Claus Wilke, <a href="https://clauswilke.com/dataviz/index.html">Fundamentals of Data Visualization</a>; full text available online, hard copy can be purchased.</p>
+<p><em>Computer resources<strong>: </strong></em>You will need access to a computer (Windows/MacOS/Linux) capable of running a recent release of the R programming language. Most computers from the last 5-10 years will be fine. It will be convenient, although not absolutely necessary, to have access to a laptop computer that can be brought to class for in-class work; please let the instructors know if this will be a problem.</p>
+<h2 id="virtual-course-delivery">Virtual Course Delivery</h2>
+<p>We do not expect there to be a virtual component to the course. However, in the unlikely event that some components are online <strong>it is expected that you have reliable access to the following: </strong></p>
+<ul>
+<li><p>A computer that meets performance requirements <a href="https://cto.mcmaster.ca/technology-resources-for-mcmaster-students/#tab-content-device-recommendations">found here</a>. </p></li>
+<li><p>An internet connection that is fast enough to stream video. </p></li>
+<li><p>Computer accessories that enable class participation, such as a microphone, speakers and webcam when needed. </p></li>
+</ul>
+<p>If you think that you will not be able to meet these requirements, please contact <a href="mailto:uts@mcmaster.ca">uts@mcmaster.ca</a> as soon as you can. Please visit the <a href="https://cto.mcmaster.ca/technology-resources-for-mcmaster-students/#tab-content-device-recommendations">Technology Resources for Students page</a> for detailed requirements. If you use assistive technology or believe that our platforms might be a barrier to participating, please contact <a href="https://sas.mcmaster.ca/">Student Accessibility Services</a>, <a href="mailto:sas@mcmaster.ca">sas@mcmaster.ca</a>, for support.</p>
+<h2 id="course-overview-and-assessment">Course Overview and Assessment </h2>
+<h3 id="topics">Topics </h3>
+<p><strong>Part 1: Core topics (pre-midterm break, definitely covered)</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th><strong>Topic</strong></th>
+<th><strong>Schedule</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Data manipulation basics</td>
+<td>Week 1</td>
+</tr>
+<tr class="even">
+<td>Graphical principles (Cleveland, Tufte, Wilkinson &amp; Wickham)</td>
+<td>Week 2</td>
+</tr>
+<tr class="odd">
+<td>Exploratory graphics/data analysis</td>
+<td>Week 3</td>
+</tr>
+<tr class="even">
+<td>Graphics for model diagnosis</td>
+<td>Week 4</td>
+</tr>
+<tr class="odd">
+<td>Graphics for inference</td>
+<td>Week 5</td>
+</tr>
+<tr class="even">
+<td>Expository graphics; ethics and data viz</td>
+<td>Week 6</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Part 2: Additional topics (post break, order and details TBD)</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th><strong>Topic</strong></th>
+<th><strong>Schedule</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Visualizing uncertainty</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Info viz vs. Data viz</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>3D/perspective plotting</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>High-dimensional and compositional data</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Dynamic graphics</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Spatial data and mapping</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="evaluation">Evaluation</h2>
+<table>
+<caption>Assessment Requirements</caption>
+<thead>
+<tr class="header">
+<th><h4 id="grade-component"> Grade Component</h4></th>
+<th><h4 id="weight"> Weight</h4></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Class participation (see below)</td>
+<td>15%</td>
+</tr>
+<tr class="even">
+<td>Weekly homework (3-7 assignments)</td>
+<td>35%</td>
+</tr>
+<tr class="odd">
+<td>Project presentation<br />
+(final week[s] of term)</td>
+<td>20%</td>
+</tr>
+<tr class="even">
+<td>Project writeup</td>
+<td>30%</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Homework rubric</strong> We mark homework assignments on a scale of 0-3. The rubric is:</p>
+<ul>
+<li><p>0: no effort/not submitted</p></li>
+<li><p>1: poor</p></li>
+<li><p>2: OK (fulfils the terms of the assignment)</p></li>
+<li><p>3: excellent</p></li>
+</ul>
+<p>Historically most marks are in the 1.5 - 2.5 range. A mark less than 2 means that your work is deficient; you should work to address those deficiencies in subsequent assignments (if you don’t understand the cause of your low mark, please <strong>ask us</strong>). A mark of 2 means you shouldn’t worry about your grade in the course.</p>
+<p>The mark/grade correspondence is approximately: 1.8-2 = B+, 2-2.2 = A-, 2.2-2.4 = A, 2.4-3 = A+.</p>
+<p><strong>Participation marks</strong></p>
+<p>To make participation marks more objective, part of this component will be based on out-of-class participation. At various times during the term, you will be asked to write a few sentences to a paragraph on a particular topic. The purpose of these assignments is to assess your general depth of engagement and understanding. If you don’t come to lecture you might not hear about these participatory emails. If you don’t complete these assignments you will receive a low participation mark. You can also enhance your participation mark by engaging in class.</p>
+<p>You can gain your first participation mark by <a href="mailto:macdataviz@gmail.com">sending an e-mail to the instructors</a> with the subject line “stat 744: &lt;yourmacid&gt; read the outline”. For example, Bolker’s subject line would be “stat 744: bolkerb read the outline”.</p>
+<h2 id="requests-for-relief-for-missed-academic-term-work">Requests for Relief for Missed Academic Term Work </h2>
+<p><a href="https://secretariat.mcmaster.ca/university-policies-procedures-guidelines/msaf-mcmaster-student-absence-form/">McMaster Student Absence Form (MSAF):</a> In the event of an absence for medical or other reasons, students should review and follow the Academic Regulation in the Undergraduate Calendar “Requests for Relief for Missed Academic Term Work”.</p>
+<h2 id="academic-accommodation-of-students-with-disabilities">Academic Accommodation of Students with Disabilities </h2>
+<p>Students with disabilities who require academic accommodation must contact <a href="https://sas.mcmaster.ca/">Student Accessibility Services (SAS</a>) at 905-525-9140 ext. 28652 or <a href="mailto:sas@mcmaster.ca">sas@mcmaster.ca</a> to make arrangements with a Program Coordinator. For further information, consult McMaster University’s <a href="https://secretariat.mcmaster.ca/app/uploads/Academic-Accommodations-Policy.pdf"><em>Academic Accommodation of Students with Disabilities</em></a> policy.</p>
+<h2 id="academic-accommodation-for-religious-indigenous-or-spiritual-observances-riso">Academic Accommodation for Religious, Indigenous Or Spiritual Observances (Riso) </h2>
+<p>Students requiring academic accommodation based on religious, indigenous or spiritual observances should follow the procedures set out in the <a href="https://secretariat.mcmaster.ca/app/uploads/2019/02/Academic-Accommodation-for-Religious-Indigenous-and-Spiritual-Observances-Policy-on.pdf">RISO</a> policy. Students should submit their request to their Faculty Office <em><strong>normally within 10 working days</strong></em> of the beginning of term in which they anticipate a need for accommodation or to the Registrar's Office prior to their examinations. Students should also contact their instructors as soon as possible to make alternative arrangements for classes, assignments, and tests.</p>
+<h2 id="courses-with-an-on-line-element">Courses with An On-Line Element </h2>
+<p><em><strong>Some courses</strong></em> <em><strong>may</strong></em> use on-line elements (e.g. e-mail, Avenue to Learn (A2L), LearnLink, web pages, capa, Moodle, ThinkingCap, etc.). Students should be aware that, when they access the electronic components of a course using these elements, private information such as first and last names, user names for the McMaster e-mail accounts, and program affiliation may become apparent to all other students in the same course. The available information is dependent on the technology used. Continuation in a course that uses on-line elements will be deemed consent to this disclosure. If you have any questions or concerns about such disclosure, please discuss this with the course instructor.</p>
+<h2 id="online-proctoring">Online Proctoring </h2>
+<p><em><strong>Some courses may</strong></em> use online proctoring software for tests and exams. This software may require students to turn on their video camera, present identification, monitor and record their computer activities, and/or lock/restrict their browser or other applications/software during tests or exams. This software may be required to be installed before the test/exam begins.</p>
+<h2 id="academic-integrity">Academic Integrity </h2>
+<p>You are expected to exhibit honesty and use ethical behaviour in all aspects of the learning process. Academic credentials you earn are rooted in principles of honesty and academic integrity.</p>
+<p><strong>It is your responsibility to understand what constitutes academic dishonesty.</strong></p>
+<p>Academic dishonesty is to knowingly act or fail to act in a way that results or could result in unearned academic credit or advantage. This behaviour can result in serious consequences, e.g. the grade of zero on an assignment, loss of credit with a notation on the transcript (notation reads: “Grade of F assigned for academic dishonesty”), and/or suspension or expulsion from the university. For information on the various types of academic dishonesty please refer to the <em><a href="https://secretariat.mcmaster.ca/app/uploads/Academic-Integrity-Policy-1-1.pdf">Academic Integrity Policy</a>,</em> located at <a href="https://secretariat.mcmaster.ca/university-policies-procedures-%20guidelines/">https://secretariat.mcmaster.ca/university-policies-procedures- guidelines/</a></p>
+<p><strong>The following illustrates only three forms of academic dishonesty:</strong></p>
+<ul>
+<li><blockquote>
+<p>plagiarism, e.g. the submission of work that is not one’s own or for which other credit has been obtained.</p>
+</blockquote></li>
+<li><blockquote>
+<p>improper collaboration in group work.</p>
+</blockquote></li>
+<li><blockquote>
+<p>copying or using unauthorized aids in tests and examinations. </p>
+</blockquote></li>
+</ul>
+<h2 id="authenticity-plagiarism-detection">Authenticity / Plagiarism Detection </h2>
+<p><em><strong>Some courses may</strong></em> use a web-based service (Turnitin.com) to reveal authenticity and ownership of student submitted work. For courses using such software, students will be expected to submit their work electronically either directly to Turnitin.com or via an online learning platform (e.g. A2L, etc.) using plagiarism detection (a service supported by Turnitin.com) so it can be checked for academic dishonesty.</p>
+<p>Students who do not wish their work to be submitted through the plagiarism detection software must inform the Instructor before the assignment is due. No penalty will be assigned to a student who does not submit work to the plagiarism detection software. <strong>All submitted work is subject to normal verification that standards of academic integrity have been upheld</strong> (e.g., on-line search, other software, etc.). For more details about McMaster’s use of Turnitin.com please go to the <a href="https://www.mcmaster.ca/academicintegrity/">McMaster Office of Academic Integrity</a>’s webpage.</p>
+<h2 id="conduct-expectations">Conduct Expectations </h2>
+<p>As a McMaster student, you have the right to experience, and the responsibility to demonstrate, respectful and dignified interactions within all our living, learning and working communities. These expectations are described in the <a href="https://secretariat.mcmaster.ca/app/uploads/Code-of-Student-Rights-and-Responsibilities.pdf"><em>Code of Student Rights &amp; Responsibilities</em> (the “Code”).</a> All students share the responsibility of maintaining a positive environment for the academic and personal growth of all McMaster community members, <strong>whether in person or online</strong>.</p>
+<p>It is essential that students be mindful of their interactions online, as the Code remains in effect in virtual learning environments. The Code applies to any interactions that adversely affect, disrupt, or interfere with reasonable participation in University activities. Student disruptions or behaviours that interfere with university functions on online platforms (e.g. use of Avenue 2 Learn, WebEx or Zoom for delivery), will be taken very seriously and will be investigated. Outcomes may include restriction or removal of the involved students’ access to these platforms.</p>
+<h2 id="copyright-and-recording">Copyright and Recording </h2>
+<p>Students are advised that lectures, demonstrations, performances, and any other course material provided by an instructor include copyright protected works. The Copyright Act and copyright law protect every original literary, dramatic, musical and artistic work, <strong>including lectures</strong> by University instructors.</p>
+<p>The recording of lectures, tutorials, or other methods of instruction may occur during a course. Recording may be done by either the instructor for the purpose of authorized distribution, or by a student for the purpose of personal study. Students should be aware that their voice and/or image may be recorded by others during the class. Please speak with the instructor if this is a concern for you.</p>
+<h2 id="extreme-circumstances">Extreme Circumstances </h2>
+<p>The University reserves the right to change the dates and deadlines for any or all courses in extreme circumstances (e.g., severe weather, labour disruptions, etc.). Changes will be communicated through regular McMaster communication channels, such as McMaster Daily News, A2L and/or McMaster email.</p>
+</body>
+</html>

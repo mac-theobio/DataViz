@@ -1,0 +1,5 @@
+#!/bin/bash
+## (BMB) wget -O outline.docx ...  doesn't work for some reason ... ?
+Rscript -e "download.file('https://mcmasteru365-my.sharepoint.com/:w:/g/personal/bolkerb_mcmaster_ca/ERJZXTgsGghJjCGo2j29oJkBGOYkQ4UhAJT7HdJnDoPp5w?e=CJchnS&download=1', dest = 'outline.docx')"
+## (BMB) could choose a different style. I think the default is ugly.
+pandoc -o outline.html -H styles/bootstrap.css outline.docx
