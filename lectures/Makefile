@@ -56,7 +56,6 @@ makestuff/Makefile:
 -include makestuff/os.mk
 
 -include makestuff/dmdeps.mk
--include makestuff/mdyam.mk
 -include makestuff/hotcold.mk
 
 -include makestuff/git.mk

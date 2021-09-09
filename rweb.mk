@@ -1,4 +1,5 @@
 
+## Better to make contentdirs a separate thing!
 ## Original docs directory made by hand in repo root directory and pushed
 
 ## This is for the sub-docs directories; fights with the git.mk rule
@@ -82,5 +83,5 @@ docs/%.slides.html: %.rmd
 
 ######################################################################
 
-## dmdmk development
+-include makestuff/mdyam.mk
 
