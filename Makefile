@@ -110,7 +110,7 @@ alldirs += $(subdirs)
 
 ######################################################################
 
-update_all: makestuff $(subdirs) $(subdirs:%=%.update) update
+update_all: makestuff $(contentdirs) $(contentdirs:%=%.update) update
 
 ## View site
 local_site: update_all
