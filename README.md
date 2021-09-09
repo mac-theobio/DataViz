@@ -4,6 +4,13 @@ Publicly available material for STAT 744, Topics in Statistics / Data visualizat
 
 - [GitHub pages front-end](https://mac-theobio.github.io/DataViz)
 
+## subdirs
+
+- `docs`: GitHub pages stuff, mostly auto-copied/moved/linked from the main level
+- `admin`: administrative, including assignments
+- `lectures`: lecture material source
+- `topics`: tips and resources
+- `styles`: css files
 
 ### Development rules
 
