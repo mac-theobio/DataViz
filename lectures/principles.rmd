@@ -51,6 +51,7 @@ library(directlabels)
 theme_update(panel.spacing=grid::unit(0,"lines"))
 library(cowplot) ## for arranging multiple plots, labeling, etc.
 library(Hmisc)
+library(dplyr)
 ```
 
 # John Tukey: exploratory data analysis
@@ -106,7 +107,7 @@ ggplot(iris, aes(Sepal.Length,Sepal.Width,colour=Species,shape=Species,fill=Spec
 
 ---
 
-The `rainbow` package implements **functional** boxplots, for high-dimensional (functional) data analysis: it uses various forms of projection or dimension reduction, followed by a bagplot of the first two projected dimensions
+The `rainbow` package implements **functional** boxplots, for high-dimensional (functional) data analysis (also `fda`, `roahd` packages): it uses various forms of projection or dimension reduction, followed by a bagplot of the first two projected dimensions
 
 ```{r rainbox, eval=FALSE}
 rainbow::fboxplot(data = ElNino_ERSST_region_1and2,
@@ -120,33 +121,35 @@ rainbow::fboxplot(data = ElNino_ERSST_region_1and2,
 - data size/complexity and computing power are both increasing
 
 
-```{r compute_size,echo=FALSE}
+```{r compute_size,echo=FALSE,warning=FALSE}
 ## data from http://www.genome.gov/sequencingcosts/
-cdat <- read.csv("../data/sequencing_costs_oct2015.csv",stringsAsFactors=FALSE)
-cdat[-1] <- lapply(cdat[-1],
-                    function(x) as.numeric(gsub("[,$]","", x)))
-cdat$Date <- as.Date(paste0("01-",cdat$Date),"%d-%b-%y")
+library(pins)
+p1 <- pin("https://www.genome.gov/sites/default/files/media/files/2020-12/Sequencing_Cost_Data_Table_Aug2020.xls")
+cdat <- readxl::read_excel(p1) %>% setNames(c("date","cost_per_mb","x")) %>%
+    select(date, cost_per_mb) %>% mutate(across(date, as.Date))
+## FIXME: store file properly? or rely on pins?
 expfun <- function(x,a,b,x0) {
     r <- a*exp(-b*as.numeric(x-x0))
-    return(log10(r))
+    ##    return(log10(r))
 }
-brk <- which(cdat$Date==as.Date("2012-01-01"))
+brk <- which.min(abs(cdat$date-as.Date("2012-01-01")))
 ldat <- data.frame(x=as.Date("2010-01-01"),y=800,
                   label="atop(Moore*minute*s ~~ law*':',T[1/2] %~~% 1.5*yr)")
 ## plot(Cost.per.Mb~Date,cdat,log="y")
 b_moore <- (log(2)/1.5)/365         ## moore's law: log(2)/r = 1.5
-ggplot(cdat,aes(Date,Cost.per.Mb))+geom_line()+
-    scale_y_continuous(trans="log10",labels=scales::dollar)+
-        stat_function(fun=expfun,args=list(a=cdat[1,2],b=b_moore,
-                                           x0=as.Date("2002-01-01")),
-                      lty=2)+
-        stat_function(data=cdat[brk:nrow(cdat),],
-                          fun=expfun,args=list(a=cdat[brk,2],b=b_moore,
-                                     x0=cdat$Date[brk]),
-                          lty=2)+
-                labs(x="Date",y="Cost per megabase")+
-        geom_text(data=ldat,aes(x,y,label=label),
-                  parse=TRUE)
+ggplot(cdat,aes(date,cost_per_mb))+geom_line()+
+    scale_y_continuous(trans="log10",labels=scales::dollar) +
+    stat_function(fun=expfun,
+                  args=list(a=cdat$cost_per_mb[1],b=b_moore,
+                            x0=as.Date("2002-01-01")),
+                  lty=2) +
+    stat_function(data=cdat[brk:nrow(cdat),],
+                  fun=expfun,args=list(a=cdat$cost_per_mb[brk],b=b_moore,
+                                       x0=cdat$date[brk]),
+                  lty=2)+
+    labs(x="Date",y="Cost per megabase")+
+    geom_text(data=ldat,aes(x,y,label=label),
+              parse=TRUE)
 ## how do I stop parse from glomming labels together?
 ```
 
@@ -200,7 +203,7 @@ ggplot(cdat,aes(Date,Cost.per.Mb))+geom_line()+
 - maximize data-ink / minimize non-data-ink
 - don't lie (**lie factor**)
 - small multiples (= trellis/lattice, facets, panels)
-- "If a picture isn't worth 1000 words, the hell with it" - Ad Reinhardt
+- "As for a picture, if it ain't worth 1000 words, the hell with it" - [Ad Reinhardt](https://aphelis.net/how-look-reinhardt/)
 - information at the point of need (legends etc.)
 - Powerpoint sucks
 
@@ -235,7 +238,7 @@ print(plot_grid(g1,direct.label(g1)))
 - `directlabels` package
      - works with `lattice` and `ggplot` graphics
      - variety of labeling choices, e.g. `last.bumpup`: "Label last points, bumping labels up if they collide"
-     - [documentation](http://directlabels.r-forge.r-project.org/docs/index.html)
+     - [documentation](https://tdhock.github.io/directlabels/)
 - related: `ggrepel` (auto-repelling text labels)	 
 
 # other
@@ -246,7 +249,7 @@ print(plot_grid(g1,direct.label(g1)))
      * assumes we have a single, quantitative/ordered (continuous or discrete) response variable; multivariate responses more challenging
 * put most salient predictor on the $x$-axis
      * highest value in Cleveland hierarchy
-	 * if most important predictor is categorical, use most important *continous* predictor on $x$-axis
+	 * if most important predictor is categorical, use most important *continuous* predictor on $x$-axis
 	 * if most important predictor has few categories, use next most important predictor with many categories
 
 ## Rules of thumb (continued)
@@ -261,7 +264,7 @@ print(plot_grid(g1,direct.label(g1)))
 * Order categorical variables meaningfully ("Alabama/Alberta" problem)
 * Think about whether to display *population variation* (standard deviations, boxplots) or *estimation uncertainty* (standard errors, mean $\pm$ 2 SE, boxplot notches)
 * Try to match graphics to statistical analysis, but not at all costs
-* Choose colors carefully (`RColorBrewer`/[ColorBrewer](http://colorbrewer2.org/), [IWantHue](http://tools.medialab.sciences-po.fr/iwanthue/): respect dichromats and B&W printouts (see `dichromat` & [colorblindr](https://github.com/clauswilke/colorblindr) & [cividis](https://github.com/marcosci/cividis) packages [@sciani_cividis_2018]
+* Choose colors carefully (`RColorBrewer`/[ColorBrewer](http://colorbrewer2.org/), [IWantHue](http://tools.medialab.sciences-po.fr/iwanthue/)/`hues` package: respect dichromats and B&W printouts (see `dichromat` & [colorblindr](https://github.com/clauswilke/colorblindr) & [cividis](https://github.com/marcosci/cividis) packages [@sciani_cividis_2018]
 
 ## Data presentation scales with data size
 
