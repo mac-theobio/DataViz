@@ -3,8 +3,12 @@
 
 - review old diary entries??
 - why does data link go in the opposite direction?
-- is topics dir necessary?
+- is topics dir necessary? (
 - integrate tips directory into page etc.
+
+## lecture prep
+
+* for scales lecture: https://www.formpl.us/blog/nominal-ordinal-interval-ratio-variable-example; check BB notes `private/diary.rmd`
 
 ## Teams
 
@@ -13,7 +17,8 @@
 ## pipeline/structure issues
 
 - import pipeline for rendering course outline locally (download `outline.docx`, render to HTML; see `mkoutline` in old repo)
-- how to structure assignments?
+- (JD) keep working on assignments structure?
+- (JD) drop `topics`, incorporate `tips`?
 
 ## low priority
 
