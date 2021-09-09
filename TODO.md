@@ -2,8 +2,10 @@
 ## other logistical
 
 - post R script
-- post recording (maybe)
+- post recording link (maybe): https://mcmasteru365.sharepoint.com/sites/Section_2219-9263/Shared%20Documents/General/Recordings/General-20210908_133618-Meeting%20Recording.mp4?web=1
 - archaeologize and post R resources/tips from QMEE
+- diary entry (nuts and bolts, introductions, 2/3 of tidyverse material, BB live-coding in RStudio, request for Shiny)
+- review old diary entries??
 
 
 ## Teams
