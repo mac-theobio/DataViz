@@ -160,15 +160,24 @@ data/index.html: data_index.md
 
 ######################################################################
 
-## code is on the front side now (like data) 2021 Mar 19 (Fri)
+## code should be viewable through web side (live code, too, in live)
+## code is an active subdirectory now
 
-Ignore += code
 code: dir=docs
 code:
 	$(linkdir)
-Sources += $(wildcard docs/code/*.*)
+
+## Live is for live-lecture code; it is controlled from here (no Makefile)
+Ignore += live
+Sources += $(wildcard docs/live/*.*)
+live: dir=docs
+live:
+	$(linkdir)
+
 
 ######################################################################
+
+
 
 ## Dushoff lectures that live elsewhere
 
