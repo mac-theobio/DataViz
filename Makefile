@@ -89,8 +89,10 @@ update: docs/index.html data/index.html
 ## No real topics pages (using table);
 ## topics can be used for the stuff in QMEE "tips"
 subdirs += topics lectures admin
+Ignore += $(subdirs)
 
 ## non-parallel subdirs should be fine as long as you mkdir before make does
+## Better to make contentdirs a separate thing!
 
 ######################################################################
 
