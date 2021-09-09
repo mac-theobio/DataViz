@@ -1,8 +1,6 @@
 
 ## other logistical
 
-
-- get R subdir integrated into workflow?
 - review old diary entries??
 - why does data link go in the opposite direction?
 - is topics dir necessary?
@@ -20,3 +18,4 @@
 ## low priority
 
 - tsv format for schedule might drive me crazy
+   - JD convert to paragraph + perl translation?
