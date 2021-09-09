@@ -12,11 +12,17 @@ vim_session:
 
 ## specific to lectures
 
-Makefile: pix
+Makefile: pix slideous
 
 pix:
 	cd .. && $(MAKE) old_repo/1.stamp
 	$(LN) ../old_repo/pix
+
+pardirs += code
+
+slideous: dir=docs
+slideous:
+	$(linkdir)
 
 ######################################################################
 

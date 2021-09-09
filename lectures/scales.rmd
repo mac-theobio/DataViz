@@ -1,0 +1,28 @@
+---
+title: Scales for data
+author: Jonathan Dushoff
+date: "September 2021"
+---
+
+## Information processing
+
+![](pix/ClevelandHierarchyR.png "Cleveland's hierarchy from best to worst: Position along a common scale e.g. scatter plot; Position on identical but nonaligned scales e.g. multiple scatter plots; Length e.g. bar chart; Angle & Slope (tie) e.g. pie chart; Area e.g. bubbles; Volume, density, and color saturation (tie) e.g. heatmap; Color hue e.g. newsmap "){width="80%"}
+
+* Image downloaded from [defunct post](http://sfew.websitetoolbox.com/post/clevelands-graphical-features-hierarchy-4598555)
+
+* Used some [information from flowingdata](https://flowingdata.com/2010/03/20/graphical-perception-learn-the-fundamentals-first/)
+
+## Scales
+
+* The top of the hierarchy involves putting things on scales
+
+* But what scale do we use?
+	* Are our data anchored to zero?
+		* If so, are we interested in differences or ratios?
+	* Are they anchored somewhere else?
+
+# Anchors
+
+## Global temperature
+
+![](code/temppix.Rout-2.png)
