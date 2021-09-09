@@ -6,10 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title>Data visualization</title>
   <style>
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
   </style>
   <style type="text/css">
 body {
@@ -84,6 +86,7 @@ margin-bottom: 2ex;
 	</div>
 </div>
 </header>
+
 <header id="title-block-header">
 <h1 class="title">Data visualization</h1>
 </header>
@@ -105,7 +108,7 @@ th {background-color: #ccccff;}
 <h3 id="course-meetings">Course meetings</h3>
 <ul>
 <li>16:30-17:20 Mon, 13:30-14:20 Weds, 11:30-12:20 Fri (all Toronto time)</li>
-<li>via <a href="https://teams.microsoft.com/_#/school/conversations/General?threadId=19:WMkvwbwYymVUN2AoIc-v8VrcUAxFa2fADOPK2ftOdKA1@thread.tacv2&amp;ctx=channel">Teams channel</a> for the first two weeks; thereafter, physical location TBA</li>
+<li>via <a href="https://teams.microsoft.com/_#/school/conversations/General?threadId=19:WMkvwbwYymVUN2AoIc-v8VrcUAxFa2fADOPK2ftOdKA1@thread.tacv2&amp;ctx=channel">Teams channel</a> for the first two weeks; thereafter (starting September 20) <a href="https://library.mcmaster.ca/cct/class-dir/bsb-115">BSB 115</a></li>
 <li>University policy requires masks in all indoor spaces. 2-meter distancing is officially optional, but we’ll do the best we can</li>
 <li>We will record lectures, and will attempt to continue doing so when we move to live lectures</li>
 <li>You are encouraged but not required to keep your cameras on when participating in virtual course activities</li>
@@ -130,6 +133,8 @@ th {background-color: #ccccff;}
 <col>
 <col>
 <col>
+<col>
+<col>
 <tr>
 <th style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
 start date
@@ -142,6 +147,12 @@ reading/viewing
 </th>
 <th style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
 lecture notes
+</th>
+<th style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+R scripts
+</th>
+<th style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+lecture recordings
 </th>
 </tr>
 <tr>
@@ -157,6 +168,12 @@ Git stuff (<a href="https://beta.rstudioconnect.com/jennybc/happy-git-with-r/">�
 <td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
 <a href="lectures/intro.notes.html">Intro</a>
 </td>
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+<a href="R/lect1.R">1</a>
+</td>
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+<a href="https://mcmasteru365.sharepoint.com/sites/Section_2219-9263/Shared%20Documents/General/Recordings/General-20210908_133618-Meeting%20Recording.mp4?web=1">1</a>
+</td>
 </tr>
 <tr>
 <td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
@@ -168,7 +185,11 @@ principles: Tukey, Cleveland, Tufte
 Cleveland and McGill (1984); Cleveland and McGill (1987); John Rauser on <a href="https://www.youtube.com/watch?v=fSgEeI2Xpdc">“How Humans See Data”</a>
 </td>
 <td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
-<a href="lectures/principles.notes.html">principles lecture</a>;
+<a href="lectures/principles.notes.html">principles lecture</a>
+</td>
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+</td>
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
 </td>
 </tr>
 <tr>
@@ -176,6 +197,10 @@ Cleveland and McGill (1984); Cleveland and McGill (1987); John Rauser on <a href
 </td>
 <td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
 exploratory graphics
+</td>
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+</td>
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
 </td>
 <td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
 </td>
@@ -193,6 +218,10 @@ Peltonen, Venna, and Kaski (2009);<a href="https://eeecon.uibk.ac.at/~zeileis//n
 </td>
 <td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
 </td>
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+</td>
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+</td>
 </tr>
 <tr>
 <td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
@@ -202,6 +231,10 @@ inferential graphics
 </td>
 <td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
 Wickham et al. (2010); Gelman, Pasarica, and Dodhia (2002); Gelman (2011)
+</td>
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+</td>
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
 </td>
 <td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
 </td>
@@ -217,8 +250,16 @@ Su (2008); Gelman and Unwin (2013)
 </td>
 <td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
 </td>
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+</td>
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+</td>
 </tr>
 <tr>
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+</td>
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+</td>
 <td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
 </td>
 <td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
@@ -238,12 +279,20 @@ Interactive graphics
 </td>
 <td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
 </td>
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+</td>
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+</td>
 </tr>
 <tr>
 <td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
 </td>
 <td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
 Spatial data
+</td>
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+</td>
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
 </td>
 <td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
 </td>
@@ -261,12 +310,20 @@ High-dimensional data
 </td>
 <td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
 </td>
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+</td>
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+</td>
 </tr>
 <tr>
 <td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
 </td>
 <td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
 Networks
+</td>
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+</td>
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
 </td>
 <td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
 </td>
@@ -283,8 +340,16 @@ Group work
 </td>
 <td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
 </td>
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+</td>
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+</td>
 </tr>
 <tr>
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+</td>
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+</td>
 <td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
 </td>
 <td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
@@ -299,6 +364,10 @@ Group work
 </td>
 <td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
 Group presentations
+</td>
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
+</td>
+<td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
 </td>
 <td style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">
 </td>
