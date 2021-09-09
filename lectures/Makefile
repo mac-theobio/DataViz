@@ -10,6 +10,16 @@ vim_session:
 
 ######################################################################
 
+## specific to lectures
+
+Makefile: pix
+
+pix:
+	cd .. && $(MAKE) old_repo/1.stamp
+	$(LN) ../old_repo/pix
+
+######################################################################
+
 Sources += $(wildcard *.md)
 
 ## docs/ subdirectory here maps to a corresponding subdirectory in docs
