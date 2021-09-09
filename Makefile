@@ -69,12 +69,12 @@ sched.Rout: sched.R sched.tsv
 
 ## Manual lectures
 
+## admin/docs/assignments.html: admin/assignments.md
+
 lectures/docs/%.html: $(wildcard lectures/*.rmd)
 	cd lectures && $(MAKE) docs/$*.html
-tips/docs/%.html: $(wildcard tips/*.rmd)
-	cd tips && $(MAKE) docs/$*.html
-assignments/docs/%.html: $(wildcard assignments/*.md)
-	cd assignments && $(MAKE) docs/$*.html
+admin/docs/%.html: $(wildcard assignments/*.md)
+	cd admin && $(MAKE) docs/$*.html
 
 ## lectures/docs/Visualization.notes.html: lectures/Visualization.rmd
 ## lectures/docs/Visualization.slides.html: lectures/Visualization.rmd
@@ -95,7 +95,7 @@ update: docs/index.html data/index.html
 
 ## No real topics pages (using table);
 ## topics can be used for the stuff in QMEE "tips"
-subdirs += admin topics 
+subdirs += topics 
 subdirs += lectures assignments
 
 ######################################################################
@@ -187,6 +187,12 @@ gh-pages:
 ##################################################################
 
 ### Makestuff
+
+Makefile: makestuff/01.stamp
+makestuff/%.stamp:
+	- $(RM) makestuff/*.stamp
+	cd makestuff && $(MAKE) pull
+	touch $@
 
 msrepo = https://github.com/dushoff
 ms = makestuff
