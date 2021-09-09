@@ -88,32 +88,33 @@ update: docs/index.html data/index.html
 
 ## No real topics pages (using table);
 ## topics can be used for the stuff in QMEE "tips"
-subdirs += topics lectures admin
-Ignore += $(subdirs)
+contentdirs += topics lectures admin
 
-## non-parallel subdirs should be fine as long as you mkdir before make does
-## Better to make contentdirs a separate thing!
-
-######################################################################
-
-Ignore += $(subdirs)
-alldirs += $(subdirs)
-
-update_all: makestuff $(subdirs) $(subdirs:%=%.update) update
+## Add a contentdir by adding it to the list and then saying `make <dirname>`
 
 Sources += subdir.mk ## For copying to default subdirs
-$(subdirs):
+$(contentdirs):
 	- $(RMR) $@_tmp
 	mkdir $@_tmp
 	cp subdir.mk $@_tmp/Makefile
 	$(MAKE) $@_tmp.makestuff
 	$(MV) $@_tmp $@
 
+######################################################################
+
+subdirs += code
+
+subdirs += $(contentdirs)
+Ignore += $(subdirs)
+alldirs += $(subdirs)
+
+######################################################################
+
+update_all: makestuff $(subdirs) $(subdirs:%=%.update) update
+
+## View site
 local_site: update_all
 	$(MAKE) docs/index.html.go
-
-old_site: gh-pages
-	$(MAKE) gh-pages/index.html.go
 
 pushup: update_all
 
