@@ -2,6 +2,8 @@
 
 A variety of links that we've run across; hopefully these will get incorporated in the primary course material eventually, but in the meantime enjoy browsing!
 
+* https://www.download.thelancet.com/gbd
+* https://www.adfontesmedia.com/interactive-media-bias-chart/
 * https://www.reddit.com/r/dataisbeautiful
 * https://twitter.com/EmmaVitz/status/1432553056558673926
 * https://github.com/juba/obsplot/ (another option for dynamical plots: R interface to [Observable](https://observablehq.com/@observablehq/plot) JavaScript library

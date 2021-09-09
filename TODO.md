@@ -2,21 +2,17 @@
 ## other logistical
 
 - review old diary entries??
-- (JD) integrate tips directory into page etc.
 
 ## lecture prep
 
 * (JD) for scales lecture: https://www.formpl.us/blog/nominal-ordinal-interval-ratio-variable-example; check BB notes `private/diary.rmd`
 
-## assignments
-
-* good/bad data viz assignment (pref in repo ...)
-
 ## pipeline/structure issues
 
 - import pipeline for rendering course outline locally (download `outline.docx`, render to HTML; see `mkoutline` in old repo)
-- (JD) keep working on assignments structure?
+- (JD) keep working on assignments structure? (BB: `assignments.md` is not getting built/rendered to the right place??)
 - (JD) fix up `topics`
+- links/pointers to grading rubrics (i.e., meaning of 0-3; are these in the course outline?), details on project and presentation formats/expectations, etc.
 
 ## low priority
 
