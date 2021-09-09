@@ -38,14 +38,16 @@ update: $(mdhdocs) $(rmdnotes) $(rmdslides)
 
 ######################################################################
 
-## Make simple html from .md 
+## Variables and recipes
+
 site_header = html/header.html
 site_footer = html/footer.html
 site_css = html/qmee.css
 site_bib = ../vis.bib
 site_args = --self-contained
-## mds = pandoc $< -o $@ --mathjax -s -B $(site_header) -A $(site_footer) --css $(site_css) $(site_args)
-mds = pandoc $< -o $@ --mathjax -s -B $(site_header) -A $(site_footer) $(site_css) $(site_args) --bibliography=$(site_bib)
+mds = pandoc $< -o $@ --mathjax -s -B $(site_header) -A $(site_footer) --css $(site_css) $(site_args)
+
+## Make simple html from .md 
 docs/%.html: %.md
 	$(MAKE) html docs
 	$(mds)
@@ -62,19 +64,19 @@ slidesrule = echo 'rmarkdown::render($(io), $(slideargs))' | R --vanilla
 io = input="$<", output_file="$(notdir $@)"
 mvrule = $(MVF) $(notdir $@) $@
 
-## This is the route for formatted notes; not activated
-## Need to worry about header image (points at . and doesn't work)
-.PRECIOUS: docs/%.totes.html
-docs/%.notes.html: %.rmk
-	$(MAKE) html docs
-	$(mds)
-
 ## Older simpler notes (straight from rmd)
 .PRECIOUS: docs/%.notes.html
-docs/%.notes.html: %.rmd
+docs/%.notes.html: %.rmD
 	$(MAKE) html docs
 	$(notesrule)
 	$(mvrule)
+
+## This is the route for formatted notes; not activated
+## Need to worry about header image (points at . and doesn't work)
+.PRECIOUS: docs/%.notes.html
+docs/%.notes.html: %.rmk
+	$(MAKE) html docs
+	$(mds)
 
 .PRECIOUS: docs/%.slides.html
 docs/%.slides.html: %.rmd

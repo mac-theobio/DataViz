@@ -73,10 +73,10 @@ sched.Rout: sched.R sched.tsv
 
 lectures/docs/%.html: $(wildcard lectures/*.rmd)
 	cd lectures && $(MAKE) docs/$*.html
-admin/docs/%.html: $(wildcard assignments/*.md)
+admin/docs/%.html: $(wildcard admin/*.md)
 	cd admin && $(MAKE) docs/$*.html
 
-## lectures/docs/Visualization.notes.html: lectures/Visualization.rmd
+## lectures/docs/intro.notes.html: lectures/intro.rmd
 ## lectures/docs/Visualization.slides.html: lectures/Visualization.rmd
 ## lectures/docs/Permutations_overview.notes.html: lectures/Permutations_overview.rmd ##
 
@@ -95,8 +95,7 @@ update: docs/index.html data/index.html
 
 ## No real topics pages (using table);
 ## topics can be used for the stuff in QMEE "tips"
-subdirs += topics 
-subdirs += lectures assignments
+subdirs += topics lectures admin
 
 ######################################################################
 
