@@ -28,7 +28,7 @@ hux.Rout: hux.R hux.tsv
 
 ## Root content
 
-## docs/index.html: index.md
+## docs/index.html: index.rmd
 
 Sources += index.rmd vis.bib refs.csl
 
@@ -67,8 +67,9 @@ sched.Rout: sched.R sched.tsv
 
 ######################################################################
 
-## Manual lectures
+## Test outputs
 
+## lectures/docs/principles.notes.html: lectures/principles.rmd
 ## admin/docs/assignments.html: admin/assignments.md
 
 lectures/docs/%.html: $(wildcard lectures/*.rmd)
@@ -127,6 +128,16 @@ syncup: update_all pull dateup all.time
 
 ######################################################################
 
+## Link to the old repo; done until we sort out "pix" questions; don't know if it should be permanent
+
+Ignore += old_repo
+old_repo/1.stamp:
+	git clone https://github.com/mac-theobio/DataViz19.git $(dir $@)
+	touch $@
+	chmod -R a-w $(dir $@)
+
+######################################################################
+
 ## Data index
 ## data/ lives in docs/ so that it's part of the pages
 
@@ -153,7 +164,7 @@ data_index.md: data.md dataindex.pl
 ## data/index.html: data.md
 ## data_index.md: data.md
 data/index.html: data_index.md
-	pandoc $< -o $@ --mathjax -s -f gfm -B html/header.html -A html/footer.html --css html/qmee.css --self-contained
+	pandoc $< -o $@ --mathjax -s -f gfm -B html/mainheader.html -A html/mainfooter.html --css html/qmee.css --self-contained
 
 ######################################################################
 

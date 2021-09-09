@@ -59,11 +59,9 @@ mk_url <- function(x) {
 }
 
 silent <- (
-	tsvRead(comment="#")
-	## %>% mutate_all(~sub("#.*","", .))
-    ## %>% mutate(across(everything(), stringr::str_remove, "#.*"))
+	tsvRead(comment="#") ## Why does this work now?
 	%>% hux()
-	%>% print_html(max_width=1000)
+	%>% print_html(max_width=1000) ## Why is print_html good? And why do refs work??
 )
 
 ```
