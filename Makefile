@@ -19,6 +19,7 @@ Sources += $(wildcard html/*.*)
 
 ## Insane hanging problem
 ## Looks like a problem with read_tsv and inconsistent commenting?
+## Not reproduced now; maybe a problem with a particular machine at a particular time??
 ## REPORT!
 
 Sources += hux.tsv hux.R
@@ -69,19 +70,8 @@ sched.Rout: sched.R sched.tsv
 
 ## Test outputs
 
-## lectures/docs/principles.notes.html: lectures/principles.rmd
-## admin/docs/assignments.html: admin/assignments.md
-
-lectures/docs/%.html: $(wildcard lectures/*.rmd)
-	cd lectures && $(MAKE) docs/$*.html
-admin/docs/%.html: $(wildcard admin/*.md)
-	cd admin && $(MAKE) docs/$*.html
-
-## lectures/docs/intro.notes.html: lectures/intro.rmd
-## lectures/docs/Visualization.slides.html: lectures/Visualization.rmd
-## lectures/docs/Permutations_overview.notes.html: lectures/Permutations_overview.rmd ##
-
-## tips/docs/R_style.notes.html: tips/R_style.rmd
+lectures/docs/scales.notes.html: lectures/scales.dmd
+	cd lectures && $(MAKE) docs/$(notdir $@)
 
 ######################################################################
 
@@ -98,6 +88,8 @@ update: docs/index.html data/index.html
 ## topics can be used for the stuff in QMEE "tips"
 subdirs += topics lectures admin
 
+## non-parallel subdirs should be fine as long as you mkdir before make does
+
 ######################################################################
 
 Ignore += $(subdirs)
@@ -105,7 +97,7 @@ alldirs += $(subdirs)
 
 update_all: makestuff $(subdirs) $(subdirs:%=%.update) update
 
-Sources += subdir.mk
+Sources += subdir.mk ## For copying to default subdirs
 $(subdirs):
 	- $(RMR) $@_tmp
 	mkdir $@_tmp
