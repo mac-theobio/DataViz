@@ -59,9 +59,13 @@ mk_url <- function(x) {
 }
 
 silent <- (
-	tsvRead(comment="#") ## Why does this work now?
+    ## specifying comment="#" explicitly (passed through to readr::read_tsv())
+	tsvRead(comment="#")
 	%>% hux()
-	%>% print_html(max_width=1000) ## Why is print_html good? And why do refs work??
+    ## don't know why I used print_html() rather than print_md()
+    ## references ([@whatever] markup) are still rendered by pandoc,
+    ## even when they live inside an HTML-formatted table
+	%>% print_html(max_width=1000) 
 )
 
 ```
