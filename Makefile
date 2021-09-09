@@ -70,6 +70,8 @@ sched.Rout: sched.R sched.tsv
 
 ## Test outputs
 
+lectures/scales.dmdmk: lectures/scales.dmd makestuff/dmdmk.pl
+
 lectures/docs/scales.notes.html: lectures/scales.dmd
 	cd lectures && $(MAKE) docs/$(notdir $@)
 
@@ -167,35 +169,14 @@ code: dir=docs
 code:
 	$(linkdir)
 
+hotdirs += code
+
 ## Live is for live-lecture code; it is controlled from here (no Makefile)
 Ignore += live
 Sources += $(wildcard docs/live/*.*)
 live: dir=docs
 live:
 	$(linkdir)
-
-
-######################################################################
-
-
-
-## Dushoff lectures that live elsewhere
-
-Ignore += docs/legacy
-
-######################################################################
-
-## Old content
-
-## git mv source stuff from oldSource to where it's wanted
-## arcScript: ; git mv $(oldscripts) oldSource ##
-
-## Look around, or emergency rescue
-Ignore += gh-pages
-gh-pages:
-	$(MAKE) $@.branchdir
-
-##################################################################
 
 ### Makestuff
 
@@ -218,7 +199,9 @@ makestuff/Makefile:
 -include makestuff/os.mk
 
 -include makestuff/pipeR.mk
+-include makestuff/dmdeps.mk
 -include makestuff/mdyam.mk
+-include makestuff/hotcold.mk
 
 -include makestuff/git.mk
 -include makestuff/visual.mk

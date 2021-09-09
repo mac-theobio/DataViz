@@ -17,17 +17,49 @@ autopipeR = defined
 
 ######################################################################
 
+## Use the main course cache
+
+## Ignore += cache
+cache: dir = ../..
+cache: 
+	$(linkdir)
+
+Ignore += cache
+data: dir = ..
+data: 
+	$(linkdir)
+
+######################################################################
+
 ## Temperature and anchors
 
-Ignore += temps.csv
-temps.csv:
+cache/temps.csv:
+	$(MAKE) cache
 	wget -O $@ https://datahub.io/core/global-temp/r/annual.csv
 
-temps.Rout: temps.R temps.csv
+temps.Rout: temps.R cache/temps.csv
 
 pngDesc += temppix
 ## temppix.secret.png: temppix.R
+## temppix.anomaly.png: temppix.R
 temppix.Rout: temppix.R temps.rda
+
+## Magazine circulation and anchors
+
+circulation.Rout: circulation.R data/circulation.csv
+
+orchard.Rout: orchard.R
+
+######################################################################
+
+## Cribbing
+
+data/%:
+	$(MAKE) data
+	$(CP) ../../old_repo/$* $@
+
+%.R:
+	$(CP) ../../old_repo/$@ .
 
 ######################################################################
 
@@ -37,8 +69,6 @@ Sources += Makefile
 
 Ignore += makestuff
 
-## Want to chain and make makestuff if it doesn't exist
-## Compress this ¶ to choose default makestuff route
 Makefile: makestuff/Makefile
 makestuff/Makefile:
 	cd ../.. && $(MAKE) makestuff

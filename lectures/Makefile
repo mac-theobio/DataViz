@@ -12,14 +12,16 @@ vim_session:
 
 ## specific to lectures
 
-Makefile: pix slideous
+Makefile: pix
 
 pix:
 	cd .. && $(MAKE) old_repo/1.stamp
 	$(LN) ../old_repo/pix
 
 pardirs += code
+hotdirs += code
 
+## Dormant
 slideous: dir=docs
 slideous:
 	$(linkdir)
@@ -53,7 +55,9 @@ makestuff/Makefile:
 
 -include makestuff/os.mk
 
+-include makestuff/dmdeps.mk
 -include makestuff/mdyam.mk
+-include makestuff/hotcold.mk
 
 -include makestuff/git.mk
 -include makestuff/visual.mk
