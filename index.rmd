@@ -32,7 +32,7 @@ th {background-color: #ccccff;}
 ### Links
 
 - [Course outline](outline.html) (or at [math & stats web site](https://mcmasteru365.sharepoint.com/:w:/s/sci-course-outlines/EQIfPDteOwhApDyncmtsPccBnD1-BnBNvI3d7lHqbVDRKQ?e=2Vt5pV))
-- [Assignments](assignments.html)
+- [Assignments](admin/assignments.html)
     - [Fall 2019 (previous) assignments](assignments_old.html)
 - [The github back-end for this site](https://github.com/mac-theobio/DataViz/)
 
