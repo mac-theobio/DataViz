@@ -1,0 +1,367 @@
+---
+title: further principles of data visualization
+bibliography: ../vis.bib
+csl: ../refs.csl
+---
+
+<!-- conclusion about pix width: ioslides can *only* handle widths in 
+   units of pixels, not in [inches] 
+ despite https://stackoverflow.com/questions/45306242/resizing-external-image-in-rmarkdown-html-vs-ioslides-output which suggests that
+
+ a chunk with  out.width  and echo=FALSE plus
+knitr::include_graphics("pix/John_Tukey.jpg")
+does the trick -->
+
+<!-- 
+apa.csl is a slightly hacked version of APA 
+  (modified for "et al" after 2 authors in text)
+-->
+<!-- .refs is style for reference page (small text) -->
+<style>
+.refs {
+   font-size: 16px;
+}
+h2 { 
+ color: #3399ff;		
+}
+h3 { 
+ color: #3399ff;		
+}
+.title-slide {
+   background-color: #55bbff;
+}
+</style>
+<!--    content: url(https://i.creativecommons.org/l/by-sa/4.0/88x31.png)
+
+<!-- Limit image width and height -->
+<style type="text/css">
+img {     
+  max-height: 530px;     
+  max-width: 800px; 
+}
+</style>
+
+## Packages
+
+```{r pkgs, message=FALSE}
+library(ggplot2); theme_set(theme_bw())
+library(rainbow)  ## bagplots etc.
+library(ggthemes)
+library(directlabels)
+theme_update(panel.spacing=grid::unit(0,"lines"))
+library(cowplot) ## for arranging multiple plots, labeling, etc.
+library(Hmisc)
+library(dplyr)
+```
+
+# John Tukey: exploratory data analysis
+
+<!-- ```{r tukey_pix, out.width = "2in", echo=FALSE}
+knitr::include_graphics("pix/John_Tukey.jpg")
+``` -->
+
+
+![](pix/John_Tukey.jpg){width="200pix"}
+
+<!-- {width=2in}  -->
+
+## Tukey: principles
+
+- simplicity
+- speed
+- flexibility
+- robustness
+- parsimony
+
+## stem-and-leaf plot
+
+Distribution of horsepower:
+
+```{r stem}
+stem(mtcars$hp)
+```
+
+## boxplot
+
+```{r box1}
+ggplot(mtcars,aes(cyl,hp,group=cyl))+geom_boxplot()
+```
+
+## bag plot (2D boxplot)
+
+<!-- weird citation rendering. Try @rousseeuw_bagplot_1999 on a line by itself ... -->
+
+[@rousseeuw_bagplot_1999] In `ggplot` (*note* hidden code):
+
+```{r get_ggbag,message=FALSE,warning=FALSE,echo=FALSE,cache=TRUE}
+## FIXME:: download code/add to course web page/fix na.action problem?
+ghash <- "00772ccea2dd0b0f1745"
+devtools::source_gist(ghash, filename = "000_geom_bag.r")
+devtools::source_gist(ghash, filename = "001_bag_functions.r")
+```
+
+```{r ggbag,warning=FALSE,fig.height=4}
+ggplot(iris, aes(Sepal.Length,Sepal.Width,colour=Species,shape=Species,fill=Species))+
+  geom_point()+ geom_bag()
+```
+
+---
+
+The `rainbow` package implements **functional** boxplots, for high-dimensional (functional) data analysis (also `fda`, `roahd` packages): it uses various forms of projection or dimension reduction, followed by a bagplot of the first two projected dimensions
+
+```{r rainbox, eval=FALSE}
+rainbow::fboxplot(data = ElNino_ERSST_region_1and2,
+                  plot.type = "bivariate",
+                  type = "bag", projmethod="PCAproj")
+```
+
+## is Tukey still relevant?
+
+- yes (principles)
+- data size/complexity and computing power are both increasing
+
+
+```{r compute_size,echo=FALSE,warning=FALSE}
+## data from http://www.genome.gov/sequencingcosts/
+library(pins)
+p1 <- pin("https://www.genome.gov/sites/default/files/media/files/2020-12/Sequencing_Cost_Data_Table_Aug2020.xls")
+cdat <- readxl::read_excel(p1) %>% setNames(c("date","cost_per_mb","x")) %>%
+    select(date, cost_per_mb) %>% mutate(across(date, as.Date))
+## FIXME: store file properly? or rely on pins?
+expfun <- function(x,a,b,x0) {
+    r <- a*exp(-b*as.numeric(x-x0))
+    ##    return(log10(r))
+}
+brk <- which.min(abs(cdat$date-as.Date("2012-01-01")))
+ldat <- data.frame(x=as.Date("2010-01-01"),y=800,
+                  label="atop(Moore*minute*s ~~ law*':',T[1/2] %~~% 1.5*yr)")
+## plot(Cost.per.Mb~Date,cdat,log="y")
+b_moore <- (log(2)/1.5)/365         ## moore's law: log(2)/r = 1.5
+ggplot(cdat,aes(date,cost_per_mb))+geom_line()+
+    scale_y_continuous(trans="log10",labels=scales::dollar) +
+    stat_function(fun=expfun,
+                  args=list(a=cdat$cost_per_mb[1],b=b_moore,
+                            x0=as.Date("2002-01-01")),
+                  lty=2) +
+    stat_function(data=cdat[brk:nrow(cdat),],
+                  fun=expfun,args=list(a=cdat$cost_per_mb[brk],b=b_moore,
+                                       x0=cdat$date[brk]),
+                  lty=2)+
+    labs(x="Date",y="Cost per megabase")+
+    geom_text(data=ldat,aes(x,y,label=label),
+              parse=TRUE)
+## how do I stop parse from glomming labels together?
+```
+
+# Cleveland: quantifying viz efficacy
+
+![](pix/william_cleveland.jpg){width="150px"}
+
+## principles
+
+
+- accuracy of quantitative representation
+- visual estimation of *differences*
+
+## perceptual experiments
+
+- show participants the same data in different formats
+- ask them questions about relative magnitudes
+
+![](pix/ClevelandMcGill_fig3.png)
+
+## perceptual experiments: results
+
+![](pix/ClevelandMcGill_fig16.png)
+
+## is Cleveland still relevant?
+
+
+- yes!
+- @elliott_39_2016, "39 studies about human perception in 30 minutes"
+    - healthy tradition of scientific experiments on graphical perception
+	     - accuracy
+		 - memory
+		 - preference
+
+---
+
+![](pix/cm_bh.jpeg)
+
+@heer_crowdsourcing_2010
+
+
+
+
+# Edward Tufte
+
+![](pix/Edward_Tufte_-_cropped.jpg){width="200px"}
+
+## Tufte principles
+
+- functional, minimal graphics
+- maximize data-ink / minimize non-data-ink
+- don't lie (**lie factor**)
+- small multiples (= trellis/lattice, facets, panels)
+- "As for a picture, if it ain't worth 1000 words, the hell with it" - [Ad Reinhardt](https://aphelis.net/how-look-reinhardt/)
+- information at the point of need (legends etc.)
+- Powerpoint sucks
+
+"Understand that Tufte’s ideas are a good starting point, not a religion"
+[Robert Kosara](https://eagereyes.org/criticism/edward-tufte-one-day-course)
+
+## data ink
+
+- maximize data ink (within reason)
+
+```{r tufteboxplot,fig.height=4}
+g0 <- ggplot(OrchardSprays,aes(treatment,decrease))+scale_y_log10()
+print(plot_grid(g0 + geom_boxplot(),  g0 + geom_tufteboxplot()))
+```
+
+ `ggthemes::geom_tufteboxplot()`
+
+## information at the point of need
+
+- less eye movement is better
+- direct labels > legends > info in caption > info in text
+
+```{r directlabels,fig.width=10,fig.height=4}
+g1 <- ggplot(iris,aes(Sepal.Length,Petal.Length,colour=Species,
+                shape=Species))+geom_point()
+print(plot_grid(g1,direct.label(g1)))
+```
+
+## direct labeling
+
+- manually **if necessary**
+- `directlabels` package
+     - works with `lattice` and `ggplot` graphics
+     - variety of labeling choices, e.g. `last.bumpup`: "Label last points, bumping labels up if they collide"
+     - [documentation](https://tdhock.github.io/directlabels/)
+- related: `ggrepel` (auto-repelling text labels)	 
+
+# other
+
+## Rules of thumb
+
+* (Continuous) response on the $y$-axis
+     * assumes we have a single, quantitative/ordered (continuous or discrete) response variable; multivariate responses more challenging
+* put most salient predictor on the $x$-axis
+     * highest value in Cleveland hierarchy
+	 * if most important predictor is categorical, use most important *continuous* predictor on $x$-axis
+	 * if most important predictor has few categories, use next most important predictor with many categories
+
+## Rules of thumb (continued)
+
+* Put most salient comparisons within the same subplot (distinguished by color/shape), and nearby within the subplot when grouping bars/points
+* Facet rows > facet columns
+
+## Rules of thumb (3)
+
+* Use transparency to include important but potentially distracting detail
+* Do category levels need to be *identified* or just *distinguished*? (Direct labeling, e.g. via `directlabels` package)
+* Order categorical variables meaningfully ("Alabama/Alberta" problem)
+* Think about whether to display *population variation* (standard deviations, boxplots) or *estimation uncertainty* (standard errors, mean $\pm$ 2 SE, boxplot notches)
+* Try to match graphics to statistical analysis, but not at all costs
+* Choose colors carefully (`RColorBrewer`/[ColorBrewer](http://colorbrewer2.org/), [IWantHue](http://tools.medialab.sciences-po.fr/iwanthue/)/`hues` package: respect dichromats and B&W printouts (see `dichromat` & [colorblindr](https://github.com/clauswilke/colorblindr) & [cividis](https://github.com/marcosci/cividis) packages [@sciani_cividis_2018]
+
+## Data presentation scales with data size
+
+* **small** show all points, possibly dodged/jittered, with some summary statistics: dotplot, beeswarm. Simple trends (linear/GLM/loess)
+* **medium** boxplots, loess, histograms, GAM (or linear regression)
+* **large** modern nonparametrics: violin plots, hexbin plots, kernel densities: computational burden, and display overlapping problems, relevant
+* combinations or overlays where appropriate (beanplot; rugs+scatterplot)
+
+## examples
+
+Some examples (from a [screed on "dynamite plots"](http://emdbolker.wikidot.com/blog:dynamite)):
+
+```{r panels,echo=FALSE,fig.width=10}
+## A labeling function (upper left)
+dpl <- function(label, y =100) draw_plot_label(label, x = 0, y = y)
+
+data("OrchardSprays")
+
+g0 <- ggplot(OrchardSprays,aes(x=treatment,y=decrease))+  scale_y_log10()
+g_dyn <- (g0
+    +  stat_summary(fun.data=mean_cl_normal,geom="bar",colour="gray")
+    +  stat_summary(fun.data=mean_cl_normal,geom="errorbar",width=0.5)
+    + dpl("a")
+)
+g_errbar <- g0 + stat_summary(fun.data=mean_cl_normal,geom="pointrange") + dpl("b")
+## helper functions (Normal CIs +/- 1 and 2 std errors) 
+mm1 <- function(...) {
+    ggplot2::mean_cl_normal(...,mult=1)
+}
+mm2 <- function(...) {
+    ggplot2::mean_cl_normal(...,mult=2)
+}
+g_errbar2 <- (g0
+    + stat_summary(fun.data=mm2,geom="linerange")
+    + stat_summary(fun.data=mm1,geom="linerange",lwd=2,col="gray")
+    + stat_summary(fun.data=mm1,geom="point",pch=3)
+    + dpl("c")
+) 
+g_point <- g0 + geom_point() + dpl("d")
+g_boxplot <- g0 + geom_boxplot() + dpl("e")
+## need slightly different treatment; we can't automatically
+## log-scale the axis after computing a density ...
+## could construct the prettier y-axis with
+##   scale_y_continuous(breaks=c(1,2),labels=10^(c(1,2)))
+## but might be misleading?
+g_violin <-  ggplot(OrchardSprays,aes(x=treatment,y=log10(decrease)))+
+    geom_violin(fill="gray") + dpl("f",y=2)
+print(plot_grid(g_dyn,g_errbar,g_errbar2,g_point,g_boxplot,g_violin,
+             nrow=2))
+```
+
+## Notes
+
+a\. the dreaded "dynamite plot". Problems:
+
+* bar plot on logarithmic axis is inappropriate (anchors graph to arbitrary zero point)
+* assumes distribution is symmetric (although this applies to b,c as well)
+* some forms of this plot show only top whisker (makes comparison even harder)
+
+b\. inferential (point $\pm$ 2 SE) plot
+
+* same assumptions as dynamite plot
+* less strongly anchored to zero
+
+## Notes (continued)
+
+c\. points $\pm$ 1 and 2 SE
+
+* de-emphasizes approximate 95% CI
+* equivalent for Bayesian posterior intervals would typically show both 50% and 95% credible intervals (based on quantiles or highest posterior density)
+
+d\. points alone
+
+* true to the data
+* description only; provides no inferential help
+* can confound sample size and range (larger samples have more extreme values so look more variable)
+
+## Notes (continued)
+
+e\. boxplots
+
+* well-established
+* "outliers" can be misleading [@dawson_how_2011]
+* can add notches to indicate approximate 95% CI on medians [@mcgill_variations_1978]
+
+f\. violin plots
+
+* mirror-image density plots
+* best for large data sets
+* may be funky for small/medium data sets
+* can be combined with jittered data, segments indicating median/quantiles, etc.
+
+## Example
+
+- [story](https://medium.com/tdebeus/redesign-of-a-truly-bananas-chart-1617f930808d)
+- [github repo](https://github.com/thomasdebeus/colourful-facts/blob/develop/projects/Redesign-of-worst-chart-ever/)
+- [direct link to data](https://github.com/thomasdebeus/colourful-facts/blob/develop/projects/Redesign-of-worst-chart-ever/FAOSTAT_data_1-7-2018.csv)
+
+## References {.refs}
+

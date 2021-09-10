@@ -10,6 +10,24 @@ vim_session:
 
 ######################################################################
 
+## specific to lectures
+
+Makefile: pix
+
+pix:
+	cd .. && $(MAKE) old_repo/1.stamp
+	$(LN) ../old_repo/pix
+
+pardirs += code
+hotdirs += code
+
+## Dormant
+slideous: dir=docs
+slideous:
+	$(linkdir)
+
+######################################################################
+
 Sources += $(wildcard *.md)
 
 ## docs/ subdirectory here maps to a corresponding subdirectory in docs
@@ -37,7 +55,8 @@ makestuff/Makefile:
 
 -include makestuff/os.mk
 
--include makestuff/mdyam.mk
+-include makestuff/dmdeps.mk
+-include makestuff/hotcold.mk
 
 -include makestuff/git.mk
 -include makestuff/visual.mk

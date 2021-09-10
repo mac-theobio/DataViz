@@ -19,6 +19,7 @@ Sources += $(wildcard html/*.*)
 
 ## Insane hanging problem
 ## Looks like a problem with read_tsv and inconsistent commenting?
+## Not reproduced now; maybe a problem with a particular machine at a particular time??
 ## REPORT!
 
 Sources += hux.tsv hux.R
@@ -28,7 +29,7 @@ hux.Rout: hux.R hux.tsv
 
 ## Root content
 
-## docs/index.html: index.md
+## docs/index.html: index.rmd
 
 Sources += index.rmd vis.bib refs.csl
 
@@ -67,20 +68,12 @@ sched.Rout: sched.R sched.tsv
 
 ######################################################################
 
-## Manual lectures
+## Test outputs
 
-lectures/docs/%.html: $(wildcard lectures/*.rmd)
-	cd lectures && $(MAKE) docs/$*.html
-tips/docs/%.html: $(wildcard tips/*.rmd)
-	cd tips && $(MAKE) docs/$*.html
-assignments/docs/%.html: $(wildcard assignments/*.md)
-	cd assignments && $(MAKE) docs/$*.html
+lectures/scales.dmdmk: lectures/scales.dmd makestuff/dmdmk.pl
 
-## lectures/docs/Visualization.notes.html: lectures/Visualization.rmd
-## lectures/docs/Visualization.slides.html: lectures/Visualization.rmd
-## lectures/docs/Permutations_overview.notes.html: lectures/Permutations_overview.rmd ##
-
-## tips/docs/R_style.notes.html: tips/R_style.rmd
+lectures/docs/scales.notes.html: lectures/scales.dmd
+	cd lectures && $(MAKE) docs/$(notdir $@)
 
 ######################################################################
 
@@ -95,29 +88,33 @@ update: docs/index.html data/index.html
 
 ## No real topics pages (using table);
 ## topics can be used for the stuff in QMEE "tips"
-subdirs += admin topics 
-subdirs += lectures assignments
+contentdirs += topics lectures admin
 
-######################################################################
+## Add a contentdir by adding it to the list and then saying `make <dirname>`
 
-Ignore += $(subdirs)
-alldirs += $(subdirs)
-
-update_all: makestuff $(subdirs) $(subdirs:%=%.update) update
-
-Sources += subdir.mk
-$(subdirs):
+Sources += subdir.mk ## For copying to default subdirs
+$(contentdirs):
 	- $(RMR) $@_tmp
 	mkdir $@_tmp
 	cp subdir.mk $@_tmp/Makefile
 	$(MAKE) $@_tmp.makestuff
 	$(MV) $@_tmp $@
 
+######################################################################
+
+subdirs += code
+
+subdirs += $(contentdirs)
+Ignore += $(subdirs)
+alldirs += $(subdirs)
+
+######################################################################
+
+update_all: makestuff $(contentdirs) $(contentdirs:%=%.update) update
+
+## View site
 local_site: update_all
 	$(MAKE) docs/index.html.go
-
-old_site: gh-pages
-	$(MAKE) gh-pages/index.html.go
 
 pushup: update_all
 
@@ -125,6 +122,16 @@ dateup:
 	touch docs/*.html docs/*/*.html
 
 syncup: update_all pull dateup all.time
+
+######################################################################
+
+## Link to the old repo; done until we sort out "pix" questions; don't know if it should be permanent
+
+Ignore += old_repo
+old_repo/1.stamp:
+	git clone https://github.com/mac-theobio/DataViz19.git $(dir $@)
+	touch $@
+	chmod -R a-w $(dir $@)
 
 ######################################################################
 
@@ -154,39 +161,33 @@ data_index.md: data.md dataindex.pl
 ## data/index.html: data.md
 ## data_index.md: data.md
 data/index.html: data_index.md
-	pandoc $< -o $@ --mathjax -s -f gfm -B html/header.html -A html/footer.html --css html/qmee.css --self-contained
+	pandoc $< -o $@ --mathjax -s -f gfm -B html/mainheader.html -A html/mainfooter.html --css html/qmee.css --self-contained
 
 ######################################################################
 
-## code is on the front side now (like data) 2021 Mar 19 (Fri)
+## code should be viewable through web side (live code, too, in live)
+## code is an active subdirectory now
 
-Ignore += code
 code: dir=docs
 code:
 	$(linkdir)
-Sources += $(wildcard docs/code/*.*)
 
-######################################################################
+hotdirs += code
 
-## Dushoff lectures that live elsewhere
-
-Ignore += docs/legacy
-
-######################################################################
-
-## Old content
-
-## git mv source stuff from oldSource to where it's wanted
-## arcScript: ; git mv $(oldscripts) oldSource ##
-
-## Look around, or emergency rescue
-Ignore += gh-pages
-gh-pages:
-	$(MAKE) $@.branchdir
-
-##################################################################
+## Live is for live-lecture code; it is controlled from here (no Makefile)
+Ignore += live
+Sources += $(wildcard docs/live/*.*)
+live: dir=docs
+live:
+	$(linkdir)
 
 ### Makestuff
+
+Makefile: makestuff/01.stamp
+makestuff/%.stamp:
+	- $(RM) makestuff/*.stamp
+	cd makestuff && $(MAKE) pull
+	touch $@
 
 msrepo = https://github.com/dushoff
 ms = makestuff
@@ -201,7 +202,9 @@ makestuff/Makefile:
 -include makestuff/os.mk
 
 -include makestuff/pipeR.mk
+-include makestuff/dmdeps.mk
 -include makestuff/mdyam.mk
+-include makestuff/hotcold.mk
 
 -include makestuff/git.mk
 -include makestuff/visual.mk

@@ -1,4 +1,10 @@
 
+* data/index.html
+
 ### Untracked files ###
 
-* data/index.html
+* data/sequencing_costs_oct2015.csv
+
+### Untracked files ###
+
+* data/circulation.csv

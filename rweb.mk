@@ -1,4 +1,5 @@
 
+## Better to make contentdirs a separate thing!
 ## Original docs directory made by hand in repo root directory and pushed
 
 ## This is for the sub-docs directories; fights with the git.mk rule
@@ -38,14 +39,15 @@ update: $(mdhdocs) $(rmdnotes) $(rmdslides)
 
 ######################################################################
 
-## Make simple html from .md 
+## Variables and recipes
+
 site_header = html/header.html
 site_footer = html/footer.html
 site_css = html/qmee.css
 site_bib = ../vis.bib
 site_args = --self-contained
-## mds = pandoc $< -o $@ --mathjax -s -B $(site_header) -A $(site_footer) --css $(site_css) $(site_args)
-mds = pandoc $< -o $@ --mathjax -s -B $(site_header) -A $(site_footer) $(site_args) --bibliography=$(site_bib)
+
+## Make simple html from .md 
 docs/%.html: %.md
 	$(MAKE) html docs
 	$(mds)
@@ -56,31 +58,30 @@ docs/%.html: %.md
 
 hpan = c("-B", "$(site_header)", "-A", "$(site_footer)")
 noteargs = output_format=rmarkdown::html_document(pandoc_args=$(hpan), css="$(site_css)")
-slideargs = output_format=rmarkdown::ioslides_presentation()
-notesrule = echo 'rmarkdown::render($(io))' | R --vanilla
-slidesrule = echo 'rmarkdown::render($(io), $(slideargs))' | R --vanilla
 io = input="$<", output_file="$(notdir $@)"
 mvrule = $(MVF) $(notdir $@) $@
 
-## This is the route for formatted notes; not activated
-## Need to worry about header image (points at . and doesn't work)
-.PRECIOUS: docs/%.totes.html
+## rmarkdown rules
+# notesrule = echo 'rmarkdown::render($(io))' | R --vanilla; $(mvrule)
+slideargs = output_format=rmarkdown::ioslides_presentation()
+slidesrule = echo 'rmarkdown::render($(io), $(slideargs))' | R --vanilla; $(mvrule)
+
+## pandoc rules ## GIVE UP on slides for now; the pandoc options all look old and clunky 2021 Sep 09 (Thu)
+notesrule = pandoc $< -o $@ --mathjax -s -B $(site_header) -A $(site_footer) --css $(site_css) $(site_args)
+## slideargs = -t slideous --slide-level=2
+## slidesrule = pandoc $< $(slideargs) -o $@ $(site_args)
+
+.PRECIOUS: docs/%.notes.html
 docs/%.notes.html: %.rmk
 	$(MAKE) html docs
-	$(mds)
-
-## Older simpler notes (straight from rmd)
-.PRECIOUS: docs/%.notes.html
-docs/%.notes.html: %.rmd
-	$(MAKE) html docs
 	$(notesrule)
-	$(mvrule)
 
 .PRECIOUS: docs/%.slides.html
 docs/%.slides.html: %.rmd
 	$(MAKE) html docs
 	$(slidesrule)
-	$(mvrule)
 
 ######################################################################
+
+-include makestuff/mdyam.mk
 

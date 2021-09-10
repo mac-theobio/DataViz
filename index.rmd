@@ -24,7 +24,7 @@ th {background-color: #ccccff;}
 ### Course meetings
 
 - 16:30-17:20 Mon, 13:30-14:20 Weds, 11:30-12:20 Fri (all Toronto time)
-- via [Teams channel](https://teams.microsoft.com/_#/school/conversations/General?threadId=19:WMkvwbwYymVUN2AoIc-v8VrcUAxFa2fADOPK2ftOdKA1@thread.tacv2&ctx=channel) for the first two weeks; thereafter, physical location TBA
+- via [Teams channel](https://teams.microsoft.com/_#/school/conversations/General?threadId=19:WMkvwbwYymVUN2AoIc-v8VrcUAxFa2fADOPK2ftOdKA1@thread.tacv2&ctx=channel) for the first two weeks; thereafter (starting September 20) [BSB 115](https://library.mcmaster.ca/cct/class-dir/bsb-115)
 - University policy requires masks in all indoor spaces. 2-meter distancing is officially optional, but we'll do the best we can
 - We will record lectures, and will attempt to continue doing so when we move to live lectures
 - You are encouraged but not required to keep your cameras on when participating in virtual course activities
@@ -33,14 +33,14 @@ th {background-color: #ccccff;}
 
 - [Course outline](outline.html) (or at [math & stats web site](https://mcmasteru365.sharepoint.com/:w:/s/sci-course-outlines/EQIfPDteOwhApDyncmtsPccBnD1-BnBNvI3d7lHqbVDRKQ?e=2Vt5pV))
 - [Assignments](admin/assignments.html)
-    - [Fall 2019 (previous) assignments](assignments_old.html)
 - [The github back-end for this site](https://github.com/mac-theobio/DataViz/)
 
-## Faculty
+## Faculty/communication
 
 - [Ben Bolker](http://www.math.mcmaster.ca/~bolker/)
 - [Jonathan Dushoff](http://www.biology.mcmaster.ca/dushoff/)
 - Best way to reach us is by e-mail to `macdataviz@gmail.com`
+- General questions (anything you don't consider private) are best asked in the appropriate channel on Teams
 
 ## Schedule
 
@@ -59,10 +59,13 @@ mk_url <- function(x) {
 }
 
 silent <- (
+    ## specifying comment="#" explicitly (passed through to readr::read_tsv())
 	tsvRead(comment="#")
-	## %>% mutate_all(~sub("#.*","", .))
 	%>% hux()
-	%>% print_html(max_width=1000)
+    ## don't know why I used print_html() rather than print_md()
+    ## references ([@whatever] markup) are still rendered by pandoc,
+    ## even when they live inside an HTML-formatted table
+	%>% print_html(max_width=1000) 
 )
 
 ```
