@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>Bio 708/theobio style guide</title>
+  <title>STATS744/theobio style guide</title>
   <style>
       code{white-space: pre-wrap;}
       span.smallcaps{font-variant: small-caps;}
@@ -85,7 +85,7 @@ margin-bottom: 2ex;
 </div>
 </header>
 <header id="title-block-header">
-<h1 class="title">Bio 708/theobio style guide</h1>
+<h1 class="title">STATS744/theobio style guide</h1>
 <p class="date"><code>r format(Sys.time(), &#39;%d %B %Y&#39;)</code></p>
 </header>
 <p>Follow Hadley Wickham’s <a href="http://adv-r.had.co.nz/Style.html">style guide</a>, adapted from <a href="https://google.github.io/styleguide/Rguide.xml">Google’s style guide</a> (HW’s link to Google is broken). Some of the differences between Google and HW are:</p>
@@ -118,7 +118,7 @@ margin-bottom: 2ex;
 <li>use <code>library()</code> instead of <code>require()</code> to load packages</li>
 </ul></li>
 <li><strong>don’t</strong> depend on case sensitivity for anything important</li>
-<li><strong>don’t</strong> put <code>rm(list=ls())</code> at the top of your code (<span class="citeproc-not-found" data-reference-id="bryan_project-oriented_2017"><strong>???</strong></span>)
+<li><strong>don’t</strong> put <code>rm(list=ls())</code> at the top of your code (Bryan 2017)
 <ul>
 <li>instead, get in the habit of restarting R (<code>Session &gt; Restart R</code> or via hotkey in RStudio)</li>
 </ul></li>
@@ -165,6 +165,7 @@ margin-bottom: 2ex;
            bar=x^3,
            bletch=x^4)</code></pre>
 <h2 id="references">References</h2>
+<p>Bryan, Jenny. 2017. “Project-Oriented Workflow.” <em>Tidyverse</em>. <a href="https://www.tidyverse.org/blog/2017/12/workflow-vs-script/" class="uri">https://www.tidyverse.org/blog/2017/12/workflow-vs-script/</a>.</p>
 <div id="footer">
 	<div style="text-align:center">
 		<a href="../index.html">Course home page</a>
