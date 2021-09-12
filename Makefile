@@ -33,6 +33,7 @@ hux.Rout: hux.R hux.tsv
 
 Sources += index.rmd vis.bib refs.csl
 
+Ignore += index.rmk
 index.rmk: sched.tsv
 ## docs/index.html: index.rmd
 docs/index.html: index.rmk

@@ -163,14 +163,15 @@ d_res <- do.call(rbind,d_proc)  ## combine
 
 ## tidyverse: reshaping (`tidyr` package)
 
-- `gather(data,key,value,<include/exclude>)`
+- `pivot_longer(data,cols, names_to, values_to)`
+    - see [here](https://tidyr.tidyverse.org/dev/articles/pivot.html) and [here](https://swcarpentry.github.io/r-novice-gapminder/14-tidyr/) for more info
     - wide to long
 	- `reshape2::melt()`
-	- `pivot_longer()` in `tidyr` v 1.0 (see [here](https://tidyr.tidyverse.org/dev/articles/pivot.html))
-- `spread(data,key,value)`
+	- `gather()` in `tidyr` pre v 1.0
+- `pivot_wider(data,names_from, values_from)`
     - long to wide
 	- `reshape2::cast()`
-	- `pivot_wider()` in `tidyr` v 1.0
+	- `spread()` in `tidyr` pre v 1.0
 	
 # types of data visualization
 

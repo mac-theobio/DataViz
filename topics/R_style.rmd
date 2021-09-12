@@ -1,5 +1,5 @@
 ---
-title: "Bio 708/theobio style guide"
+title: "STATS744/theobio style guide"
 date: "`r format(Sys.time(), '%d %B %Y')`"
 bibliography: "../vis.bib"
 ---

@@ -7,10 +7,12 @@
   <meta name="author" content="Ben Bolker" />
   <title>intro material</title>
   <style>
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
   </style>
   <style type="text/css">
 body {
@@ -85,6 +87,7 @@ margin-bottom: 2ex;
 	</div>
 </div>
 </header>
+
 <header id="title-block-header">
 <h1 class="title">intro material</h1>
 <p class="author">Ben Bolker</p>
@@ -252,17 +255,18 @@ d_res &lt;- do.call(rbind,d_proc)  ## combine</code></pre>
 </ul>
 <h2 id="tidyverse-reshaping-tidyr-package">tidyverse: reshaping (<code>tidyr</code> package)</h2>
 <ul>
-<li><code>gather(data,key,value,&lt;include/exclude&gt;)</code>
+<li><code>pivot_longer(data,cols, names_to, values_to)</code>
 <ul>
+<li>see <a href="https://tidyr.tidyverse.org/dev/articles/pivot.html">here</a> and <a href="https://swcarpentry.github.io/r-novice-gapminder/14-tidyr/">here</a> for more info</li>
 <li>wide to long</li>
 <li><code>reshape2::melt()</code></li>
-<li><code>pivot_longer()</code> in <code>tidyr</code> v 1.0 (see <a href="https://tidyr.tidyverse.org/dev/articles/pivot.html">here</a>)</li>
+<li><code>gather()</code> in <code>tidyr</code> pre v 1.0</li>
 </ul></li>
-<li><code>spread(data,key,value)</code>
+<li><code>pivot_wider(data,names_from, values_from)</code>
 <ul>
 <li>long to wide</li>
 <li><code>reshape2::cast()</code></li>
-<li><code>pivot_wider()</code> in <code>tidyr</code> v 1.0</li>
+<li><code>spread()</code> in <code>tidyr</code> pre v 1.0</li>
 </ul></li>
 </ul>
 <h1 id="types-of-data-visualization">types of data visualization</h1>

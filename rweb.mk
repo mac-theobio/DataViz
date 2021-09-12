@@ -50,7 +50,7 @@ site_args = --self-contained
 ## Make simple html from .md 
 docs/%.html: %.md
 	$(MAKE) html docs
-	$(mds)
+	$(mdrule)
 
 ######################################################################
 
@@ -60,6 +60,7 @@ hpan = c("-B", "$(site_header)", "-A", "$(site_footer)")
 noteargs = output_format=rmarkdown::html_document(pandoc_args=$(hpan), css="$(site_css)")
 io = input="$<", output_file="$(notdir $@)"
 mvrule = $(MVF) $(notdir $@) $@
+mdrule = pandoc $< -o $@ --mathjax -s -B $(site_header) -A $(site_footer) --css $(site_css) $(site_args)
 
 ## rmarkdown rules
 # notesrule = echo 'rmarkdown::render($(io))' | R --vanilla; $(mvrule)
@@ -67,7 +68,7 @@ slideargs = output_format=rmarkdown::ioslides_presentation()
 slidesrule = echo 'rmarkdown::render($(io), $(slideargs))' | R --vanilla; $(mvrule)
 
 ## pandoc rules ## GIVE UP on slides for now; the pandoc options all look old and clunky 2021 Sep 09 (Thu)
-notesrule = pandoc $< -o $@ --mathjax -s -B $(site_header) -A $(site_footer) --css $(site_css) $(site_args)
+notesrule = $(mdrule)
 ## slideargs = -t slideous --slide-level=2
 ## slidesrule = pandoc $< $(slideargs) -o $@ $(site_args)
 
