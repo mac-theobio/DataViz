@@ -1,6 +1,6 @@
 library(ggplot2); theme_set(theme_bw(base_size=18))
 library(Hmisc)
-library(shellpipes); startGraphics()
+library(shellpipes); startGraphics(height=5)
 
 circ <- csvRead()
 

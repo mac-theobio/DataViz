@@ -40,15 +40,27 @@ cache/temps.csv:
 temps.Rout: temps.R cache/temps.csv
 
 pngDesc += temppix
+
+## Global temperature; anchors and scales
 ## temppix.secret.png: temppix.R
 ## temppix.anomaly.png: temppix.R
 temppix.Rout: temppix.R temps.rda
 
 ## Magazine circulation and anchors
-
 circulation.Rout: circulation.R data/circulation.csv
 
+## Orchard sprays; this is a weird data set and I may not use it much more
+## 2021 Sep 12 (Sun) (halfway desc-ed)
 orchard.Rout: orchard.R
+
+## Canadian provinces 
+
+canada.Rout: canada.R data/canada.tsv
+canadaPlots.Rout: canadaPlots.R canada.rds
+
+## Coronavirus time series
+
+## Coronavirus vaccination
 
 ######################################################################
 
