@@ -73,8 +73,11 @@ sched.Rout: sched.R sched.tsv
 
 lectures/scales.dmdmk: lectures/scales.dmd makestuff/dmdmk.pl
 
+lect_r = cd lectures && $(MAKE) docs/$(notdir $@)
+lectures/docs/scales.slides.html: lectures/scales.dmd
+	$(lect_r)
 lectures/docs/scales.notes.html: lectures/scales.dmd
-	cd lectures && $(MAKE) docs/$(notdir $@)
+	$(lect_r)
 
 ######################################################################
 
