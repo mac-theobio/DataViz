@@ -6,6 +6,10 @@ For Monday:
 - write a explanation of a few sentences that explains what is good about it (e.g. interesting, engaging, funny, makes good use of Cleveland principles, makes a point clearly ...) or bad about it (is it ugly, bad, or wrong [see Wilke chapter 1]? [inaccessible](https://twitter.com/FrankElavsky/status/1396898372183855105)? how/why?)
 - put the explanation and a link to the example (you can upload images to your github repo) in the `README` file in your GH repository, and e-mail us that you've done so. (If you run into git trouble you can e-mail us your assignment instead, but putting it all in the repo is better.) (Plain text only, please - in this course we *never* want `.docx` (Word) files. PDF is OK, but plain text [including `.R` files and Markdown files] are always preferred when they work.)
 
+For Friday's class:
+
+- read Sections 4-7 of [Wilke's _Fundamentals of Data Visualization_](https://serialmentor.com/dataviz/)
+
 ## week 1
 
 For Wednesday's class:
@@ -20,11 +24,10 @@ more information)
 
 For Friday's class:
 
-- watch the Rausher video listed on the main page
-- read Sections 1-3 of Wilke's _Fundamentals of Data Visualization_
-(https://serialmentor.com/dataviz/)
-- read and follow chapters 1, 5, 7, 8, 10 of Happy Git with R (they're
-short!)
+- watch Rauser's ["How Humans See Data"](https://www.youtube.com/watch?v=fSgEeI2Xpdc)
+- read Sections 1-3 of [Wilke's _Fundamentals of Data Visualization_](https://serialmentor.com/dataviz/)
+- read and follow chapters 1, 5, 7, 8, 10 of [""Happy Git with R""](https://beta.rstudioconnect.com/jennybc/happy-git-with-r/)(they're short!)
+reading: "Git stuff (; [GitHub with GitHub desktop](https://jcszamosi.github.io/mcmaster_swc_git_gui/); [GitHub on the command line](https://swcarpentry.github.io/git-novice/)); tidyverse stuff (Software Carpentry lessons on [dplyr](http://swcarpentry.github.io/r-novice-gapminder/13-dplyr/) and [tidyr](http://swcarpentry.github.io/r-novice-gapminder/14-tidyr/); [tidyverse cheat sheets](https://www.rstudio.com/resources/cheatsheets/) (see especially ""data import"" and ""data transformation""))"
    - create an (empty except for a `README` file) repository called
 Stat744, and add `dushoff` and `bbolker` as collaborators
    - email us to let us know you have finished, and to tell us your
