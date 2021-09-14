@@ -46,7 +46,7 @@ th {background-color: #ccccff;}
 
 (under development)
 
-```{r echo=FALSE,message=FALSE,warning=FALSE, results="asis", eval=TRUE}
+```{r setup, echo=FALSE,message=FALSE,warning=FALSE, results="asis", eval=TRUE}
 library(huxtable)
 library(dplyr)
 library(readr)
