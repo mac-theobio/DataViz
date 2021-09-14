@@ -6,7 +6,7 @@ current: target
 -include target.mk
 
 vim_session:
-	bash -cl "vmt index.rmd rweb.mk"
+	bash -cl "vmt index.rmd rweb.mk sched.txt"
 
 Sources = Makefile README.md notes.md
 
