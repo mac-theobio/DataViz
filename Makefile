@@ -21,7 +21,7 @@ Sources += $(wildcard html/*.*)
 
 ## docs/index.html: index.rmd
 
-Sources += index.rmd vis.bib refs.csl sched.txt
+Sources += index.rmd vis.bib refs.csl sched.txt TODO.md
 
 Ignore += sched.tsv
 sched.tsv: sched.txt sched.pl
@@ -51,8 +51,6 @@ cache/Minard.png:
 ## How to do the schedule? 2021 Sep 04 (Sat)
 
 ## How crazy is superPipe?
-
-Sources += $(wildcard *.tsv)
 
 %.Rout: ; $(pipeR)
 %.Rout.html: %.Rout ;

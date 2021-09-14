@@ -10,7 +10,6 @@
 ## pipeline/structure issues
 
 - import pipeline for rendering course outline locally (download `outline.docx`, render to HTML; see `mkoutline` in old repo)
-- (JD) keep working on assignments structure? (BB: `assignments.md` is not getting built/rendered to the right place??)
 - (JD) fix up `topics`
 - links/pointers to grading rubrics (i.e., meaning of 0-3; are these in the course outline?), details on project and presentation formats/expectations, etc.
 
