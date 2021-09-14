@@ -1,15 +1,15 @@
 start date	topic	reading/viewing	lecture notes	R scripts	lecture recordings
 8 Sep	organizational meeting; tidyverse/GitHub basics	"Git stuff ([""Happy Git with R""](https://beta.rstudioconnect.com/jennybc/happy-git-with-r/); [GitHub with GitHub desktop](https://jcszamosi.github.io/mcmaster_swc_git_gui/); [GitHub on the command line](https://swcarpentry.github.io/git-novice/)); tidyverse stuff (Software Carpentry lessons on [dplyr](http://swcarpentry.github.io/r-novice-gapminder/13-dplyr/) and [tidyr](http://swcarpentry.github.io/r-novice-gapminder/14-tidyr/); [tidyverse cheat sheets](https://www.rstudio.com/resources/cheatsheets/) (see especially ""data import"" and ""data transformation""))"	[Intro](lectures/intro.notes.html)	[1](live/lect1.R); [2](live/lect2.R)	[1](https://mcmasteru365.sharepoint.com/sites/Section_2219-9263/Shared%20Documents/General/Recordings/General-20210908_133618-Meeting%20Recording.mp4?web=1); [2](https://mcmasteru365.sharepoint.com/sites/Section_2219-9263/Shared%20Documents/General/Recordings/Meeting%20in%20_General_-20210910_113348-Meeting%20Recording.mp4?web=1)
-	principles: Tukey, Cleveland, Tufte	@cleveland_graphical_1984; @cleveland_graphical_1987; John Rauser on ["How Humans See Data"](https://www.youtube.com/watch?v=fSgEeI2Xpdc)	[principles lecture](lectures/principles.notes.html)#; [scales lecture (pdf notes)](scales.lect.handouts.pdf); [BMB's "bananas" code](bananas.R)		
-	exploratory graphics		# [exploratory lecture (pdf notes)](explore.lect.handouts.pdf)		
-	diagnostic graphics	@peltonen_visualizations_2009;[Hurricane maps](https://eeecon.uibk.ac.at/~zeileis//news/dorian_rainbow/)	# [pdf notes](diagnostics.pdf); [multiway exploration](explore_multiway.html); [tables](tables.html); [mental illness ex.](kaiser_mentalillness.R)		
-	inferential graphics	@wickham_graphical_2010; @gelman_lets_2002; @gelman_why_2011	#  [Tuesday lecture (pdf notes)](infer.lect.handouts.pdf); [Friday](infer_bmb.lect.html); [table PDF](tab.pdf); [tab to fit code](tab_to_fig.R); [overlapping code](overlapping.R)		
-	infoviz vs data viz; ethics; expository graphics	@su_its_2008; @gelman_infovis_2013	#  [Tuesday lecture](infovis.lect.html)		
-	# **midterm recess**				
-	Interactive graphics		#  [Tuesday lecture](interactive.lect.html)		
-	Spatial data		#  [Tuesday lecture](spatial.lect.html); [getting maps](get_maps.html); [spatial examples 1](spatial_ex.html)		
-	High-dimensional data	[Buja et al. (2009)](http://rsta.royalsocietypublishing.org/cgi/doi/10.1098/rsta.2009.0120)	#  [Tuesday lecture](highdim.lect.html); [Friday lecture](dim.lect.html)		
-	Networks		#  [Lecture](network.lect.html)		
-	Group work		#  [colour lecture](colour.lect.html)		
-	#  Continued group work				
+	principles: Tukey, Cleveland, Tufte	@cleveland_graphical_1984; @cleveland_graphical_1987; John Rauser on ["How Humans See Data"](https://www.youtube.com/watch?v=fSgEeI2Xpdc)	[principles lecture](lectures/principles.notes.html)		
+	exploratory graphics				
+	diagnostic graphics	@peltonen_visualizations_2009;[Hurricane maps](https://eeecon.uibk.ac.at/~zeileis//news/dorian_rainbow/)			
+	inferential graphics	@wickham_graphical_2010; @gelman_lets_2002; @gelman_why_2011			
+	infoviz vs data viz; ethics; expository graphics	@su_its_2008; @gelman_infovis_2013			
+					
+	Interactive graphics				
+	Spatial data				
+	High-dimensional data	[Buja et al. (2009)](http://rsta.royalsocietypublishing.org/cgi/doi/10.1098/rsta.2009.0120)			
+	Networks				
+	Group work				
+					
 	Group presentations				

@@ -14,6 +14,9 @@ Publicly available material for STAT 744, Topics in Statistics / Data visualizat
 
 ### Development rules
 
+Please edit sched.txt instead of sched.tsv; it's meant to be self-explanatory in structure
+* Bells and whistles; what about comments and lecture expansion?
+
 `make` rules:
 
 - `syncup`: merge work, including rendered products, without doing unnecessary rendering

@@ -11,6 +11,7 @@ while (my $par = <>){
 	push @records, $.;
 	foreach my $ln (split /\n/, $par){
 		my ($tag, $text) = $ln =~ /([^:]*):\s*(.*)/;
+		$text =~ s/#.*//;
 		push @fields, $tag unless defined $table{$tag};
 		$table{$tag}->{$.} = $text;
 	}
