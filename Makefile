@@ -23,6 +23,11 @@ Sources += $(wildcard html/*.*)
 
 Sources += index.rmd vis.bib refs.csl
 
+## sched.tsv.compare: sched.txt sched.pl
+
+sched.tsv: sched.txt sched.pl
+	$(PUSHRO)
+
 Ignore += index.rmk
 index.rmk: sched.tsv
 ## docs/index.html: index.rmd
