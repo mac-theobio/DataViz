@@ -10,7 +10,7 @@ topic: organizational meeting; tidyverse/GitHub basics
 reading: Git stuff (["Happy Git with R"](https://beta.rstudioconnect.com/jennybc/happy-git-with-r/); [GitHub with GitHub desktop](https://jcszamosi.github.io/mcmaster_swc_git_gui/); [GitHub on the command line](https://swcarpentry.github.io/git-novice/)); tidyverse stuff (Software Carpentry lessons on [dplyr](http://swcarpentry.github.io/r-novice-gapminder/13-dplyr/) and [tidyr](http://swcarpentry.github.io/r-novice-gapminder/14-tidyr/); [tidyverse cheat sheets](https://www.rstudio.com/resources/cheatsheets/) (see especially "data import" and "data transformation"))
 notes: [Intro](lectures/intro.notes.html)
 scripts: [1](live/lect1.R); [2](live/lect2.R)
-recordings: [1](https://mcmasteru365.sharepoint.com/sites/Section_2219-9263/Shared%20Documents/General/Recordings/General-20210908_133618-Meeting%20Recording.mp4?web=1); [2](https://mcmasteru365.sharepoint.com/sites/Section_2219-9263/Shared%20Documents/General/Recordings/Meeting%20in%20_General_-20210910_113348-Meeting%20Recording.mp4?web=1)
+recordings: [1](https://mcmasteru365.sharepoint.com/sites/Section_2219-9263/Shared%20Documents/General/Recordings/General-20210908_133618-Meeting%20Recording.mp4?web=1); [2](https://mcmasteru365.sharepoint.com/sites/Section_2219-9263/Shared%20Documents/General/Recordings/Meeting%20in%20_General_-20210910_113348-Meeting%20Recording.mp4?web=1); [3](https://mcmasteru365.sharepoint.com/sites/Section_2219-9263/Shared%20Documents/General/Recordings/General-20210913_162940-Meeting%20Recording.mp4?web=1)
 
 start: 
 topic: principles: Tukey, Cleveland, Tufte
