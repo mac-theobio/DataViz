@@ -21,10 +21,9 @@ Sources += $(wildcard html/*.*)
 
 ## docs/index.html: index.rmd
 
-Sources += index.rmd vis.bib refs.csl
+Sources += index.rmd vis.bib refs.csl sched.txt
 
-## sched.tsv.compare: sched.txt sched.pl
-
+Ignore += sched.tsv
 sched.tsv: sched.txt sched.pl
 	$(PUSHRO)
 
@@ -57,10 +56,6 @@ Sources += $(wildcard *.tsv)
 
 %.Rout: ; $(pipeR)
 %.Rout.html: %.Rout ;
-
-## Failed here; could not @@include the md file; got confused about html
-sched.Rout: sched.R sched.tsv
-## sched.Rout.html: sched.R
 
 ######################################################################
 
