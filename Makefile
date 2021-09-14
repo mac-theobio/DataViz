@@ -17,16 +17,6 @@ Sources += $(wildcard html/*.*)
 
 ######################################################################
 
-## Insane hanging problem
-## Looks like a problem with read_tsv and inconsistent commenting?
-## Not reproduced now; maybe a problem with a particular machine at a particular time??
-## REPORT!
-
-Sources += hux.tsv hux.R
-hux.Rout: hux.R hux.tsv
-
-######################################################################
-
 ## Root content
 
 ## docs/index.html: index.rmd
@@ -209,6 +199,7 @@ makestuff/Makefile:
 -include makestuff/dmdeps.mk
 -include makestuff/mdyam.mk
 -include makestuff/hotcold.mk
+-include makestuff/compare.mk
 
 -include makestuff/git.mk
 -include makestuff/visual.mk
