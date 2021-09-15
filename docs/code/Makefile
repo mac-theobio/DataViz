@@ -61,8 +61,10 @@ canadaPlots.Rout: canadaPlots.R canada.rds
 ## Coronavirus time series
 
 corona.Rout: corona.R data/coronaCA.csv
+coronaPlots.Rout: coronaPlots.R corona.rda
 
 ## Coronavirus vaccination
+coronaVacc.Rout: coronaVacc.R data/canada_vaccines.tsv
 
 ######################################################################
 
@@ -91,7 +93,7 @@ makestuff/Makefile:
 -include makestuff/os.mk
 
 -include makestuff/pipeR.mk
--include makestuff/pdfpages.mk
+-include makestuff/pdfsplit.mk
 
 -include makestuff/git.mk
 -include makestuff/visual.mk
