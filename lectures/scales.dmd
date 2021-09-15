@@ -31,6 +31,10 @@ date: "September 2021"
 
 ![](code/temppix.stretch.png){width=80%}
 
+## Utter problem algae
+
+![](code/temppix.dark.png){width=80%}
+
 ## Global temperature 
 
 ![](code/temppix.base.png){width=80%}
@@ -42,7 +46,7 @@ date: "September 2021"
 ## Global temperature
 
 * [Data](https://datahub.io/core/global-temp/r/annual.csv)
-* Code: [clean](code/temps.R); [plot](code/temppix.R)
+* Code: [clean](../code/temps.R); [plot](../code/temppix.R)
 * Dushoff craziness! [shellpipes](https://dushoff.github.io/shellpipes/)
 
 ## Magazine circulation (advertisement)
@@ -61,7 +65,7 @@ date: "September 2021"
 
 ![](code/circulation.Rout-2.png)
 * [Data](../data/circulation.csv)
-* [Code](code/circulation.R)
+* [Code](../code/circulation.R)
 
 ## Area and volume
 
@@ -112,7 +116,7 @@ From [How to Lie with Statistics](https://en.wikipedia.org/wiki/How_to_Lie_with_
 
 ## Provinces of Canada
 
-* Code: [clean](code/canada.R); [plot](code/canadaPlots.R)
+* Code: [clean](../code/canada.R); [plot](../code/canadaPlots.R)
 * [Data](../data/canada.tsv)
 
 ## Coronavirus incidence
@@ -125,7 +129,7 @@ From [How to Lie with Statistics](https://en.wikipedia.org/wiki/How_to_Lie_with_
 
 ## Coronavirus incidence
 
-* Code: [clean](code/corona.R); [plot](code/coronaPlots.R)
+* Code: [clean](../code/corona.R); [plot](../code/coronaPlots.R)
 * [Data](../data/coronaCA.csv)
 
 # Odds-ratio scaling
@@ -181,7 +185,7 @@ From [How to Lie with Statistics](https://en.wikipedia.org/wiki/How_to_Lie_with_
 
 ## Coronavirus vaccination
 
-* [Code](code/coronaVacc.R)
+* [Code](../code/coronaVacc.R)
 * [Data](../data/)
 
 ## Transformation lessons
