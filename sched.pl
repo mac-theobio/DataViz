@@ -11,7 +11,9 @@ while (my $par = <>){
 	push @records, $.;
 	foreach my $ln (split /\n/, $par){
 		my ($tag, $text) = $ln =~ /([^:]*):\s*(.*)/;
-		$text =~ s/#.*//;
+		## $text =~ s/#.*//;
+		$text =~ s|LECT_(\w*)|[$1](lectures/$1.notes.html) ([slides](lectures/$1.slides.html))|;
+
 		push @fields, $tag unless defined $table{$tag};
 		$table{$tag}->{$.} = $text;
 	}
