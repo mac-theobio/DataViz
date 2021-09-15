@@ -21,7 +21,7 @@ Sources += $(wildcard html/*.*)
 
 ## docs/index.html: index.rmd
 
-Sources += index.rmd vis.bib refs.csl sched.txt
+Sources += index.rmd vis.bib refs.csl sched.txt TODO.md
 
 Ignore += sched.tsv
 sched.tsv: sched.txt sched.pl
@@ -52,8 +52,6 @@ cache/Minard.png:
 
 ## How crazy is superPipe?
 
-Sources += $(wildcard *.tsv)
-
 %.Rout: ; $(pipeR)
 %.Rout.html: %.Rout ;
 
@@ -61,7 +59,7 @@ Sources += $(wildcard *.tsv)
 
 ## Test outputs
 
-lectures/scales.dmdmk: lectures/scales.dmd makestuff/dmdmk.pl
+## lectures/scales.dmdmk: lectures/scales.dmd makestuff/dmdmk.pl
 
 lect_r = cd lectures && $(MAKE) docs/$(notdir $@)
 lectures/docs/scales.slides.html: lectures/scales.dmd
@@ -117,6 +115,8 @@ dateup:
 
 syncup: update_all pull dateup all.time
 
+pullup: pull dateup
+
 ######################################################################
 
 ## Link to the old repo; done until we sort out "pix" questions; don't know if it should be permanent
@@ -130,7 +130,7 @@ old_repo/1.stamp:
 ######################################################################
 
 ## Data index
-## data/ lives in docs/ so that it's part of the pages
+## data/ lives in docs/ so that it's part of the web ecosystem
 
 Ignore += data
 data: dir=docs
@@ -177,7 +177,7 @@ live:
 
 ### Makestuff
 
-Makefile: makestuff/01.stamp
+Makefile: makestuff/02.stamp
 makestuff/%.stamp:
 	- $(RM) makestuff/*.stamp
 	cd makestuff && $(MAKE) pull

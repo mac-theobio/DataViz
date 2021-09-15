@@ -1,0 +1,43 @@
+
+## Log vs.~linear
+
+Making room
+
+code/orchard.Rout-2.png code/orchard.Rout-3.png
+
+Data shape
+
+* There are a lot of different ways to show data shape
+
+* Choices will depend on your data set:
+** Overall size
+** Number of replicates
+** Number of levels, predictor variables, etc.
+
+Showing points
+
+![](code/orchard.Rout-6.png)
+
+Boxplot
+
+![](code/orchard.Rout-7.png)
+
+
+Violin plot
+
+![](code/orchard.Rout-8.png)
+
+
+Orchard lessons
+
+* Choices about log vs.~linear scale are scientific choices
+** Neither is more valid, or closer to the data
+
+* You can also make choices about
+** sending a simple message
+** providing more information about shape
+
+* Log scales are almost never physical
+** Don't mislead with area information on a log scale
+
+

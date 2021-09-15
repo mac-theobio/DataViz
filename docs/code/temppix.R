@@ -16,6 +16,9 @@ teeGG(base, ext="png", desc="base", height=height)
 stretch <- base + ylim(c(0, 20)) + ylab("Problematicity")
 teeGG(stretch, ext="png", desc="stretch", height=height)
 
+dark <- stretch + theme(panel.grid.major = element_line(colour = "grey70"))
+teeGG(dark, ext="png", desc="dark", height=height)
+
 plain <- (stretch + theme(panel.grid = element_blank())) 
 teeGG(plain, ext="png", desc="plain", height=height)
 

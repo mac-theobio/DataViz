@@ -57,10 +57,15 @@ orchard.Rout: orchard.R
 
 canada.Rout: canada.R data/canada.tsv
 canadaPlots.Rout: canadaPlots.R canada.rds
+pngDesc += canadaPlots
 
 ## Coronavirus time series
 
+corona.Rout: corona.R data/coronaCA.csv
+coronaPlots.Rout: coronaPlots.R corona.rda
+
 ## Coronavirus vaccination
+coronaVacc.Rout: coronaVacc.R data/canada_vaccines.tsv
 
 ######################################################################
 
@@ -89,7 +94,8 @@ makestuff/Makefile:
 -include makestuff/os.mk
 
 -include makestuff/pipeR.mk
--include makestuff/pdfpages.mk
+-include makestuff/pdfsplit.mk
+-include makestuff/pdfpng.mk
 
 -include makestuff/git.mk
 -include makestuff/visual.mk

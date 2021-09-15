@@ -23,13 +23,16 @@ html:
 
 md = $(wildcard *.md)
 rmd = $(wildcard *.rmd)
-Sources += $(md) $(rmd)
+dmd = $(wildcard *.dmd)
+Sources += $(md) $(rmd) $(dmd)
 
 mdhdocs = $(md:%.md=docs/%.html)
 rmdnotes = $(rmd:%.rmd=docs/%.notes.html)
 rmdslides = $(rmd:%.rmd=docs/%.slides.html)
+dmdnotes = $(dmd:%.dmd=docs/%.notes.html)
+dmdslides = $(dmd:%.dmd=docs/%.slides.html)
 
-update: $(mdhdocs) $(rmdnotes) $(rmdslides)
+update: $(mdhdocs) $(rmdnotes) $(rmdslides) $(dmdnotes) $(dmdslides)
 
 ## Make products from a particular lecture
 ## I've been turning on and off the automake for .rmd
