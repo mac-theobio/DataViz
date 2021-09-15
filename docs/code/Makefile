@@ -95,6 +95,7 @@ makestuff/Makefile:
 
 -include makestuff/pipeR.mk
 -include makestuff/pdfsplit.mk
+-include makestuff/pdfpng.mk
 
 -include makestuff/git.mk
 -include makestuff/visual.mk
