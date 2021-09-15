@@ -59,7 +59,7 @@ cache/Minard.png:
 
 ## Test outputs
 
-lectures/scales.dmdmk: lectures/scales.dmd makestuff/dmdmk.pl
+## lectures/scales.dmdmk: lectures/scales.dmd makestuff/dmdmk.pl
 
 lect_r = cd lectures && $(MAKE) docs/$(notdir $@)
 lectures/docs/scales.slides.html: lectures/scales.dmd
