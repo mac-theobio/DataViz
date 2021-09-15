@@ -115,6 +115,8 @@ dateup:
 
 syncup: update_all pull dateup all.time
 
+pullup: pull dateup
+
 ######################################################################
 
 ## Link to the old repo; done until we sort out "pix" questions; don't know if it should be permanent
