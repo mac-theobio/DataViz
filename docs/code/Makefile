@@ -57,6 +57,7 @@ orchard.Rout: orchard.R
 
 canada.Rout: canada.R data/canada.tsv
 canadaPlots.Rout: canadaPlots.R canada.rds
+pngDesc += canadaPlots
 
 ## Coronavirus time series
 
