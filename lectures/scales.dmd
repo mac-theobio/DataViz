@@ -51,19 +51,19 @@ date: "September 2021"
 
 ## Magazine circulation (advertisement)
 
-![](code/circulation.Rout-1.png)
+![](code/circulation-1.png)
 
 ## Magazine circulation (absolute amount)
 
-![](code/circulation.Rout-0.png)
+![](code/circulation-0.png)
 
 ## Magazine circulation (trend)
 
-![](code/circulation.Rout-2.png)
+![](code/circulation-2.png)
 
 ## Magazine circulation (trend)
 
-![](code/circulation.Rout-2.png)
+![](code/circulation-2.png)
 * [Data](../data/circulation.csv)
 * [Code](../code/circulation.R)
 
@@ -121,11 +121,11 @@ From [How to Lie with Statistics](https://en.wikipedia.org/wiki/How_to_Lie_with_
 
 ## Coronavirus incidence
 
-![](code/coronaPlots.Rout-0.png){width=80%}
+![](code/coronaPlots-0.png){width=80%}
 
 ## Coronavirus incidence
 
-![](code/coronaPlots.Rout-1.png){width=80%}
+![](code/coronaPlots-1.png){width=80%}
 
 ## Coronavirus incidence
 
@@ -177,11 +177,11 @@ From [How to Lie with Statistics](https://en.wikipedia.org/wiki/How_to_Lie_with_
 
 ## Coronavirus vaccination
 
-![](code/coronaVacc.Rout-0.png){width=80%}
+![](code/coronaVacc-0.png){width=80%}
 
 ## Coronavirus vaccination
 
-![](code/coronaVacc.Rout-1.png){width=80%}
+![](code/coronaVacc-1.png){width=80%}
 
 ## Coronavirus vaccination
 
