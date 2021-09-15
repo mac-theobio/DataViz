@@ -51,19 +51,19 @@ date: "September 2021"
 
 ## Magazine circulation (advertisement)
 
-![](code/circulation.Rout-1.png)
+![](code/circulation.Rout-1.png){width=80%}
 
 ## Magazine circulation (absolute amount)
 
-![](code/circulation.Rout-0.png)
+![](code/circulation.Rout-0.png){width=80%}
 
 ## Magazine circulation (trend)
 
-![](code/circulation.Rout-2.png)
+![](code/circulation.Rout-2.png){width=80%}
 
 ## Magazine circulation (trend)
 
-![](code/circulation.Rout-2.png)
+![](code/circulation.Rout-2.png){width=80%}
 * [Data](../data/circulation.csv)
 * [Code](../code/circulation.R)
 
