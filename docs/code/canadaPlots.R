@@ -21,5 +21,6 @@ lbase <- base + scale_y_log10()
 ((lbase + geom_col())
 	%+% (canada
 		%>% mutate(Mp = Mp*1e6)
+		+ ylab("Population (p)")
 	)
 ) %>% teeGG(desc="log1bar", ext="png", height=height)

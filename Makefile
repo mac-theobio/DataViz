@@ -128,7 +128,7 @@ old_repo/1.stamp:
 ######################################################################
 
 ## Data index
-## data/ lives in docs/ so that it's part of the pages
+## data/ lives in docs/ so that it's part of the web ecosystem
 
 Ignore += data
 data: dir=docs

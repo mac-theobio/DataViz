@@ -60,6 +60,8 @@ canadaPlots.Rout: canadaPlots.R canada.rds
 
 ## Coronavirus time series
 
+corona.Rout: corona.R data/coronaCA.csv
+
 ## Coronavirus vaccination
 
 ######################################################################
