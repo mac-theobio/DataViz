@@ -17,7 +17,7 @@ topic: principles: Tukey, Cleveland, Tufte
 reading: @cleveland_graphical_1984; @cleveland_graphical_1987; John Rauser on ["How Humans See Data"](https://www.youtube.com/watch?v=fSgEeI2Xpdc)
 notes: LECT_scales
 scripts:  [BMB's "bananas" code](bananas.R)
-recordings: [1](https://mcmasteru365.sharepoint.com/sites/Section_2219-9263/Shared%20Documents/General/Recordings/General-20210915_132940-Meeting%20Recording.mp4?web=1)
+recordings: [1](https://mcmasteru365.sharepoint.com/sites/Section_2219-9263/Shared%20Documents/General/Recordings/General-20210915_132940-Meeting%20Recording.mp4?web=1); [2](https://mcmasteru365.sharepoint.com/sites/Section_2219-9263/Shared%20Documents/General/Recordings/Meeting%20in%20_General_-20210917_112840-Meeting%20Recording.mp4?web=1)
 
 start: 
 topic: exploratory graphics
