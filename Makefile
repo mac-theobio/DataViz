@@ -67,6 +67,9 @@ lectures/docs/scales.slides.html: lectures/scales.dmd
 lectures/docs/scales.notes.html: lectures/scales.dmd
 	$(lect_r)
 
+admin/docs/participants.html: admin/participants.md
+	$(lect_r)
+
 ######################################################################
 
 ## Main update
