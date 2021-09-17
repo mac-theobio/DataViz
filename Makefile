@@ -111,7 +111,7 @@ local_site: update_all
 pushup: update_all
 
 dateup:
-	touch docs/*.html docs/*/*.html
+	touch docs/*.html docs/*/*.html data/index.html
 
 syncup: update_all pull dateup all.time
 
