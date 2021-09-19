@@ -15,7 +15,7 @@ recordings: [1](https://mcmasteru365.sharepoint.com/sites/Section_2219-9263/Shar
 start: 15 Sep
 topic: principles: Tukey, Cleveland, Tufte
 reading: @cleveland_graphical_1984; @cleveland_graphical_1987; John Rauser on ["How Humans See Data"](https://www.youtube.com/watch?v=fSgEeI2Xpdc)
-notes: LECT_scales ## LECT_principles
+notes: LECT_scales; ## LECT_principles
 scripts:  [BMB's "bananas" code](bananas.R)
 recordings: [1](https://mcmasteru365.sharepoint.com/sites/Section_2219-9263/Shared%20Documents/General/Recordings/General-20210915_132940-Meeting%20Recording.mp4?web=1)
 

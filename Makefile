@@ -23,15 +23,27 @@ Sources += $(wildcard html/*.*)
 
 Sources += index.rmd vis.bib refs.csl sched.txt TODO.md
 
-Ignore += sched.tsv
+Ignore += sched.tsv cleansched.tsv
 sched.tsv: sched.txt sched.pl
 	$(PUSHRO)
 
-Ignore += index.rmk
-index.rmk: sched.tsv
-## docs/index.html: index.rmd
+cleansched.tsv: sched.tsv cleansched.pl
+	$(PUSHRO)
+
+mainhtml = pandoc $< -o $@ --mathjax -s -B html/mainheader.html -A html/mainfooter.html --css html/qmee.css --self-contained
 docs/index.html: index.rmk
-	pandoc $< -o $@ --mathjax -s -B html/mainheader.html -A html/mainfooter.html --css html/qmee.css --self-contained
+	$(mainhtml)
+
+Ignore += shadow.html
+shadow.html: index.rmk
+	$(mainhtml)
+
+## docs/index.html: index.rmd
+Ignore += index.rmk
+index.rmk: cleansched.tsv
+
+shadow.rmk: index.rmd sched.tsv
+	$(rmk_r)
 
 ## rweb should be included in subdirectories, but not in main 2021 Sep 04 (Sat)
 Sources += rweb.mk
