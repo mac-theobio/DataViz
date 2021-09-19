@@ -31,17 +31,17 @@ cleansched.tsv: sched.tsv cleansched.pl
 	$(PUSHRO)
 
 mainhtml = pandoc $< -o $@ --mathjax -s -B html/mainheader.html -A html/mainfooter.html --css html/qmee.css --self-contained
+
+## docs/index.html: index.rmd sched.txt
 docs/index.html: index.rmk
-	$(mainhtml)
-
-Ignore += shadow.html
-shadow.html: index.rmk
-	$(mainhtml)
-
-## docs/index.html: index.rmd
 Ignore += index.rmk
 index.rmk: cleansched.tsv
+	$(mainhtml)
 
+## shadow.html: index.rmd sched.txt
+Ignore += shadow.html
+shadow.html: shadow.rmk
+	$(mainhtml)
 shadow.rmk: index.rmd sched.tsv
 	$(rmk_r)
 
