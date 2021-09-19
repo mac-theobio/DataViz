@@ -39,8 +39,7 @@ index.rmk: cleansched.tsv
 	$(mainhtml)
 
 ## shadow.html: index.rmd sched.txt
-Ignore += shadow.html
-shadow.html: shadow.rmk
+docs/shadow.html: shadow.rmk
 	$(mainhtml)
 shadow.rmk: index.rmd sched.tsv
 	$(rmk_r)
