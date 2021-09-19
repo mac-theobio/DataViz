@@ -5,6 +5,7 @@ library(shellpipes)
 height <- 5
 startGraphics(height=height)
 
+## Use this call to make coronaPlots.Rout independently
 loadEnvironments()
 
 onp <- (ggplot(ON)
