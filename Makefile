@@ -129,7 +129,7 @@ update_all: makestuff $(contentdirs) $(contentdirs:%=%.update) update
 
 ## View site
 local_site: update_all
-	$(MAKE) docs/index.html.go
+	$(MAKE) docs/shadow.html.go
 
 pushup: update_all
 
