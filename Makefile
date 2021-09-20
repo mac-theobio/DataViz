@@ -23,15 +23,28 @@ Sources += $(wildcard html/*.*)
 
 Sources += index.rmd vis.bib refs.csl sched.txt TODO.md
 
-Ignore += sched.tsv
+Ignore += sched.tsv cleansched.tsv
 sched.tsv: sched.txt sched.pl
 	$(PUSHRO)
 
-Ignore += index.rmk
-index.rmk: sched.tsv
-## docs/index.html: index.rmd
+cleansched.tsv: sched.tsv cleansched.pl
+	$(PUSHRO)
+
+mainhtml = pandoc $< -o $@ --mathjax -s -B html/mainheader.html -A html/mainfooter.html --css html/qmee.css --self-contained
+
+## docs/index.html: index.rmd sched.txt
 docs/index.html: index.rmk
-	pandoc $< -o $@ --mathjax -s -B html/mainheader.html -A html/mainfooter.html --css html/qmee.css --self-contained
+	$(mainhtml)
+Ignore += index.rmk
+index.rmk: index.rmd cleansched.tsv
+	$(rmk_r)
+
+## docs/shadow.html: index.rmd sched.txt
+docs/shadow.html: shadow.rmk
+	$(mainhtml)
+Ignore += shadow.rmk
+shadow.rmk: index.rmd sched.tsv
+	$(rmk_r)
 
 ## rweb should be included in subdirectories, but not in main 2021 Sep 04 (Sat)
 Sources += rweb.mk
@@ -45,6 +58,10 @@ Sources += cache/*
 
 cache/Minard.png:
 	wget -O $@ "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Minard.png/640px-Minard.png"
+
+######################################################################
+
+## Weird dev (old ⇒ new lecture style, but I don't really like it)
 
 ######################################################################
 
@@ -67,8 +84,11 @@ lectures/docs/scales.slides.html: lectures/scales.dmd
 lectures/docs/scales.notes.html: lectures/scales.dmd
 	$(lect_r)
 
+lectures/explore.lmd: lectures/explore.txt
+	cd lectures && $(MAKE) $(notdir $@)
+
 admin/docs/participants.html: admin/participants.md
-	$(lect_r)
+	norule
 
 ######################################################################
 
@@ -180,7 +200,7 @@ live:
 
 ### Makestuff
 
-Makefile: makestuff/02.stamp
+Makefile: makestuff/03.stamp
 makestuff/%.stamp:
 	- $(RM) makestuff/*.stamp
 	cd makestuff && $(MAKE) pull
