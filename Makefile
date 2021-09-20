@@ -84,8 +84,11 @@ lectures/docs/scales.slides.html: lectures/scales.dmd
 lectures/docs/scales.notes.html: lectures/scales.dmd
 	$(lect_r)
 
+lectures/explore.lmd: lectures/explore.txt
+	cd lectures && $(MAKE) $(notdir $@)
+
 admin/docs/participants.html: admin/participants.md
-	$(lect_r)
+	norule
 
 ######################################################################
 
