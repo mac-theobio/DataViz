@@ -67,6 +67,20 @@ coronaPlots.Rout: coronaPlots.R corona.rda
 ## Coronavirus vaccination
 coronaVacc.Rout: coronaVacc.R data/canada_vaccines.tsv
 
+Ignore += bikes.zip
+bikes.zip:
+	wget -O $@ https://archive.ics.uci.edu/ml/machine-learning-databases/00275/Bike-Sharing-Dataset.zip
+
+Ignore += day.csv hour.csv 
+hour.csv: bikes.zip
+	unzip $< $@
+	touch $@
+
+bikes.Rout: hour.csv data/bike_weather.csv bikes.R
+
+bike_plots.Rout: bikes.Rout bike_plots.R
+
+
 ######################################################################
 
 ## Cribbing
