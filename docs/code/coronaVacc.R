@@ -59,3 +59,6 @@ print(both
 	+ coord_flip()
 	+ aes(width=Pop/widthFactor)
 )
+
+## See geom_tile(): aesthetics(x, y, width, height)
+## 	geom_rect(): aesthetics(x, y, xend, yend)

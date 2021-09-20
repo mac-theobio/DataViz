@@ -3,7 +3,7 @@
 current: target
 -include target.mk
 
-# -include makestuff/perl.def
+-include makestuff/perl.def
 
 vim_session:
 	bash -cl "vmt"
@@ -34,6 +34,14 @@ Sources += $(wildcard *.md)
 
 Ignore += docs
 include ../rweb.mk
+
+######################################################################
+
+Sources += $(wildcard *.txt *.tmp) md.fmt
+
+Ignore += explore.lmd
+explore.lmd: explore.txt explore.tmp md.fmt makestuff/newtalk/lect.pl
+	$(PUSHRO)
 
 ######################################################################
 

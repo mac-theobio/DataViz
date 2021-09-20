@@ -84,8 +84,11 @@ lectures/docs/scales.slides.html: lectures/scales.dmd
 lectures/docs/scales.notes.html: lectures/scales.dmd
 	$(lect_r)
 
+lectures/explore.lmd: lectures/explore.txt
+	cd lectures && $(MAKE) $(notdir $@)
+
 admin/docs/participants.html: admin/participants.md
-	$(lect_r)
+	norule
 
 ######################################################################
 
@@ -126,7 +129,7 @@ update_all: makestuff $(contentdirs) $(contentdirs:%=%.update) update
 
 ## View site
 local_site: update_all
-	$(MAKE) docs/index.html.go
+	$(MAKE) docs/shadow.html.go
 
 pushup: update_all
 
