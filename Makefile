@@ -38,7 +38,7 @@ Ignore += index.rmk
 index.rmk: cleansched.tsv
 	$(mainhtml)
 
-## shadow.html: index.rmd sched.txt
+## docs/shadow.html: index.rmd sched.txt
 docs/shadow.html: shadow.rmk
 	$(mainhtml)
 shadow.rmk: index.rmd sched.tsv
@@ -56,6 +56,10 @@ Sources += cache/*
 
 cache/Minard.png:
 	wget -O $@ "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Minard.png/640px-Minard.png"
+
+######################################################################
+
+## Weird dev (old ⇒ new lecture style, but I don't really like it)
 
 ######################################################################
 
