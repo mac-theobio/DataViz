@@ -50,7 +50,7 @@ th {background-color: #ccccff;}
 
 ## Schedule
 
-(under development)
+(in development)
 
 ```{r setup, echo=FALSE,message=FALSE,warning=FALSE, results="asis", eval=TRUE}
 library(huxtable)

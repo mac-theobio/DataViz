@@ -34,13 +34,15 @@ mainhtml = pandoc $< -o $@ --mathjax -s -B html/mainheader.html -A html/mainfoot
 
 ## docs/index.html: index.rmd sched.txt
 docs/index.html: index.rmk
-Ignore += index.rmk
-index.rmk: cleansched.tsv
 	$(mainhtml)
+Ignore += index.rmk
+index.rmk: index.rmd cleansched.tsv
+	$(rmk_r)
 
 ## docs/shadow.html: index.rmd sched.txt
 docs/shadow.html: shadow.rmk
 	$(mainhtml)
+Ignore += shadow.rmk
 shadow.rmk: index.rmd sched.tsv
 	$(rmk_r)
 
@@ -195,7 +197,7 @@ live:
 
 ### Makestuff
 
-Makefile: makestuff/02.stamp
+Makefile: makestuff/03.stamp
 makestuff/%.stamp:
 	- $(RM) makestuff/*.stamp
 	cd makestuff && $(MAKE) pull
