@@ -215,10 +215,10 @@ ggplot(cdat,aes(date,cost_per_mb))+geom_line()+
 
 ```{r tufteboxplot,fig.height=4}
 g0 <- ggplot(OrchardSprays,aes(treatment,decrease))+scale_y_log10()
-print(plot_grid(g0 + geom_boxplot(),  g0 + geom_tufteboxplot()))
+print(plot_grid(g0 + geom_boxplot(),  g0 + geom_tufteboxplot(stat="boxplot")))
 ```
 
- `ggthemes::geom_tufteboxplot()`
+ `ggthemes::geom_tufteboxplot()` (`stat="boxplot"` for Tukey-style definition)
 
 ## information at the point of need
 
