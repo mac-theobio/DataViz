@@ -31,3 +31,7 @@ data/sequencing_costs_oct2015.csv: genomic sequences through time
 ### Untracked files ###
 
 * data/FAOSTAT_data_1-7-2018.csv
+
+### Untracked files ###
+
+* data/FAOSTAT_data_1-7-2018.csv
