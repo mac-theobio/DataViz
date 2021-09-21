@@ -2,6 +2,7 @@
 
 A variety of links that we've run across; hopefully these will get incorporated in the primary course material eventually, but in the meantime enjoy browsing!
 
+* thread on `ggdist`, `see`, etc. packages: https://twitter.com/mjskay/status/1419792270258225153
 * Alberto Cairo presentation slides: https://www.dropbox.com/s/pwiqaux9dkcgdga/NICAR2020_SHORT.pdf?dl=0
 * https://www.download.thelancet.com/gbd
 * https://www.adfontesmedia.com/interactive-media-bias-chart/
