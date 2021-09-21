@@ -4,6 +4,12 @@ library(ggplot2)
 library(dplyr)
 library(colorspace)
 library(directlabels)
+library(forcats)
+## remotes::install_github("tylermorganwall/rayshader")
+library(rayshader)
+library(colorspace)
+library(viridis)
+
 theme_set(theme_cowplot())
 
 bananas2 <- (bananas
@@ -41,6 +47,16 @@ direct.label(g1)
     ## also see ?expand_limits
 )
 
+(g1
+    + geom_dl(method=list(dl.trans(x=x+0.2),
+                          "last.bumpup"),
+              aes(label=Country))
+    + theme(legend.position="none")
+    + scale_x_continuous(lim=c(1995,2008),
+                         breaks=seq(1995,2005,by=2))
+    ## also see ?expand_limits
+)
+
 ## with faceting
 (g1
     + scale_x_continuous(breaks=c(1995,2000,2005))
@@ -49,8 +65,6 @@ direct.label(g1)
 )
 
 ##
-library(colorspace)
-library(viridis)
 g1 <- ggplot(bananas2,
       aes(x=Year,y=Country,fill=tval))+
   geom_tile()+
@@ -59,17 +73,20 @@ g1 <- ggplot(bananas2,
                      expand=c(0,0))
 print(g1)
 
+## note, cowplot theme breaks this (black background)
 rayshader::plot_gg(
-  
-  
-  g1+scale_y_discrete(breaks=levels(bananas2$Country),
+    g1+scale_y_discrete(breaks=levels(bananas2$Country),
         labels=1:10))
 
 bananas3 <- bananas2 %>%
-  mutate(Country=fct_reorder(Country,tval))
+  mutate(Country=forcats::fct_reorder(Country,tval))
 
 bananas3 <- bananas2 %>%
-  mutate_at("Country",~fct_reorder(.,tval))
+    mutate_at("Country",~forcats::fct_reorder(.,tval))
+
+bananas3 <- bananas2 %>%
+  mutate(across(Country,forcats::fct_reorder,.x=tval))
+
 
 print(ggplot(bananas3,
       aes(x=Country,y=tval))
@@ -88,15 +105,15 @@ print(ggplot(bananas3,
 
 print(g2)
 ## various attempts to make the bad plot ...
-plot_gg(g1)
 library(rayshader)
-
+plot_gg(g1)
 
 (g2 <- ggplot(bananas2,aes(Year,Country,colour=tval))
     + geom_point()
     
 )
 plot_gg(g2)
+
 library(plot3D)
 with(bananas2,hist3D(unique(Year),as.numeric(unique(Country)),
                             matrix(tval,nrow=12)))

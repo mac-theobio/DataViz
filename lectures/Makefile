@@ -43,6 +43,8 @@ Ignore += explore.lmd
 explore.lmd: explore.txt explore.tmp md.fmt makestuff/newtalk/lect.pl
 	$(PUSHRO)
 
+docs/explore.notes.html: explore.txt
+
 ######################################################################
 
 ### Makestuff
@@ -65,6 +67,7 @@ makestuff/Makefile:
 
 -include makestuff/dmdeps.mk
 -include makestuff/hotcold.mk
+-include makestuff/webpix.mk
 
 -include makestuff/git.mk
 -include makestuff/visual.mk

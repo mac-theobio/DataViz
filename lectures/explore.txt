@@ -5,7 +5,7 @@ SUBH Rote analysis vs. snooping
 
 BCC
 
-CFIG webpix/atlas.jpg
+![](webpix/new_atlas.png "A picture of a robot (representing rote behaviour)")
 
 NCC
 
@@ -55,19 +55,19 @@ TSEC Individual variables
 
 Means and standard errors
 
-FIG orchard.Rout-2.pdf
+FIG code/orchard.Rout-2.pdf
 
 ----------------------------------------------------------------------
 
 Means and standard deviations
 
-FIG orchard.Rout-5.pdf
+FIG code/orchard.Rout-5.pdf
 
 ----------------------------------------------------------------------
 
 Means and standard deviations
 
-FIG orchard.Rout-4.pdf
+FIG code/orchard.Rout-4.pdf
 
 ----------------------------------------------------------------------
 
@@ -75,91 +75,91 @@ REPSLIDE Means and standard deviations
 
 SUBH Next steps?
 
-FIG orchard.Rout-4.pdf
+FIG code/orchard.Rout-4.pdf
 
 ----------------------------------------------------------------------
 
 Non-parametric
 
-FIG orchard.Rout-6.pdf
+FIG code/orchard.Rout-6.pdf
 
 ----------------------------------------------------------------------
 
 Non-parametric
 
-FIG orchard.Rout-7.pdf
+FIG code/orchard.Rout-7.pdf
 
 ----------------------------------------------------------------------
 
 Non-parametric
 
-FIG orchard.Rout-8.pdf
+FIG code/orchard.Rout-8.pdf
 
 ----------------------------------------------------------------------
 
 Non-parametric
 
-FIG orchard.Rout-9.pdf
+FIG code/orchard.Rout-9.pdf
 
 ----------------------------------------------------------------------
 
 Bike example
 
-FIG bike_plots.Rout-0.pdf
+FIG code/bike_plots.Rout-0.pdf
 
 ----------------------------------------------------------------------
 
 Standard errors
 
-FIG bike_plots.Rout-1.pdf
+FIG code/bike_plots.Rout-1.pdf
 
 ----------------------------------------------------------------------
 
 Standard errors
 
-FIG bike_plots.Rout-2.pdf
+FIG code/bike_plots.Rout-2.pdf
 
 ----------------------------------------------------------------------
 
 Standard deviations (2 sd, in fact)
 
-FIG bike_plots.Rout-3.pdf
+FIG code/bike_plots.Rout-3.pdf
 
 ----------------------------------------------------------------------
 
 Data shape
 
-FIG bike_plots.Rout-4.pdf
+FIG code/bike_plots.Rout-4.pdf
 
 ----------------------------------------------------------------------
 
 Data shape
 
-FIG bike_plots.Rout-8.pdf
+FIG code/bike_plots.Rout-8.pdf
 
 ----------------------------------------------------------------------
 
 Data shape
 
-FIG bike_plots.Rout-5.pdf
+FIG code/bike_plots.Rout-5.pdf
 
 ----------------------------------------------------------------------
 
 Data shape
 
-FIG bike_plots.Rout-9.pdf
+FIG code/bike_plots.Rout-9.pdf
 
 ----------------------------------------------------------------------
 
 Shape and weight
 
-FIG bike_plots.Rout-6.pdf
+FIG code/bike_plots.Rout-6.pdf
 
 ----------------------------------------------------------------------
 
 Shape and weight
 
-FIG bike_plots.Rout-7.pdf
+FIG code/bike_plots.Rout-7.pdf
 
 ----------------------------------------------------------------------
 
