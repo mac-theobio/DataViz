@@ -91,19 +91,14 @@ smoke_plots.Rout: smoke_plots.R smoke.rds
 ## Level plots (a mess)
 smoke_levels.Rout: smoke_levels.R smoke.rds
 
+iris.Rout: iris.R
+
 ## pages/interactive_smoke.html: interactive_smoke.rmd
 
 
 ######################################################################
 
-## Cribbing
-
-data/%:
-	$(MAKE) data
-	$(CP) ../../old_repo/$* $@
-
-%.R:
-	$(CP) ../../old_repo/$@ .
+## Cribbing del 2021 Sep 22 (Wed)
 
 ######################################################################
 
