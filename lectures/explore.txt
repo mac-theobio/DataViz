@@ -3,11 +3,7 @@ Exploring data
 
 SUBH Rote analysis vs. snooping 
 
-BCC
-
-![](webpix/new_atlas.png "A picture of a robot (representing rote behaviour)")
-
-NCC
+CFIG webpix/new_atlas.png "A picture of a robot (representing rote behaviour)"
 
 CFIG webpix/detective.jpg
 
@@ -17,7 +13,7 @@ EC
 
 Spurious correlations
 
-HREF http://www.tylervigen.com/spurious-correlations There's a whole website about this
+[There's a whole website about this](http://www.tylervigen.com/spurious-correlations)
 
 ----------------------------------------------------------------------
 
@@ -55,19 +51,19 @@ TSEC Individual variables
 
 Means and standard errors
 
-FIG code/orchard.Rout-2.pdf
+FIG code/orchard.Rout-2.png
 
 ----------------------------------------------------------------------
 
 Means and standard deviations
 
-FIG code/orchard.Rout-5.pdf
+FIG code/orchard.Rout-5.png
 
 ----------------------------------------------------------------------
 
 Means and standard deviations
 
-FIG code/orchard.Rout-4.pdf
+FIG code/orchard.Rout-4.png
 
 ----------------------------------------------------------------------
 
@@ -75,91 +71,91 @@ REPSLIDE Means and standard deviations
 
 SUBH Next steps?
 
-FIG code/orchard.Rout-4.pdf
+FIG code/orchard.Rout-4.png
 
 ----------------------------------------------------------------------
 
 Non-parametric
 
-FIG code/orchard.Rout-6.pdf
+FIG code/orchard.Rout-6.png
 
 ----------------------------------------------------------------------
 
 Non-parametric
 
-FIG code/orchard.Rout-7.pdf
+FIG code/orchard.Rout-7.png
 
 ----------------------------------------------------------------------
 
 Non-parametric
 
-FIG code/orchard.Rout-8.pdf
+FIG code/orchard.Rout-8.png
 
 ----------------------------------------------------------------------
 
 Non-parametric
 
-FIG code/orchard.Rout-9.pdf
+FIG code/orchard.Rout-9.png
 
 ----------------------------------------------------------------------
 
 Bike example
 
-FIG code/bike_plots.Rout-0.pdf
+FIG code/bike_plots.Rout-0.png
 
 ----------------------------------------------------------------------
 
 Standard errors
 
-FIG code/bike_plots.Rout-1.pdf
+FIG code/bike_plots.Rout-1.png
 
 ----------------------------------------------------------------------
 
 Standard errors
 
-FIG code/bike_plots.Rout-2.pdf
+FIG code/bike_plots.Rout-2.png
 
 ----------------------------------------------------------------------
 
 Standard deviations (2 sd, in fact)
 
-FIG code/bike_plots.Rout-3.pdf
+FIG code/bike_plots.Rout-3.png
 
 ----------------------------------------------------------------------
 
 Data shape
 
-FIG code/bike_plots.Rout-4.pdf
+FIG code/bike_plots.Rout-4.png
 
 ----------------------------------------------------------------------
 
 Data shape
 
-FIG code/bike_plots.Rout-8.pdf
+FIG code/bike_plots.Rout-8.png
 
 ----------------------------------------------------------------------
 
 Data shape
 
-FIG code/bike_plots.Rout-5.pdf
+FIG code/bike_plots.Rout-5.png
 
 ----------------------------------------------------------------------
 
 Data shape
 
-FIG code/bike_plots.Rout-9.pdf
+FIG code/bike_plots.Rout-9.png
 
 ----------------------------------------------------------------------
 
 Shape and weight
 
-FIG code/bike_plots.Rout-6.pdf
+FIG code/bike_plots.Rout-6.png
 
 ----------------------------------------------------------------------
 
 Shape and weight
 
-FIG code/bike_plots.Rout-7.pdf
+FIG code/bike_plots.Rout-7.png
 
 ----------------------------------------------------------------------
 
@@ -202,13 +198,13 @@ DOUBLEPDF sunspots.Rout
 
 Smoking data
 
-FIG code/smoke_ques.Rout-1.pdf
+FIG code/smoke_ques.Rout-1.png
 
 ----------------------------------------------------------------------
 
 Smoking data
 
-FIG code/smoke_ques.Rout-2.pdf
+FIG code/smoke_ques.Rout-2.png
 
 ----------------------------------------------------------------------
 
@@ -226,43 +222,43 @@ Scatter plots
 
 Scatter plot
 
-FIG code/smoke_plots.Rout-0.pdf
+FIG code/smoke_plots.Rout-0.png
 
 ----------------------------------------------------------------------
 
 Seeing the density better
 
-FIG code/smoke_plots.Rout-1.pdf
+FIG code/smoke_plots.Rout-1.png
 
 ----------------------------------------------------------------------
 
 Seeing the density worse
 
-FIG code/smoke_plots.Rout-2.pdf
+FIG code/smoke_plots.Rout-2.png
 
 ----------------------------------------------------------------------
 
 Maybe fixed
 
-FIG code/smoke_plots.Rout-3.pdf
+FIG code/smoke_plots.Rout-3.png
 
 ----------------------------------------------------------------------
 
 A loess trend line
 
-FIG code/smoke_plots.Rout-4.pdf
+FIG code/smoke_plots.Rout-4.png
 
 ----------------------------------------------------------------------
 
 Two loess trend lines
 
-FIG code/smoke_plots.Rout-5.pdf
+FIG code/smoke_plots.Rout-5.png
 
 ----------------------------------------------------------------------
 
 Many loess trend lines
 
-FIG code/smoke_plots.Rout-6.pdf
+FIG code/smoke_plots.Rout-6.png
 
 ----------------------------------------------------------------------
 
@@ -294,7 +290,7 @@ Robust methods
 
 Fitting comparison
 
-DOUBLEFIG code/smoke_plots.Rout-8.pdf
+DOUBLEFIG code/smoke_plots.Rout-8.png
 
 ----------------------------------------------------------------------
 
@@ -314,37 +310,37 @@ Density plots
 
 Contours
 
-FIG code/smoke_levels.Rout-0.pdf
+FIG code/smoke_levels.Rout-0.png
 
 ----------------------------------------------------------------------
 
 Contours
 
-FIG code/smoke_levels.Rout-1.pdf
+FIG code/smoke_levels.Rout-1.png
 
 ----------------------------------------------------------------------
 
 Contours
 
-FIG code/smoke_levels.Rout-2.pdf
+FIG code/smoke_levels.Rout-2.png
 
 ----------------------------------------------------------------------
 
 Hexes
 
-FIG code/smoke_levels.Rout-3.pdf
+FIG code/smoke_levels.Rout-3.png
 
 ----------------------------------------------------------------------
 
 Hexes
 
-FIG code/smoke_levels.Rout-4.pdf
+FIG code/smoke_levels.Rout-4.png
 
 ----------------------------------------------------------------------
 
 Hexes
 
-FIG code/smoke_levels.Rout-5.pdf
+FIG code/smoke_levels.Rout-5.png
 
 ----------------------------------------------------------------------
 
@@ -376,7 +372,7 @@ TSEC Multiple dimensions
 
 Pairs example
 
-FIG code/iris.Rout.pdf
+FIG code/iris.Rout.png
 
 ----------------------------------------------------------------------
 

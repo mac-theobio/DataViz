@@ -15,36 +15,8 @@ data/sequencing_costs_oct2015.csv: genomic sequences through time
 
 * [Coronavirus time series](data/coronaCA.csv) taken from [JD's disease data repo](https://github.com/mac-theobio/Disease_data.git), where it was downloaded from the [COVID19-Canada site](https://wzmli.github.io/COVID19-Canada/README.md)
 
-### Untracked files ###
+* [Banana data from FAO](data/FAOSTAT_data_1-7-2018.csv)
 
-* data/FAOSTAT_data_1-7-2018.csv
-
-### Untracked files ###
-
-* data/bike_weather.csv
-
-### Untracked files ###
-
-* data/FAOSTAT_data_1-7-2018.csv
+* [Describe the bike weather codes](data/bike_weather.csv)
+* [Forced exhalation volume of schoolchildren](data/fev.csv)
 * data/vaccine_data_online.csv
-
-### Untracked files ###
-
-* data/FAOSTAT_data_1-7-2018.csv
-
-### Untracked files ###
-
-* data/FAOSTAT_data_1-7-2018.csv
-
-### Untracked files ###
-
-* data/FAOSTAT_data_1-7-2018.csv
-
-### Untracked files ###
-
-* data/fev.csv
-* data/FAOSTAT_data_1-7-2018.csv
-
-### Untracked files ###
-
-* data/FAOSTAT_data_1-7-2018.csv
