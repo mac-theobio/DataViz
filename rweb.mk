@@ -85,6 +85,10 @@ docs/%.slides.html: %.rmd
 	$(MAKE) html docs
 	$(slidesrule)
 
+docs/%.slides.html: %.RMD
+	$(MAKE) html docs
+	$(slidesrule)
+
 ######################################################################
 
 -include makestuff/mdyam.mk
