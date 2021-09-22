@@ -1,6 +1,9 @@
 library(ggplot2); theme_set(theme_bw(base_size=18))
 library(magrittr)
-library(shellpipes); startGraphics()
+library(shellpipes)
+
+height <- 5
+startGraphics(height=height) ## shellpipes
 
 library(Hmisc)
 data("OrchardSprays")
