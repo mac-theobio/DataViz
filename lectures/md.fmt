@@ -12,6 +12,7 @@
 
 !SLIDESEP ----------------+
 !TAB \t
+!PERC %
 
 BCC %!
 BC %!

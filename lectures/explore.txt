@@ -45,7 +45,7 @@ TSEC Individual variables
 
 		Exploratory vs. diagnostic
 
-		Data vs.~inference
+		Data vs. inference
 
 ----------------------------------------------------------------------
 
@@ -372,7 +372,7 @@ TSEC Multiple dimensions
 
 Pairs example
 
-FIG code/iris.Rout.png
+FIG code/iris.Rout-0.png
 
 ----------------------------------------------------------------------
 
