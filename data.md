@@ -20,3 +20,7 @@ data/sequencing_costs_oct2015.csv: genomic sequences through time
 * [Describe the bike weather codes](data/bike_weather.csv)
 * [Forced exhalation volume of schoolchildren](data/fev.csv)
 * data/vaccine_data_online.csv
+
+### Untracked files ###
+
+* data/FAOSTAT_data_1-7-2018.csv
