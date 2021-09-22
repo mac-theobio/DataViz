@@ -78,7 +78,20 @@ hour.csv: bikes.zip
 
 bikes.Rout: hour.csv data/bike_weather.csv bikes.R
 
-bike_plots.Rout: bikes.Rout bike_plots.R
+bike_plots.Rout: bike_plots.R bikes.rds
+
+smoke.Rout: smoke.R data/fev.csv
+
+## Show the confounding
+smoke_ques.Rout: smoke_ques.R smoke.rds
+
+## fev vs. age fits
+smoke_plots.Rout: smoke_plots.R smoke.rds
+
+## Level plots (a mess)
+smoke_levels.Rout: smoke_levels.R smoke.rds
+
+## pages/interactive_smoke.html: interactive_smoke.rmd
 
 
 ######################################################################

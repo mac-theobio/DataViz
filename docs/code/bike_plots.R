@@ -1,8 +1,13 @@
 ## Redo with ggtitle!
-library(ggplot2)
-theme_set(theme_bw(base_size=18))
+library(ggplot2); theme_set(theme_bw(base_size=18))
+library(shellpipes)
 
-base <- ggplot(bikes,aes(x=weather,y=rentals))
+height <- 5
+startGraphics(height=height)
+
+bikes <- rdsRead()
+
+base <- ggplot(bikes, aes(x=weather,y=rentals))
 lbase <- base +  scale_y_log10()
 
 print(bar <- base
