@@ -2,7 +2,7 @@
 
 For Friday:
 
-* take a look at Jia You's online graphic about vaccine [here](http://www.sciencemag.org/news/2017/04/here-s-visual-proof-why-vaccines-do-more-good-harm)
+* take a look at Jia You's online graphic about vaccine [here](http://www.sciencemag.org/news/2017/04/here-s-visual-proof-why-vaccines-do-more-good-harm) (**update**, a copy of the full version is [here](https://twitter.com/acuadra/status/859096708264996864/photo/1)
 * to get the data, you can use
 ```{r eval=FALSE}
 readr::read_csv("https://mac-theobio.github.io/DataViz/data/vaccine_data_online.csv")
