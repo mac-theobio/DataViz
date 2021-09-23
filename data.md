@@ -3,7 +3,9 @@
 
 data/index.html ## Leave this here; it should be suppressed downstream
 
-data/sequencing_costs_oct2015.csv: genomic sequences through time
+## Intro
+
+* [genomic sequences example](data/sequencing_costs_oct2015.csv)
 
 ## Scales and anchors
 
@@ -15,11 +17,15 @@ data/sequencing_costs_oct2015.csv: genomic sequences through time
 
 * [Coronavirus time series](data/coronaCA.csv) taken from [JD's disease data repo](https://github.com/mac-theobio/Disease_data.git), where it was downloaded from the [COVID19-Canada site](https://wzmli.github.io/COVID19-Canada/README.md)
 
+## Coding examples
+
 * [Banana data from FAO](data/FAOSTAT_data_1-7-2018.csv)
+
+* [Vaccine data from NY Times graphic](data/vaccine_data_online.csv)
+
+## Exploratory graphics
 
 * [Describe the bike weather codes](data/bike_weather.csv)
 * [Forced exhalation volume of schoolchildren](data/fev.csv)
-
-* data/vaccine_data_online.csv
 
 
