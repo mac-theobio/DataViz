@@ -7,7 +7,8 @@ For Friday:
 ```{r eval=FALSE}
 readr::read_csv("https://mac-theobio.github.io/DataViz/data/vaccine_data_online.csv")
 ```
-or download the data directly from [here](http://sciencestatic.aws.aaas.org.s3.amazonaws.com/article-resources/vaccine-war/vaccine_data_online.csv)
+or download the data directly from [AAAS](http://sciencestatic.aws.aaas.org.s3.amazonaws.com/article-resources/vaccine-war/vaccine_data_online.csv)
+or get it from the [course data page](../data/index.html)
 
 * write a short statement (a few sentences) that explains what question you think the graphic is trying to answer, or what pattern it's trying to display
 * based on these data, create 2 ggplots that display the data in a different way from the original; use the 2 plots to illustrate tradeoffs between different graphical principles. (If you're feeling truly uncreative, one of your plots can replicate the original graphical design.) You do **not** need to worry about the dynamic-graphics aspect or the historical events shown in the original display
