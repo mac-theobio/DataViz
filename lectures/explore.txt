@@ -49,57 +49,57 @@ TSEC Individual variables
 
 ----------------------------------------------------------------------
 
-Means and standard errors
+Orchard data
 
-FIG code/orchard.Rout-2.png
+	Built in to R
 
-----------------------------------------------------------------------
-
-Means and standard deviations
-
-FIG code/orchard.Rout-5.png
+	[Code](code/orchard.R)
 
 ----------------------------------------------------------------------
 
-Means and standard deviations
+A standard plot
 
-FIG code/orchard.Rout-4.png
-
-----------------------------------------------------------------------
-
-REPSLIDE Means and standard deviations
-
-SUBH Next steps?
-
-FIG code/orchard.Rout-4.png
+FIG code/orchard.bar.png
 
 ----------------------------------------------------------------------
 
-Non-parametric
+A terrible plot
 
-FIG code/orchard.Rout-6.png
-
-----------------------------------------------------------------------
-
-Non-parametric
-
-FIG code/orchard.Rout-7.png
+FIG code/orchard.logbar.png
 
 ----------------------------------------------------------------------
 
-Non-parametric
+What does this one mean?
 
-FIG code/orchard.Rout-8.png
+FIG code/orchard.logbase.png
 
 ----------------------------------------------------------------------
 
-Non-parametric
+What does _this_ one mean?
 
-FIG code/orchard.Rout-9.png
+FIG code/orchard.logsd1.png
+
+----------------------------------------------------------------------
+
+A non-parametric plot
+
+FIG code/orchard.logsd1.png
 
 ----------------------------------------------------------------------
 
 Bike example
+
+	[Rental data](https://archive.ics.uci.edu/ml/machine-learning-databases/00275/Bike-Sharing-Dataset.zip)
+
+	[Weather codes](../data/bike_weather.csv)
+
+	Code
+
+		[Merge](code/bikes.R)
+
+		[Plot](code/bike_plots.R)
+
+----------------------------------------------------------------------
 
 FIG code/bike_plots.Rout-0.png
 
