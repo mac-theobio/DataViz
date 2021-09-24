@@ -60,8 +60,7 @@ and predictions
 ## rearranged data
 
 ```{r get_data,message=FALSE}
-## need read_table2() for 'irregular' data
-dd <- read_table2("../data/wei_tab5.5.txt")
+dd <- read_table("../data/wei_tab5.5.txt")
 head(dd)
 ```
     
@@ -76,6 +75,8 @@ dd2 <- (dd
 head(dd2)
 ```
 
+## add auxiliary information
+
 ```{r simtab}
 simtab <- read.table(header=TRUE,text="
 dataset distribution covstruc separation
@@ -86,7 +87,7 @@ sim4 MST VEI overlapping
 sim5 GMM VEE well-separated
 sim6 GMM VEE overlapping
 ")
-dd3 <- dd2 %>% merge(simtab,by="dataset")
+dd3 <- dd2 %>% full_join(simtab,by="dataset")
 ```
 
 ## code
@@ -107,7 +108,7 @@ gg1 <- (ggplot(dd3,aes(factor(r),est,colour=model))
 
 ## picture
 
-```{r plot,echo=FALSE,cache=TRUE}
+```{r plot,echo=FALSE,cache=TRUE, fig.width=8, fig.height=4}
 print(gg1)
 ```
 
