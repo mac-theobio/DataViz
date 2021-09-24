@@ -29,3 +29,9 @@ data/index.html ## Leave this here; it should be suppressed downstream
 * [Forced exhalation volume of schoolchildren](data/fev.csv)
 
 
+
+
+### Untracked files ###
+
+* data/wei_tab5.5.txt
+* data/olive_regions.csv

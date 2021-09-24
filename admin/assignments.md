@@ -1,3 +1,15 @@
+## week 4
+
+For Friday:
+
+1. Find a table that you find hard to read and turn it into one, two or three graphs. Explain what features of the data you are trying to draw attention to, and what story you think your figures tell (or fail to tell).
+
+If you have trouble finding a Table you could consider these:
+
+* Table 3 of [McCallum et al. 2017](http://www.sciencedirect.com/science/article/pii/S0166445X16303757)
+* Table 3 of [Dushoff et al. 2005](https://academic.oup.com/aje/article/163/2/181/95820)
+
+
 ## week 3
 
 For Friday:
