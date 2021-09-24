@@ -1,4 +1,5 @@
 library(ggplot2); theme_set(theme_bw(base_size=18))
+library(magrittr); theme_set(theme_bw(base_size=18))
 
 library(shellpipes)
 
@@ -27,12 +28,13 @@ afl <- (af
 	)
 )
 
-print(afl)
-print (afl <- afl + scale_fill_gradient(low="#F0F0FF", high="#131393"))
+(afl) %>% teeGG(desc="grumpy", ext="png")
 
-print(afl + geom_density_2d(color="black"))
+(afl <- afl + scale_fill_gradient(low="#F0F0FF", high="#131393"))
 
-print(af + aes(color=sex) + geom_density_2d())
+(afl + geom_density_2d(color="black"))
+
+(af + aes(color=sex) + geom_density_2d())
 
 ## If we could get a decent color ramp…
 # , alpha=colorA
@@ -46,8 +48,8 @@ print(af + aes(color=sex) + geom_density_2d())
 library(hexbin)
 
 ## Default (bad colors)
-print(afh <- af + geom_hex(binwidth=c(1,0.4)))
+(afh <- af + geom_hex(binwidth=c(1,0.4)))
 
 ## My color ramp
-print (afh + scale_fill_gradient(low="#F0F0FF", high="#131393"))
+ (afh + scale_fill_gradient(low="#F0F0FF", high="#131393"))
 

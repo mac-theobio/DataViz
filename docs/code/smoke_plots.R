@@ -47,13 +47,13 @@ af <- (ggplot(smoke, aes(x=age, y=fev))
 	af + geom_smooth(method=rlm, formula=y~ns(x,3))
 ) 
 
-(afrp <- afr + geom_point(alpha=point_alpha)) %>% teeGG(desc="rlm")
+(afrp <- afr + geom_point(alpha=point_alpha)) %>% teeGG(desc="rlm", ext="png")
 
 (afr 
 	+ geom_count(alpha=point_alpha) + scale_size_area()
-) %>% teeGG(desc="rlmarea")
+) %>% teeGG(desc="rlmarea", ext="png")
 
-(afrp + aes(color=smoking)) %>% teeGG(desc="rlmcomp")
+(afrp + aes(color=smoking)) %>% teeGG(desc="rlmcomp", ext="png")
 
 ## Replot so we can put side-by-side
 ## print(afls + theme(legend.position="none") + ggtitle("loess"))
