@@ -34,12 +34,14 @@ th {background-color: #ccccff;}
 - [Course outline](outline.html) (or at [math & stats web site](https://mcmasteru365.sharepoint.com/:w:/s/sci-course-outlines/EQIfPDteOwhApDyncmtsPccBnD1-BnBNvI3d7lHqbVDRKQ?e=2Vt5pV))
 - [Assignments](admin/assignments.html)
 - [The github back-end for this site](https://github.com/mac-theobio/DataViz/)
+- [Course data directory](data/index.html)
 - Topics/tips
    - [strategies for finding help on R stuff](topics/Finding_help.html)
    - [notes on best practices for running R](topics/Running_R.html)
    - [advice for creating reproducible examples](topics/mre.html)
    - [R style guide](topics/R_style.html)
    - [miscellaneous link dump](topics/misc_links.html)
+   - [ggplot wish/hack list](topics/ggplot_hacks.md)
    
 ## Faculty/communication
 
