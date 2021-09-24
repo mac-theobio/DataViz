@@ -3,8 +3,8 @@
 Things we would like to fix/find a better way to do in `ggplot`:
 
 - better minor grid lines/tick marks in log-axis graphs
+	* using (0:n)/n for minor works surprisingly well for log-odds graphs unless they go really close to 0 or 1.
 - better tick selection in log10 scales: e.g.
-	* Are you saying that base is better here? Is it clear?
 ```r
 set.seed(1001); dd <- data.frame(x = rlnorm(100, 0, 1), y = rlnorm(100,0,1))
 png("log_base.png"); par(las=1); plot(y~x, data=dd, log="xy"); dev.off()
