@@ -25,6 +25,7 @@ cache:
 	$(linkdir)
 
 Ignore += cache
+data/%: data ;
 data: dir = ..
 data: 
 	$(linkdir)
