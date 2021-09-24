@@ -1,5 +1,6 @@
 ## Redo with ggtitle!
 library(ggplot2); theme_set(theme_bw(base_size=18))
+library(magrittr); theme_set(theme_bw(base_size=18))
 library(shellpipes)
 
 height <- 5
@@ -10,26 +11,26 @@ bikes <- rdsRead()
 base <- ggplot(bikes, aes(x=weather,y=rentals))
 lbase <- base +  scale_y_log10()
 
-print(bar <- base
+(bar <- base
     +  stat_summary(fun.data=mean_cl_normal,geom="bar",colour="gray")
-)
+) %>% teeGG("dyn")
 
-print(barbar <- bar
+(barbar <- bar
     +  stat_summary(fun.data=mean_cl_normal,geom="errorbar",width=0.5)
 )
 
-print(base 
+(base 
    +  stat_summary(fun.data=mean_cl_normal,geom="pointrange")
 )
 
-print(base 
+(base 
    +  stat_summary(fun.data=mean_sdl,geom="pointrange")
 )
 
-print(base + geom_boxplot())
-print(lbase + geom_boxplot())
-print(base + geom_boxplot(varwidth=TRUE))
-print(lbase + geom_boxplot(varwidth=TRUE))
-print(base + geom_violin())
-print(lbase + geom_violin())
-print(lbase+geom_violin(scale="count"))
+(base + geom_boxplot())
+(lbase + geom_boxplot())
+(base + geom_boxplot(varwidth=TRUE))
+(lbase + geom_boxplot(varwidth=TRUE))
+(base + geom_violin())
+(lbase + geom_violin())
+(lbase+geom_violin(scale="count"))
