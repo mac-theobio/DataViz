@@ -101,61 +101,63 @@ Bike example
 
 ----------------------------------------------------------------------
 
-FIG code/bike_plots.Rout-0.png
+Just the means
+
+FIG code/bike_plots.bar.png
 
 ----------------------------------------------------------------------
 
 Standard errors
 
-FIG code/bike_plots.Rout-1.png
+FIG code/bike_plots.dyn.png
 
 ----------------------------------------------------------------------
 
 Standard errors
 
-FIG code/bike_plots.Rout-2.png
+FIG code/bike_plots.stderr.png
 
 ----------------------------------------------------------------------
 
 Standard deviations (2 sd, in fact)
 
-FIG code/bike_plots.Rout-3.png
+FIG code/bike_plots.sd2.png
 
 ----------------------------------------------------------------------
 
 Data shape
 
-FIG code/bike_plots.Rout-4.png
+FIG code/bike_plots.box.png
 
 ----------------------------------------------------------------------
 
 Data shape
 
-FIG code/bike_plots.Rout-8.png
-
-----------------------------------------------------------------------
-
-Data shape
-
-FIG code/bike_plots.Rout-5.png
-
-----------------------------------------------------------------------
-
-Data shape
-
-FIG code/bike_plots.Rout-9.png
+FIG code/bike_plots.boxlog.png
 
 ----------------------------------------------------------------------
 
 Shape and weight
 
-FIG code/bike_plots.Rout-6.png
+FIG code/bike_plots.varbox.png
 
 ----------------------------------------------------------------------
 
 Shape and weight
 
-FIG code/bike_plots.Rout-7.png
+FIG code/bike_plots.varboxlog.png
+
+----------------------------------------------------------------------
+
+Shape and weight
+
+FIG code/bike_plots.vv.png
+
+----------------------------------------------------------------------
+
+Shape and weight
+
+FIG code/bike_plots.vvlog.png
 
 ----------------------------------------------------------------------
 
@@ -163,7 +165,8 @@ Log scales
 
 	In general:
 
-		If your logged data span $<3$ decades, use human-readable numbers (e.g., 10-5000 kilotons per hectare)
+		If your logged data span $<3$ decades, use human-readable numbers (e.g.,
+		10-5000 kilotons per hectare)
 
 		If not, just embrace ``logs'' (log10 particles per ul is from 3--8)
 
@@ -192,19 +195,38 @@ Banking
 
 Sunspots
 
-DOUBLEPDF sunspots.Rout
+FIG code/sunspots.default.png
+
+
+----------------------------------------------------------------------
+
+Sunspots
+
+FIG code/sunspots.bank.png
+
+[Code (with built-in data)](code/sunspots.R)
+
+----------------------------------------------------------------------
+
+Is smoking good for you?
 
 ----------------------------------------------------------------------
 
 Smoking data
 
-FIG code/smoke_ques.Rout-1.png
+FIG code/smoke_ques.box.png
 
 ----------------------------------------------------------------------
 
 Smoking data
 
-FIG code/smoke_ques.Rout-2.png
+FIG code/smoke_ques.boxage.png
+
+----------------------------------------------------------------------
+
+Smoking data
+
+FIG code/smoke_ques.violinage.png
 
 ----------------------------------------------------------------------
 
@@ -222,49 +244,49 @@ Scatter plots
 
 Scatter plot
 
-FIG code/smoke_plots.Rout-0.png
+FIG code/smoke_plots.scatter.png
 
 ----------------------------------------------------------------------
 
 Seeing the density better
 
-FIG code/smoke_plots.Rout-1.png
+FIG code/smoke_plots.tatter.png
 
 ----------------------------------------------------------------------
 
 Seeing the density worse
 
-FIG code/smoke_plots.Rout-2.png
+FIG code/smoke_plots.badarea.png
 
 ----------------------------------------------------------------------
 
 Maybe fixed
 
-FIG code/smoke_plots.Rout-3.png
+FIG code/smoke_plots.goodarea.png
 
 ----------------------------------------------------------------------
 
 A loess trend line
 
-FIG code/smoke_plots.Rout-4.png
+FIG code/smoke_plots.loess.png
 
 ----------------------------------------------------------------------
 
 Two loess trend lines
 
-FIG code/smoke_plots.Rout-5.png
+FIG code/smoke_plots.compare.png
 
 ----------------------------------------------------------------------
 
 Many loess trend lines
 
-FIG code/smoke_plots.Rout-6.png
+FIG code/smoke_plots.comparesex.png
 
 ----------------------------------------------------------------------
 
 Theory of loess
 
-	Local smoother (locally flat, linear or \textbf{quadratic})
+	Local smoother (locally flat, linear or __quadratic__)
 
 	Neighborhood size given by alpha
 
@@ -282,15 +304,21 @@ Robust methods
 
 	R is has a very flexible function called rlm to do robust fitting
 
-		\emph{Not local}
+		_Not local_
 
 		But can be combined with splines
 
 ----------------------------------------------------------------------
 
-Fitting comparison
+rlm fits
 
-DOUBLEFIG code/smoke_plots.Rout-8.png
+FIG code/smoke_plots.rlm.png
+
+----------------------------------------------------------------------
+
+rlm fits
+
+FIG code/smoke_plots.rlmcomp.png
 
 ----------------------------------------------------------------------
 
@@ -298,11 +326,11 @@ Density plots
 
 	Contours
 
-		use \url{_density_2d()} to fit a two-dimensional kernel to the density
+		use `_density_2d()` to fit a two-dimensional kernel to the density
 
 	hexes
 
-		use \url{geom_hex} to plot densities using hexes
+		use `geom_hex` to plot densities using hexes
 
 		this can also be done using rectangles for data with more discrete values
 
@@ -356,7 +384,7 @@ Color principles
 
 		If the map contrasts with a background, zero should match the background
 
-	If there's a natural \emph{middle}, you can use blue to white to
+	If there's a natural _middle_, you can use blue to white to
 	red, or something similar
 
 ----------------------------------------------------------------------
@@ -366,7 +394,7 @@ TSEC Multiple dimensions
 	Three dimensional data is a lot like two-d with densities: contour plots are
 	good
 
-	Pairs plots: \url{pairs}, \url{ggpairs}
+	Pairs plots: `pairs`, `ggpairs`
 
 ----------------------------------------------------------------------
 
@@ -376,11 +404,11 @@ FIG code/iris.Rout-0.png
 
 ----------------------------------------------------------------------
 
-TSEC Multiple factors
+Multiple _factors_
 
 	Use boxplots and violin plots
 
-	Make use of \url{facet_wrap} and \url{facet_grid}
+	Make use of `facet_wrap` and `facet_grid`
 
 	Use different combinations (e.g., try plots with the same info, but
 	different factors on the axes vs.~in the colors or the facets)
