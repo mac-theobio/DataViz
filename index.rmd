@@ -41,7 +41,7 @@ th {background-color: #ccccff;}
    - [advice for creating reproducible examples](topics/mre.html)
    - [R style guide](topics/R_style.html)
    - [miscellaneous link dump](topics/misc_links.html)
-   - [ggplot wish/hack list](topics/ggplot_hacks.md)
+   - [ggplot wish/hack list](topics/ggplot_hacks.html)
    
 ## Faculty/communication
 
