@@ -10,6 +10,6 @@ set.seed(1001); dd <- data.frame(x = rlnorm(100, 0, 1), y = rlnorm(100,0,1))
 png("log_base.png"); par(las=1); plot(y~x, data=dd, log="xy"); dev.off()
 ggplot(dd, aes(x,y)) + geom_point() + scale_y_log10() + scale_x_log10(); ggsave("log_gg.png")
 ```
-(ggplot uses {0.3, 1, 3, 10} while base R uses {0.2, 0.5, 1, 2, 5, 10})
-- simpler way to do a bar plot with width mapped to a variable/auto-scaled (cf vaccination proportion example)
+(`ggplot` uses {0.3, 1, 3, 10} while base R uses {0.2, 0.5, 1, 2, 5, 10})
+- simpler way to do a bar plot with width mapped to a variable/auto-scaled (cf. vaccination proportion example)
 
