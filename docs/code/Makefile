@@ -51,6 +51,7 @@ circulation.Rout: circulation.R data/circulation.csv
 
 ## Orchard sprays; this is a weird data set and I may not use it much more
 ## 2021 Sep 12 (Sun) (halfway desc-ed)
+pngDesc += orchard
 orchard.Rout: orchard.R
 
 ## Canadian provinces 
@@ -78,7 +79,18 @@ hour.csv: bikes.zip
 
 bikes.Rout: hour.csv data/bike_weather.csv bikes.R
 
+pngDesc += bike_plots
 bike_plots.Rout: bike_plots.R bikes.rds
+
+## sunspots (banking)
+pngDesc += sunspots
+sunspots.Rout: sunspots.R
+## sunspots.Rout-0.png: sunspots.R
+
+######################################################################
+
+## Is smoking good for you?
+pngDesc += smoke_plots smoke_ques smoke_levels
 
 smoke.Rout: smoke.R data/fev.csv
 
@@ -93,8 +105,10 @@ smoke_levels.Rout: smoke_levels.R smoke.rds
 
 iris.Rout: iris.R
 
-## pages/interactive_smoke.html: interactive_smoke.rmd
+bananas.Rout: bananas.R
+oldbananas.Rout: oldbananas.R
 
+## pages/interactive_smoke.html: interactive_smoke.rmd
 
 ######################################################################
 

@@ -1,6 +1,6 @@
 library(tidyverse)
 library(directlabels)
-dd <- (read_csv("docs/data/FAOSTAT_data_1-7-2018.csv")
+dd <- (read_csv("data/FAOSTAT_data_1-7-2018.csv")
         %>% select(Year, Value, Country)
         %>% mutate(Country = factor(Country),
                    Country = reorder(Country, Value,
