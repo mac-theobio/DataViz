@@ -84,7 +84,7 @@ lectures/docs/scales.slides.html: lectures/scales.dmd
 lectures/docs/scales.notes.html: lectures/scales.dmd
 	$(lect_r)
 
-lectures/docs/explore.notes.html: lectures/explore.txt
+lectures/docs/explore.slides.html: lectures/explore.txt
 	$(lect_r)
 
 lectures/explore.lmd: lectures/explore.txt
