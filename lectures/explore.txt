@@ -182,14 +182,16 @@ SEC Bivariate data
 
 ----------------------------------------------------------------------
 
-Banking
+Banking to 45°
 
-	Banking is a real thing
+	See [Rauser video](https://www.youtube.com/watch?v=fSgEeI2Xpdc)
 
-		Even though many examples are bogus
+	This can work surprisingly well
+
+	Bigger is not always clearer
 
 	Since the point is to make patterns visually clear, trial-and-error
-	is usually as good as algorithm
+	can be OK here
 
 ----------------------------------------------------------------------
 
