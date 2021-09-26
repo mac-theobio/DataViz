@@ -187,6 +187,8 @@ code:
 hotdirs += code
 
 ## Live is for live-lecture code; it is controlled from here (no Makefile)
+## Sourced via docs (also from here)
+Ignore += live
 Sources += $(wildcard docs/live/*.*)
 live: dir=docs
 live:
@@ -194,7 +196,7 @@ live:
 
 ######################################################################
 
-subdirs += code live
+subdirs += code
 subdirs += $(contentdirs)
 alldirs += $(subdirs)
 Ignore += $(subdirs)
