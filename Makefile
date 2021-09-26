@@ -120,14 +120,6 @@ $(contentdirs):
 
 ######################################################################
 
-subdirs += code
-
-subdirs += $(contentdirs)
-Ignore += $(subdirs)
-alldirs += $(subdirs)
-
-######################################################################
-
 update_all: makestuff $(contentdirs) $(contentdirs:%=%.update) update
 
 ## View site
@@ -195,11 +187,19 @@ code:
 hotdirs += code
 
 ## Live is for live-lecture code; it is controlled from here (no Makefile)
-Ignore += live
 Sources += $(wildcard docs/live/*.*)
 live: dir=docs
 live:
 	$(linkdir)
+
+######################################################################
+
+subdirs += code live
+subdirs += $(contentdirs)
+alldirs += $(subdirs)
+Ignore += $(subdirs)
+
+######################################################################
 
 ### Makestuff
 
