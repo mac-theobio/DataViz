@@ -18,4 +18,4 @@ sun <- (sunspots
 	+ geom_line()
 ) %>% teeGG(desc="default", ext="png")
 
-(base + ylim(c(-200, 550))) %>% teeGG(desc="bank", ext="png")
+(base + ylim(c(-260, 640))) %>% teeGG(desc="bank", ext="png")

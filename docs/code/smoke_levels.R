@@ -28,7 +28,7 @@ afl <- (af
 	)
 )
 
-(afl) %>% teeGG(desc="grumpy", ext="png")
+(afl) ## %>% teeGG(desc="grumpy", ext="png")
 
 (afl <- afl + scale_fill_gradient(low="#F0F0FF", high="#131393"))
 
