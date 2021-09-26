@@ -45,6 +45,7 @@ In addition:
 - use explicit `print()` statements rather than relying on objects to self-print
 - use explicit `return()` statements rather than relying on R's implicit "return value is the last statement in the function" rule
 - omit unnecessary `c()` (e.g. `c(1:30)`). Lean toward `seq()` and `seq_along()`, but OK (?) to use `:`
+- usually put each `ggplot` specification on a separate line
 
 ---
 
