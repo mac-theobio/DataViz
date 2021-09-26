@@ -53,7 +53,7 @@ Orchard data
 
 	Built in to R
 
-	[Code](code/orchard.R)
+	[Code](../code/orchard.R)
 
 ----------------------------------------------------------------------
 
@@ -95,9 +95,9 @@ Bike example
 
 	Code
 
-		[Merge](code/bikes.R)
+		[Merge](../code/bikes.R)
 
-		[Plot](code/bike_plots.R)
+		[Plot](../code/bike_plots.R)
 
 ----------------------------------------------------------------------
 
@@ -206,11 +206,23 @@ Sunspots
 
 FIG code/sunspots.bank.png
 
-[Code (with built-in data)](code/sunspots.R)
+[Code (with built-in data)](../code/sunspots.R)
 
 ----------------------------------------------------------------------
 
 Is smoking good for you?
+
+* [Data on lung capacity of schoolchildren](../data/fev.csv)
+
+* [Import data](../code/smoke.R)
+
+* [Show the confounding](../code/smoke_ques.R)
+
+* [Scatter plots](../code/smoke_plots.R)
+
+* [Density plots](../code/smoke_levels.R)
+
+
 
 ----------------------------------------------------------------------
 
@@ -340,37 +352,37 @@ Density plots
 
 Contours
 
-FIG code/smoke_levels.Rout-0.png
+FIG code/smoke_levels-0.png
 
 ----------------------------------------------------------------------
 
 Contours
 
-FIG code/smoke_levels.Rout-1.png
+FIG code/smoke_levels-1.png
 
 ----------------------------------------------------------------------
 
 Contours
 
-FIG code/smoke_levels.Rout-2.png
+FIG code/smoke_levels-2.png
 
 ----------------------------------------------------------------------
 
 Hexes
 
-FIG code/smoke_levels.Rout-3.png
+FIG code/smoke_levels-3.png
 
 ----------------------------------------------------------------------
 
 Hexes
 
-FIG code/smoke_levels.Rout-4.png
+FIG code/smoke_levels-4.png
 
 ----------------------------------------------------------------------
 
 Hexes
 
-FIG code/smoke_levels.Rout-5.png
+FIG code/smoke_levels-5.png
 
 ----------------------------------------------------------------------
 
@@ -398,11 +410,13 @@ TSEC Multiple dimensions
 
 	Pairs plots: `pairs`, `ggpairs`
 
+	[iris code with built-in data](../code/iris.R)
+
 ----------------------------------------------------------------------
 
 Pairs example
 
-FIG code/iris.Rout-0.png
+FIG code/iris.png
 
 ----------------------------------------------------------------------
 
