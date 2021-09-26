@@ -39,7 +39,7 @@ th {background-color: #ccccff;}
    - [strategies for finding help on R stuff](topics/Finding_help.html)
    - [notes on best practices for running R](topics/Running_R.html)
    - [advice for creating reproducible examples](topics/mre.html)
-   - [R style guide](topics/R_style.html)
+   - [R style guide](topics/R_style.notes.html)
    - [miscellaneous link dump](topics/misc_links.html)
    - [ggplot wish/hack list](topics/ggplot_hacks.html)
    

@@ -7,12 +7,11 @@
 
 ## lecture prep
 
-* (JD) for scales lecture: https://www.formpl.us/blog/nominal-ordinal-interval-ratio-variable-example; check BB notes `private/diary.rmd`
+* mention/show Anscombe's quartet and "Datasaurus" (refs [here](https://github.com/bbolker/bbmisc/blob/master/talks/thesis_stats.rmd#L296-L319))?
 
 ## pipeline/structure issues
 
 - import pipeline for rendering course outline locally (download `outline.docx`, render to HTML; see `mkoutline` in old repo)
-- (JD) fix up `topics`
 - links/pointers to grading rubrics (i.e., meaning of 0-3; are these in the course outline?), details on project and presentation formats/expectations, etc.
 
 ## low priority
@@ -21,4 +20,4 @@
 
 ## Resources to incorporate
 
-Menge, Duncan N. L., Anna C. MacPherson, Thomas A. Bytnerowicz, Andrew W. Quebbeman, Naomi B. Schwartz, Benton N. Taylor, and Amelia A. Wolf. “Logarithmic Scales in Ecological Data Presentation May Cause Misinterpretation.” Nature Ecology & Evolution 2, no. 9 (September 2018): 1393–1402. https://doi.org/10.1038/s41559-018-0610-7.
+Menge, Duncan N. L., Anna C. MacPherson, Thomas A. Bytnerowicz, Andrew W. Quebbeman, Naomi B. Schwartz, Benton N. Taylor, and Amelia A. Wolf. “Logarithmic Scales in Ecological Data Presentation May Cause Misinterpretation.” Nature Ecology & Evolution 2, no. 9 (September 2018): 1393–1402. https://doi.org/10.1038/s41559-018-0610-7. (posted on Teams)

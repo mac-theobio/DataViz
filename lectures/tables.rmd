@@ -126,5 +126,6 @@ print(gg1)
 - [`tabulizer` package](https://cran.r-project.org/web/packages/tabulizer/vignettes/tabulizer.html) (`extract_tables`, `extract_area`)
 - `expand.grid` (or `tidyr::expand_grid`) to create hierarchical columns
 - `zoo::na.locf` (or `tidyr::fill`) to fill in blank spaces
+- [dealing with multi-row headers](https://readxl.tidyverse.org/articles/articles/multiple-header-rows.html)
 
 ## references {.smaller}
