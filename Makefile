@@ -231,3 +231,9 @@ makestuff/Makefile:
 
 -include makestuff/git.mk
 -include makestuff/visual.mk
+
+-include makestuff/projdir.mk
+
+private_repo:
+	git clone git@github.com:mac-theobio/DataViz_private.git private
+
