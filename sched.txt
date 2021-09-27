@@ -24,7 +24,7 @@ topic: exploratory graphics
 reading: 
 notes: LECT_explore; LECT_explore_multiway; LECT_tables
 scripts: 
-recordings: [1](https://mcmasteru365.sharepoint.com/sites/Section_2219-9263/Shared%20Documents/General/Recordings/Friday%20meetings-20210924_112908-Meeting%20Recording.mp4?web=1)
+recordings: [1](https://mcmasteru365.sharepoint.com/sites/Section_2219-9263/Shared%20Documents/General/Recordings/Friday%20meetings-20210924_112908-Meeting%20Recording.mp4?web=1); [2](https://mcmasteru365.sharepoint.com/sites/Section_2219-9263/Shared%20Documents/General/Recordings/Monday%20meeting-20210927_163142-Meeting%20Recording.mp4?web=1)
 
 start: 
 topic: diagnostic graphics
