@@ -90,20 +90,8 @@ margin-bottom: 2ex;
 <h1 id="setup">setup</h1>
 <h2 id="load-packages">load packages</h2>
 <pre><code>## graphics
-library(ggplot2)
-theme_set(theme_bw()+theme(panel.spacing=grid::unit(0,&quot;lines&quot;)))
-library(directlabels)
-## modeling/coef plots
-library(lme4)
-library(broom)
-library(dotwhisker)
-library(ggstance) ## horizontal geoms
-library(stargazer)
-## manipulation
-library(tidyr)
-library(dplyr)
-library(purrr)
-library(readr)</code></pre>
+library(tidyverse)
+theme_set(theme_bw() + theme(panel.spacing = grid::unit(0, &quot;lines&quot;)))</code></pre>
 <h1 id="turning-tables-into-graphs">turning tables into graphs</h1>
 <h2 id="why-graphs-instead-of-tables">why graphs instead of tables?</h2>
 <ul>
@@ -151,21 +139,21 @@ head(dd)
 ## #   MI/MST.ARI &lt;dbl&gt;</code></pre>
 <h2 id="rearrange">rearrange</h2>
 <pre><code>dd2 &lt;- (dd
-    %&gt;% gather(key=model,value=val,-c(dataset,r,type))
-    %&gt;% separate(model,into=c(&quot;model&quot;,&quot;stat&quot;),sep=&quot;\\.&quot;)
-    %&gt;% spread(key=type,value=val) ## est + sd in a single row
+  %&gt;% pivot_longer(names_to = &quot;model&quot;, values_to = &quot;val&quot;,
+                   cols = -c(dataset, r, type))
+  %&gt;% separate(model, into = c(&quot;model&quot;, &quot;stat&quot;), sep = &quot;\\.&quot;)
+  ## est + sd in a single row
+  %&gt;% pivot_wider(names_from = type, values_from = val)
 )
-head(dd2)
+head(dd2, 4)
 
-## # A tibble: 6 × 6
-##   dataset     r model   stat     est     sd
-##   &lt;chr&gt;   &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;  &lt;dbl&gt;  &lt;dbl&gt;
-## 1 sim1     0.05 MGHD    ARI   0.774  0.0925
-## 2 sim1     0.05 MGHD    ERR   0.0608 0.0292
-## 3 sim1     0.05 MI/MGHD ARI   0.594  0.0874
-## 4 sim1     0.05 MI/MGHD ERR   0.121  0.0302
-## 5 sim1     0.05 MI/MST  ARI   0.607  0.098 
-## 6 sim1     0.05 MI/MST  ERR   0.118  0.0341</code></pre>
+## # A tibble: 4 × 6
+##   dataset     r model stat     est     sd
+##   &lt;chr&gt;   &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;  &lt;dbl&gt;  &lt;dbl&gt;
+## 1 sim1     0.05 MGHD  ERR   0.0608 0.0292
+## 2 sim1     0.05 MGHD  ARI   0.774  0.0925
+## 3 sim1     0.05 MST   ERR   0.0688 0.0557
+## 4 sim1     0.05 MST   ARI   0.771  0.0998</code></pre>
 <h2 id="add-auxiliary-information">add auxiliary information</h2>
 <pre><code>simtab &lt;- read.table(header=TRUE,text=&quot;
 dataset distribution covstruc separation
