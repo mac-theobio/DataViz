@@ -32,6 +32,12 @@ data:
 
 ######################################################################
 
+## Figure sizing
+
+size.Rout: size.R
+
+######################################################################
+
 ## Temperature and anchors
 
 cache/temps.csv:
@@ -91,7 +97,7 @@ sunspots.Rout: sunspots.R
 ######################################################################
 
 ## Is smoking good for you?
-pngDesc += smoke_plots smoke_ques smoke_levels
+pngDesc += smoke_plots smoke_ques
 
 smoke.Rout: smoke.R data/fev.csv
 
@@ -131,7 +137,7 @@ makestuff/Makefile:
 -include makestuff/os.mk
 
 -include makestuff/pipeR.mk
--include makestuff/pdfsplit.mk
+## -include makestuff/pdfsplit.mk
 -include makestuff/pdfpng.mk
 
 -include makestuff/git.mk

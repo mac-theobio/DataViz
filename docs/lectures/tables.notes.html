@@ -5,11 +5,13 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title>tables vs graphs</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
   </style>
   <style type="text/css">
 body {
@@ -81,26 +83,15 @@ margin-bottom: 2ex;
 	</div>
 </div>
 </header>
+
 <header id="title-block-header">
 <h1 class="title">tables vs graphs</h1>
 </header>
 <h1 id="setup">setup</h1>
 <h2 id="load-packages">load packages</h2>
 <pre><code>## graphics
-library(ggplot2)
-theme_set(theme_bw()+theme(panel.spacing=grid::unit(0,&quot;lines&quot;)))
-library(directlabels)
-## modeling/coef plots
-library(lme4)
-library(broom)
-library(dotwhisker)
-library(ggstance) ## horizontal geoms
-library(stargazer)
-## manipulation
-library(tidyr)
-library(dplyr)
-library(purrr)
-library(readr)</code></pre>
+library(tidyverse)
+theme_set(theme_bw() + theme(panel.spacing = grid::unit(0, &quot;lines&quot;)))</code></pre>
 <h1 id="turning-tables-into-graphs">turning tables into graphs</h1>
 <h2 id="why-graphs-instead-of-tables">why graphs instead of tables?</h2>
 <ul>
@@ -148,21 +139,21 @@ head(dd)
 ## #   MI/MST.ARI &lt;dbl&gt;</code></pre>
 <h2 id="rearrange">rearrange</h2>
 <pre><code>dd2 &lt;- (dd
-    %&gt;% gather(key=model,value=val,-c(dataset,r,type))
-    %&gt;% separate(model,into=c(&quot;model&quot;,&quot;stat&quot;),sep=&quot;\\.&quot;)
-    %&gt;% spread(key=type,value=val) ## est + sd in a single row
+  %&gt;% pivot_longer(names_to = &quot;model&quot;, values_to = &quot;val&quot;,
+                   cols = -c(dataset, r, type))
+  %&gt;% separate(model, into = c(&quot;model&quot;, &quot;stat&quot;), sep = &quot;\\.&quot;)
+  ## est + sd in a single row
+  %&gt;% pivot_wider(names_from = type, values_from = val)
 )
-head(dd2)
+head(dd2, 4)
 
-## # A tibble: 6 × 6
-##   dataset     r model   stat     est     sd
-##   &lt;chr&gt;   &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;  &lt;dbl&gt;  &lt;dbl&gt;
-## 1 sim1     0.05 MGHD    ARI   0.774  0.0925
-## 2 sim1     0.05 MGHD    ERR   0.0608 0.0292
-## 3 sim1     0.05 MI/MGHD ARI   0.594  0.0874
-## 4 sim1     0.05 MI/MGHD ERR   0.121  0.0302
-## 5 sim1     0.05 MI/MST  ARI   0.607  0.098 
-## 6 sim1     0.05 MI/MST  ERR   0.118  0.0341</code></pre>
+## # A tibble: 4 × 6
+##   dataset     r model stat     est     sd
+##   &lt;chr&gt;   &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;  &lt;dbl&gt;  &lt;dbl&gt;
+## 1 sim1     0.05 MGHD  ERR   0.0608 0.0292
+## 2 sim1     0.05 MGHD  ARI   0.774  0.0925
+## 3 sim1     0.05 MST   ERR   0.0688 0.0557
+## 4 sim1     0.05 MST   ARI   0.771  0.0998</code></pre>
 <h2 id="add-auxiliary-information">add auxiliary information</h2>
 <pre><code>simtab &lt;- read.table(header=TRUE,text=&quot;
 dataset distribution covstruc separation
@@ -196,6 +187,14 @@ dd3 &lt;- dd2 %&gt;% full_join(simtab,by=&quot;dataset&quot;)</code></pre>
 <li>could collapse sim labels</li>
 <li>change x-axis to continuous?</li>
 <li>invert ARI or ERR so rankings are the same?</li>
+</ul>
+<h2 id="table-to-graph-tricks">table-to-graph tricks</h2>
+<ul>
+<li><code>tidyr::pivot_longer</code> (wide to long format)</li>
+<li><a href="https://cran.r-project.org/web/packages/tabulizer/vignettes/tabulizer.html"><code>tabulizer</code> package</a> (<code>extract_tables</code>, <code>extract_area</code>)</li>
+<li><code>expand.grid</code> (or <code>tidyr::expand_grid</code>) to create hierarchical columns</li>
+<li><code>zoo::na.locf</code> (or <code>tidyr::fill</code>) to fill in blank spaces</li>
+<li><a href="https://readxl.tidyverse.org/articles/articles/multiple-header-rows.html">dealing with multi-row headers</a></li>
 </ul>
 <h2 id="references">references</h2>
 <p>Gelman, Andrew. 2011. “Why Tables Are Really Much Better Than Graphs.” <em>Journal of Computational and Graphical Statistics</em> 20 (1): 3–7. <a href="https://doi.org/10.1198/jcgs.2011.09166" class="uri">https://doi.org/10.1198/jcgs.2011.09166</a>.</p>

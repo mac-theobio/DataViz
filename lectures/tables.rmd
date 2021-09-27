@@ -11,20 +11,8 @@ bibliography: ../vis.bib
 
 ```{r pkgs,message=FALSE}
 ## graphics
-library(ggplot2)
-theme_set(theme_bw()+theme(panel.spacing=grid::unit(0,"lines")))
-library(directlabels)
-## modeling/coef plots
-library(lme4)
-library(broom)
-library(dotwhisker)
-library(ggstance) ## horizontal geoms
-library(stargazer)
-## manipulation
-library(tidyr)
-library(dplyr)
-library(purrr)
-library(readr)
+library(tidyverse)
+theme_set(theme_bw() + theme(panel.spacing = grid::unit(0, "lines")))
 ```
 
 # turning tables into graphs
@@ -68,11 +56,13 @@ head(dd)
 
 ```{r rearrange}
 dd2 <- (dd
-    %>% gather(key=model,value=val,-c(dataset,r,type))
-    %>% separate(model,into=c("model","stat"),sep="\\.")
-    %>% spread(key=type,value=val) ## est + sd in a single row
+  %>% pivot_longer(names_to = "model", values_to = "val",
+                   cols = -c(dataset, r, type))
+  %>% separate(model, into = c("model", "stat"), sep = "\\.")
+  ## est + sd in a single row
+  %>% pivot_wider(names_from = type, values_from = val)
 )
-head(dd2)
+head(dd2, 4)
 ```
 
 ## add auxiliary information
@@ -120,5 +110,13 @@ print(gg1)
 - could collapse sim labels
 - change x-axis to continuous?
 - invert ARI or ERR so rankings are the same?
+
+## table-to-graph tricks
+
+- `tidyr::pivot_longer` (wide to long format)
+- [`tabulizer` package](https://cran.r-project.org/web/packages/tabulizer/vignettes/tabulizer.html) (`extract_tables`, `extract_area`)
+- `expand.grid` (or `tidyr::expand_grid`) to create hierarchical columns
+- `zoo::na.locf` (or `tidyr::fill`) to fill in blank spaces
+- [dealing with multi-row headers](https://readxl.tidyverse.org/articles/articles/multiple-header-rows.html)
 
 ## references {.smaller}

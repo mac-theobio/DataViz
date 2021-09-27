@@ -6,10 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title>STATS744/theobio style guide</title>
   <style>
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
   </style>
   <style type="text/css">
 body {
@@ -69,9 +71,6 @@ text-align: center;
 margin-bottom: 2ex;
 }
 </style>
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
 </head>
 <body>
 <header class="site-header">
@@ -84,6 +83,7 @@ margin-bottom: 2ex;
 	</div>
 </div>
 </header>
+
 <header id="title-block-header">
 <h1 class="title">STATS744/theobio style guide</h1>
 <p class="date"><code>r format(Sys.time(), &#39;%d %B %Y&#39;)</code></p>
@@ -122,6 +122,8 @@ margin-bottom: 2ex;
 <ul>
 <li>instead, get in the habit of restarting R (<code>Session &gt; Restart R</code> or via hotkey in RStudio)</li>
 </ul></li>
+<li>similarly, don’t put <code>setwd(...)</code> at the head of your file (instead, assume that the user has set their working directory correctly; this can be done (1) by hand with <code>setwd()</code>; (2) in RStudio, via the <code>Session</code> menu; (3) automatically in RStudio, by using an R project (home directory is stored in the <code>.Rproj</code> file); (4) using the <code>here</code> package<br />
+</li>
 <li>always use <code>TRUE</code> and <code>FALSE</code> rather than <code>T</code>/<code>F</code> (is this in the other style guides already???)</li>
 <li>don’t load your data straight from a URL (best to download and cache the file, in case your network connection is bad or the file disappears/changes)</li>
 <li><strong>don’t</strong> use “extreme tidyverse”; e.g. use <code>mean(dd$x)</code> instead of <code>dd %&gt;% pull(x) %&gt;% mean()</code></li>
@@ -136,6 +138,7 @@ margin-bottom: 2ex;
 <li>use explicit <code>print()</code> statements rather than relying on objects to self-print</li>
 <li>use explicit <code>return()</code> statements rather than relying on R’s implicit “return value is the last statement in the function” rule</li>
 <li>omit unnecessary <code>c()</code> (e.g. <code>c(1:30)</code>). Lean toward <code>seq()</code> and <code>seq_along()</code>, but OK (?) to use <code>:</code></li>
+<li>usually put each <code>ggplot</code> specification on a separate line</li>
 </ul>
 <hr />
 <ul>

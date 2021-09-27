@@ -120,14 +120,6 @@ $(contentdirs):
 
 ######################################################################
 
-subdirs += code
-
-subdirs += $(contentdirs)
-Ignore += $(subdirs)
-alldirs += $(subdirs)
-
-######################################################################
-
 update_all: makestuff $(contentdirs) $(contentdirs:%=%.update) update
 
 ## View site
@@ -195,11 +187,21 @@ code:
 hotdirs += code
 
 ## Live is for live-lecture code; it is controlled from here (no Makefile)
+## Sourced via docs (also from here)
 Ignore += live
 Sources += $(wildcard docs/live/*.*)
 live: dir=docs
 live:
 	$(linkdir)
+
+######################################################################
+
+subdirs += code
+subdirs += $(contentdirs)
+alldirs += $(subdirs)
+Ignore += $(subdirs)
+
+######################################################################
 
 ### Makestuff
 
@@ -229,4 +231,9 @@ makestuff/Makefile:
 
 -include makestuff/git.mk
 -include makestuff/visual.mk
+
+-include makestuff/projdir.mk
+
+private_repo:
+	git clone git@github.com:mac-theobio/DataViz_private.git private
 

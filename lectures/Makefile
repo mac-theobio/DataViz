@@ -16,7 +16,8 @@ Makefile: pix
 
 pix:
 	cd .. && $(MAKE) old_repo/1.stamp
-	$(LN) ../old_repo/pix
+	rsync -auvx ../old_repo/pix pix/
+	## $(LN) ../old_repo/pix
 
 pardirs += code
 hotdirs += code
