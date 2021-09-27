@@ -168,7 +168,12 @@ margin-bottom: 2ex;
 <ul>
 <li>set zero expansion at lower/left edge to 0 (and truncate/squish values going below 0):</li>
 </ul>
-<p><code>{r, eval=FALSE} scale_y_continuous(     expand=expansion(mult=c(0,0.05)), ## 0 proportional expansion at bottom, 5% (default) at top     limits=c(0,NA),                   ## set lower limit to zero, leave upper limit data-defined     oob = scales::squish) +           ## squash out-of-bounds values to lower/upper axis                                       ## (clipping would be better but is hard)   scale_x_continuous(expand=expansion(mult=c(0,0.05)))  ## same as first line of y scale, but for left/right</code></p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="kw">scale_y_continuous</span>(</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a>    <span class="dt">expand=</span><span class="kw">expansion</span>(<span class="dt">mult=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="fl">0.05</span>)), <span class="co">## 0 proportional expansion at bottom, 5% (default) at top</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a>    <span class="dt">limits=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="ot">NA</span>),                   <span class="co">## set lower limit to zero, leave upper limit data-defined</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true"></a>    <span class="dt">oob =</span> scales<span class="op">::</span>squish) <span class="op">+</span><span class="st">           </span><span class="co">## squash out-of-bounds values to lower/upper axis</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true"></a><span class="st">                                      </span><span class="co">## (clipping would be better but is hard)</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true"></a><span class="st">  </span><span class="kw">scale_x_continuous</span>(<span class="dt">expand=</span><span class="kw">expansion</span>(<span class="dt">mult=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="fl">0.05</span>)))  <span class="co">## same as first line of y scale, but for left/right</span></span></code></pre></div>
 <div id="footer">
 	<div style="text-align:center">
 		<a href="../index.html">Course home page</a>

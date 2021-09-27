@@ -190,6 +190,7 @@ dd3 &lt;- dd2 %&gt;% full_join(simtab,by=&quot;dataset&quot;)</code></pre>
 </ul>
 <h2 id="table-to-graph-tricks">table-to-graph tricks</h2>
 <ul>
+<li><code>tidyr::pivot_longer</code> (wide to long format)</li>
 <li><a href="https://cran.r-project.org/web/packages/tabulizer/vignettes/tabulizer.html"><code>tabulizer</code> package</a> (<code>extract_tables</code>, <code>extract_area</code>)</li>
 <li><code>expand.grid</code> (or <code>tidyr::expand_grid</code>) to create hierarchical columns</li>
 <li><code>zoo::na.locf</code> (or <code>tidyr::fill</code>) to fill in blank spaces</li>
