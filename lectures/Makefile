@@ -12,12 +12,14 @@ vim_session:
 
 ## specific to lectures
 
-Makefile: pix
+Sources += $(wildcard pix/*.*)
 
 pix:
-	cd .. && $(MAKE) old_repo/1.stamp
-	rsync -auvx ../old_repo/pix pix/
-	## $(LN) ../old_repo/pix
+	$(mkdir)
+
+pix/%:
+	$(MAKE) pix
+	$(CP) nopix/$* $@
 
 pardirs += code
 hotdirs += code
