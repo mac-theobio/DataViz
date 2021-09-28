@@ -137,16 +137,6 @@ pullup: pull dateup
 
 ######################################################################
 
-## Link to the old repo; done until we sort out "pix" questions; don't know if it should be permanent
-
-Ignore += old_repo
-old_repo/1.stamp:
-	git clone https://github.com/mac-theobio/DataViz19.git $(dir $@)
-	touch $@
-	chmod -R a-w $(dir $@)
-
-######################################################################
-
 ## Data index
 ## data/ lives in docs/ so that it's part of the web ecosystem
 
@@ -163,8 +153,9 @@ Ignore += data_index.md
 
 ## Edit data.md page; it's also supposed to edit itself
 ## To mark MISSING files and append UNTRACKED ones
-data.md: $(wildcard data/*.*sv data/*.rd* data/*.RData)
+data.md: data $(wildcard data/*.*sv data/*.rd* data/*.RData)
 	$(touch)
+
 ## Don't edit (might be read-only to remind you)
 data_index.md: data.md dataindex.pl
 	- $(MAKE) data data.filemerge
@@ -206,10 +197,6 @@ Ignore += $(subdirs)
 ### Makestuff
 
 Makefile: makestuff/05.stamp
-makestuff/%.stamp:
-	- $(RM) makestuff/*.stamp
-	cd makestuff && $(MAKE) pull
-	touch $@
 
 msrepo = https://github.com/dushoff
 ms = makestuff
@@ -217,9 +204,10 @@ ms = makestuff
 -include makestuff/perl.def
 
 Ignore += makestuff
-Makefile: makestuff/Makefile
-makestuff/Makefile:
-	git clone $(msrepo)/makestuff
+makestuff/%.stamp:
+	- $(RM) makestuff/*.stamp
+	(cd makestuff && $(MAKE) pull) || git clone $(msrepo)/makestuff
+	touch $@
 
 -include makestuff/os.mk
 

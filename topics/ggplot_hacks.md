@@ -24,7 +24,7 @@ Solutions exist, but they could be automated/made more elegant.
 
 - set zero expansion at lower/left edge to 0 (and truncate/squish values going below 0):
 
-```{r, eval=FALSE}
+```r
 scale_y_continuous(
     expand=expansion(mult=c(0,0.05)), ## 0 proportional expansion at bottom, 5% (default) at top
     limits=c(0,NA),                   ## set lower limit to zero, leave upper limit data-defined

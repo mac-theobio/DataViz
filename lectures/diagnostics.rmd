@@ -425,7 +425,7 @@ print(gsim)
 
 ## complex models [@wickham_graphical_2010; @gelman_exploratory_2004; @buja_statistical_2009]
 
-```{r}
+```{r simdat}
 simdat <- (simulate(m2,8)
     %>% data.frame(speed=cars$speed)
     %>% gather(sample,dist,-speed))
@@ -439,7 +439,7 @@ ddsimplot <- ggplot(ddsim,aes(speed,dist))+geom_point()+
 
 ##
 
-```{r echo=FALSE}
+```{r ddsimplot, echo=FALSE}
 print(ddsimplot)
 ```
 
