@@ -196,10 +196,6 @@ Ignore += $(subdirs)
 ### Makestuff
 
 Makefile: makestuff/05.stamp
-makestuff/%.stamp:
-	- $(RM) makestuff/*.stamp
-	cd makestuff && $(MAKE) pull
-	touch $@
 
 msrepo = https://github.com/dushoff
 ms = makestuff
@@ -207,9 +203,10 @@ ms = makestuff
 -include makestuff/perl.def
 
 Ignore += makestuff
-Makefile: makestuff/Makefile
-makestuff/Makefile:
-	git clone $(msrepo)/makestuff
+makestuff/%.stamp:
+	- $(RM) makestuff/*.stamp
+	(cd makestuff && $(MAKE) pull) || git clone $(msrepo)/makestuff
+	touch $@
 
 -include makestuff/os.mk
 
