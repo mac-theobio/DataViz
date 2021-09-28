@@ -60,7 +60,7 @@ docs/%.html: %.md
 ## Make products from .rmd
 
 hpan = c("-B", "$(site_header)", "-A", "$(site_footer)")
-noteargs = output_format=rmarkdown::html_document(pandoc_args=$(hpan), css="$(site_css)")
+## noteargs = output_format=rmarkdown::html_document(pandoc_args=$(hpan), css="$(site_css)")
 io = input="$<", output_file="$(notdir $@)"
 mvrule = $(MVF) $(notdir $@) $@
 mdrule = pandoc $< -o $@ --mathjax -s -B $(site_header) -A $(site_footer) --css $(site_css) $(site_args)
