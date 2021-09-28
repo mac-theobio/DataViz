@@ -29,7 +29,7 @@ recordings: [1](https://mcmasteru365.sharepoint.com/sites/Section_2219-9263/Shar
 start: 
 topic: diagnostic graphics
 reading: @peltonen_visualizations_2009;[Hurricane maps](https://eeecon.uibk.ac.at/~zeileis//news/dorian_rainbow/)
-notes: # [pdf notes](diagnostics.pdf); [multiway exploration](explore_multiway.html); [tables](tables.html); [mental illness ex.](kaiser_mentalillness.R)
+notes: LECT_diagnostics # [mental illness ex.](kaiser_mentalillness.R)
 scripts: 
 recordings:
 
