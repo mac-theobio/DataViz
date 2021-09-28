@@ -137,16 +137,6 @@ pullup: pull dateup
 
 ######################################################################
 
-## Link to the old repo; done until we sort out "pix" questions; don't know if it should be permanent
-
-Ignore += old_repo
-old_repo/1.stamp:
-	git clone https://github.com/mac-theobio/DataViz19.git $(dir $@)
-	touch $@
-	chmod -R a-w $(dir $@)
-
-######################################################################
-
 ## Data index
 ## data/ lives in docs/ so that it's part of the web ecosystem
 
