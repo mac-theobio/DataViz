@@ -81,7 +81,7 @@ cache/Minard.png:
 lect_r = cd lectures && $(MAKE) docs/$(notdir $@)
 lectures/docs/scales.slides.html: lectures/scales.dmd
 	$(lect_r)
-lectures/docs/scales.notes.html: lectures/scales.dmd
+lectures/docs/diagnostics.notes.html: lectures/diagnostics.rmd
 	$(lect_r)
 
 lectures/docs/explore.slides.html: lectures/explore.txt
