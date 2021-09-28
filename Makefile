@@ -153,8 +153,9 @@ Ignore += data_index.md
 
 ## Edit data.md page; it's also supposed to edit itself
 ## To mark MISSING files and append UNTRACKED ones
-data.md: $(wildcard data/*.*sv data/*.rd* data/*.RData)
+data.md: data $(wildcard data/*.*sv data/*.rd* data/*.RData)
 	$(touch)
+
 ## Don't edit (might be read-only to remind you)
 data_index.md: data.md dataindex.pl
 	- $(MAKE) data data.filemerge
