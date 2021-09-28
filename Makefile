@@ -17,6 +17,8 @@ Sources += $(wildcard html/*.*)
 
 ######################################################################
 
+Ignore += old_repo
+
 ## Root content
 
 ## docs/index.html: index.rmd
