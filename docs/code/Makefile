@@ -119,6 +119,29 @@ oldbananas.Rout: oldbananas.R
 
 ######################################################################
 
+## Mental illness
+kaiser.Rout: kaiser.R data/kaiser.csv
+
+## F1 racing
+## Data from https://www.kaggle.com/miguelluna93/formula-1-1950-2020
+## These data are big and not on the repo
+
+Ignore += f1data
+f1data:
+	ln -s ~/Dropbox/$@ .
+
+vlaps.R: f1data
+vlaps.Rout: vlaps.R $(wildcard f1data/*.csv)
+
+## vlaps.Rout.csv: vlaps.R
+
+data/vlaps.rds: vlaps.rds
+	$(copy)
+
+## You should be able to run starting from here
+vlap_plots.Rout: lap_plots.R data/vlaps.rds
+	$(pipeR)
+
 ## Cribbing del 2021 Sep 22 (Wed)
 
 ######################################################################
