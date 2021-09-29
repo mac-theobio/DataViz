@@ -28,4 +28,3 @@ print(time1 <- ggplot(lap)
 
 ## %+% here is some new data keep everything else the same
 print(time1 %+% (lap %>% filter(time<300)))
-
