@@ -20,6 +20,10 @@ Solutions exist, but they could be automated/made more elegant.
 
 - bubbles (https://stackoverflow.com/questions/52612867/create-a-concentric-circle-legend-for-a-ggplot-bubble-chart; can this be automated?)
 
+## possibly solved
+
+- the [ggh4x package](https://teunbrand.github.io/ggh4x) appears to have a solution to the hierarchical-facets issue we discussed in the "tables vs graphs" topic
+
 ## solved
 
 - set zero expansion at lower/left edge to 0 (and truncate/squish values going below 0):
@@ -32,3 +36,4 @@ scale_y_continuous(
                                       ## (clipping would be better but is hard)
   scale_x_continuous(expand=expansion(mult=c(0,0.05)))  ## same as first line of y scale, but for left/right
 ```
+
