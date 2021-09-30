@@ -36,7 +36,7 @@ recordings:
 start: 
 topic: inferential graphics
 reading: @wickham_graphical_2010; @gelman_lets_2002; @gelman_why_2011
-notes: #  [Tuesday lecture (pdf notes)](infer.lect.handouts.pdf); [Friday](infer_bmb.lect.html); [table PDF](tab.pdf); [tab to fit code](tab_to_fig.R); [overlapping code](overlapping.R)
+notes: #  [Tuesday lecture (pdf notes)](infer.lect.handouts.pdf); [Friday](infer_bmb.lect.html);[overlapping code](overlapping.R)
 scripts: 
 recordings:
 

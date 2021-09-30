@@ -40,10 +40,10 @@ data/index.html ## Leave this here; it should be suppressed downstream
 
 
 
+
 ### Untracked files ###
 
-* data/olive_regions.csv
 * data/kaiser.csv
+* data/olive_regions.csv
 * data/vlaps.rds
 * data/wei_tab5.5.txt
-* data/formula-1-1950-2020.ipynb
