@@ -39,9 +39,11 @@ data/index.html ## Leave this here; it should be suppressed downstream
 
 
 
+
 ### Untracked files ###
 
-* data/kaiser.csv
-* data/wei_tab5.5.txt
 * data/olive_regions.csv
+* data/kaiser.csv
 * data/vlaps.rds
+* data/wei_tab5.5.txt
+* data/formula-1-1950-2020.ipynb
