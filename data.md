@@ -23,25 +23,13 @@ data/index.html ## Leave this here; it should be suppressed downstream
 
 * [Vaccine data from NY Times graphic](data/vaccine_data_online.csv)
 
+* data/vlaps.rds ## F1 racing
+
 ## Exploratory graphics
 
 * [Describe the bike weather codes](data/bike_weather.csv)
 * [Forced exhalation volume of schoolchildren](data/fev.csv)
 
-
-
-
-
-
-
-
-
-
-
-
-### Untracked files ###
-
-* data/kaiser.csv
-* data/wei_tab5.5.txt
-* data/vlaps.rds
-* data/olive_regions.csv
+* data/kaiser.csv ## Mental health example
+* data/olive_regions.csv ## Olive oil
+* data/wei_tab5.5.txt ## something

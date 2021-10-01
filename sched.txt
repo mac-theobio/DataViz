@@ -23,20 +23,20 @@ start: 24 Sep
 topic: exploratory graphics
 reading: 
 notes: LECT_explore; LECT_explore_multiway; LECT_tables
-scripts: 
+scripts: [Lollipop plot example](code/kaiser.R) (a fun alternative to bar plots)
 recordings: [1](https://mcmasteru365.sharepoint.com/sites/Section_2219-9263/Shared%20Documents/General/Recordings/Friday%20meetings-20210924_112908-Meeting%20Recording.mp4?web=1); [2](https://mcmasteru365.sharepoint.com/sites/Section_2219-9263/Shared%20Documents/General/Recordings/Monday%20meeting-20210927_163142-Meeting%20Recording.mp4?web=1); [3](https://mcmasteru365.sharepoint.com/sites/Section_2219-9263/Shared%20Documents/General/Recordings/Wednesday%20class%20period-20210929_133123-Meeting%20Recording.mp4?web=1)
 
-start: 
+start: 1 Oct
 topic: diagnostic graphics
-reading: @peltonen_visualizations_2009;[Hurricane maps](https://eeecon.uibk.ac.at/~zeileis//news/dorian_rainbow/)
-notes: LECT_diagnostics # [mental illness ex.](kaiser_mentalillness.R)
+reading: @peltonen_visualizations_2009
+notes: LECT_diagnostics
 scripts: 
 recordings:
 
-start: 
+start: 4 Oct
 topic: inferential graphics
 reading: @wickham_graphical_2010; @gelman_lets_2002; @gelman_why_2011
-notes: #  [Tuesday lecture (pdf notes)](infer.lect.handouts.pdf); [Friday](infer_bmb.lect.html); [table PDF](tab.pdf); [tab to fit code](tab_to_fig.R); [overlapping code](overlapping.R)
+notes: #  [Tuesday lecture (pdf notes)](infer.lect.handouts.pdf); [Friday](infer_bmb.lect.html)
 scripts: 
 recordings:
 

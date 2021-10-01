@@ -189,6 +189,8 @@ live:
 
 ######################################################################
 
+Ignore += old_repo
+
 subdirs += code
 subdirs += $(contentdirs)
 alldirs += $(subdirs)
