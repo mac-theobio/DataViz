@@ -38,8 +38,10 @@ data/index.html ## Leave this here; it should be suppressed downstream
 
 
 
+
 ### Untracked files ###
 
-* data/glme_last.pdf
-* data/olive_regions.csv
+* data/kaiser.csv
 * data/wei_tab5.5.txt
+* data/vlaps.rds
+* data/olive_regions.csv
