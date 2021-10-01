@@ -50,9 +50,50 @@ library(glmmTMB)
 library(coda) ## Bayesian methods (trace plots etc.)
 library(lattice) ## built-in
 library(cowplot)
+library(datasauRus)
 library(nullabor) ## visual inference
 ```
 
+## Anscombe's quartet
+
+```{r anscombe_calc, echo=FALSE, message=FALSE}
+library("reshape2")
+ ff <- function(x,v) 
+     setNames(transform(
+        melt(as.matrix(x)),
+             v1=substr(Var2,1,1),
+             v2=substr(Var2,2,2))[,c(3,5)],
+          c(v,"s"))
+ f1 <- ff(anscombe[,1:4],"x")
+ f2 <- ff(anscombe[,5:8],"y")
+ f12 <- cbind(f1,f2)[,c("s","x","y")]
+## or:
+## library("data.table"); dat <- as.data.table(anscombe); melt(dat, measure.vars = patterns(c("x", "y")), value.name=c('x', 'y'))
+gg0 <- ggplot(f12,aes(x,y)) + facet_wrap(~s)+labs(x="",y="")  + theme_bw() + theme(panel.spacing=grid::unit(0,"lines"))
+```
+
+```{r anscombe1, echo=FALSE}
+print(gg1 <- gg0 + geom_smooth(method="lm", fullrange=TRUE, formula= y~x, alpha=0.1) + scale_y_continuous(limits=c(3,18),
+                                                                                                          breaks=NULL))
+```
+
+## Anscombe's quartet (2)
+
+```{r anscombe2, echo=FALSE}
+print(gg1 + geom_point())
+```
+
+## "Datasaurus" 
+
+@matejka_datasaurus_2017
+
+```{r ds, echo=FALSE, fig.width=7, fig.height=7}
+ggplot(datasaurus_dozen, aes(x = x, y = y, colour = dataset)) +
+  geom_point() +
+  theme_void() +
+  theme(legend.position = "none") +
+  facet_wrap( ~ dataset, ncol = 3)
+```
 
 ## Diagnostics: goals and ideas
 
@@ -69,7 +110,7 @@ library(nullabor) ## visual inference
 - **not** "are my data (linear|normal|heteroscedastic)?";  
 rather, *"how much do the violations change my conclusions?"*
 
-## diagnostics *after* fitting model {.build}
+## always do diagnostics *after* fitting model {.build}
 
 - Interested in *conditional*, not *marginal* values
 - What does this mean?
@@ -101,9 +142,9 @@ ggdraw(gg1C)
 ## quantile plots
 ```{r q2}
 m0 <- lm(y~x,dd)
-a0 <- (augment(m0)
+a0 <- (augment(m0) ## broom: 'tidy' predictions/resids/etc
   %>% select(x,y,.resid)
-  %>% gather(type,value)
+  %>% pivot_longer(everything(), names_to="type",values_to="value")
   %>% mutate(type=factor(type,levels=c("x","y",".resid")))
 )
 ```
@@ -122,17 +163,23 @@ a0 <- (augment(m0)
 
 look for *mis-specification* (in order!):
 
-- mean model (bias)
-- variance model (heteroscedasticity)
+- mean model (bias) >
+- variance model (heteroscedasticity) >
 - distributional model (e.g. non-normality)
 
 influential points/groups (leverage/outliers/etc.)
 
-upstream problems affect downstream diagnostics
+**upstream** problems affect **downstream** diagnostics
 
 ## bias
 
-<p style="font-size:16px">
+- typically due to **underfitting**: missing patterns
+- e.g. nonlinearity
+- examine *residuals* rather than *predicted values*
+
+## bias: residuals vs fitted plot
+
+<p style="font-size:14px">
 ```{r fitres1,cache=TRUE,message=FALSE}
 m1 <- lm(price~carat,diamonds)
 a1 <- augment(m1,data=diamonds) ## include original data
@@ -141,26 +188,26 @@ ggplot(a1,aes(.fitted,.resid)) +
 ```
 </p>
 
-## bias 2: faceting/colouring {.smaller}
+## bias 2: add faceting/colouring {.smaller}
 
 ```{r fitres2,cache=TRUE,warning=FALSE,message=FALSE}
 ggplot(a1,aes(.fitted,.resid,colour=cut)) +
     facet_wrap(~clarity) +
-    geom_point(alpha=0.4)+geom_smooth()
+    geom_point(alpha=0.4)+geom_smooth(se=FALSE)
 ```
 
 useful to use dynamic graphics
 `ggmap::gglocator` (may need `devtools::install_github("dkahle/ggmap")`)
 
-## solutions to bias {.build}
+## bias: solutions {.build}
 
 - fix the model
 - add covariates and interactions
 - transform predictors and/or responses (`acepack::avas`, @tibshirani_estimating_1987)
-- nonlinear terms
+- model expansion
      - polynomials
   	 - splines (regular or penalized)
-	 - 'real' nonlinearity
+	 - nonlinear models
 	 
 ## heteroscedasticity
 
@@ -168,12 +215,12 @@ useful to use dynamic graphics
     - loss of efficiency (linear fit is still MVUE)
 	- inferential problems (@QuinnKeough2002 p. 193)
 - nonlinear models
-    - bias
+    - *causes* bias
 
 ## heteroscedasticity diagnostics
 
-- scale-location plot
-- use $\sqrt{|r_i|}$:
+- **scale-location** plot
+- typically use $\sqrt{|r_i|}$:
     - absolute value shows trend
 	- square root decreases skewness
 - use standardized residuals  
@@ -195,6 +242,22 @@ e.g. generalized least squares, GLMs
 - robust variance-covariance estimation  
 (e.g. `sandwich` package: @zeileis_object_2006)
 
+## outliers
+
+- plots of *leverage* or "hat value" (potential influence) and *Cook's distance* (influence)
+- *influence plots*
+
+## influence plots
+
+```{r influence}
+ii <- car::influencePlot(m2)
+```
+
+## outliers: solutions
+
+- exclusion (!!)
+- **robust** methods
+
 ## distributional assumptions
 
 - least important
@@ -209,10 +272,12 @@ tails <- data.frame(x=rt(200,df=5))
 bimodal <- data.frame(x=rnorm(200,mean=rep(c(-2,2),each=100)))
 outliers <- data.frame(x=c(rnorm(200),7,-7))
 dd <- dplyr::bind_rows(lme4:::namedList(skew,tails,bimodal,outliers),.id="type")
-ggplot(dd,aes(x))+facet_wrap(~type)+geom_histogram()+
-    scale_x_continuous(breaks=NULL)+
-    scale_y_continuous(breaks=NULL)+
-    theme(panel.spacing=grid::unit(0,"lines"))
+ggplot(dd,aes(x))+facet_wrap(~type)+
+  geom_histogram()+
+  scale_x_continuous(breaks=NULL)+
+  scale_y_continuous(breaks=NULL)+
+  labs(x="") +
+  theme(panel.spacing=grid::unit(0,"lines"))
 ```
 
 ## quantile plots {.smaller}
@@ -293,16 +358,16 @@ gg_bin1+geom_point(data=a3_sum,colour="blue")
 
 ##
 
-```{r binary2}
+```{r binary2, message=FALSE}
 ggplot(a3,aes(.fitted,.resid,colour=livch,shape=urban,linetype=urban))+
             geom_point()+ geom_smooth(se=FALSE)+
     scale_colour_brewer(palette="Dark2")
 ```
 
 
-## keep trying ...
+## keep trying ... {.smaller}
 
-```{r binary3}
+```{r binary3, message=FALSE}
 ggplot(a3,aes(age,.resid,colour=urban))+
     geom_point()+
     geom_smooth(method="loess")+
@@ -313,7 +378,7 @@ ggplot(a3,aes(age,.resid,colour=urban))+
 
 ##
 
-```{r binary4}
+```{r binary4, message=FALSE}
 ggplot(a3,aes(age,.resid,colour=urban))+
     geom_point()+
     geom_smooth(method="loess",
@@ -333,25 +398,19 @@ ggplot(a3,aes(age,.resid,colour=urban))+
 ```
 
 
-## 
+## DHARma {.smaller}
 
-- note: `qq.gam()` [@augustin_quantile_2012]
-- improved QQ for GLMs (only for fits via `mgcv::gam()` ?)
-- binary data still problematic: from `?qq.gam`,
+```{r DHARMa, cache=TRUE}
+rr <- DHARMa::simulateResiduals(m3)
+plot(rr)
+```
 
-> Note that plots for raw residuals from fits to binary data contain
-> almost no useful information about model fit. Whether the residual
-> is negative or positive is decided by whether the response is zero
-> or one. The magnitude of the residual, given its sign, is
-> determined entirely by the fitted values. In consequence only the
-> most gross violations of the model are detectable from QQ-plots of
-> residuals for binary data. To really check distributional
-> assumptions from residuals for binary data you have to be able to
-> group the data somehow.  Binomial models other than binary are ok.
-
+<!--
 ## coverage
 
 ![](pix/glycera_pvals.png)
+
+-->
 
 ## likelihood profiles {.smaller}
 
@@ -391,9 +450,19 @@ m4 <- MCMCglmm(use ~ age * ch + agesq + urban,
 lattice::xyplot(m4$Sol,aspect="fill",layout=c(2,3))
 ```
 
-- trace plots
+## more MCMC diagnostics
 
-## posterior predictive plots
+
+
+- comparing behaviour of different chains [@sailynoja_graphical_2021]
+- checking whether a given sampler correctly reconstructs simulated data [@talts_validating_2020]
+
+---
+
+![](pix/gelman_bayesdiag.png)
+
+
+<!-- ## posterior predictive plots
 
 ```{r owls,cache=TRUE,echo=FALSE}
 owls_nb1 <- glmmTMB(SiblingNegotiation ~ FoodTreatment*SexParent +
@@ -423,7 +492,11 @@ gsim <- ggplot(dz,aes(zero_vals,Freq))+geom_point()+
 print(gsim)
 ```
 
-## complex models [@wickham_graphical_2010; @gelman_exploratory_2004; @buja_statistical_2009]
+-->
+
+## complex models 
+
+@wickham_graphical_2010; @gelman_exploratory_2004; @buja_statistical_2009
 
 ```{r simdat}
 simdat <- (simulate(m2,8)
