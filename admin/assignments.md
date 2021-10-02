@@ -1,3 +1,9 @@
+## week 5
+
+### for Monday
+
+- e-mail us one discussion question or comment about Wilke sections 8-11
+
 ## week 4
 
 ### For Friday:

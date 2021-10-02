@@ -31,7 +31,7 @@ topic: diagnostic graphics
 reading: @peltonen_visualizations_2009
 notes: LECT_diagnostics
 scripts: 
-recordings:
+recordings: [1](https://mcmasteru365.sharepoint.com/sites/Section_2219-9263/Shared%20Documents/General/Recordings/Friday%20meetings-20211001_113544-Meeting%20Recording.mp4?web=1)
 
 start: 4 Oct
 topic: inferential graphics
