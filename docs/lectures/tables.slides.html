@@ -3203,7 +3203,8 @@ slide:not(.current) .plotly.html-widget{
 
 <pre class = 'prettyprint lang-r'>## graphics
 library(tidyverse)
-theme_set(theme_bw() + theme(panel.spacing = grid::unit(0, &quot;lines&quot;)))</pre>
+theme_set(theme_bw() + theme(panel.spacing = grid::unit(0, &quot;lines&quot;)))
+library(ggh4x) ## for nested facets</pre>
 
 </article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>turning tables into graphs</h2></hgroup><article  id="turning-tables-into-graphs">
 
@@ -3305,7 +3306,7 @@ dd3 &lt;- dd2 %&gt;% full_join(simtab,by=&quot;dataset&quot;)</pre>
                 colour=NA,alpha=0.3)
   ## limit y-axis, compress out-of-bounds values
   + scale_y_continuous(limits=c(0,1),oob=scales::squish)
-  + facet_grid(stat~distribution+covstruc+separation)
+  + ggh4x::facet_nested(stat~distribution+covstruc+separation)
   + labs(x=&quot;r (proportion missing)&quot;,y=&quot;&quot;)
   + scale_colour_brewer(palette=&quot;Dark2&quot;)
   + scale_fill_brewer(palette=&quot;Dark2&quot;))</pre>

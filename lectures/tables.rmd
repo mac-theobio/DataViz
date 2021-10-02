@@ -13,6 +13,7 @@ bibliography: ../vis.bib
 ## graphics
 library(tidyverse)
 theme_set(theme_bw() + theme(panel.spacing = grid::unit(0, "lines")))
+library(ggh4x) ## for nested facets
 ```
 
 # turning tables into graphs
@@ -90,7 +91,7 @@ gg1 <- (ggplot(dd3,aes(factor(r),est,colour=model))
                 colour=NA,alpha=0.3)
   ## limit y-axis, compress out-of-bounds values
   + scale_y_continuous(limits=c(0,1),oob=scales::squish)
-  + facet_grid(stat~distribution+covstruc+separation)
+  + ggh4x::facet_nested(stat~distribution+covstruc+separation)
   + labs(x="r (proportion missing)",y="")
   + scale_colour_brewer(palette="Dark2")
   + scale_fill_brewer(palette="Dark2"))
