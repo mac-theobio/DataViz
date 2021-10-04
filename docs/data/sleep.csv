@@ -1,0 +1,22 @@
+## table 2 of https://www.sciencedirect.com/science/article/pii/S019074092032288X
+"variables","total","left_interval","right_interval"
+"Online Class",271,0,2
+"Online Class",381,2,4
+"Online Class",458,4,7
+"Online Class",72,7,10
+"Self-Study",273,0,2
+"Self-Study",711,2,5
+"Self-Study",173,5,9
+"Self-Study",25,9,12
+"Fitness",483,0,0.5
+"Fitness",552,0.5,2
+"Fitness",147,2,5
+"Sleep",51,4,6
+"Sleep",436,6,8
+"Sleep",620,8,11
+"Sleep",75,11,15
+"Social Media",46,0,0.5
+"Social Media",380,0.5,1.5
+"Social Media",519,1.5,3.5
+"Social Media",171,3.5,6
+"Social Media",66,6,10
