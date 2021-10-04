@@ -50,3 +50,7 @@ h5 <- ggplot(data=social_media, aes(ymin = 0)) +
   theme_bw()
 
 grid.arrange(h1,h2,h3,h4,h5, nrow=3)
+
+
+#####
+
