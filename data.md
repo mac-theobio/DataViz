@@ -33,3 +33,8 @@ data/index.html ## Leave this here; it should be suppressed downstream
 * data/kaiser.csv ## Mental health example
 * data/olive_regions.csv ## Olive oil
 * data/wei_tab5.5.txt ## something
+
+### Untracked files ###
+
+* data/Table4.xlsx
+* data/sleep.csv
