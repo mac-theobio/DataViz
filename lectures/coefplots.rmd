@@ -1,0 +1,210 @@
+---
+title: "coefficient plots"
+output:
+  ioslides_presentation
+bibliography: ../vis.bib
+---
+
+<!-- 
+apa.csl is a slightly hacked version of APA 
+  (modified for "et al" after 2 authors in text)
+-->
+<!-- .refs is style for reference page (small text) -->
+<style>
+.refs {
+   font-size: 16px;
+}
+h2 { 
+ color: #3399ff;		
+}
+h3 { 
+ color: #3399ff;		
+}
+.title-slide {
+   background-color: #55bbff;
+}
+</style>
+<!--    content: url(https://i.creativecommons.org/l/by-sa/4.0/88x31.png)
+>
+<!-- Limit image width and height -->
+<style type="text/css">
+img {     
+  max-height: 530px;     
+  max-width: 800px; 
+}
+</style>
+
+# setup
+
+## load packages
+
+```{r pkgs,message=FALSE}
+library(tidyverse)
+## graphics
+theme_set(theme_bw()+theme(panel.spacing=grid::unit(0,"lines")))
+## modeling/coef plots
+library(lme4)
+library(broom)
+library(broom.mixed)
+library(dotwhisker)
+library(stargazer) ## coef tables
+```
+
+# coefficient plots
+
+## principles
+
+- make it easy to compare magnitudes
+- use appropriate scales
+- which comparisons do you want to make?
+- typically drop intercept (why?)
+
+## nuts and bolts
+
+- old and busted: `arm::coefplot`, `coefplot2`
+- new hotness:
+    - `broom[.mixed]` + `ggplot2`
+    - `dotwhisker`
+
+
+## example
+
+```{r contr_fit,cache=TRUE,warning=FALSE}
+data(Contraception,package="mlmRev")
+Contraception <- Contraception %>%
+    mutate(ch = factor(livch != 0, labels = c("N", "Y")))
+m3 <- glmer(use ~ age * ch + I(age^2) + urban + (1 | urban:district),
+            data=Contraception, family=binomial)
+```
+
+## coefficient table {.smaller}
+
+```{r stargazer_out,results="asis"}
+stargazer(m3,type="html")
+```
+
+**Also see** `broom`/`broom.mixed` + `huxtable` packages
+
+## coefficient plot
+
+```{r dw1}
+gg0 <- dotwhisker::dwplot(m3, by_2sd=TRUE)
+print(gg0)
+```
+
+## add reference line
+
+```{r dw_refline}
+gg1 <- gg0 + geom_vline(xintercept=0,lty=2)
+print(gg1)
+```
+
+## scaling
+
+- need to scale parameters appropriately to compare magnitude
+- @gelman_scaling_2008; @schielzeth_simple_2010
+- `arm::standardize`, `arm::rescale` (handy but inefficient)
+
+> binary.inputs: options for standardizing binary variables, default is ‘center’; ‘0/1’ keeps original scale; ‘-0.5,0.5’ rescales 0 as -0.5 and 1 as 0.5; ‘center’ subtracts the mean; and ‘full’ subtracts the mean and divides by 2 sd.
+
+- mixed models: standard deviations have same scale as corresponding parameter
+
+## dwplot without auto-scaling
+
+Look at results if we turn *off* auto-scaling (default)
+```{r unscaled}
+dotwhisker::dwplot(m3, by_2sd = FALSE)
+```
+
+## alternative: explicitly scale age parameter
+
+```{r update, cache=TRUE}
+Contraception <- Contraception %>%
+    mutate(sc_age = drop(scale(age)))
+m3_sc <- update(m3, 
+      . ~ sc_age * ch + I(sc_age^2) + urban + (1 | urban:district))
+```
+
+## plot
+
+```{r dwplot2, warning=FALSE}
+dotwhisker::dwplot(m3_sc, effects="fixed", by_2sd = FALSE) +
+    geom_vline(xintercept=0,lty=2)
+```
+
+
+## other alternatives
+
+- scaling makes units harder to interpret
+- separate sets of predictors into facets according to their units
+- ??
+
+## manually tidying
+
+```{r dwplot3}
+cc <- broom.mixed::tidy(m3_sc,effects="fixed")
+print(cc,digits=3)
+```
+
+## GLM for comparison {.smaller}
+
+
+```{r m3_glm}
+m3_fixed <-  glm(
+    use ~ sc_age * ch + I(sc_age^2) + urban,
+    data=Contraception, family=binomial)
+dotwhisker::dwplot(list(sc_GLMM=m3_sc, GLM=m3_fixed))+
+    geom_vline(xintercept=0,lty=2)+ scale_colour_brewer(palette="Dark2")
+```
+
+## dotwhisker limitations
+
+- sometimes gets "confused" with complex models
+- might want to post-process output of `tidy()` (edit variable/term names, etc.)
+- use `purrr::map_dfr(list(mod1=, mod2=, .id = "model")` to process a list of models and collapse to a tibble
+
+## alternative: data prep
+
+```{r alternative1}
+m3_res <- (map_dfr(list(with_re = m3_sc, no_re=m3_fixed),
+                  tidy,
+                  conf.int = TRUE,
+                  .id = "model")
+  %>% mutate(term=fct_inorder(term))
+  %>% filter(term!="(Intercept)")
+)
+```
+
+## alternative: plot {.smaller}
+
+```{r altplot,fig.height=3.5, warning=FALSE}
+pd <- position_dodge(width=0.5)
+(gg5 <- ggplot(m3_res,aes(x=estimate,y=term,colour=model))
+  + geom_pointrange(aes(xmin=conf.low,xmax=conf.high),
+                    position=pd)
+  + labs(y="")
+  + scale_colour_brewer(palette="Dark2") + geom_vline(xintercept=0,lty=2))
+```
+
+## reorder terms
+
+```{r alt_reorder,fig.height=3.5, warning=FALSE}
+m3_res_order <- mutate(m3_res,term=reorder(term,estimate))
+gg5 %+% m3_res_order
+```
+
+## summary
+
+- useful in comparing lots of models;  
+models with many parallel parameters
+- separate parameter types with facets
+- sort by magnitude of estimate
+
+## other thoughts
+
+- can often use a wide aspect ratio (don't need much height)
+- may want to replace/improve coefficient names (`faux` package?)
+- Bayesian models: violin plots of posterior samples? Or 50% + 95% intervals?
+
+
+## references {.smaller}

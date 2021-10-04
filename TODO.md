@@ -1,13 +1,12 @@
 
-
-
 ## other logistical
 
 - review old diary entries??
 
 ## lecture prep
 
-* mention/show Anscombe's quartet and "Datasaurus" (refs [here](https://github.com/bbolker/bbmisc/blob/master/talks/thesis_stats.rmd#L296-L319))?
+* rescue JD inference lecture
+* add caterpillar plots to BMB lecture? (cf incomplete stuff from Isabella Ghement: https://github.com/bbolker/mixedmodels-misc/blob/master/caterpillar_plots.Rmd)
 
 ## pipeline/structure issues
 

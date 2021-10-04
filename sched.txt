@@ -33,11 +33,11 @@ notes: LECT_diagnostics
 scripts: 
 recordings: [1](https://mcmasteru365.sharepoint.com/sites/Section_2219-9263/Shared%20Documents/General/Recordings/Friday%20meetings-20211001_113544-Meeting%20Recording.mp4?web=1)
 
-start: 4 Oct
+start: 3 Oct
 topic: inferential graphics
 reading: @wickham_graphical_2010; @gelman_lets_2002; @gelman_why_2011
-notes: #  [Tuesday lecture (pdf notes)](infer.lect.handouts.pdf); [Friday](infer_bmb.lect.html)
-scripts: 
+notes:  LECT_coefplots #  [Tuesday lecture (pdf notes)](infer.lect.handouts.pdf)
+scripts:
 recordings:
 
 start: 
