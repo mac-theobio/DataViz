@@ -193,6 +193,46 @@ m3_res_order <- mutate(m3_res,term=reorder(term,estimate))
 gg5 %+% m3_res_order
 ```
 
+## caterpillar plots
+
+- Useful when plotting *many* parallel/similar coefficients
+- e.g.:
+   - random effects in a mixed model
+   - bioinformatics: genes, microbial species, etc..
+
+## caterpillar plots (utility)
+
+Reorders levels, allowing for multiple terms per level
+
+```{r cat1}
+caterpillar_levels <- function(x, order_term = "(Intercept)") {
+    lev_order <- (x
+        %>% filter(term==order_term)
+        %>% group_by(level)
+        %>% summarise(across(estimate, mean, na.rm = TRUE))
+        %>% arrange(estimate)
+        %>% pull(level)
+    )
+    x <- dplyr::mutate(x, across(level, factor, levels = lev_order))
+    return(x)
+}
+```
+
+## caterpillar plot {.smaller}
+
+```{r cat2, fig.width=12, fig.height=4} 
+cat_data  <- (m3
+  %>% broom.mixed::tidy(m3, effects="ran_vals")
+  %>% select(level, term, estimate, std.error)
+  %>% caterpillar_levels()
+)
+ggplot(cat_data, aes(level, estimate,
+                     ymin = estimate-2*std.error,
+                     ymax = estimate+2*std.error)) +
+  geom_pointrange() +
+  guides(x = guide_axis(n.dodge = 3))
+```
+
 ## summary
 
 - useful in comparing lots of models;  
