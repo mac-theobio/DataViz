@@ -1,8 +1,9 @@
-library(ggplot2); theme_set(theme_bw(base_size=18))
-library(Hmisc)
-library(shellpipes); startGraphics(height=5)
+library(ggplot2)
+theme_set(theme_bw(base_size=18))
 
-circ <- csvRead()
+library(Hmisc)
+
+circ <- read.csv(input_files[[1]])
 
 base <- (ggplot(circ, aes(x=Year,y=Circulation))
 	+ ylab("Circulation (thousands)")
