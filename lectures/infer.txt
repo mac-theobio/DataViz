@@ -12,7 +12,7 @@ Principles
 
 		Use graphs to illustrate comparisons
 
-		Be careful about \emph{units}
+		Be careful about _units_
 
 	Distinguish between (scientific) variables and (statistical) parameters
 
@@ -41,27 +41,25 @@ FIG code/smoke_plots.compare.png
 
 ----------------------------------------------------------------------
 
-FIG code/smoke_inference-0.png
+Smoking inference
+
+MFIG code/smoke_inference-0.png
+
+	Different units _Bad_
 
 ----------------------------------------------------------------------
 
-FIG code/smoke_inference-1.png
+Smoking inference
+
+MFIG code/smoke_inference-1.png
 
 ----------------------------------------------------------------------
 
-FIG code/smoke_inference-2.png
+Smoking inference
 
-----------------------------------------------------------------------
-
-BC
-
-CFIG code/smoke_inference-1.png
-
-NC
+MFIG code/smoke_inference-2.png
 
 	Would P values add anything here?
-
-EC
 
 ----------------------------------------------------------------------
 
@@ -79,32 +77,32 @@ Comparing effects on different response variables
 
 Shape of response
 
-FIG code/uni-1.png
+MFIG code/uni-1.png
 
 ----------------------------------------------------------------------
 
 Standard prediction plot
 
-FIG code/fake_plots-1.png
+MFIG code/fake_plots-1.png
 
 ----------------------------------------------------------------------
 
 Marginal prediction plot
 
-FIG code/fake_plots-2.png
+MFIG code/fake_plots-2.png
 
 ----------------------------------------------------------------------
 
 Combined
 
-FIG code/fake_plots-3.png
+MFIG code/fake_plots-3.png
 
 ----------------------------------------------------------------------
 
-Variables vs.~parameters
+Variables vs. parameters
 
-	A coefficient plot is most useful when each \emph{variable} corresponds to a
-	single statistical \emph{parameter}
+	A coefficient plot is most useful when each _variable_ corresponds to a
+	single statistical _parameter_
 
 		Binary predictor
 
@@ -126,7 +124,7 @@ No standard approach
 
 		Particularly if it's associated with more than one parameter
 
-	JD likes to calculate from the model ``center''
+	JD likes to calculate from the model “center”
 
 		This is the average value from each predictor column of the model matrix
 
@@ -136,13 +134,15 @@ No standard approach
 
 ----------------------------------------------------------------------
 
-FIG webpix/condom_predict.jpg
+Prediction plots
+
+MFIG webpix/condom_predict.jpg
 
 ----------------------------------------------------------------------
 
 P values
 
-	We use variable-level P values as a standard for whether the \emph{overall}
+	We use variable-level P values as a standard for whether the _overall_
 	pattern associated with a given variable is significant
 	
 		This is not super-easy to interpret
@@ -153,7 +153,7 @@ P values
 
 Interactions
 
-FIG webpix/condom_interact.jpg
+MFIG webpix/condom_interact.jpg
 
 ----------------------------------------------------------------------
 
