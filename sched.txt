@@ -36,7 +36,7 @@ recordings: [1](https://mcmasteru365.sharepoint.com/sites/Section_2219-9263/Shar
 start: 4 Oct
 topic: inferential graphics
 reading: @wickham_graphical_2010; @gelman_lets_2002; @gelman_why_2011
-notes:  LECT_coefplots #  [Tuesday lecture (pdf notes)](infer.lect.handouts.pdf)
+notes:  LECT_infer; LECT_coefplots
 scripts:
 recordings:
 
