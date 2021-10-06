@@ -86,7 +86,7 @@ lectures/docs/scales.slides.html: lectures/scales.dmd
 lectures/docs/diagnostics.notes.html: lectures/diagnostics.rmd
 	$(lect_r)
 
-lectures/docs/explore.slides.html: lectures/explore.txt
+lectures/docs/infer.notes.html: lectures/infer.txt
 	$(lect_r)
 
 lectures/explore.lmd: lectures/explore.txt
