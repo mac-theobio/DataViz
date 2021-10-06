@@ -1,0 +1,172 @@
+Graphics for inference
+
+	What is my model telling me?
+
+	How can I tell other people?
+
+----------------------------------------------------------------------
+
+Principles
+
+	Graphs tell stories better than tables do
+
+		Use graphs to illustrate comparisons
+
+		Be careful about \emph{units}
+
+	Distinguish between (scientific) variables and (statistical) parameters
+
+	Keep P values in their place
+
+	Show data if it doesn't interfere
+
+
+----------------------------------------------------------------------
+
+Smoking data
+
+FIG code/smoke_ques.box.png
+
+----------------------------------------------------------------------
+
+Smoking data
+
+FIG code/smoke_ques.boxage.png
+
+----------------------------------------------------------------------
+
+Smoking data
+
+FIG code/smoke_plots.compare.png
+
+----------------------------------------------------------------------
+
+FIG code/smoke_inference-0.png
+
+----------------------------------------------------------------------
+
+FIG code/smoke_inference-1.png
+
+----------------------------------------------------------------------
+
+FIG code/smoke_inference-2.png
+
+----------------------------------------------------------------------
+
+BC
+
+CFIG code/smoke_inference-1.png
+
+NC
+
+	Would P values add anything here?
+
+EC
+
+----------------------------------------------------------------------
+
+Comparing effects on different response variables
+
+	Put response variables on same scale:
+
+		Standardize
+
+		Logs
+
+		Proportions
+
+----------------------------------------------------------------------
+
+Shape of response
+
+FIG code/uni-1.png
+
+----------------------------------------------------------------------
+
+Standard prediction plot
+
+FIG code/fake_plots-1.png
+
+----------------------------------------------------------------------
+
+Marginal prediction plot
+
+FIG code/fake_plots-2.png
+
+----------------------------------------------------------------------
+
+Combined
+
+FIG code/fake_plots-3.png
+
+----------------------------------------------------------------------
+
+Variables vs.~parameters
+
+	A coefficient plot is most useful when each \emph{variable} corresponds to a
+	single statistical \emph{parameter}
+
+		Binary predictor
+
+		Linear predictor
+
+	More detailed shape information should be preferred when there is more than
+	one parameter for a single logical variable
+
+		More than two categories
+
+		Splines and polynomials
+
+----------------------------------------------------------------------
+
+No standard approach
+
+	There are many different ways to try to capture marginal effects of a single
+	variable
+
+		Particularly if it's associated with more than one parameter
+
+	JD likes to calculate from the model ``center''
+
+		This is the average value from each predictor column of the model matrix
+
+		Relatively stable
+
+		A bit divorced from physical reality
+
+----------------------------------------------------------------------
+
+FIG webpix/condom_predict.jpg
+
+----------------------------------------------------------------------
+
+P values
+
+	We use variable-level P values as a standard for whether the \emph{overall}
+	pattern associated with a given variable is significant
+	
+		This is not super-easy to interpret
+
+		But it is also not super-easy to think of a better alternative
+
+----------------------------------------------------------------------
+
+Interactions
+
+FIG webpix/condom_interact.jpg
+
+----------------------------------------------------------------------
+
+Scales and transformations
+
+	Your model will often involve an original scale (where the data are
+	collected) and a link scale (where the linear predictor lives)
+
+	Which scale should you use for:
+
+		Calculations?
+
+		Displaying numbers to users?
+
+		Graphing?
+

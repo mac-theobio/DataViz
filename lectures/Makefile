@@ -42,11 +42,9 @@ include ../rweb.mk
 
 Sources += $(wildcard *.txt *.tmp) md.fmt
 
-Ignore += explore.lmd
-explore.lmd: explore.txt explore.tmp md.fmt makestuff/newtalk/lect.pl
+Ignore += $(wildcard *.lmd)
+%.lmd: %.txt %.tmp md.fmt makestuff/newtalk/lect.pl
 	$(PUSHRO)
-
-docs/explore.notes.html: explore.txt
 
 ######################################################################
 
