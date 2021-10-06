@@ -96,6 +96,8 @@ sunspots.Rout: sunspots.R
 
 ######################################################################
 
+## Explore plots (smoking and other)
+
 ## Is smoking good for you?
 pngDesc += smoke_plots smoke_ques
 
@@ -115,9 +117,25 @@ iris.Rout: iris.R
 bananas.Rout: bananas.R
 oldbananas.Rout: oldbananas.R
 
-## pages/interactive_smoke.html: interactive_smoke.rmd
+######################################################################
+
+## Inferential lecture
+
+smoke_inference.Rout: smoke_inference.R smoke.rds
+
+smoke_inference.Rout-0.pdf:
+
+uni.Rout: uni.R smoke.rds
+
+fake.Rout: fake.R
+fake_plots.Rout: fake_plots.R fake.rda
+
+
 
 ######################################################################
+
+%.R: ../../old_repo/%.R
+	$(copy)
 
 ## Mental illness
 kaiser.Rout: kaiser.R data/kaiser.csv
@@ -125,6 +143,10 @@ kaiser.Rout: kaiser.R data/kaiser.csv
 ## F1 racing
 ## Data from https://www.kaggle.com/miguelluna93/formula-1-1950-2020
 ## These data are big and not on the repo
+
+######################################################################
+
+## Miriam's data for a small live discussion
 
 Ignore += f1data
 f1data:
@@ -141,8 +163,6 @@ data/vlaps.rds: vlaps.rds
 ## You should be able to run starting from here
 vlap_plots.Rout: lap_plots.R data/vlaps.rds
 	$(pipeR)
-
-## Cribbing del 2021 Sep 22 (Wed)
 
 ######################################################################
 
