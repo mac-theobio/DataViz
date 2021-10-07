@@ -24,6 +24,8 @@ Styled html files (currently, plain and .notes) are made using an intermediate .
 
 * .dmd files are probably deprecated; they are like .rmd files but make knows to look for and make dependencies
 
+Code in `code/` directory is assumed to be run with `code/` as the working directory
+
 ## subdirs
 
 - `docs`: GitHub pages stuff, mostly auto-copied/moved/linked from the main level
@@ -35,6 +37,9 @@ Styled html files (currently, plain and .notes) are made using an intermediate .
 ### Development rules
 
 Please edit `sched.txt` instead of `sched.tsv`; it's meant to be self-explanatory in structure
+
+`LECT_foo` is magic shorthand for building `foo.slides.html` and `foo.notes.html` and including a link
+
 * Bells and whistles; what about comments and lecture expansion?
 
 `make` rules:

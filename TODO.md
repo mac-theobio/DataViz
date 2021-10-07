@@ -5,11 +5,12 @@
 
 ## lecture prep
 
-* rescue JD inference lecture
-* add caterpillar plots to BMB lecture? (cf incomplete stuff from Isabella Ghement: https://github.com/bbolker/mixedmodels-misc/blob/master/caterpillar_plots.Rmd)
+- Friday: Schielzeth, Gelman on scaling/centering; emmeans, effects, ggeffects, marginal, marginaleffects ... partial residuals/remef?
 
 ## pipeline/structure issues
 
+- fix index/data pipeline issue to avoid too many commits
+- fix pipeline to not mangle square brackets?
 - import pipeline for rendering course outline locally (download `outline.docx`, render to HTML; see `mkoutline` in old repo)
 - links/pointers to grading rubrics (i.e., meaning of 0-3; are these in the course outline?), details on project and presentation formats/expectations, etc.
 
