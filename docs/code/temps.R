@@ -1,8 +1,7 @@
 library(dplyr)
-library(shellpipes)
 
 offset <- 15
-temps <- (csvRead()
+temps <- (read.csv(input_files[[1]])
 	%>% mutate(Temp=offset+Mean)
 )
 
@@ -11,4 +10,4 @@ gis <- (temps
 	%>% select(-Source)
 )
 
-saveVars(temps, gis)
+# rdsave(temps, gis)

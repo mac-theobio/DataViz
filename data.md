@@ -37,7 +37,8 @@ data/index.html ## Leave this here; it should be suppressed downstream
 
 
 
+
 ### Untracked files ###
 
-* data/Table4.xlsx
 * data/sleep.csv
+* data/Table4.xlsx
