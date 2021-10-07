@@ -23,7 +23,9 @@ data/index.html ## Leave this here; it should be suppressed downstream
 
 * [Vaccine data from NY Times graphic](data/vaccine_data_online.csv)
 
-* data/vlaps.rds ## F1 racing
+* [Sleep data for Ben's looping code](data/sleep.csv)
+
+* [Max Verstappen's lap times](data/vlaps.rds)
 
 ## Exploratory graphics
 
@@ -35,10 +37,6 @@ data/index.html ## Leave this here; it should be suppressed downstream
 * data/wei_tab5.5.txt ## something
 
 
-
-
-
 ### Untracked files ###
 
-* data/sleep.csv
 * data/Table4.xlsx
