@@ -1,7 +1,7 @@
 # Reference: https://www.r-graph-gallery.com/81-barplot-with-variable-width.html
 library(tidyverse)
 library(gridExtra)
-table_1 <- read_csv("docs/data/sleep.csv", comment="#")
+table_1 <- read_csv("data/sleep.csv", comment="#")
 online <- table_1 %>% filter(variables == 'Online Class')
 h1 <- ggplot(data=online, aes(ymin = 0)) +
   geom_rect(aes(xmin = left_interval, xmax = right_interval, ymax = total),
