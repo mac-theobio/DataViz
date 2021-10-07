@@ -1,10 +1,11 @@
 ---
 title: "STATS744/theobio style guide"
-date: "`r format(Sys.time(), '%d %B %Y')`"
+date: Updated October 2021
 bibliography: "../vis.bib"
 ---
 
 <!-- FIXME: why do square brackets get mangled??? -->
+<!-- Something to do with the two-step process (html via md) -->
 
 Follow Hadley Wickham's [style guide](http://adv-r.had.co.nz/Style.html), adapted from [Google's style guide](https://google.github.io/styleguide/Rguide.xml) (HW's link to Google is broken). Some of the differences between Google and HW are:
 
