@@ -1,5 +1,5 @@
 ---
-title: "coefficient plots"
+title: "coefficient plots, etc."
 output:
   ioslides_presentation
 bibliography: ../vis.bib
@@ -48,6 +48,13 @@ library(broom)
 library(broom.mixed)
 library(dotwhisker)
 library(stargazer) ## coef tables
+## predictions/effects plots
+library(emmeans)
+library(effects)
+library(ggeffects)
+## also: margins, marginaleffects, sjPlot, ...
+library(remef) ## remotes::install_github("hohenstein/remef")
+library(faux)
 ```
 
 # coefficient plots
@@ -166,7 +173,7 @@ dotwhisker::dwplot(list(sc_GLMM=m3_sc, GLM=m3_fixed))+
 ## alternative: data prep
 
 ```{r alternative1}
-m3_res <- (map_dfr(list(with_re = m3_sc, no_re=m3_fixed),
+m3_res <- (purrr::map_dfr(list(with_re = m3_sc, no_re=m3_fixed),
                   tidy,
                   conf.int = TRUE,
                   .id = "model")
@@ -174,6 +181,8 @@ m3_res <- (map_dfr(list(with_re = m3_sc, no_re=m3_fixed),
   %>% filter(term!="(Intercept)")
 )
 ```
+
+(`purrr::map_dfr` == "run function on elements of a list, bind results into a single data frame, add `.id` column based on names of the list elements")
 
 ## alternative: plot {.smaller}
 
@@ -246,5 +255,96 @@ models with many parallel parameters
 - may want to replace/improve coefficient names (`faux` package?)
 - Bayesian models: violin plots of posterior samples? Or 50% + 95% intervals?
 
+# marginal/effects/prediction plots
+
+## emmeans
+
+```{r}
+e1 <- emmeans(m3, ~age*ch, at=list(age=-14:20), type="response")
+plot(e1)
+```
+
+## as.data.frame → ggplot {.smaller}
+
+```{r}
+e1d <- as.data.frame(e1)
+print(gg1 <- ggplot(e1d,
+              aes(age, prob, colour=ch, fill=ch,
+                  ymin=asymp.LCL, ymax=asymp.UCL)) +
+  geom_line() +
+  geom_ribbon(colour=NA, alpha=0.2))
+```
+  
+## effects
+
+```{r effects1, fig.width=10, fig.height=6}
+plot(ae <- allEffects(m3, xlevels = list(age=51)))
+```
+
+## as.data.frame
+
+```{r effects_asdf}
+aed <- as.data.frame(ae)[["age:ch"]]
+gg1 %+% aed + aes(y=fit, ymin=lower, ymax=upper)
+```
+
+## ggeffects
+
+
+```{r ggeffects}
+ag <- ggeffect(m3, terms=c("age [all]", "ch"))
+plot(ag)
+```
+
+## partial effects removal
+
+'Correct' data for non-focal terms:
+
+$$
+\beta_0 + \sum_{i \in \substack{\textrm{focal} \\ \textrm{params}}} \beta_i x_i + \textrm{resid}_i
+$$
+
+or
+
+$$
+\textrm{predict}_i - \sum_{i \in \substack{\textrm{non-focal} \\ \textrm{params}}}  \beta_i x_i
+$$
+
+
+## example
+
+```{r remef1, message=FALSE}
+fm1 <- lmer(Reaction ~ 1 + Days + (1 + Days | Subject), sleepstudy)
+ag <- ggeffect(fm1, terms="Days [all]")
+gg2 <- plot(ag) + geom_point(data=sleepstudy,
+                             aes(x=Days, y = Reaction, colour=Subject)) +
+  colorspace::scale_colour_discrete_qualitative(guide="none")
+```
+
+## example
+
+```{r remef2, echo=FALSE}
+print(gg2)
+```
+
+## example (cont.) {.smaller}
+
+```{r remef3, message=FALSE}
+sleepstudy$re <- remef(fm1, ran = list(Subject = "Days"))
+gg3 <- plot(ag) + geom_point(data=sleepstudy,
+                      aes(x=Days, y = re, colour=Subject)) +
+  colorspace::scale_colour_discrete_qualitative(guide="none")
+cowplot::plot_grid(gg2, gg3)
+```
+
+## faux: nice contrast names
+
+```{r faux}
+mm <- (mtcars
+  %>% mutate(across(cyl, contr_code_treatment))
+)
+m1 <- lm(mpg ~ disp*cyl, mm)
+dwplot(m1, by_2sd=TRUE) + geom_vline(xintercept = 0, lty=2)
+```
 
 ## references {.smaller}
