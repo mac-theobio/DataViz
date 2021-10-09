@@ -36,8 +36,6 @@ data/index.html ## Leave this here; it should be suppressed downstream
 * data/olive_regions.csv ## Olive oil
 * data/wei_tab5.5.txt ## something
 
+## Other ##
 
-
-### Untracked files ###
-
-* data/Table4.xlsx
+* data/Table4.xlsx ## Something about wastewater
