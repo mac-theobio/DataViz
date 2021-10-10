@@ -203,7 +203,6 @@ Ignore += $(subdirs)
 Makefile: makestuff/05.stamp
 
 msrepo = https://github.com/dushoff
-ms = makestuff
 
 -include makestuff/perl.def
 
