@@ -41,18 +41,19 @@ scripts:
 recordings:
 
 start: 
-topic: infoviz vs data viz; ethics; expository graphics
-reading: @su_its_2008; @gelman_infovis_2013
-notes: #  [Tuesday lecture](infovis.lect.html)
-scripts: 
-recordings:
-
-start: 
 topic: # **midterm recess**
 reading: 
 notes: 
 scripts: 
 recordings:
+
+start: 
+topic: infoviz vs data viz; ethics; expository graphics
+reading: @su_its_2008; @gelman_infovis_2013
+notes: LECT_infovis
+scripts: 
+recordings:
+
 
 start: 
 topic: Interactive graphics
