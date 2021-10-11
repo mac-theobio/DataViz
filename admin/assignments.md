@@ -1,4 +1,12 @@
-## week 5
+## week 5?
+
+1.  **due Fri Oct 22**: Fit a model to real data, or find a table of model results, and one or two plots illustrating a statistical inference. Let us know if you need help finding a data set, or a plausible scientific question to attack with a model.
+
+2. Read Sections 12-16 of [Wilke's _Fundamentals of Data Visualization_](https://serialmentor.com/dataviz/) (and (**due Weds Oct 20**) post a discussion question on the Teams channel)
+
+## week 4
+
+No written assignment. Please read Sections 12-16 of [Wilke's _Fundamentals of Data Visualization_](https://serialmentor.com/dataviz/)
 
 ### for Monday
 
