@@ -52,9 +52,6 @@ Ignore += $(wildcard *.lmd)
 
 Sources += Makefile
 
-## Sources += content.mk
-## include content.mk
-
 Ignore += makestuff
 msrepo = https://github.com/dushoff
 
