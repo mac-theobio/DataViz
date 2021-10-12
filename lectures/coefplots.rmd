@@ -307,7 +307,7 @@ $$
 or
 
 $$
-\textrm{predict}_i - \sum_{i \in \substack{\textrm{non-focal} \\ \textrm{params}}}  \beta_i x_i
+Y_i - \sum_{i \in \substack{\textrm{non-focal} \\ \textrm{params}}}  \beta_i x_i
 $$
 
 

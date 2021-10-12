@@ -40,7 +40,11 @@ notes:  LECT_infer; LECT_coefplots
 scripts:
 recordings:
 
+<<<<<<< HEAD
 start: 11 Oct
+=======
+start: 
+>>>>>>> 741cf3fd78d7d6372c1188e08345bf41bad3f5b2
 topic: # **midterm recess**
 reading: 
 notes: 
@@ -50,9 +54,14 @@ recordings:
 start: 
 topic: infoviz vs data viz; ethics; expository graphics
 reading: @su_its_2008; @gelman_infovis_2013
+<<<<<<< HEAD
 notes: #  [Tuesday lecture](infovis.lect.html)
+=======
+notes: LECT_infovis
+>>>>>>> 741cf3fd78d7d6372c1188e08345bf41bad3f5b2
 scripts: 
 recordings:
+
 
 start: 
 topic: Interactive graphics ## ; project proposals 29 Oct

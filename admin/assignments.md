@@ -1,4 +1,36 @@
+
+
+# Final project
+
+Your final project will be done with in a group of size 1-3. The profs will help you pair up (and check with us if you really think you want to go alone).
+
+The project should consist of an exploration of some data. There should be a consistent topic but you needn't use only a single data file.
+
+Your project should consist roughly of a brief description of the data set, and three or four well-thought-out visualizations (this is a guide, you could have a few as one really fancy one, or as many as ten simple ones that work really well together).
+
+Your **presentation** will be in person (or at least synchronous), using some sensible format; we encourage reproducible formats but Powerpoint is acceptable. Aim for 10 minutes and be prepared to answer questions.
+
+Your **writeup** should be in two parts: the *main text* will be just the text necessary to support the story that you're trying to tell, and there should be a *methods* part explaining briefly some of the visualization choices that you made, and if necessary briefly explaining decisions or data cleanup you had to do. Your project should be (very roughly) 10 pages long. Do *not* include code in your writeup except (if necessary) short snippets illustrating some technical issue you solved.
+
+Please submit your writeup as a PDF or HTML file by noon on 22 December. Submit by pushing to your repository (ideally with all of the scripts used to construct the visualizations from raw data) and letting us know the name of the primary file.
+
+## Project milestone
+
+Please submit a brief (0.5-2 pages) prospectus outlining what data you will use and some ideas about the story you wish to tell.
+
+You should post this on a github repo. This can either be a directory in an existing repo, or a new repo to which one of you invites both of us (bbolker, dushoff) and your group members.
+
+# Weekly assignments
+
 ## week 5
+
+1.  **due Fri Oct 22**: Fit a model to real data, or find a table of model results, and one or two plots illustrating a statistical inference. Let us know if you need help finding a data set, or a plausible scientific question to attack with a model.
+
+2. Read Sections 12-16 of [Wilke's _Fundamentals of Data Visualization_](https://serialmentor.com/dataviz/) (and (**due Weds Oct 20**) post a discussion question on the Teams channel)
+
+## week 4
+
+No written assignment. Please read Sections 12-16 of [Wilke's _Fundamentals of Data Visualization_](https://serialmentor.com/dataviz/)
 
 ### for Monday
 
