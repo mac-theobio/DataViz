@@ -40,7 +40,7 @@ notes:  LECT_infer; LECT_coefplots
 scripts:
 recordings: [1](https://mcmasteru365.sharepoint.com/:v:/r/sites/Section_2219-9263/Shared%20Documents/General/Recordings/General-20211006_134824-Meeting%20Recording.mp4?csf=1&web=1&e=wyXs7g); [2](https://mcmasteru365.sharepoint.com/:v:/r/sites/Section_2219-9263/Shared%20Documents/General/Recordings/Friday%20meetings-20211008_112955-Meeting%20Recording.mp4?csf=1&web=1&e=bec15H)
 
-start: 
+start: 11 Oct
 topic: # **midterm recess**
 reading: 
 notes: 
@@ -54,9 +54,8 @@ notes: LECT_infovis
 scripts: 
 recordings:
 
-
 start: 
-topic: Interactive graphics
+topic: Interactive graphics ## ; project proposals 29 Oct
 reading: 
 notes: #  [Tuesday lecture](interactive.lect.html)
 scripts: 
@@ -70,7 +69,7 @@ scripts:
 recordings:
 
 start: 
-topic: High-dimensional data
+topic: High-dimensional data ## ; project milestones 10 Nov
 reading:  [Buja et al. (2009)](http://rsta.royalsocietypublishing.org/cgi/doi/10.1098/rsta.2009.0120)
 notes: #  [Tuesday lecture](highdim.lect.html); [Friday lecture](dim.lect.html)
 scripts: 
@@ -97,7 +96,7 @@ notes:
 scripts: 
 recordings:
 
-start: 
+start: 6 December
 topic: Group presentations
 reading: 
 notes: 
