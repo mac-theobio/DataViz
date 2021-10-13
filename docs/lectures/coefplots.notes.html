@@ -528,7 +528,7 @@ plot(ag)</code></pre>
 \]</span></p>
 <p>or</p>
 <p><span class="math display">\[
-\\textrm{predict}\_i - \\sum\_{i \\in \\substack{\\textrm{non-focal} \\\\ \\textrm{params}}}  \\beta\_i x\_i
+Y\_i - \\sum\_{i \\in \\substack{\\textrm{non-focal} \\\\ \\textrm{params}}}  \\beta\_i x\_i
 \]</span></p>
 <h2 id="example-1">example</h2>
 <pre><code>fm1 &lt;- lmer(Reaction ~ 1 + Days + (1 + Days | Subject), sleepstudy)
