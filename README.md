@@ -20,9 +20,12 @@ Publicly available material for STAT 744, Topics in Statistics / Data visualizat
 
 * .rmd files are made into _both_ .notes.html and .slides.html
 
-Styled html files (currently, plain and .notes) are made using an intermediate .rmk file, which is simply an .md file but the YAML is combined with knitr output in a hacky way.
+* .txt files use an old Dushoff format; they combine with .tmp files currently to make .lmd files. Right now they are _not_ automatically updated 2021 Oct 12 (Tue).
 
 * .dmd files are probably deprecated; they are like .rmd files but make knows to look for and make dependencies
+
+Styled html files (currently, plain and .notes) are made using an intermediate .rmk file, which is simply an .md file but the YAML is combined with knitr output in a hacky way.
+* We need a less hacky approach that involves knitting things once but getting it right ... understand more about what knitr is doing, I guess.
 
 Code in `code/` directory is assumed to be run with `code/` as the working directory
 
