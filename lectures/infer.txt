@@ -1,6 +1,6 @@
 Graphics for inference
 
-	What is my fodel telling me?
+	What is my model telling me?
 
 	How can I tell other people?
 

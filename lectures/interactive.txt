@@ -1,0 +1,95 @@
+
+-------------------------------------------------------------------
+
+SEC Overview
+
+-------------------------------------------------------------------
+
+What are interactive graphics?
+
+* Visualizations
+* Combined with ways to click or hover and get more information
+* e.g., the internet
+
+-------------------------------------------------------------------
+
+DataViz interactive goals
+
+* Tell a clear story
+* Allow viewers to see more than would be shown in two static dimensions
+* Or to obtain more detailed information
+* Or to explore things that go beyond the story you're telling
+
+-------------------------------------------------------------------
+
+Some interaction techniques
+
+* Scaling and panning: allow viewers to look at different parts of an image
+* Labelling: attach labels with detailed information
+* Subsetting
+	* Brushing: highlight categories by selecting them
+	* Linking: link selections across several plots
+	* Animation: selections in sequence; ideally can be played automatically or controlled by user
+
+-------------------------------------------------------------------
+
+SEC Tools and resources
+
+-------------------------------------------------------------------
+
+Resources
+
+* [Gap minder](https://www.gapminder.org/tools/)
+* [Gap minder and plotly](https://towardsdatascience.com/how-to-build-animated-charts-like-hans-rosling-doing-it-all-in-r-570efc6ba382)
+* [Web book: Interactive web-based data visualization with R, plotly, and shiny](https://plotly-r.com/)
+* [htmlwidgets examples](https://www.htmlwidgets.org/)
+
+-------------------------------------------------------------------
+
+Packages
+
+* ggvis
+	* Conceptually exciting (reworking of ggplot); dormant ☹
+* googleVis
+	* R interface to google charts: also fairly dormant
+* plotly
+	* Straightforward and popular (esp. via `ggplotly`)
+* gganimate
+    * very "gg" (grammar of graphics)-ish; not so interactive
+* crosstalk
+    * for letting different html widgets talk to each other (linking)
+* leaflet
+    * maps (more next week)
+
+-------------------------------------------------------------------
+
+SEC More philosophy
+
+-------------------------------------------------------------------
+
+Acceptance
+
+* Why don't people do this more?
+
+* In what contexts can you reach an audience with interactive graphics?
+
+* How can interactive graphics help you with your research?
+
+-------------------------------------------------------------------
+
+TSEC More
+
+* [overview of animation](https://towardsdatascience.com/animating-your-data-visualizations-like-a-boss-using-r-f94ae20843e3) (`animate`, `gganimate`, `plotly`, `googleVis`)
+* gapminder examples (especially [this version](https://github.com/keithmcnulty/hans_rosling_bubble/blob/master/rosling.R), somewhat modified by us [here](gapminder.R)
+* wealth/tax/hovering example: @leonhardt_rich_2019, [code from David L. Miller](https://gist.github.com/dill/508532714cd58398aaf90a0723efd2fd), [our modifications](hover_tax.R)
+
+-------------------------------------------------------------------
+
+TSEC Software support
+
+* different formats: 
+    * JavaScript (underlies plotly, D3, Vega, highchartr, leaflet, ...)
+	* GIF (old but supports animation)
+	* MP4 (video format)
+	* Flash (officially deprecated in favour of HTML5)
+* be aware that you may need to install various extra software to render animations, or to play them
