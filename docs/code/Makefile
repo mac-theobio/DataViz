@@ -32,7 +32,6 @@ data:
 
 ######################################################################
 
-gapminder.Rout: gapminder.R
 ## Figure sizing
 
 size.Rout: size.R
@@ -130,6 +129,14 @@ uni.Rout: uni.R smoke.rds
 
 fake.Rout: fake.R
 fake_plots.Rout: fake_plots.R fake.rda
+
+######################################################################
+
+## Interactive lecture
+
+gapminder.Rout: gapminder.R
+
+intSmoke.Rout: data/fev.csv intSmoke.R
 
 ######################################################################
 
