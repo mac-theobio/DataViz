@@ -48,16 +48,16 @@ scripts:
 recordings:
 
 start: 
-topic: infoviz vs data viz; ethics; expository graphics
-reading: @su_its_2008; @gelman_infovis_2013
-notes: LECT_infovis
+topic: Interactive graphics ##
+notes: LECT_interactive
 scripts: 
 recordings:
 
 start: 
-topic: Interactive graphics ## ; project proposals 29 Oct
-reading: 
-notes: #  [Tuesday lecture](interactive.lect.html)
+topic:  infoviz vs data viz; ethics; expository graphics
+reading: @su_its_2008; @gelman_infovis_2013; project proposals 29 Oct
+reading:
+notes: LECT_infovis
 scripts: 
 recordings:
 
