@@ -38,7 +38,7 @@ data/index.html ## Leave this here; it should be suppressed downstream
 
 ## Interactive graphics
 
-* [data/tax.rda](Tax data from NYT)
+* [Tax data from NYT](data/tax.rda)
 ** [Article](https://www.nytimes.com/interactive/2019/10/06/opinion/income-tax-rate-wealthy.html)
 ** [Scraped by DL Miller](https://gist.github.com/dill/508532714cd58398aaf90a0723efd2fd)
 ** [Cleaned by Ben](https://github.com/mac-theobio/DataViz19/blob/master/tax.R)
@@ -47,7 +47,3 @@ data/index.html ## Leave this here; it should be suppressed downstream
 
 * data/Table4.xlsx ## Something about wastewater
 * data/wbdata.rda
-
-### Untracked files ###
-
-* data/tax.rda
