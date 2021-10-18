@@ -1,4 +1,16 @@
 
+http://gallery.htmlwidgets.org/
+
+Bolker: drawbacks of animations
+* Cleveland hierarchy
+* What are some ways around it?
+
+old/interactive.R
+
+grep!
+
+Talk about rounding
+
 ## other logistical
 
 - review old diary entries??
