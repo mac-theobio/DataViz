@@ -32,6 +32,7 @@ data:
 
 ######################################################################
 
+gapminder.Rout: gapminder.R
 ## Figure sizing
 
 size.Rout: size.R
