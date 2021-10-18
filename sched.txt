@@ -48,7 +48,7 @@ scripts:
 recordings:
 
 start: 
-topic: Interactive graphics ##
+topic: Interactive graphics
 notes: LECT_interactive
 scripts: 
 recordings:

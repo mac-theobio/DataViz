@@ -1,5 +1,5 @@
 # DataViz CURRENT course and web, started Sep 2021
-# HTTps://mac-theobio.github.io/DataViz/?version=123
+# https://mac-theobio.github.io/DataViz/?version=123
 
 ### Hooks for the editor to set the default target
 current: target
