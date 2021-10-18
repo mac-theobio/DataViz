@@ -6,6 +6,7 @@ library(plotly)
 library(htmlwidgets)
 
 library(shellpipes)
+rpcall("intSmoke.Rout intSmoke.R data/fev.csv")
 
 smoke <- csvRead() %>% rename(smoking=smoke)
 summary(smoke)

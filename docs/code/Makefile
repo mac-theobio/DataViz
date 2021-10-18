@@ -147,6 +147,19 @@ Ignore += taxHover.*.html
 taxHover.%.html: taxHover.Rout ; 
 taxHover.Rout: taxHover.R data/tax.rda
 
+## irisLink.link.html: irisLink.R
+## irisLink.ps.html: irisLink.R
+Ignore += irisLink.*.html
+irisLink.%.html: irisLink.Rout ; 
+irisLink.Rout: irisLink.R
+
+crosstalk.html: crosstalk.rmd
+	$(knithtml)
+
+## cars.link.html: cars.R
+cars.link.html: cars.Rout ;
+cars.Rout: cars.R
+
 ######################################################################
 
 %.R: ../../old_repo/%.R
