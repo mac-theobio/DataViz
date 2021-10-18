@@ -58,11 +58,11 @@ if (require("gifski")) {
 
 
     gg1A <- animate(gg1,renderer=ffmpeg_renderer())
-    ## anim_save("gapminder1.mp4")
+    anim_save("gapminder1.mp4")
 
     ## OR
     gg1B <- animate(gg1)
-    ## anim_save("gapminder1.gif")
+    anim_save("gapminder1.gif")
 
 }
 ## gifski needs Rust installed!
