@@ -98,6 +98,19 @@ Remember Cleveland
 
 ----------------------------------------------------------------------
 
+TSEC Examples
+
+	[Schoolchildren example](../code/intSmoke.R)
+
+	[Tax example](../code/taxHover.R)
+
+	[Linking example with cars](../code/cars.R)
+
+	[gapminder animation](../code/gapminder.R)
+
+----------------------------------------------------------------------
+
+
 Scaling and panning
 
 	Except for exploration, you don't want graphs that _need_ to be looked over piece by piece
@@ -105,14 +118,6 @@ Scaling and panning
 	But it can be a useful _option_
 
 	Many packages just provide this
-
-----------------------------------------------------------------------
-
-Examples
-
-	[Schoolchildren example](../code/intSmoke.R)
-
-	[Tax example](../code/taxHover.R)
 
 ----------------------------------------------------------------------
 
@@ -155,7 +160,6 @@ Animation
 
 ----------------------------------------------------------------------
 
-
 SEC Tools and resources
 
 -------------------------------------------------------------------
@@ -175,7 +179,7 @@ Packages
 	* Straightforward and popular (esp. via `ggplotly`)
 * gganimate
     * very "gg" (grammar of graphics)-ish; not so interactive
-* crosstalk
+* [crosstalk](https://rstudio.github.io/crosstalk/using.html)
     * for letting different html widgets talk to each other (linking)
 * leaflet
     * maps (more later)
