@@ -30,8 +30,88 @@ Some interaction techniques
 	* Brushing: highlight categories by selecting them
 	* Linking: link selections across several plots
 	* Animation: selections in sequence; ideally can be played automatically or controlled by user
+* Exploration: users can set parameters and try new things
 
 -------------------------------------------------------------------
+
+SEC Principles
+
+-------------------------------------------------------------------
+
+No substitute for good design
+
+	Good design still aids comprehension and usability
+
+	People are busy!
+
+		You need your story to be clear and readable
+
+	Keep things simple
+
+		Details can be hidden
+
+		Structure and logic should be visible
+
+----------------------------------------------------------------------
+
+Acceptance
+
+* Why don't people do this more?
+
+* In what contexts can you reach an audience with interactive graphics?
+
+* How can interactive graphics help you with your research?
+
+-------------------------------------------------------------------
+
+Exploring
+
+	Interactive graphics can be very useful for certain kinds of exploration
+
+	Principles of friendliness may no longer apply, since users will become very familiar with the tool
+
+	Principles of clarity probably still do
+
+		It's possible to mislead yourself
+
+----------------------------------------------------------------------
+
+Telling stories
+
+	You may want to lead your readers through an interactive visualization
+
+	Several versions of your plot
+
+	Or even several default views of the same plot
+
+----------------------------------------------------------------------
+
+Scaling and panning
+
+	Except for exploration, you don't want graphs that _need_ to be looked over piece by piece
+
+	But it can be a useful _option_
+
+	Many packages just provide this
+
+----------------------------------------------------------------------
+
+Examples
+
+	[Schoolchildren example](../code/intSmoke.R)
+
+Labeling
+
+	Someone using interactively does _not_ need to see more than 3 or 4
+	significant figures
+
+	They also do not need to see everything in your data frame
+
+	You should not drop precision before making the plot, though
+
+	Solution: create dummy columns and limit what is shown to users on labels
+
+----------------------------------------------------------------------
 
 SEC Tools and resources
 
@@ -48,10 +128,6 @@ Resources
 
 Packages
 
-* ggvis
-	* Conceptually exciting (reworking of ggplot); dormant ☹
-* googleVis
-	* R interface to google charts: also fairly dormant
 * plotly
 	* Straightforward and popular (esp. via `ggplotly`)
 * gganimate
@@ -59,37 +135,4 @@ Packages
 * crosstalk
     * for letting different html widgets talk to each other (linking)
 * leaflet
-    * maps (more next week)
-
--------------------------------------------------------------------
-
-SEC More philosophy
-
--------------------------------------------------------------------
-
-Acceptance
-
-* Why don't people do this more?
-
-* In what contexts can you reach an audience with interactive graphics?
-
-* How can interactive graphics help you with your research?
-
--------------------------------------------------------------------
-
-TSEC More
-
-* [overview of animation](https://towardsdatascience.com/animating-your-data-visualizations-like-a-boss-using-r-f94ae20843e3) (`animate`, `gganimate`, `plotly`, `googleVis`)
-* gapminder examples (especially [this version](https://github.com/keithmcnulty/hans_rosling_bubble/blob/master/rosling.R), somewhat modified by us [here](gapminder.R)
-* wealth/tax/hovering example: @leonhardt_rich_2019, [code from David L. Miller](https://gist.github.com/dill/508532714cd58398aaf90a0723efd2fd), [our modifications](hover_tax.R)
-
--------------------------------------------------------------------
-
-TSEC Software support
-
-* different formats: 
-    * JavaScript (underlies plotly, D3, Vega, highchartr, leaflet, ...)
-	* GIF (old but supports animation)
-	* MP4 (video format)
-	* Flash (officially deprecated in favour of HTML5)
-* be aware that you may need to install various extra software to render animations, or to play them
+    * maps (more later)
