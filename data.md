@@ -47,3 +47,7 @@ data/index.html ## Leave this here; it should be suppressed downstream
 
 * data/Table4.xlsx ## Something about wastewater
 * data/wbdata.rda
+
+### Untracked files ###
+
+* data/tax.rda

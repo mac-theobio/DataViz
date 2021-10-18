@@ -159,7 +159,7 @@ Ignore += data_index.md
 ## To mark MISSING files and append UNTRACKED ones
 
 ## Don't edit
-data_index.md: data.md dataindex.pl data $(wildcard data/*.*sv data/*.rd* data/*.RData)
+data_index.md: data.md dataindex.pl data
 	- $(MAKE) data data.filemerge
 	$(PUSHRO)
 
