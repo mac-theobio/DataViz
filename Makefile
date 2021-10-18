@@ -88,6 +88,8 @@ lectures/docs/diagnostics.notes.html: lectures/diagnostics.rmd
 
 lectures/docs/interactive.slides.html: lectures/interactive.txt
 	$(lect_r)
+lectures/docs/interactive.notes.html: lectures/interactive.txt
+	$(lect_r)
 
 lectures/explore.lmd: lectures/explore.txt
 	cd lectures && $(MAKE) $(notdir $@)
