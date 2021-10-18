@@ -6,27 +6,33 @@ library(ggplot2)
 library(viridis)
 library(gganimate)
 library(wbstats)
-## need gifski *or* magick package, *or* something ...
+
+## Talk to us if you have trouble installing gifski
+## There are substitutes (including magick)
+library(gifski)
 
 # Rosling gapminder chart: previously in one command ...
 
-# pull the country data down from the World Bank - three indicators
-wbdata0 <- wbstats::wb_data(indicator = c("SP.DYN.LE00.IN",
+## Download data unless it's already found; run this in a place with a data subdirectory
+if (!file.exists("data/wbdata.rda")) {
+  ## pull the country data down from the World Bank - three indicators
+  wbdata0 <- wbstats::wb_data(indicator = c("SP.DYN.LE00.IN",
                                     "NY.GDP.PCAP.CD",
                                     "SP.POP.TOTL"),
                       country = "countries_only",
                       start_date = 1960,
                       end_date = 2018)
 
-wbdata1 <- (wbdata0
+  wbdata1 <- (wbdata0
     ## pull down mapping of countries to regions and join
     %>% dplyr::left_join(wbstats::wb_countries()
                          %>% dplyr::select(iso3c, region),
                          by="iso3c"))
-save("wbdata1",file="../data/wbdata.rda")
-if (file.exists("../data/wbdata.rda")) {
+  save("wbdata1",file="data/wbdata.rda")
+} else {
   load("data/wbdata.rda")
 }
+
 ## plot the data (everything)
 gg0 <- (ggplot(wbdata1,
                aes(x = log(NY.GDP.PCAP.CD),
@@ -50,21 +56,18 @@ gg0 <- (ggplot(wbdata1,
 )
 print(gg0)
 
-if (require("gifski")) {
-    ## animate it over years
-    gg1 <- gg0 + gganimate::transition_states(date,
-                           transition_length = 1, state_length = 1) +
-        gganimate::ease_aes('cubic-in-out')
-
-
-    gg1A <- animate(gg1,renderer=ffmpeg_renderer())
-    anim_save("gapminder1.mp4")
-
-    ## OR
-    gg1B <- animate(gg1)
-    anim_save("gapminder1.gif")
-
-}
-## gifski needs Rust installed!
 ## rendering takes about 30 seconds
+  ## animate it over years
+  gg1 <- (gg0 
+  	+ transition_states(date, transition_length = 1, state_length = 1) 
+	+ ease_aes('cubic-in-out')
+	)
+
+
+  gg1A <- animate(gg1,renderer=ffmpeg_renderer())
+  anim_save("gapminder1.mp4")
+
+  gg1B <- animate(gg1)
+  anim_save("gapminder1.gif")
+
 

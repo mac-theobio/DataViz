@@ -2,6 +2,7 @@
 
 A variety of links that we've run across; hopefully these will get incorporated in the primary course material eventually, but in the meantime enjoy browsing!
 
+* https://twitter.com/MapesGeog/status/1448436559456440320
 * `rdeck` package: https://twitter.com/MilesMcBain/status/1448076055651053569
 * on labeling area plots: https://bjnnowak.netlify.app/2021/08/10/r-labelling-area-plots/
 * thread on `ggdist`, `see`, etc. packages: https://twitter.com/mjskay/status/1419792270258225153
