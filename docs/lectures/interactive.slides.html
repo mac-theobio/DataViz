@@ -3212,6 +3212,29 @@ slide:not(.current) .plotly.html-widget{
 <li><p>Or even several default views of the same plot</p></li>
 </ul>
 
+</article></slide><slide class=""><hgroup><h2>Remember Cleveland</h2></hgroup><article  id="remember-cleveland">
+
+<ul>
+<li><p>What do people need to <em>compare</em>?</p></li>
+<li>How can you help them do it?
+
+<ul>
+<li>Choose scales</li>
+<li>Make information persistent or retrievable</li>
+</ul></li>
+</ul>
+
+</article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>Examples</h2></hgroup><article  id="examples">
+
+</article></slide><slide class=""><hgroup><h2>Examples</h2></hgroup><article  id="examples-1">
+
+<ul>
+<li><p><a href='../code/intSmoke.R' title=''>Schoolchildren example</a></p></li>
+<li><p><a href='../code/taxHover.R' title=''>Tax example</a></p></li>
+<li><p><a href='../code/cars.R' title=''>Linking example with cars</a></p></li>
+<li><p><a href='../code/gapminder.R' title=''>gapminder animation</a></p></li>
+</ul>
+
 </article></slide><slide class=""><hgroup><h2>Scaling and panning</h2></hgroup><article  id="scaling-and-panning">
 
 <ul>
@@ -3220,21 +3243,35 @@ slide:not(.current) .plotly.html-widget{
 <li><p>Many packages just provide this</p></li>
 </ul>
 
-</article></slide><slide class=""><hgroup><h2>Examples</h2></hgroup><article  id="examples">
-
-<ul>
-<li><p><a href='code/intSmoke.R' title=''>Schoolchildren example</a></p></li>
-<li><p><a href='../code/intSmoke.R' title=''>Schoolchildren example</a></p></li>
-<li><p><a href='../../code/intSmoke.R' title=''>Schoolchildren example</a></p></li>
-</ul>
-
-<p>Labeling</p>
+</article></slide><slide class=""><hgroup><h2>Labeling</h2></hgroup><article  id="labeling">
 
 <ul>
 <li><p>Someone using interactively does <em>not</em> need to see more than 3 or 4 significant figures</p></li>
 <li><p>They also do not need to see everything in your data frame</p></li>
 <li><p>You should not drop precision before making the plot, though</p></li>
 <li><p>Solution: create dummy columns and limit what is shown to users on labels</p></li>
+</ul>
+
+</article></slide><slide class=""><hgroup><h2>Brushing</h2></hgroup><article  id="brushing">
+
+<ul>
+<li><p>Pick out a particular data series</p></li>
+<li><p>Needs good communication and usability</p></li>
+<li><p>Particularly useful if combined with linking</p></li>
+</ul>
+
+</article></slide><slide class=""><hgroup><h2>Linking</h2></hgroup><article  id="linking">
+
+<ul>
+<li>Connect information across different pictures</li>
+</ul>
+
+</article></slide><slide class=""><hgroup><h2>Animation</h2></hgroup><article  id="animation">
+
+<ul>
+<li><p>Best when it’s under user control</p></li>
+<li><p>A really good brushing interface can often be better</p></li>
+<li><p>Can be really nice for talks, though</p></li>
 </ul>
 
 </article></slide><slide class="segue dark nobackground level1"><hgroup class = 'auto-fadein'><h2>Tools and resources</h2></hgroup><article  id="tools-and-resources">
@@ -3261,7 +3298,7 @@ slide:not(.current) .plotly.html-widget{
 <ul>
 <li>very &ldquo;gg&rdquo; (grammar of graphics)-ish; not so interactive</li>
 </ul></li>
-<li>crosstalk
+<li><a href='https://rstudio.github.io/crosstalk/using.html' title=''>crosstalk</a>
 
 <ul>
 <li>for letting different html widgets talk to each other (linking)</li>
