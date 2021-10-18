@@ -13,7 +13,7 @@ vim_session:
 
 Sources += $(wildcard *.R)
 
-autopipeR = defined
+autopipeRcall = defined
 
 ######################################################################
 
@@ -136,7 +136,16 @@ fake_plots.Rout: fake_plots.R fake.rda
 
 gapminder.Rout: gapminder.R
 
-intSmoke.Rout: data/fev.csv intSmoke.R
+## intSmoke.anim.html: intSmoke.R
+## intSmoke.graph.html: intSmoke.R
+Ignore += intSmoke.*.html
+intSmoke.%.html: intSmoke.Rout ; 
+intSmoke.Rout: intSmoke.R data/fev.csv
+
+## taxHover.dyn.html: taxHover.R
+Ignore += taxHover.*.html
+taxHover.%.html: taxHover.Rout ; 
+taxHover.Rout: taxHover.R data/tax.rda
 
 ######################################################################
 

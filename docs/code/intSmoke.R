@@ -10,22 +10,24 @@ library(shellpipes)
 smoke <- csvRead() %>% rename(smoking=smoke)
 summary(smoke)
 
-af <- (ggplot(smoke, aes(x=age, y=fev, label1=id, label2=height))
+volAge <- (
+	ggplot(smoke, aes(x=age, y=fev, label1=id, label2=height))
 	+ ylab("Lung capacity")
 	+ geom_point() 
-) %>% ggplotly(tooltip=c("id", "height"))
-
-htmlname <- paste0(rtargetname, ".R.html")
-## saveWidget(as_widget(( af)), htmlname)
-
-an <- (ggplot(smoke, aes(label1=id, label2=height, frame=age))
-	+ ylab("Lung capacity")
-	+ geom_point(aes(x=height, y=fev)) 
 )
 
-ggp <- (ggplotly(an, height = 900, width = 900)
+(volAge
+	%>% ggplotly(tooltip=c("id", "height"))
+	%>% as_widget
+	%>% saveWidget(targetname(ext=".graph.html"))
+)
+
+volAgeF <- volAge + aes(frame=age)
+
+(volAgeF
+	%>% ggplotly(tooltip=c("id", "height"), height = 900, width = 900)
 	%>% animation_opts()
+	%>% as_widget
+	%>% saveWidget(targetname(ext=".anim.html"))
 )
-
-saveWidget(as.widget(ggp), htmlname)
 
