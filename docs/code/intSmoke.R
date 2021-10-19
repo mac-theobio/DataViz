@@ -23,7 +23,7 @@ volAge <- (
 	%>% saveWidget(targetname(ext=".graph.html"))
 )
 
-volAgeF <- volAge + aes(frame=age)
+volAgeF <- volAge + aes(frame=age, x=height)
 
 (volAgeF
 	%>% ggplotly(tooltip=c("id", "height"), height = 900, width = 900)
