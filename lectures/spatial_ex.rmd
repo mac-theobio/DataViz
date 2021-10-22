@@ -187,7 +187,7 @@ There is not a super-easy way to code scales (we'd like 29.75 to be $29^\circ 45
 
 From [this github site](https://github.com/paleolimbot/blogdown-site/tree/master/content/post/2019-10-21-ridings):
 
-The riding boundaries come in shapefile format, which is handled by a one-liner to `read_sf()`. I'm going to simplify the boundaries a bit to speed up the plotting time. The `dTolderance` argument is in map units, and it took some experimenting to settle on the number 100.
+The riding boundaries come in shapefile format, which is handled by a one-liner to `read_sf()`. I'm going to simplify the boundaries a bit to speed up the plotting time. The `dTolerance` argument is in map units, and it took some experimenting to settle on the number 100.
 
 ```{r get_ridings}
 ridings <- (read_sf("tdata/boundaries_2015_shp_en/FED_CA_2_2_ENG.shp")
