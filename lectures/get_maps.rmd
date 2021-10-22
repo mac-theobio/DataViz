@@ -9,7 +9,7 @@ library(ggmap)
 
 ```{r get_data}
 ## fake: don't have my API key any more, data is stored
-load("../data/googlemaps.rda")
+load("tdata/googlemaps.rda")
 ```
 
 ## ggmap package

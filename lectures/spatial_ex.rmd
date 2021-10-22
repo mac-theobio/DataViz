@@ -20,7 +20,7 @@ if (!require(transformr,quietly=TRUE)) {
           "'remotes::install_github(\"thomasp85/transformr'\")")
 }
 library(leaflet)
-load("../data/googlemaps.rda")
+load("tdata/googlemaps.rda")
 ```
 
 ## crime
@@ -190,7 +190,7 @@ From [this github site](https://github.com/paleolimbot/blogdown-site/tree/master
 The riding boundaries come in shapefile format, which is handled by a one-liner to `read_sf()`. I'm going to simplify the boundaries a bit to speed up the plotting time. The `dTolderance` argument is in map units, and it took some experimenting to settle on the number 100.
 
 ```{r get_ridings}
-ridings <- (read_sf("../data/boundaries_2015_shp_en/FED_CA_2_2_ENG.shp")
+ridings <- (read_sf("tdata/boundaries_2015_shp_en/FED_CA_2_2_ENG.shp")
   %>% st_simplify(dTolerance = 100)
 )
 ```
@@ -241,20 +241,20 @@ rplot_anim <- (rplot
 ```
 
 ```{r anim, results="hide"}
-if (!file.exists("../data/ridings.gif")) {
+if (!file.exists("ridings.gif")) {
   animate(rplot_anim, width = 700, height = 700, res = 96)
-  anim_save("../data/ridings.gif")
+  anim_save("ridings.gif")
 }
 ```
 
-![](../data/ridings.gif)
+![](ridings.gif)
 
 ## dog licenses
 
 NYC zip codes [here](https://data.cityofnewyork.us/widgets/i8iw-xf4u)
 
 ```{r get_dogs,message=FALSE}
-zc <- read_sf("../data/nyc_zipcodes")
+zc <- read_sf("tdata/nyc_zipcodes")
 Sys.setenv("VROOM_CONNECTION_SIZE" = 2^30)
 dogs <- (data.table::fread("../data/NYC_dogs.csv.gz")
   %>% as_tibble()

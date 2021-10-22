@@ -35,6 +35,13 @@ Sources += $(wildcard *.R)
 
 ## lecture dependencies
 
+docs/get_maps.notes.html docs/get_maps.slides.html: get_spatial_data.Rout
+
+docs/spatial_ex.notes.html docs/spatial_ex.slides.html: get_spatial_data.Rout
+
+get_spatial_data.Rout: get_spatial_data.R tdata/stamp
+	$(pipeR)
+
 docs/fake.notes.html docs/fake.slides.html: tdata/fake.rda
 
 tdata/fake.Rout: fake.R tdata/stamp
