@@ -6,18 +6,70 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta name="author" content="Jonathan Dushoff" />
   <title>Interactive graphics</title>
-  <style>
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
   </style>
-  <link rel="stylesheet" href="data:text/css,%0Abody%20%7B%0Amargin%3A%20auto%3B%0Apadding%2Dright%3A%201em%3B%0Apadding%2Dleft%3A%201em%3B%0Amax%2Dwidth%3A%2066em%3B%20border%2Dleft%3A%201px%20solid%20black%3B%0Aborder%2Dright%3A%201px%20solid%20black%3B%0Acolor%3A%20black%3B%0Afont%2Dfamily%3A%20Verdana%2C%20sans%2Dserif%3B%0Afont%2Dsize%3A%20100%25%3B%0Aline%2Dheight%3A%20140%25%3B%0A%7D%0Apre%20%7B%0Aborder%3A%201px%20dotted%20gray%3B%0Abackground%2Dcolor%3A%20%23ececec%3B%0Acolor%3A%20%231111111%3B%0Apadding%3A%200%2E5em%3B%0A%7D%0Acode%20%7B%0Afont%2Dfamily%3A%20monospace%3B%0A%7D%0Ah1%2C%20h2%2C%20h3%2C%20h4%2C%20h5%20%7B%20font%2Dfamily%3A%20verdana%3B%0Afont%2Dweight%3A%20bold%3B%0Aborder%2Dbottom%3A%201px%20dotted%20black%3B%0Acolor%3A%20%23444400%3B%20%7D%0Ah1%20%7B%0Afont%2Dsize%3A%20150%25%3B%0Acolor%3A%20%230000DD%0A%7D%0Ah2%20%7B%0Afont%2Dsize%3A%20130%25%3B%0A%7D%0Ah3%20%7B%0Afont%2Dsize%3A%20110%25%3B%0A%7D%0Ah1%2Etitle%20%7B%0Afont%2Dsize%3A%20200%25%3B%0Afont%2Dweight%3A%20bold%3B%0Apadding%2Dtop%3A%200%2E2em%3B%0Apadding%2Dbottom%3A%200%2E2em%3B%0Atext%2Dalign%3A%20left%3B%0Aborder%3A%20none%3B%0Atext%2Dalign%3A%20center%3B%0A%7D%0Adt%20code%20%7B%0Afont%2Dweight%3A%20bold%3B%0A%7D%0Add%20p%20%7B%0Amargin%2Dtop%3A%200%3B%0A%7D%0A%23footer%20%7B%0Apadding%2Dtop%3A%201em%3B%0Afont%2Dsize%3A%20100%25%3B%0Acolor%3A%20gray%3B%0Atext%2Dalign%3A%20center%3B%0Amargin%2Dbottom%3A%202ex%3B%0A%7D%0A" />
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
+  <style type="text/css">
+body {
+margin: auto;
+padding-right: 1em;
+padding-left: 1em;
+max-width: 66em; border-left: 1px solid black;
+border-right: 1px solid black;
+color: black;
+font-family: Verdana, sans-serif;
+font-size: 100%;
+line-height: 140%;
+}
+pre {
+border: 1px dotted gray;
+background-color: #ececec;
+color: #1111111;
+padding: 0.5em;
+}
+code {
+font-family: monospace;
+}
+h1, h2, h3, h4, h5 { font-family: verdana;
+font-weight: bold;
+border-bottom: 1px dotted black;
+color: #444400; }
+h1 {
+font-size: 150%;
+color: #0000DD
+}
+h2 {
+font-size: 130%;
+}
+h3 {
+font-size: 110%;
+}
+h1.title {
+font-size: 200%;
+font-weight: bold;
+padding-top: 0.2em;
+padding-bottom: 0.2em;
+text-align: left;
+border: none;
+text-align: center;
+}
+dt code {
+font-weight: bold;
+}
+dd p {
+margin-top: 0;
+}
+#footer {
+padding-top: 1em;
+font-size: 100%;
+color: gray;
+text-align: center;
+margin-bottom: 2ex;
+}
+</style>
 </head>
 <body>
 <header class="site-header">
@@ -30,7 +82,6 @@
 	</div>
 </div>
 </header>
-
 <header id="title-block-header">
 <h1 class="title">Interactive graphics</h1>
 <p class="author">Jonathan Dushoff</p>
@@ -60,6 +111,88 @@
 <li>Linking: link selections across several plots</li>
 <li>Animation: selections in sequence; ideally can be played automatically or controlled by user</li>
 </ul></li>
+<li>Exploration: users can set parameters and try new things</li>
+</ul>
+<h1 id="principles">Principles</h1>
+<h2 id="no-substitute-for-good-design">No substitute for good design</h2>
+<ul>
+<li><p>Good design still aids comprehension and usability</p></li>
+<li>People are busy!
+<ul>
+<li>You need your story to be clear and readable</li>
+</ul></li>
+<li>Keep things simple
+<ul>
+<li>Details can be hidden</li>
+<li>Structure and logic should be visible</li>
+</ul></li>
+</ul>
+<h2 id="acceptance">Acceptance</h2>
+<ul>
+<li><p>Why don’t people do this more?</p></li>
+<li><p>In what contexts can you reach an audience with interactive graphics?</p></li>
+<li><p>How can interactive graphics help you with your research?</p></li>
+</ul>
+<h2 id="exploring">Exploring</h2>
+<ul>
+<li><p>Interactive graphics can be very useful for certain kinds of exploration</p></li>
+<li><p>Principles of friendliness may no longer apply, since users will become very familiar with the tool</p></li>
+<li>Principles of clarity probably still do
+<ul>
+<li>It’s possible to mislead yourself</li>
+</ul></li>
+</ul>
+<h2 id="telling-stories">Telling stories</h2>
+<ul>
+<li><p>You may want to lead your readers through an interactive visualization</p></li>
+<li><p>Several versions of your plot</p></li>
+<li><p>Or even several default views of the same plot</p></li>
+</ul>
+<h2 id="remember-cleveland">Remember Cleveland</h2>
+<ul>
+<li><p>What do people need to <em>compare</em>?</p></li>
+<li>How can you help them do it?
+<ul>
+<li>Choose scales</li>
+<li>Make information persistent or retrievable</li>
+</ul></li>
+</ul>
+<h1 id="examples">Examples</h1>
+<h2 id="examples-1">Examples</h2>
+<ul>
+<li><p><a href="../code/intSmoke.R">Schoolchildren example</a></p></li>
+<li><p><a href="../code/taxHover.R">Tax example</a></p></li>
+<li><p><a href="../code/cars.R">Linking example with cars</a></p></li>
+<li><p><a href="../code/gapminder.R">gapminder animation</a></p></li>
+</ul>
+<h2 id="scaling-and-panning">Scaling and panning</h2>
+<ul>
+<li><p>Except for exploration, you don’t want graphs that <em>need</em> to be looked over piece by piece</p></li>
+<li><p>But it can be a useful <em>option</em></p></li>
+<li><p>Many packages just provide this</p></li>
+</ul>
+<h2 id="labeling">Labeling</h2>
+<ul>
+<li><p>Someone using interactively does <em>not</em> need to see more than 3 or 4 significant figures</p></li>
+<li><p>They also do not need to see everything in your data frame</p></li>
+<li><p>You should not drop precision before making the plot, though</p></li>
+<li><p>Solution: create dummy columns and limit what is shown to users on labels</p></li>
+</ul>
+<h2 id="brushing">Brushing</h2>
+<ul>
+<li><p>Pick out a particular data series</p></li>
+<li><p>Needs good communication and usability</p></li>
+<li><p>Particularly useful if combined with linking</p></li>
+</ul>
+<h2 id="linking">Linking</h2>
+<ul>
+<li>Connect information across different pictures</li>
+</ul>
+<h2 id="animation">Animation</h2>
+<ul>
+<li><p>Best when it’s under user control</p></li>
+<li><p>A really good brushing interface can often be better</p></li>
+<li><p>Can be really nice for talks, though</p></li>
 </ul>
 <h1 id="tools-and-resources">Tools and resources</h1>
 <h2 id="resources">Resources</h2>
@@ -71,14 +204,6 @@
 </ul>
 <h2 id="packages">Packages</h2>
 <ul>
-<li>ggvis
-<ul>
-<li>Conceptually exciting (reworking of ggplot); dormant ☹</li>
-</ul></li>
-<li>googleVis
-<ul>
-<li>R interface to google charts: also fairly dormant</li>
-</ul></li>
 <li>plotly
 <ul>
 <li>Straightforward and popular (esp. via <code>ggplotly</code>)</li>
@@ -87,40 +212,14 @@
 <ul>
 <li>very “gg” (grammar of graphics)-ish; not so interactive</li>
 </ul></li>
-<li>crosstalk
+<li><a href="https://rstudio.github.io/crosstalk/using.html">crosstalk</a>
 <ul>
 <li>for letting different html widgets talk to each other (linking)</li>
 </ul></li>
 <li>leaflet
 <ul>
-<li>maps (more next week)</li>
+<li>maps (more later)</li>
 </ul></li>
-</ul>
-<h1 id="more-philosophy">More philosophy</h1>
-<h2 id="acceptance">Acceptance</h2>
-<ul>
-<li><p>Why don’t people do this more?</p></li>
-<li><p>In what contexts can you reach an audience with interactive graphics?</p></li>
-<li><p>How can interactive graphics help you with your research?</p></li>
-</ul>
-<h1 id="more">More</h1>
-<h2 id="more-1">More</h2>
-<ul>
-<li><a href="https://towardsdatascience.com/animating-your-data-visualizations-like-a-boss-using-r-f94ae20843e3">overview of animation</a> (<code>animate</code>, <code>gganimate</code>, <code>plotly</code>, <code>googleVis</code>)</li>
-<li>gapminder examples (especially <a href="https://github.com/keithmcnulty/hans_rosling_bubble/blob/master/rosling.R">this version</a>, somewhat modified by us <a href="gapminder.R">here</a></li>
-<li>wealth/tax/hovering example: <span class="citation" data-cites="leonhardt">@leonhardt</span>_rich_2019, <a href="https://gist.github.com/dill/508532714cd58398aaf90a0723efd2fd">code from David L. Miller</a>, <a href="hover_tax.R">our modifications</a></li>
-</ul>
-<h1 id="software-support">Software support</h1>
-<h2 id="software-support-1">Software support</h2>
-<ul>
-<li>different formats:
-<ul>
-<li>JavaScript (underlies plotly, D3, Vega, highchartr, leaflet, …)</li>
-<li>GIF (old but supports animation)</li>
-<li>MP4 (video format)</li>
-<li>Flash (officially deprecated in favour of HTML5)</li>
-</ul></li>
-<li>be aware that you may need to install various extra software to render animations, or to play them</li>
 </ul>
 <div id="footer">
 	<div style="text-align:center">

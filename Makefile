@@ -88,6 +88,8 @@ lectures/docs/diagnostics.notes.html: lectures/diagnostics.rmd
 
 lectures/docs/interactive.slides.html: lectures/interactive.txt
 	$(lect_r)
+lectures/docs/interactive.notes.html: lectures/interactive.txt
+	$(lect_r)
 
 lectures/explore.lmd: lectures/explore.txt
 	cd lectures && $(MAKE) $(notdir $@)
@@ -155,11 +157,9 @@ Ignore += data_index.md
 
 ## Edit data.md page; it's also supposed to edit itself
 ## To mark MISSING files and append UNTRACKED ones
-data.md: data $(wildcard data/*.*sv data/*.rd* data/*.RData)
-	$(touch)
 
-## Don't edit (might be read-only to remind you)
-data_index.md: data.md dataindex.pl
+## Don't edit
+data_index.md: data.md dataindex.pl data
 	- $(MAKE) data data.filemerge
 	$(PUSHRO)
 

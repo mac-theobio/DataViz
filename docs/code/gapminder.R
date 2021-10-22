@@ -57,17 +57,18 @@ gg0 <- (ggplot(wbdata1,
 print(gg0)
 
 ## rendering takes about 30 seconds
-  ## animate it over years
-  gg1 <- (gg0 
-  	+ transition_states(date, transition_length = 1, state_length = 1) 
+## animate it over the variable "date"
+gg1 <- (gg0 
+	+ transition_states(date, transition_length = 1, state_length = 1) 
 	+ ease_aes('cubic-in-out')
-	)
+)
 
+## Animate as gif
+gg1gif <- animate(gg1)
+anim_save("gapminder1.gif")
 
-  gg1A <- animate(gg1,renderer=ffmpeg_renderer())
-  anim_save("gapminder1.mp4")
-
-  gg1B <- animate(gg1)
-  anim_save("gapminder1.gif")
-
+## You can get a prettier animation if you have installed ffmpeg
+## ask us about this, too
+gg1mp4 <- animate(gg1,renderer=ffmpeg_renderer())
+anim_save("gapminder1.mp4")
 

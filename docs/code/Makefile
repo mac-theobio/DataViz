@@ -13,7 +13,7 @@ vim_session:
 
 Sources += $(wildcard *.R)
 
-autopipeR = defined
+autopipeRcall = defined
 
 ######################################################################
 
@@ -32,7 +32,6 @@ data:
 
 ######################################################################
 
-gapminder.Rout: gapminder.R
 ## Figure sizing
 
 size.Rout: size.R
@@ -130,6 +129,36 @@ uni.Rout: uni.R smoke.rds
 
 fake.Rout: fake.R
 fake_plots.Rout: fake_plots.R fake.rda
+
+######################################################################
+
+## Interactive lecture
+
+gapminder.Rout: gapminder.R
+
+## intSmoke.anim.html: intSmoke.R
+## intSmoke.graph.html: intSmoke.R
+Ignore += intSmoke.*.html
+intSmoke.%.html: intSmoke.Rout ; 
+intSmoke.Rout: intSmoke.R data/fev.csv
+
+## taxHover.dyn.html: taxHover.R
+Ignore += taxHover.*.html
+taxHover.%.html: taxHover.Rout ; 
+taxHover.Rout: taxHover.R data/tax.rda
+
+## irisLink.link.html: irisLink.R
+## irisLink.ps.html: irisLink.R
+Ignore += irisLink.*.html
+irisLink.%.html: irisLink.Rout ; 
+irisLink.Rout: irisLink.R
+
+crosstalk.html: crosstalk.rmd
+	$(knithtml)
+
+## cars.link.html: cars.R
+cars.link.html: cars.Rout ;
+cars.Rout: cars.R
 
 ######################################################################
 
