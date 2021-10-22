@@ -1,0 +1,132 @@
+---
+title: "get maps"
+author: "Alex Bushby, Aleks Jovic, Ben Bolker"
+---
+
+```{r pkgs,message=FALSE}
+library(ggmap)
+```
+
+```{r get_data}
+## fake: don't have my API key any more, data is stored
+load("../data/googlemaps.rda")
+```
+
+## ggmap package
+
+- get raster map tiles from online sources 
+- e.g. digital aerial photographs, satellite imagery, digital pictures, or even scanned maps
+- plotting via `ggplot` extensions
+- also has functions for geolocation and routing.
+
+## getting maps
+
+- first retrieve an underlying *map layer* (raster)
+- various functions to get maps from popular sources: 
+    - Google Maps
+	- [OpenStreetMap](https://www.openstreetmap.org/#map=17/43.26435/-79.91770)
+	- [Stamen Maps](http://maps.stamen.com/#watercolor/12/37.7706/-122.3782)
+
+
+## specify coordinates
+
+- usually specify latitude/longitude  
+(negative longtude = west, negative latitude=south)
+- usually digital (not degrees/minutes/seconds)
+- occasional confusion: (lat,lon) is common in geographic contexts but (lon,lat) is (x,y)
+
+## StamenMap
+
+```{r sm1, cache=TRUE,message=FALSE}
+## specify lat/long bounding box
+mapzone <- c(left = -135, bottom = 25.75, right = -62, top = 75)
+s_map <- get_stamenmap(mapzone, zoom = 5, maptype = "toner-lite")
+## maptype: "terrain", "terrain-background", "terrain-labels", "terrain-lines",
+##  "toner" + etc., "watercolor", ...
+class(s_map)
+```
+
+## Plot
+
+```{r sm2}
+ggmap(s_map)
+```
+
+##  Google maps
+
+Need to sign up for an API key and enable various APIs: go [here](https://cloud.google.com/maps-platform/) and follow *all* the instructions (get an API key, enable maps services, give them credit card info ...)
+
+```{r gmap,eval=FALSE}
+register_google(key=Sys.getenv("GOOGLEMAPS_KEY"))
+hamilton_map <- get_googlemap(center=c(lon=-79.91, lat=43.26),
+                       zoom=13, size=c(640,640),
+                       scale=2,maptype='terrain')
+## maptype: 'satellite','roadmap','hybrid'
+```
+
+```{r show_map}
+print(hamilton_map)
+class(hamilton_map)
+```
+
+## plot
+
+```{r plot_gmap}
+ggmap(hamilton_map)
+```
+
+```{r gmap2,eval=FALSE}
+#zoom must be whole number, so a bit finnicky
+#mcmaster satellite map
+mcmaster_map <- get_googlemap(center=c(lon=-79.9192, lat=43.2609),
+                             zoom=15, maptype = 'satellite')
+```
+
+---
+
+```{r plot_gmap2}
+ggmap(mcmaster_map)
+```
+
+---
+
+```{r gmap3,eval=FALSE}
+#you can get as close as the database permits
+fireball_map <- get_googlemap(center=c(lon=-79.92, lat=43.2609), zoom=19, maptype = 'satellite')
+```
+
+---
+
+```{r plot_gmap3}
+ggmap(fireball_map)
+```
+
+---
+
+## compare stamen
+
+```{r s2,message=FALSE,cache=TRUE}
+fb_mapzone <- c(left = -79.921, bottom = 43.2603, right = -79.919, top = 43.2615)
+## max zoom
+s_map2 <- get_stamenmap(fb_mapzone, zoom = 18, maptype = "watercolor")
+```
+
+
+```{r plot_s2}
+ggmap(s_map2)
+```
+
+Oh well ...
+
+## more Google maps tricks
+
+```{r more_maps,eval=FALSE}
+## need "geocoding API" enabled
+london_map <- get_googlemap("london england", zoom = 12)
+## Las Vegas!
+## https://en.wikipedia.org/wiki/New_York-New_York_Hotel_and_Casino
+nyny_map <- get_googlemap("newyork newyork", zoom = 12)
+to1_map <- get_googlemap('toronto canada', zoom=12,maptype='satellite')
+## certain zooms work: zoom=12 does, 13 doesn't, 14 doesn't, 15 does
+to2_map <- get_googlemap('toronto canada', zoom=15, maptype='hybrid')
+```

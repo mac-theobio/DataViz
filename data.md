@@ -39,9 +39,12 @@ data/index.html ## Leave this here; it should be suppressed downstream
 ## Other ##
 
 * data/Table4.xlsx ## Something about wastewater
-
-
-### Untracked files ###
-
-* data/wbdata.rda
 * data/tax.rda
+
+## Spatial
+* data/googlemaps.rda
+* data/wbdata.rda
+
+* data/NYC_dogs.csv.gz
+* data/ridings_hex.rds
+* data/ridings.gif

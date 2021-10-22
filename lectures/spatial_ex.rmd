@@ -3,6 +3,8 @@ title: "spatial examples"
 author: "Alex Bushby, Aleks Jovic, Ben Bolker"
 ---
 
+## pkgs
+
 ```{r pkgs,message=FALSE}
 library(ggmap)
 library(tidyverse)
@@ -21,13 +23,14 @@ library(leaflet)
 load("../data/googlemaps.rda")
 ```
 
-# crime
+## crime
 
 The `crime` dataset contains crime reports for Houston from January-August 2010, geocoded with Google Maps.
 
 ```{r showcrime}
 tibble(crime)
 ```
+
 Lots of useful info: dates, types of crimes, locations by type of place, locations by street, locations by longitude/latitude ...
 
 First, let's get an overview of the crimes on the map. The `qmplot` is often recommended as a quick way to do mapping (but we will switch to another approach shortly). We put in longitude (`lon`) and latitude (`lat`) for the `x` and `y` parameters and specify `crime` as the data set. This plots all of the crimes in the database.
@@ -61,7 +64,7 @@ houston_map1 <- get_stamenmap(houston_mz,zoom=7, maptype="toner-lite",
 
 Now we can combine the map with the data set:
 
-```{r houston2}
+```{r houston2, warning=FALSE}
 (ggmap(houston_map1)
   + geom_point(data=crime,colour="red",size=0.9,alpha=0.3)
 )
@@ -91,7 +94,7 @@ violent_crime <-
 ```
 
 
-```{r vc1,warning=FALSE,message=FALSE}
+```{r vc1,warning=FALSE,message=FALSE, warning=FALSE}
 houston_map2 <- get_stamenmap(get_mapzone(violent_crime), maptype="toner-lite",
                                 zoom=14,messaging=FALSE)
 (ggmap(houston_map2)
@@ -174,8 +177,7 @@ This is pretty but maybe not useful ...
 (hm
   + stat_density2d(aes(x = lon, y = lat, fill = offense, alpha = ..level..),
                    bins = 5, geom = "polygon")
-  + scale_fill_brewer(palette="Dark2")
-  
+  + scale_fill_brewer(palette = "Dark2")
 )
 ```
 
@@ -211,20 +213,21 @@ if (file.exists(fn)) {
   }))
 }
 ```
+(this calculation takes  )
 
 ```{r process_ridings}
-fix_fun <- function(x,label) {
+fix_fun <- function(x, label) {
   (x
     %>% st_set_crs(NA)
     %>% dplyr::select(PROVCODE,geometry)
     %>% mutate(type=label)
   )
 }
-ridings_list <- list(geographic=ridings,hex=ridings_hex)
-purrr:::map(ridings_list,st_crs)
+ridings_list <- list(geographic=ridings, hex=ridings_hex)
+## purrr:::map(ridings_list,st_crs)
 ridings_combined <- purrr::map2(ridings_list, names(ridings_list), fix_fun)
 ## dplyr::bind_rows doesn't work: https://github.com/tidyverse/dplyr/issues/2457
-ridings_combined <- do.call(rbind,ridings_combined)
+ridings_combined <- do.call(rbind, ridings_combined)
 ```
 
 ```{r make_anim}
@@ -237,12 +240,14 @@ rplot_anim <- (rplot
 )
 ```
 
-```{r anim,eval=FALSE}
-animate(rplot_anim, width = 700, height = 700, res = 96)
-anim_save("spatial_ex_files/ridings.gif")
+```{r anim, results="hide"}
+if (!file.exists("../data/ridings.gif")) {
+  animate(rplot_anim, width = 700, height = 700, res = 96)
+  anim_save("../data/ridings.gif")
+}
 ```
 
-<!-- ![](../data/spatial_ex_files/ridings.gif) -->
+![](../data/ridings.gif)
 
 ## dog licenses
 
@@ -251,7 +256,7 @@ NYC zip codes [here](https://data.cityofnewyork.us/widgets/i8iw-xf4u)
 ```{r get_dogs,message=FALSE}
 zc <- read_sf("../data/nyc_zipcodes")
 Sys.setenv("VROOM_CONNECTION_SIZE" = 2^30)
-dogs <- (data.table::fread("../data/NYC_dogs.csv")
+dogs <- (data.table::fread("../data/NYC_dogs.csv.gz")
   %>% as_tibble()
   %>% rename(zipcode="Owner Zip Code",name="Animal Name",
              gender="Animal Gender",breed_1="Primary Breed",
