@@ -31,6 +31,22 @@ slideous:
 
 ######################################################################
 
+Sources += $(wildcard *.R)
+
+## lecture dependencies
+
+docs/fake.notes.html docs/fake.slides.html: tdata/fake.rda
+
+tdata/fake.Rout: fake.R tdata/stamp
+	$(pipeR)
+
+Ignore += tdata
+tdata/stamp:
+	- mkdir tdata
+	touch $@
+
+######################################################################
+
 Sources += $(wildcard *.md)
 
 ## docs/ subdirectory here maps to a corresponding subdirectory in docs
@@ -66,6 +82,7 @@ makestuff/Makefile:
 -include makestuff/dmdeps.mk
 -include makestuff/hotcold.mk
 -include makestuff/webpix.mk
+-include makestuff/pipeR.mk
 
 -include makestuff/git.mk
 -include makestuff/visual.mk
