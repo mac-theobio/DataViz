@@ -3,6 +3,12 @@ title: "spatial data viz"
 bibliography: ../vis.bib
 ---
 
+<style>
+.refs {
+   font-size: 16px;
+}
+</style>
+
 # spatial data
 
 ## types of spatial data
@@ -61,17 +67,19 @@ e.g.
 * top of Cleveland hierarchy (x,y coordinates) are used up
 * insets (Alaska/Hawaii etc.)
 * map decoration
-* representing uncertainties: @correll_value-suppressing_2018, @maceachren_visualizing_2005, @koo_geovisualizing_2018
+* representing uncertainties: @correll_value-suppressing_2018, @maceachren_visualizing_2005, @koo_geovisualizing_2018, @bolin_quantifying_2017
 * not misrepresenting areas (e.g. cartograms: @perrier_topogram_2019, @hohle_cartograms_2016)
      * [red/blue maps](https://www.core77.com/posts/90771/A-Great-Example-of-Better-Data-Visualization-This-Voting-Map-GIF)
      * [red/blue/purple maps](https://medium.com/matter/the-trouble-with-the-purple-election-map-31e6cb9f1827)
 * linking?
 	 
----
+## 
 
-![](pix/redpurple1.gif)
+```{r redpurple, echo=FALSE, out.width="80%"}
+knitr::include_graphics("pix/redpurple1.gif")
+```
 
----
+##
 
 ![](pix/redpurple2.gif)
 	 
@@ -81,10 +89,6 @@ e.g.
 * `ggmap` (maps in ggplot, including downloading data from google maps etc.)
 * `leaflet` (map widget)
 * `tmap` (an alternative ggplot-like approach: see [here](https://geocompr.robinlovelace.net/adv-map.html))
+* `mapcan` (political maps for Canada)
 
-## to do
-
-- [Canada ridings animation](https://fishandwhistle.net/post/2019/canada-ridings-hex/); data etc. [here](https://github.com/paleolimbot/blogdown-site/tree/master/content/post/2019-10-21-ridings)
-- `mapcan` package?
-
-## References {.small}
+## References {.refs}
