@@ -17,9 +17,8 @@ Talk about rounding
 
 ## lecture prep
 
-- snarky Wordcloud tweet?
-- https://bbc.github.io/rcookbook/#do_something_else_entirely
 - ethics/accessibility material ... https://mschermann.github.io/data_viz_reader/ethics.html; @cairo_ethical_2014, @cairo_if_2020; https://twitter.com/FrankElavsky/status/1396898372183855105
+- spatial plot; fix gif sizing/rendering? More on `sf` ?
 
 ## pipeline/structure issues
 
