@@ -64,7 +64,7 @@ recordings:
 start: 
 topic: Spatial data
 reading: 
-notes: LECT_spatial; LECT_spatial_ex #  [Tuesday lecture](spatial.lect.html); [getting maps](get_maps.html); [spatial examples 1](spatial_ex.html)
+notes: LECT_spatial; LECT_spatial_ex; LECT_get_maps
 scripts: 
 recordings:
 
