@@ -33,7 +33,7 @@ tibble(crime)
 
 Lots of useful info: dates, types of crimes, locations by type of place, locations by street, locations by longitude/latitude ...
 
-First, let's get an overview of the crimes on the map. The `qmplot` is often recommended as a quick way to do mapping (but we will switch to another approach shortly). We put in longitude (`lon`) and latitude (`lat`) for the `x` and `y` parameters and specify `crime` as the data set. This plots all of the crimes in the database.
+First, let's get an overview of the crimes on the map. The `qmplot` is often recommended as a quick way to do mapping (but we will switch to another approach shortly). We put in longitude (`lon`) and latitude (`lat`) for the `x` and `y` parameters and specify `crime` as the data set. This plots all of the crimes in the database. (Note that to specify colour, size, etc. as set values, we need to use `I()` rather than including them outside of the mapping (`aes()`) as in normal `ggplot` usage.)
 
 (Example adapted from [here](https://github.com/tidyverse/ggplot2/wiki/crime-in-downtown-houston,-texas-:-combining-ggplot2-and-google-maps).)
 
@@ -253,30 +253,40 @@ if (!file.exists("ridings.gif")) {
 
 NYC zip codes [here](https://data.cityofnewyork.us/widgets/i8iw-xf4u)
 
-```{r get_dogs,message=FALSE}
+Process data:
+```{r proc_dogs,message=FALSE}
 zc <- read_sf("tdata/nyc_zipcodes")
 Sys.setenv("VROOM_CONNECTION_SIZE" = 2^30)
 dogs <- (data.table::fread("../data/NYC_dogs.csv.gz")
   %>% as_tibble()
-  %>% rename(zipcode="Owner Zip Code",name="Animal Name",
-             gender="Animal Gender",breed_1="Primary Breed",
-             color="Animal Dominant Color")
-  %>% mutate(zipcode=sprintf("%05d",zipcode))
-  %>% select(zipcode,name,gender,breed_1,color)
+  %>% rename(zipcode = "Owner Zip Code",
+             name = "Animal Name",
+             gender = "Animal Gender",
+             breed_1 = "Primary Breed",
+             color = "Animal Dominant Color")
+  %>% mutate(across(zipcode, ~ sprintf("%05d", .))) ## zero-pad
+  %>% select(zipcode, name, gender, breed_1, color)
 )
 z_rottie <- (dogs
   %>% group_by(zipcode)
-  %>% summarise(tot=sum(stringr::str_detect(breed_1,"[Rr]ott")),
-                tot_dogs=n(),
-                frac=tot/n())
+  %>% summarise(tot = sum(stringr::str_detect(breed_1,"[Rr]ott")),
+                tot_dogs = n(),
+                frac = tot / n())
 )
-z_dogs  <- full_join(z_rottie,zc,by=c("zipcode"="ZIPCODE"))
-(ggplot(z_dogs)
-  + geom_sf(aes(fill = frac,alpha=tot_dogs, geometry=geometry))
+## join in this order so we end up with an sf object
+z_dogs  <- full_join(zc, z_rottie, by = c("ZIPCODE" = "zipcode"))
+```
+
+```{r plot_dogs, warning=FALSE}
+dog_map1 <- (ggplot(z_dogs)
+  + geom_sf(aes(fill = frac, alpha = tot_dogs, geometry = geometry))
   + theme_void()
   + scale_fill_gradient(low="white",high="brown",
-                        trans=scales::logit_trans())
+                        trans=scales::logit_trans(),
+                        breaks=c(0.01,0.05,0.1))
+  + scale_alpha(range = c(0.9, 1), guide = "none")
 )
+print(dog_map1)
 ```
 
 * superimpose on a map, possibly clipped?
@@ -293,14 +303,17 @@ Quick Houston-crime example:
 ```{r houston_leaflet}
 ## predefine colour palette
 bp <- brewer.pal(name="Dark2",n=length(levels(violent_crime$offense)))
-L1 <- leaflet(data=st_as_sf(violent_crime,coords=c("lon","lat"))) %>%
-  setView(-95.35,29.75,zoom=13) %>%
+L1 <- (leaflet(data = st_as_sf(violent_crime, coords=c("lon","lat")))
+  %>% setView(-95.35, 29.75, zoom=13)
+  %>%
   ## use Stamen/toner rather than default Open Street Maps tiles
   addProviderTiles(providers$Stamen.Toner,
-                   options = providerTileOptions(opacity = 0.35)) %>%
-  addCircleMarkers(radius=5,weight=2,
-                   color=~bp[offense],
-                   popup=~date)
+                   options = providerTileOptions(opacity = 0.35))
+  %>% addCircleMarkers(radius = 5,
+                       weight = 2,
+                       color = ~bp[offense],
+                       popup = ~date)
+)
 saveWidget(L1,file="houston_leaflet.html")
 ```
 
@@ -308,7 +321,21 @@ embedding info [here](https://stackoverflow.com/questions/42008179/embed-r-leafl
 
 <iframe seamless src="houston_leaflet.html" width="100%" height="500"></iframe>
 
+Dogs: couldn't get this working in the end ...
+
+```{r dog_leaflet, eval=FALSE}
+(simplevis::leaflet_sf(z_dogs)
+  %>% setView(-74,40.75,zoom=11)
+  %>% addPolygons(data = z_dogs2,
+                  popup = ~frac,
+                  fill = ~ frac,
+                  fillColor = colorRamp(c("white", "brown")))
+  )
+```
+
 ## additional challenges
+
+
 
 - ggplot is to ggplotly as ggmap is to (???) + leaflet (see cholera example)
 - syncing various layers (lat/lon to ????)
