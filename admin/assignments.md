@@ -1,5 +1,4 @@
 
-
 # Final project
 
 Your final project will be done with in a group of size 1-3. The profs will help you pair up (and check with us if you really think you want to go alone).
@@ -21,6 +20,12 @@ Please submit a brief (0.5-2 pages) prospectus outlining what data you will use 
 You should post this on a github repo. This can either be a directory in an existing repo, or a new repo to which one of you invites both of us (bbolker, dushoff) and your group members.
 
 # Weekly assignments
+
+## week 6
+
+1.  **due Fri Oct 29**: Make some sort of data visualization using ideas from the last two weeks -- that is, something that is either interactive, animated, or explicitly spatial (e.g., map based).
+
+2. **due Mon Nov 1**: Write one paragraph about a possible project you might consider doing. You should talk about a possible data set, and also about what kind of visualization interests you. Please put it in the main directory of your repo and call it project.md.
 
 ## week 5
 
