@@ -72,3 +72,4 @@ anim_save("gapminder1.gif")
 gg1mp4 <- animate(gg1,renderer=ffmpeg_renderer())
 anim_save("gapminder1.mp4")
 
+rpcall("gapminder.Rout gapminder.R")
