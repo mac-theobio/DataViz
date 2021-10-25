@@ -35,6 +35,8 @@ Sources += $(wildcard *.R)
 
 ## lecture dependencies
 
+docs/dim.notes.html docs/dim.slides.html: code/iris.Rout-0.png
+
 docs/get_maps.notes.html docs/get_maps.slides.html: get_spatial_data.Rout
 
 docs/spatial_ex.notes.html docs/spatial_ex.slides.html: get_spatial_data.Rout
