@@ -112,6 +112,7 @@ smoke_plots.Rout: smoke_plots.R smoke.rds
 ## Level plots (a mess)
 smoke_levels.Rout: smoke_levels.R smoke.rds
 
+pngDesc += iris
 iris.Rout: iris.R
 
 bananas.Rout: bananas.R

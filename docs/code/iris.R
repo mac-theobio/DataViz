@@ -4,6 +4,7 @@ theme_set(theme_bw())
 library(GGally)
 
 library(shellpipes)
+rpcall("iris.Rout iris.R")
 height <- 5
 startGraphics(height=height)
 
@@ -11,4 +12,4 @@ iris_measures <- (iris
 	%>% select(-Species)
 )
 
-print(ggpairs(iris_measures))
+(ggpairs(iris_measures)) %>% teeGG(ext="png")
