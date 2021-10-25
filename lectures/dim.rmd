@@ -69,7 +69,7 @@ dec_frame <- (decathlon2[1:10]
 
 ## Pairs plot
 
-![Iris pairs plot (iris.R)](code/iris.Rout-0.png)
+![Iris pairs plot (iris.R)](code/iris.ggp.png)
 
 ---------------------
 
