@@ -94,8 +94,8 @@ lectures/docs/dim.notes.html: lectures/dim.rmd
 lectures/explore.lmd: lectures/explore.txt
 	cd lectures && $(MAKE) $(notdir $@)
 
-admin/docs/assignments.html:
-	cd admin && $(MAKE) $(notdir $@)
+admin/docs/assignments.html: admin/assignments.md
+	cd admin && $(MAKE) docs/$(notdir $@)
 
 ######################################################################
 
