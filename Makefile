@@ -2,7 +2,7 @@
 # https://mac-theobio.github.io/DataViz/?version=123
 
 ### Hooks for the editor to set the default target
-current: target
+current: local_site
 -include target.mk
 
 vim_session:
@@ -86,9 +86,9 @@ lectures/docs/scales.slides.html: lectures/scales.dmd
 lectures/docs/diagnostics.notes.html: lectures/diagnostics.rmd
 	$(lect_r)
 
-lectures/docs/interactive.slides.html: lectures/interactive.txt
+lectures/docs/dim.slides.html: lectures/dim.rmd
 	$(lect_r)
-lectures/docs/interactive.notes.html: lectures/interactive.txt
+lectures/docs/dim.notes.html: lectures/dim.rmd
 	$(lect_r)
 
 lectures/explore.lmd: lectures/explore.txt
