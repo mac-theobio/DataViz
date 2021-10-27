@@ -93,6 +93,8 @@ lectures/docs/highdim.notes.html: lectures/highdim.rmd
 
 lectures/docs/newdim.notes.html: lectures/newdim.txt
 	cd lectures && $(MAKE) docs/$(notdir $@)
+lectures/docs/newdim.slides.html: lectures/newdim.txt
+	cd lectures && $(MAKE) docs/$(notdir $@)
 
 lectures/explore.lmd: lectures/explore.txt
 	cd lectures && $(MAKE) $(notdir $@)
