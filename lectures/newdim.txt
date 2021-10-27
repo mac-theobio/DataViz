@@ -18,11 +18,16 @@ We usually think of high-dimensional data as consisting of multiple _measures_ o
 * Decathlon scores from different competitors
 * Health measures from different children
 
+dimension means "number of variables"
+
+**may** be divided into predictors and responses
+
 ## Types of measures
 
 Many scientists traditionally think of high-dimensional data as having parallel, continuous measures:
 
 * read matrices from soil samples
+* these are easiest
 
 These may be complemented by a smaller number of “metadata” variables, which may be more diverse in type (count, categorical, etc.):
 
@@ -31,6 +36,25 @@ These may be complemented by a smaller number of “metadata” variables, which
 More and more datasets don't follow this:
 
 * Canadian longitudinal study on aging has a huge number of variables per person with a wide mixture of types
+
+## Goals
+
+- typically looking for *low-dimensional* structure
+    - clusters
+    - surfaces/manifolds
+- exploratory? diagnostic? expository?
+
+## Approaches
+
+* Dimension reduction
+* glyphs (stars/radar charts/faces/Andrews plots)
+* Comparing views
+* Linking and brushing
+* 3D (perspective or animation)
+
+## radar chart
+
+![](pix/531px-Star_Plot_of_16_cars.jpg)
 
 ## Duality
 
