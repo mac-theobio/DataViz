@@ -8,16 +8,18 @@ summary(decathlon2)
 attributes(decathlon2)
 
 ## Use event columns only; restrict to one Competition
-raw_frame <- (decathlon2 %>% filter(Competition=="OlympicG"))[1:10]
+raw_frame <- (decathlon2
+	%>% filter(Competition=="OlympicG")
+	%>% select(-c("Rank", "Points", "Competition"))
+)
 raw_mat <- as.matrix(raw_frame)
 
 ## Rows are athletes
-## Use event columns only
 ath_frame <- (raw_frame
 	%>% rename_all(sub, pattern="^X", replacement="Run_")
-	%>% mutate_at(vars(contains('Run_')), ~(-1*.))
 	%>% rename_all(sub, pattern="110m.", replacement="")
-	%>% mutate_all(~c(drop(scale(.))))
+	%>% mutate_at(vars(contains('Run_')), ~(-1*.)) ## use across() (would 1/x be better??)
+	%>% mutate_all(~ drop(scale(.)))
 )
 row.names(ath_frame) <- row.names(raw_frame)
 summary(ath_frame)

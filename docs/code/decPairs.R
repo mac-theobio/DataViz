@@ -9,5 +9,5 @@ loadEnvironments()
 height <- 5
 startGraphics(height=height)
 
-(ggpairs(ath_frame)) %>% teeGG(ext="png")
-print(pairs(ath_frame))
+## (ggpairs(ath_frame)) %>% teeGG(ext="png")
+print(pairs(ath_frame, gap=0, pch="."))

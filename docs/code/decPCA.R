@@ -8,7 +8,6 @@ rpcall("decPCA.Rout decPCA.R dec.rda")
 loadEnvironments()
 
 pca_ath <- prcomp(ath_mat, scale=FALSE)
-pca_ath <- prcomp(event_mat, scale=FALSE)
 fviz_screeplot(pca_ath)
 
 fviz_pca_ind(pca_ath)
