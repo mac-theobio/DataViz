@@ -44,58 +44,11 @@ But we can also do the opposite!
 * What do measurements across soil samples tell us about the functional relationships between proteins?
 * What does differential success of athletes tell us about the relationship between events?
 
-## Decathlon events
+## Heatmaps
 
+	Value-based: better for seeing detail
 
-## Decathlon frame
-
-```{}
-dec_frame <- (decathlon2[1:10]
-        %>% as_tibble()
-	%>% rename_all(sub, pattern="^X", replacement="Run_")
-	%>% mutate_at(vars(contains('Run_')), ~(-1*.))
-	%>% rename_all(sub, pattern="110m.", replacement="")
-	%>% mutate_all(~c(drop(scale(.))))
-)
-```
-
-## Pairs plot
-
-![Iris pairs plot (iris.R)](code/iris.ggp.png){width=90%}
-
----------------------
-
-* Slow, and not very good for more than 5 or 6 variables
-* Base R may be faster for quick viz
-
-## Heatmap
-
-```{}
-dec_mat <- as.matrix(dec_frame)
-heatmap(dec_mat)
-```
-
-## Heatmap again
-
-```{}
-heatmap(t(dec_mat))
-```
-
-## Correlation heatmap
-
-```{}
-pheatmap(cor(dec_mat), cell.width = 10, cell.height = 10)
-```
-
-Better for visualizing groups of  events
-
-## Athelete correlations
-
-```{}
-pheatmap(cor(t(dec_mat)), cell.width = 4, cell.height = 4)
-```
-
-Better for visualizing groups of  events
+	Correlation-based better for seeing groups
 
 ## PCA
 
@@ -112,127 +65,9 @@ Or we can think about it as minimizing distances:
 * And relax it with non-Euclidean distances (PCoA)
 * … or a rank-based approach (NMDS)
 
-## PCA decomposition
+## Accurate dataviz
 
-```{}
-pca_ath <- prcomp(dec_mat, scale=TRUE)
-fviz_screeplot(pca_ath)
-```
+To what extent can we make visual distances reflect data distances?
 
-## Individuals
+* This is _not_ the default in most applications
 
-```{}
-fviz_pca_ind(pca_ath)
-```
-
-## Components
-
-```{}
-fviz_pca_var(pca_ath)
-```
-
---------------------
-
-```{}
-fviz_pca_var(pca_ath, axes=c(2, 3))
-```
-
-## Biplot
-
-View scores and components:
-
-```{}
-fviz_pca_biplot(pca_ath)
-```
-
-## Loadings
-
-```{}
-load <- with(pca_ath, 
-	sweep(rotation, MARGIN=2, FUN="*", sdev)
-)
-pheatmap(load, cluster_cols=FALSE)
-```
-
-## Non-metric dimensional scaling
-
-```{}
-library(vegan)
-mds <- metaMDS(dec_mat, distance="euclidean")
-```
-
-## Nmds plot
-
-```{}
-plot(mds)
-```
-
-The biplot is hard (but we can help you if you want to do it)
-
-
-## Parallel co-ordinates
-
-```{}
-GGally::ggparcoord(dec_frame)
-```
-
-## Dual view
-
-```{}
-ath_frame <- (
-	as.data.frame(t(as.matrix(dec_frame)))
-	%>% mutate(event=names(dec_frame))
-)
-```
-
-----------------------
-
-```{}
-ggparcoord(ath_frame)
-```
-
-----------------------
-
-```{}
-ggparcoord(ath_frame, groupColumn="event")
-```
-
-## Andrews plots
-
-```{}
-library(andrews)
-## andrews::numarray() **does not like tibbles**
-andrews(as.data.frame(dec_frame))
-```
-## dual Andrews plot
-
-```{}
-andrews(ath_frame)
-```
-
-## Radar charts
-
-Not implemented; may suffer similar problems
-
-## Ordering
-
-Many of these charts might work if the variables were in a suitable order:
-
-* heatmap provides an order
-	* hierarchical
-* other ordering methods take a more holistic view
-
-* PCA and other decompositions could also provide an order! 
-	* Should we combine PCA with Andrews or parcoord?
-
-## Experiment
-
-```{}
-andrews(load)
-```
-
------------------------
-
-```{}
-ggparcoord(load)
-```
