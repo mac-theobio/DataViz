@@ -163,6 +163,21 @@ cars.Rout: cars.R
 
 ######################################################################
 
+## Decathlon dimension reduction
+
+Ignore += dim.dump
+dim.dump:
+
+dec.Rout: dec.R
+
+decPairs.Rout: decPairs.R dec.rda
+
+decHeat.Rout: decHeat.R dec.rda
+
+decPCA.Rout: decPCA.R dec.rda 
+
+######################################################################
+
 %.R: ../../old_repo/%.R
 	$(copy)
 
