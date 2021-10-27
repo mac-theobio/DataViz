@@ -88,7 +88,7 @@ lectures/docs/diagnostics.notes.html: lectures/diagnostics.rmd
 
 lectures/docs/dim.slides.html: lectures/dim.rmd
 	$(lect_r)
-lectures/docs/dim.notes.html: lectures/dim.rmd
+lectures/docs/highdim.notes.html: lectures/highdim.rmd
 	$(lect_r)
 
 lectures/explore.lmd: lectures/explore.txt
