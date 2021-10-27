@@ -1,5 +1,6 @@
 ---
 title: "high-dimensional examples"
+date: Oct 2021
 ---
 
 ## Packages
@@ -69,7 +70,7 @@ dec_frame <- (decathlon2[1:10]
 
 ## Pairs plot
 
-![Iris pairs plot (iris.R)](code/iris.ggp.png)
+![Iris pairs plot (iris.R)](code/iris.ggp.png){width=90%}
 
 ---------------------
 
