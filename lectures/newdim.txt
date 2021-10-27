@@ -10,7 +10,7 @@ library(vegan)
 library(andrews)
 ```
 
-## Data
+Data
 
 We usually think of high-dimensional data as consisting of multiple _measures_ on a group of samples:
 
@@ -22,7 +22,9 @@ dimension means "number of variables"
 
 **may** be divided into predictors and responses
 
-## Types of measures
+----------------------------------------------------------------------
+
+Types of measures
 
 Many scientists traditionally think of high-dimensional data as having parallel, continuous measures:
 
@@ -33,18 +35,24 @@ These may be complemented by a smaller number of “metadata” variables, which
 
 * environmental variables associated with soil samples
 
+----------------------------------------------------------------------
+
 More and more datasets don't follow this:
 
 * Canadian longitudinal study on aging has a huge number of variables per person with a wide mixture of types
 
-## Goals
+----------------------------------------------------------------------
+
+Goals
 
 - typically looking for *low-dimensional* structure
     - clusters
     - surfaces/manifolds
 - exploratory? diagnostic? expository?
 
-## Approaches
+----------------------------------------------------------------------
+
+Approaches
 
 * Dimension reduction
 * glyphs (stars/radar charts/faces/Andrews plots)
@@ -52,11 +60,16 @@ More and more datasets don't follow this:
 * Linking and brushing
 * 3D (perspective or animation)
 
-## radar chart
+----------------------------------------------------------------------
+
+radar chart
 
 ![](pix/531px-Star_Plot_of_16_cars.jpg)
 
-## Duality
+
+----------------------------------------------------------------------
+
+Duality
 
 We study the rows (samples) using the columns (measures)
 
@@ -68,13 +81,17 @@ But we can also do the opposite!
 * What do measurements across soil samples tell us about the functional relationships between proteins?
 * What does differential success of athletes tell us about the relationship between events?
 
-## Heatmaps
+----------------------------------------------------------------------
+
+Heatmaps
 
 	Value-based: better for seeing detail
 
 	Correlation-based better for seeing groups
 
-## PCA
+----------------------------------------------------------------------
+
+PCA
 
 A beautiful decomposition based on the idea that data points are points in a Euclidean space
 
@@ -89,7 +106,9 @@ Or we can think about it as minimizing distances:
 * And relax it with non-Euclidean distances (PCoA)
 * … or a rank-based approach (NMDS)
 
-## Accurate dataviz
+----------------------------------------------------------------------
+
+Accurate dataviz
 
 To what extent can we make visual distances reflect data distances?
 
