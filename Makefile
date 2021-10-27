@@ -86,10 +86,13 @@ lectures/docs/scales.slides.html: lectures/scales.dmd
 lectures/docs/diagnostics.notes.html: lectures/diagnostics.rmd
 	$(lect_r)
 
-lectures/docs/dim.slides.html: lectures/dim.rmd
+lectures/docs/dim.notes.html: lectures/dim.rmd
 	$(lect_r)
 lectures/docs/highdim.notes.html: lectures/highdim.rmd
 	$(lect_r)
+
+lectures/docs/newdim.notes.html: lectures/newdim.txt
+	cd lectures && $(MAKE) docs/$(notdir $@)
 
 lectures/explore.lmd: lectures/explore.txt
 	cd lectures && $(MAKE) $(notdir $@)

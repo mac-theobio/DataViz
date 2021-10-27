@@ -48,3 +48,8 @@ data/index.html ## Leave this here; it should be suppressed downstream
 * data/NYC_dogs.csv.gz
 * data/ridings_hex.rds
 * data/ridings.gif
+
+### Untracked files ###
+
+* data/wine.RData
+* data/wineClass.RData
