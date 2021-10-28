@@ -50,7 +50,8 @@ data/index.html ## Leave this here; it should be suppressed downstream
 * data/ridings.gif
 
 
+
 ### Untracked files ###
 
-* data/wine.RData
 * data/wineClass.RData
+* data/wine.RData
