@@ -13,7 +13,7 @@ Your **writeup** should be in two parts: the *main text* will be just the text n
 
 Please submit your writeup as a PDF or HTML file by noon on 22 December. Submit by pushing to your repository (ideally with all of the scripts used to construct the visualizations from raw data) and letting us know the name of the primary file.
 
-## Project milestone
+## Project milestone (due November 10)
 
 Please submit a brief (0.5-2 pages) prospectus outlining what data you will use and some ideas about the story you wish to tell.
 
@@ -21,11 +21,15 @@ You should post this on a github repo. This can either be a directory in an exis
 
 # Weekly assignments
 
+## week 7
+
+1. **due Fri Nov 5**: read Wilke ch 17-20 and post a discussion question on the Teams channel.
+
 ## week 6
 
 1.  **due Fri Oct 29**: Make some sort of data visualization using ideas from the last two weeks -- that is, something that is either interactive, animated, or explicitly spatial (e.g., map based).
 
-2. **due Mon Nov 1**: Write one paragraph about a possible project you might consider doing. You should talk about a possible data set, and also about what kind of visualization interests you. Please put it in the main directory of your repo and call it project.md.
+2. **due Mon Nov 1 (by 2:30 pm)**: Write one paragraph about a possible project you might consider doing. You should talk about a possible data set, and also about what kind of visualization interests you. Please post your question on [the "project discussion" Teams channel](https://teams.microsoft.com/l/channel/19%3a2726c78b5d6d4e78b6eb5e442499a595%40thread.tacv2/project%2520discussion?groupId=383cdedc-8899-4ce1-883c-1126ec2b10ea&tenantId=44376307-b429-42ad-8c25-28cd496f4772).
 
 ## week 5
 
