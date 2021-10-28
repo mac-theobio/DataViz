@@ -1,4 +1,13 @@
 
+Remaining topics:
+
+3D
+ethics & accessibility
+network
+colour
+
+update sched with actual dates things happened (JD)
+
 cover on Friday:
 
 * rest of JD dim stuff

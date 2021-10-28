@@ -6,44 +6,25 @@ date: Oct 2021
 
 ## packages
 
-Some may be harder to install than others (especially `rggobi`).
+Some of these packages may be hard to install, i.e. depending on system resources (especially `rggobi`).
 
 ```{r pkgs, message=FALSE}
 library(tourr)
+## archived: use remotes::install_version("rggobi", "2.1.22")
+## or remotes::install_github("ggobi/rggobi")
+## see the github repository https://github.com/ggobi/rggobi
+## and the ggobi web site: http://ggobi.org/
 library(rggobi)
 library(factoextra)
 library(pheatmap)
 library(tidyverse)
 ```
 
-## definition
-
-- "dimension" = "number of variables"
-- **may** be divided into predictors and (1+) responses
-- typically looking for *low-dimensional* structure
-    - clusters
-    - surfaces/manifolds
-- exploratory? diagnostic? expository?
-- often requires more machinery
-
-## types
-
-- easiest: matrix of numeric values/Euclidean distances OK/MVN
-- categorical
-    - few values: can colour/split
-	- many values: convert to dummy variables? (random forest viz?)
-- non-Euclidean distances
-    - e.g. species diversity
-	 
 ## @buja_interactive_1996
 
 - scatterplots (point locations)
 - traces (functions: parallel coordinates, [Andrews plots](https://en.wikipedia.org/wiki/Andrews_plot))
 - glyphs (stars/radar charts/faces/etc.)
-
-## radar chart
-
-![](pix/531px-Star_Plot_of_16_cars.jpg)
 
 ## tasks
 
@@ -85,23 +66,6 @@ animate_xy(laser)
 apropos("animate_")
 ```
 
-## projections
-
-Alternative: try to find some machinery 
-
-```{r heatmap}
-dec_mat <- as.matrix(scale(decathlon2[1:10]))
-heatmap(dec_mat)
-```
-
----
-
-```{r corr_heatmap}
-pheatmap(cor(dec_mat), cell.width = 10, cell.height = 10)
-```
-
-(see also the `corrplot` package)
-
 ## PCA
 
 Examples/data from @holmes_modern_2019
@@ -113,22 +77,7 @@ Examples/data from @holmes_modern_2019
 
 ---
 
-View loadings:
-
-```{r fviz_loadings}
-pca_ath <- prcomp(dec_mat, scale=TRUE)
-fviz_pca_var(pca_ath, col.circle = "black") + ggtitle("")
-```
-
---- 
-
-View scores and loadings:
-
-```{r fviz_biplot}
-fviz_pca_biplot(pca_ath)
-```
-
-## wine example
+## wine PCA example
 
 ```{r wine1}
 load("../data/wine.RData")
@@ -174,17 +123,6 @@ f2 <- f1 + ggalt::geom_encircle(data=aug_data,
 ```{r print_wineplot2}
 print(f2)
 ```
-
-## different projection methods
-
-- Principal coordinates (PCoA: start from a *distance matrix*)
-    - e.g. species diversity
-	- text samples
-    - PCoA + Euclidean distance = PCA
-- non-metric multidimensional scaling (NMDS)
-- non-negative matrix factorization 
-- ... ???
-- PCA [example](http://www.sthda.com/english/articles/31-principal-component-methods-in-r-practical-guide/118-principal-component-analysis-in-r-prcomp-vs-princomp/)
 
 ## challenges
 
