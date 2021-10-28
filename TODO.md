@@ -1,15 +1,14 @@
 
+cover on Friday:
+
+* rest of JD dim stuff
+* leaflet/shapefile examples?
+* ggobi examples ?
+* rgl examples ?
+
 http://gallery.htmlwidgets.org/
 
-Bolker: drawbacks of animations
-* Cleveland hierarchy
-* What are some ways around it?
-
 old/interactive.R
-
-grep!
-
-Talk about rounding
 
 ## other logistical
 
