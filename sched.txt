@@ -70,8 +70,8 @@ recordings:
 
 start: 
 topic: High-dimensional data ## ; project milestones 10 Nov
-reading:  [Buja et al. (2009)](http://rsta.royalsocietypublishing.org/cgi/doi/10.1098/rsta.2009.0120)
-notes: LECT_newdim
+reading: 
+notes: LECT_newdim; LECT_dyndim
 scripts: 
 recordings:
 
