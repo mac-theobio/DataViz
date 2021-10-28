@@ -49,6 +49,7 @@ data/index.html ## Leave this here; it should be suppressed downstream
 * data/ridings_hex.rds
 * data/ridings.gif
 
+
 ### Untracked files ###
 
 * data/wine.RData
