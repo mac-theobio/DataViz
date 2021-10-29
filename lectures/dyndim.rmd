@@ -1,0 +1,161 @@
+---
+title: "high-dimensional data (focus on dynamical views)"
+bibliography: ../vis.bib
+date: 29 Oct 2021
+---
+
+## packages
+
+Some of these packages may be hard to install, i.e. depending on system resources (especially `rggobi`).
+
+```{r pkgs, message=FALSE}
+library(tourr)
+library(rggobi)
+library(factoextra)
+library(tidyverse)
+library(ggalt)
+library(rgl)
+```
+
+(`ggobi` has been *archived*: use `remotes::install_version("rggobi", "2.1.22")`
+or `remotes::install_github("ggobi/rggobi")`; see the github repository https://github.com/ggobi/rggobi
+and the ggobi web site http://ggobi.org/)
+
+
+## @buja_interactive_1996
+
+- scatterplots (point locations)
+- traces (functions: parallel coordinates, [Andrews plots](https://en.wikipedia.org/wiki/Andrews_plot))
+- glyphs (stars/radar charts/faces/etc.)
+
+## tasks
+
+* finding gestalt: focusing views (projection)
+* posing queries: brushing/linking
+* making comparisons: arranging many views
+
+## focusing: animation/motion
+
+* adds a dimension (2D to 3D)
+* smoothness/object continuity
+* real-time user control: allows user to search/tune
+
+## interactive example
+
+```{r ggobi_laser,eval=FALSE}
+ggobi(laser)
+```
+
+## tours
+
+three components:
+
+- data matrix ($n \times p$)
+- **tour path** that produces a smooth sequence of projection matrices ($p \times d$) (`apropos("_tour$")`)
+- **display method** that renders the projected data (`apropos("animate_")`)
+
+optional extras (for "guided tour"):
+
+- search strategy (`apropos("^search_")`)
+- index (objective) function (`cmass`, `holes`, `lda_pp`)
+
+Goal: allow automated, systematic search through **entire** space of projections
+
+---
+
+```{r tour_flea, eval=FALSE}
+f <- flea[, 1:6]
+animate(f,
+        tour_path = guided_tour(holes()),
+        display = display_xy(col = flea$species))
+```
+
+## available display methods
+
+```{r animate_methods}
+apropos("animate_")
+apropos("_tour$")
+```
+
+## PCA adjustment
+
+Examples/data from @holmes_modern_2019
+
+- `prcomp` (SVD): preferred (also `princomp`)
+- same data; projects in a way that (hopefully) focuses on interesting angles in the data
+- assumes linear features
+- normality not necessary, but better-behaved with normal data
+
+## wine PCA example
+
+```{r wine1}
+load("../data/wine.RData")      ## numeric matrix (wine)
+load("../data/wineClass.RData") ## metadata (wine.class)
+
+winePCAd <- prcomp(wine, scale = TRUE) ## compute PCA
+f0 <- fviz_pca_biplot(winePCAd, geom = "point", habillage = wine.class,
+                      col.var = "violet", addEllipses = TRUE, ellipse.level = 0.69)
+tmp_plot <- function(p) { ## tweaks
+  p + ggtitle("") + coord_fixed() +
+    scale_colour_brewer(palette="Dark2") +
+    scale_fill_brewer(palette="Dark2")
+}
+```
+
+## plot
+
+```{r plot_wine1}
+print(tmp_plot(f0))
+```
+
+## get augmented data
+
+```{r aug_data}
+aug_data <- (get_pca_ind(winePCAd)$coord
+  %>% as_tibble()
+  %>% mutate(class = wine.class, .before=1)
+)
+```
+
+## improved plot
+
+```{r plot_wine2,message=FALSE}
+f1 <- fviz_pca_biplot(winePCAd, geom = "point", habillage = wine.class,
+   col.var = "violet")
+f2 <- tmp_plot(f1) + ggalt::geom_encircle(data = aug_data,
+                                aes(x=Dim.1,y=Dim.2,group=class,
+                                    colour=class,
+                                    fill=class),alpha=0.2,
+                                show.legend=FALSE)
+```
+
+--- 
+
+```{r print_wineplot2}
+print(f2)
+```
+
+```{r}
+adjust_pcaplot <- function(p, pca, dims=1:2) {
+  sdvec <- pca$sdev[dims]
+  p + coord_fixed(ratio = sdvec[2]/sdvec[1])
+}
+f3 <- adjust_pcaplot(f2, winePCAd)
+```
+
+---
+
+```{r print_wineplot3}
+print(f3)
+```
+
+```{r rgl, eval=FALSE}
+cvec <- RColorBrewer::brewer.pal("Dark2", n=3)
+with(aug_data,
+     plot3d(Dim.1, Dim.2, Dim.3, col=cvec[wine.class], size=4))
+with(aug_data,
+     plot3d(Dim.1, Dim.2, Dim.3, col=cvec[wine.class], size=2, type = "s"))
+```
+
+## references
+
