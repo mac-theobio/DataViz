@@ -71,7 +71,7 @@ recordings:
 start: 
 topic: High-dimensional data ## ; project milestones 10 Nov
 reading: 
-notes: LECT_newdim; LECT_dyndim
+notes: LECT_newdim; LECT_dyndim; LECT_ethics
 scripts: 
 recordings:
 
