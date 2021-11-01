@@ -47,13 +47,13 @@ notes:
 scripts: 
 recordings:
 
-start: 
+start: 18 Oct
 topic: Interactive graphics
 notes: LECT_interactive
 scripts: 
 recordings:
 
-start: 
+start: 20 Oct
 topic:  infoviz vs data viz; ethics; expository graphics
 reading: @su_its_2008; @gelman_infovis_2013; project proposals 29 Oct
 reading:
@@ -61,21 +61,21 @@ notes: LECT_infovis
 scripts: 
 recordings:
 
-start: 
+start: 22 Oct
 topic: Spatial data
 reading: 
 notes: LECT_spatial; LECT_spatial_ex; LECT_get_maps
 scripts: 
 recordings:
 
-start: 
+start: 27 Oct
 topic: High-dimensional data ## ; project milestones 10 Nov
 reading: 
 notes: LECT_newdim; LECT_dyndim; LECT_ethics
 scripts: 
 recordings:
 
-start: 
+start: # 3 Nov?
 topic: Networks
 reading:  
 notes: #  [Lecture](network.lect.html)

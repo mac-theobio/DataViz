@@ -86,9 +86,9 @@ lectures/docs/scales.slides.html: lectures/scales.dmd
 lectures/docs/diagnostics.notes.html: lectures/diagnostics.rmd
 	$(lect_r)
 
-lectures/docs/dim.notes.html: lectures/dim.rmd
+lectures/docs/network.notes.html: lectures/dim.rmd
 	$(lect_r)
-lectures/docs/highdim.notes.html: lectures/highdim.rmd
+lectures/docs/network.slides.html: lectures/highdim.rmd
 	$(lect_r)
 
 lectures/docs/newdim.notes.html: lectures/newdim.txt
