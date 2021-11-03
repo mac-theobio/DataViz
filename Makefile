@@ -81,17 +81,13 @@ cache/Minard.png:
 ## lectures/scales.dmdmk: lectures/scales.dmd makestuff/dmdmk.pl
 
 lect_r = cd lectures && $(MAKE) docs/$(notdir $@)
-lectures/docs/scales.slides.html: lectures/scales.dmd
-	$(lect_r)
 lectures/docs/diagnostics.notes.html: lectures/diagnostics.rmd
 	$(lect_r)
 
-lectures/docs/network.notes.html: lectures/dim.rmd
-	$(lect_r)
-lectures/docs/network.slides.html: lectures/highdim.rmd
+lectures/docs/network.slides.html: lectures/network.txt
 	$(lect_r)
 
-lectures/docs/newdim.notes.html: lectures/newdim.txt
+lectures/docs/network.notes.html: lectures/network.txt
 	cd lectures && $(MAKE) docs/$(notdir $@)
 lectures/docs/newdim.slides.html: lectures/newdim.txt
 	cd lectures && $(MAKE) docs/$(notdir $@)
