@@ -20,9 +20,12 @@ library(cowplot)
 
 - qualitative (factors): want *distinctive* colours
     - probably can't get more than about 8 really distinctive colours
-- qualitative (continuous values)
+	 - less if you need to be color-blind friendly
+	 - sometimes it helps to combine with shape
+- quantitative (continuous values)
     - sequential or diverging
-    - sequential scales should begin at the background colour
+    - sequential scales should relate sensibly to background colour
+	 - or be clearly partitioned away from background
 
 ## fade via transparency gradient
 
@@ -45,8 +48,8 @@ ggplot(dd,aes(x=x,y=1))+
 
 ## saturation
 
-* want large blocks of colour to be *unsaturated*/light
-* small areas usually need to be saturated/darker
+* want large blocks of colour to be unsaturated (light)
+* small areas usually need to be saturated (dark)
 
 ## `display.brewer.all()`
 
