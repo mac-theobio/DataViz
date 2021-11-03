@@ -24,8 +24,8 @@ library(cowplot)
 	 - sometimes it helps to combine with shape
 - quantitative (continuous values)
     - sequential or diverging
-    - sequential scales should relate sensibly to background colour
-	 - or be clearly partitioned away from background
+    - consider using background color for zero point
+	 - or else clearly partition color values from background
 
 ## fade via transparency gradient
 
@@ -94,6 +94,19 @@ By Holger kkk Everding - Own work, CC BY-SA 4.0, https://commons.wikimedia.org/w
 
 ![](pix/escape7.jpg)
 
+## colorspace palettes
+
+```{r colorspace}
+png("pix/colorspace.png")
+hcl_palettes(plot=TRUE)
+dev.off()
+```
+
+## colorspace palettes
+
+![](pix/colorspace.png)
+
+
 ## colorspace demos
 
 ```{r color_demo}
@@ -106,9 +119,10 @@ for (i in c("map", "heatmap", "scatter", "spine",
 }
 dev.off()
 ```
-##
 
-![](pix/colordemo.png)
+## colorspace demos
+
+![](pix/colordemo.png){width=90%}
 
 ## I Want Hue
 
