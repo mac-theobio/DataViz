@@ -76,9 +76,9 @@ scripts:
 recordings:
 
 start: # 3 Nov?
-topic: Networks
+topic: TBA
 reading:  
-notes: #  [Lecture](network.lect.html)
+notes: LECT_colour #  [Lecture](network.lect.html)
 scripts: 
 recordings:
 
