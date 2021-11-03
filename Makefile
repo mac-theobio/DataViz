@@ -89,7 +89,7 @@ lectures/docs/network.slides.html: lectures/network.txt
 
 lectures/docs/network.notes.html: lectures/network.txt
 	cd lectures && $(MAKE) docs/$(notdir $@)
-lectures/docs/colour.slides.html: lectures/colour.rmd
+lectures/docs/colour.notes.html: lectures/colour.rmd
 	cd lectures && $(MAKE) docs/$(notdir $@)
 
 lectures/explore.lmd: lectures/explore.txt
@@ -131,14 +131,10 @@ update_all: makestuff $(contentdirs) $(contentdirs:%=%.update) update
 local_site: update_all
 	$(MAKE) docs/shadow.html.go
 
-pushup: update_all
-
 dateup:
 	touch docs/*.html docs/*/*.html data/index.html
 
-syncup: update_all pull dateup all.time
-
-pullup: pull dateup
+syncup: update_all pullup dateup all.time
 
 ######################################################################
 
