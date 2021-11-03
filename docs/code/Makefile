@@ -17,6 +17,10 @@ autopipeRcall = defined
 
 ######################################################################
 
+## Still cribbing 2021 Nov 02 (Tue)
+%.R: ../../old_repo/%.R
+	$(copy)
+
 ## Use the main course cache
 
 ## Ignore += cache
@@ -178,9 +182,6 @@ decPCA.Rout: decPCA.R dec.rda
 
 ######################################################################
 
-%.R: ../../old_repo/%.R
-	$(copy)
-
 ## Mental illness
 kaiser.Rout: kaiser.R data/kaiser.csv
 
@@ -209,6 +210,13 @@ vlap_plots.Rout: lap_plots.R data/vlaps.rds
 	$(pipeR)
 
 ######################################################################
+
+## color
+
+ramps.Rout: ramps.R
+
+######################################################################
+
 
 ### Makestuff
 
