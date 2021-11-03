@@ -1,0 +1,205 @@
+---
+title: "colour"
+bibliography: "../vis.bib"
+---
+
+## packages
+
+```{r pkgs,message=FALSE}
+library(ggplot2)
+library(dichromat)
+## palettes etc.
+library(viridis)
+library(cividis)
+library(colorspace)
+library(RColorBrewer)
+library(cowplot)
+```
+
+## use of colour
+
+- qualitative (factors): want *distinctive* colours
+    - probably can't get more than about 8 really distinctive colours
+- qualitative (continuous values)
+    - sequential or diverging
+    - sequential scales should begin at the background colour
+
+## fade via transparency gradient
+
+```{r fade1}
+dd <- data.frame(x=1:9)
+ggplot(dd,aes(x=x,y=1,alpha=x))+
+  geom_point(size=10,colour="red")+
+  coord_fixed(ratio=5)+theme_void()
+```
+
+
+## fade via colour gradient
+
+```{r fade2}
+ggplot(dd,aes(x=x,y=1))+
+  geom_point(size=10,aes(colour=x))+
+  scale_colour_gradient(low="lightgray",high="red")+
+  coord_fixed(ratio=5)+theme_void()
+```
+
+## saturation
+
+* want large blocks of colour to be *unsaturated*/light
+* small areas usually need to be saturated/darker
+
+## `display.brewer.all()`
+
+```{r brewer_all,fig.height=6,echo=FALSE}
+display.brewer.all()
+```
+
+## colour spaces
+
+- want *perceptually uniform* spaces [@zeileis_escaping_2009]
+- RGB: additive, pixel-based
+- HSV (hue, saturation, value): *unbalanced*
+- HCL (hue, chroma, luminance): *balanced* [@zeileis_colorspace_2019]
+
+## @zeileis_escaping_2009 Fig 1
+
+Old Faithful data (duration vs waiting time)
+
+![](pix/escape1.jpg){height=400px}
+
+## @zeileis_escaping_2009 Fig 3
+
+![](pix/escape3.jpg){width=100%}
+
+## @zeileis_colorspace_2019 Fig 7
+
+![](pix/colorspace7.png){width=100%}
+
+## CIELAB space
+
+![](pix/CIELAB_color_space_top_view.png){height=80%}
+
+<div style="font-size:8px">
+By Holger kkk Everding - Own work, CC BY-SA 4.0, https://commons.wikimedia.org/w/index.php?curid=38366968
+</div>
+
+## @zeileis_escaping_2009 Fig 4
+
+![](pix/escape4.jpg)
+
+## @zeileis_escaping_2009 Fig 7
+
+![](pix/escape7.jpg)
+
+## colorspace demos
+
+```{r color_demo}
+png("pix/colordemo.png")
+par(mfrow = c(3, 3))
+cl <- sequential_hcl(5, "Heat")
+for (i in c("map", "heatmap", "scatter", "spine",
+            "bar", "pie", "perspective", "mosaic", "lines")) {
+  demoplot(cl, type = i)
+}
+dev.off()
+```
+##
+
+![](pix/colordemo.png)
+
+## I Want Hue
+
+Why stick to the outside of the colour space?
+
+[demo](https://medialab.github.io/iwanthue/)
+
+## colourblind-friendliness
+
+* most common: [deuteranomaly](https://en.wikipedia.org/wiki/Color_blindness#Protanopia), $\approx$ 5% of males
+* red-green axis is collapsed in various ways
+* trivia: "Daltonism" (after [John Dalton](https://en.wikipedia.org/wiki/John_Dalton))
+
+## viridis vs. cividis
+
+```{r viridis, echo=FALSE}
+gg0 <- ggplot(dd,aes(x=x,y=1,colour=x)) +
+  geom_point(size=10)+
+  coord_fixed(ratio=5)+
+  theme_void()+
+  theme(legend.position="none")
+plot_grid(gg0 +scale_colour_viridis() +ggtitle("viridis"),
+            gg0 + scale_colour_cividis() + ggtitle("cividis"),
+          align="h",
+          ncol=1)
+```
+
+## illustrate dichromat package
+
+<!-- https://stackoverflow.com/questions/28011258/graphics-on-next-slide-with-ioslides-using-rstudios-rmd -->
+<!-- hack -->
+
+```{r dichrom, eval=FALSE}
+par(mfrow=c(2,2),mar=c(1,1,1,1))
+p <- brewer.pal("Set1",n=6)
+pie(rep(1,6), col=p,main="ColourBrewer Set1")
+pie(rep(1,6), col = dichromat(p))
+p2 <- brewer.pal("Dark2",n=6)
+pie(rep(1,6), col=p2, main="ColourBrewer Dark2")
+pie(rep(1,6), col = dichromat(p2))
+```
+
+---
+
+```{r dichrom2, echo=FALSE}
+par(mfrow=c(2,2),mar=c(1,1,1,1))
+p <- brewer.pal("Set1",n=6)
+pie(rep(1,6), col=p,main="ColourBrewer Set1")
+pie(rep(1,6), col = dichromat(p))
+p2 <- brewer.pal("Dark2",n=6)
+pie(rep(1,6), col=p2, main="ColourBrewer Dark2")
+pie(rep(1,6), col = dichromat(p2))
+```
+
+## online
+
+upload an image or point to a URL
+
+* https://www.toptal.com/designers/colorfilter/
+* http://www.color-blindness.com/coblis-color-blindness-simulator/
+
+## contrast illusions
+
+Colour appearance depends on neighbours
+
+![](pix/checker_shadow.png)
+
+([Wikipedia](https://en.wikipedia.org/wiki/Optical_illusion))
+
+* think about backgrounds!
+* another reason to distrust heatmaps
+
+##
+
+![](pix/library_small.jpg){width=75%}
+
+## cultural expectations
+
+* red-yellow-green is still used a lot ...
+* political parties
+* "topographic" colours
+
+---
+
+```{r topo}
+(ggplot(dd,aes(x=x,y=1,colour=factor(x)))
+  + geom_point(size=10)
+  +  coord_fixed(ratio=5)
+  + theme(legend.position="none")
+  +   scale_colour_manual(values=topo.colors(9))
+  + theme_void()
+  + theme(legend.position="none")
+)
+```
+
+
+## references
