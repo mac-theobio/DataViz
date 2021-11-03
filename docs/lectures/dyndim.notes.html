@@ -72,6 +72,9 @@ text-align: center;
 margin-bottom: 2ex;
 }
 </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
 </head>
 <body>
 <header class="site-header">
@@ -134,7 +137,8 @@ library(rgl)</code></pre>
 <hr />
 <pre><code>f &lt;- flea[, 1:6]
 animate(f,
-        tour_path = guided_tour(holes()),
+        ## tour_path = guided_tour(holes()),
+        tour_path = grand_tour(),
         display = display_xy(col = flea$species))</code></pre>
 <h2 id="available-display-methods">available display methods</h2>
 <pre><code>apropos(&quot;animate_&quot;)

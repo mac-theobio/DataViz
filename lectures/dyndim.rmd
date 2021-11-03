@@ -66,7 +66,8 @@ Goal: allow automated, systematic search through **entire** space of projections
 ```{r tour_flea, eval=FALSE}
 f <- flea[, 1:6]
 animate(f,
-        tour_path = guided_tour(holes()),
+        ## tour_path = guided_tour(holes()),
+        tour_path = grand_tour(),
         display = display_xy(col = flea$species))
 ```
 

@@ -21,19 +21,32 @@ library(cowplot)
 - qualitative (factors): want *distinctive* colours
     - probably can't get more than about 8 really distinctive colours
 	 - less if you need to be color-blind friendly
-	 - sometimes it helps to combine with shape
+	 - sometimes it helps to combine with shape  
+(redundant coding)
 - quantitative (continuous values)
     - sequential or diverging
     - consider using background color for zero point
-	 - or else clearly partition color values from background
+	- or else clearly partition color values from background
+	
+## colour specification in R
+
+- via names:
+
+```{r names}
+head(colours())
+```
+
+- via hex specification: `#RRGGBB` (**additive**, hexadecimal, colour specification: e.g. `#FFFFFF` = white, `#FF0000` = red (sometimes a fourth hex value indicates alpha-transparency)
+- `adjust.color` 
+- `apropos("colo|rgb", ignore.case = FALSE)`
 
 ## fade via transparency gradient
 
 ```{r fade1}
 dd <- data.frame(x=1:9)
-ggplot(dd,aes(x=x,y=1,alpha=x))+
-  geom_point(size=10,colour="red")+
-  coord_fixed(ratio=5)+theme_void()
+ggplot(dd,aes(x=x,y=1,alpha=x)) +
+    geom_point(size=10,colour="red") +
+    coord_fixed(ratio=5)+theme_void()
 ```
 
 
@@ -70,9 +83,13 @@ Old Faithful data (duration vs waiting time)
 
 ![](pix/escape1.jpg){height=400px}
 
+HSV, grayscale, HSV heat, HCL heat
+
 ## @zeileis_escaping_2009 Fig 3
 
 ![](pix/escape3.jpg){width=100%}
+
+(left) hue varies, constant saturation & value; (right) hue varies, constant chroma & luminance
 
 ## @zeileis_colorspace_2019 Fig 7
 
@@ -106,12 +123,11 @@ dev.off()
 
 ![](pix/colorspace.png)
 
-
 ## colorspace demos
 
 ```{r color_demo}
 png("pix/colordemo.png")
-par(mfrow = c(3, 3))
+par(mfrow = c(3, 3), mar = c(1,1,1,1))
 cl <- sequential_hcl(5, "Heat")
 for (i in c("map", "heatmap", "scatter", "spine",
             "bar", "pie", "perspective", "mosaic", "lines")) {
@@ -122,13 +138,16 @@ dev.off()
 
 ## colorspace demos
 
-![](pix/colordemo.png){width=90%}
+![](pix/colordemo.png){width=60%}
 
 ## I Want Hue
 
-Why stick to the outside of the colour space?
+
+Why stick to a single path in the colour space? Why not fill an area?
 
 [demo](https://medialab.github.io/iwanthue/)
+
+`hues`, `randomcoloR` (`randomColor()` !)
 
 ## colourblind-friendliness
 
@@ -177,6 +196,10 @@ pie(rep(1,6), col=p2, main="ColourBrewer Dark2")
 pie(rep(1,6), col = dichromat(p2))
 ```
 
+## more packages
+
+- `colorblindr`, `colorBlindness`
+
 ## online
 
 upload an image or point to a URL
@@ -218,5 +241,11 @@ Colour appearance depends on neighbours
 )
 ```
 
+## more on available stuff ...
+
+```{r colourpkgs, message=FALSE}
+library(ggplot2); library(colorspace); library(viridis)
+length(apropos("scale_colour_"))
+```
 
 ## references
