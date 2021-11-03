@@ -89,7 +89,7 @@ lectures/docs/network.slides.html: lectures/network.txt
 
 lectures/docs/network.notes.html: lectures/network.txt
 	cd lectures && $(MAKE) docs/$(notdir $@)
-lectures/docs/newdim.slides.html: lectures/newdim.txt
+lectures/docs/colour.slides.html: lectures/colour.rmd
 	cd lectures && $(MAKE) docs/$(notdir $@)
 
 lectures/explore.lmd: lectures/explore.txt
