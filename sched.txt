@@ -69,7 +69,7 @@ scripts:
 recordings:
 
 start: 27 Oct
-topic: High-dimensional data ## ; project milestones 10 Nov
+topic: High-dimensional data
 reading: 
 notes: LECT_newdim; LECT_dyndim; LECT_ethics
 scripts: 

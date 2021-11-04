@@ -13,7 +13,7 @@ Your **writeup** should be in two parts: the *main text* will be just the text n
 
 Please submit your writeup as a PDF or HTML file by noon on 22 December. Submit by pushing to your repository (ideally with all of the scripts used to construct the visualizations from raw data) and letting us know the name of the primary file.
 
-## Project milestone (due November 10)
+## Project milestone (due November 12)
 
 Please submit a brief (0.5-2 pages) prospectus outlining what data you will use and some ideas about the story you wish to tell.
 
