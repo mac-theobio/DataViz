@@ -59,8 +59,8 @@ data/index.html ## Leave this here; it should be suppressed downstream
 
 
 
+
 ### Untracked files ###
 
-* data/wineClass.RData
 * data/wine.RData
-* data/glme_last.pdf
+* data/wineClass.RData
