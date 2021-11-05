@@ -1,4 +1,3 @@
-
 # Final project
 
 Your final project will be done with in a group of size 1-3. The profs will help you pair up (and check with us if you really think you want to go alone).
@@ -23,7 +22,7 @@ You should post this on a github repo. This can either be a directory in an exis
 
 ## week 7
 
-1. **due Fri Nov 5**: read Wilke ch 17-20 and post a discussion question on the Teams channel.
+1. **due Fri Nov 5**: read [Wilke](https://serialmentor.com/dataviz/) ch 17-20 and post a discussion question on the Teams channel.
 
 ## week 6
 
