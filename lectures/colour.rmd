@@ -1,6 +1,7 @@
 ---
 title: "colour"
 bibliography: "../vis.bib"
+date: "10 November 2021"
 ---
 
 ## packages
@@ -14,6 +15,7 @@ library(cividis) ## https://github.com/marcosci/cividis
 library(colorspace)
 library(RColorBrewer)
 library(cowplot)
+library(colorBlindness)
 ```
 
 ## use of colour
@@ -61,8 +63,8 @@ ggplot(dd,aes(x=x,y=1))+
 
 ## saturation
 
-* want large blocks of colour to be unsaturated (light)
-* small areas usually need to be saturated (dark)
+* want large blocks of colour to be *unsaturated*
+* small areas usually need to be *saturated*
 
 ## `display.brewer.all()`
 
@@ -113,7 +115,7 @@ By Holger kkk Everding - Own work, CC BY-SA 4.0, https://commons.wikimedia.org/w
 
 ## colorspace palettes
 
-```{r colorspace}
+```{r colorspace, results="hide"}
 png("pix/colorspace.png")
 hcl_palettes(plot=TRUE)
 dev.off()
@@ -125,7 +127,7 @@ dev.off()
 
 ## colorspace demos
 
-```{r color_demo}
+```{r color_demo, results="hide"}
 png("pix/colordemo.png")
 par(mfrow = c(3, 3), mar = c(1,1,1,1))
 cl <- sequential_hcl(5, "Heat")
@@ -198,7 +200,11 @@ pie(rep(1,6), col = dichromat(p2))
 
 ## more packages
 
-- `colorblindr`, `colorBlindness`
+- `colorblindr` (`clauswilke/colorblindr`), `colorBlindness` (CRAN)
+
+```{r cb, warning=FALSE, out.width = "75%"}
+colorBlindness::displayAvailablePalette(color="white")
+```
 
 ## online
 
