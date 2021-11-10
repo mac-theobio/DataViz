@@ -39,8 +39,8 @@ head(colours())
 ```
 
 - via hex specification: `#RRGGBB` (**additive**, hexadecimal, colour specification: e.g. `#FFFFFF` = white, `#FF0000` = red (sometimes a fourth hex value indicates alpha-transparency)
-- `adjust.color` 
-- `apropos("colo|rgb", ignore.case = FALSE)`
+- `adjustcolor` function can help you fiddle a color that you already like
+- `apropos("colo|rgb"), ignore.case = FALSE)` brings up a whole bunch of relevant stuff (the pipe means "or" here)
 
 ## fade via transparency gradient
 
