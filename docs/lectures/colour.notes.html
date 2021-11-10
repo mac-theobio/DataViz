@@ -6,13 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <meta name="dcterms.date" content="2021-11-10" />
   <title>colour</title>
-  <style>
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
   </style>
   <style type="text/css">
 body {
@@ -84,7 +82,6 @@ margin-bottom: 2ex;
 	</div>
 </div>
 </header>
-
 <header id="title-block-header">
 <h1 class="title">colour</h1>
 <p class="date">10 November 2021</p>
@@ -126,8 +123,8 @@ library(colorBlindness)</code></pre>
 ## [5] &quot;antiquewhite2&quot; &quot;antiquewhite3&quot;</code></pre>
 <ul>
 <li>via hex specification: <code>#RRGGBB</code> (<strong>additive</strong>, hexadecimal, colour specification: e.g. <code>#FFFFFF</code> = white, <code>#FF0000</code> = red (sometimes a fourth hex value indicates alpha-transparency)</li>
-<li><code>adjust.color</code></li>
-<li><code>apropos(&quot;colo|rgb&quot;, ignore.case = FALSE)</code></li>
+<li><code>adjustcolor</code> function can help you fiddle a color that you already like</li>
+<li><code>apropos(&quot;colo|rgb&quot;), ignore.case = FALSE)</code> brings up a whole bunch of relevant stuff (the pipe means “or” here)</li>
 </ul>
 <h2 id="fade-via-transparency-gradient">fade via transparency gradient</h2>
 <pre><code>dd &lt;- data.frame(x=1:9)
