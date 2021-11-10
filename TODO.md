@@ -1,19 +1,14 @@
 
 Remaining topics:
 
-3D
-ethics & accessibility
-network
-colour
+* 3D
+* network
+* colour
 
-update sched with actual dates things happened (JD)
+???
 
-cover on Friday:
 
-* rest of JD dim stuff
 * leaflet/shapefile examples?
-* ggobi examples ?
-* rgl examples ?
 
 http://gallery.htmlwidgets.org/
 
@@ -25,7 +20,6 @@ old/interactive.R
 
 ## lecture prep
 
-- ethics/accessibility material ... https://mschermann.github.io/data_viz_reader/ethics.html; @cairo_ethical_2014, @cairo_if_2020; https://twitter.com/FrankElavsky/status/1396898372183855105
 - spatial plot; fix gif sizing/rendering? More on `sf` ?
 
 ## pipeline/structure issues
