@@ -1,6 +1,14 @@
 
 Remaining topics:
 
+networks:
+
+
+https://www.statworx.com/de/blog/interactive-network-visualization-with-r/
+
+
+https://cran.r-project.org/web/packages/visNetwork/index.html
+
 * 3D
 * network
 * colour
