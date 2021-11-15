@@ -32,6 +32,19 @@
     };
   </script>
 
+  <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
+// be compatible with the behavior of Pandoc < 2.8).
+document.addEventListener('DOMContentLoaded', function(e) {
+  var hs = document.querySelectorAll("div.section[class*='level'] > :first-child");
+  var i, h, a;
+  for (i = 0; i < hs.length; i++) {
+    h = hs[i];
+    if (!/^h[1-6]$/i.test(h.tagName)) continue;  // it should be a header h1-h6
+    a = h.attributes;
+    while (a.length > 0) h.removeAttribute(a[0].name);
+  }
+});
+</script>
   <style type="text/css">@font-face {
 font-family: 'Open Sans';
 font-style: normal;
@@ -3271,10 +3284,10 @@ img {
 </article></slide><slide class=""><hgroup><h2>Packages</h2></hgroup><article  id="packages">
 
 <ul>
-<li>igraph and ggraph</li>
-<li>graphlayouts</li>
-<li>networks (does not play nicely with others)</li>
-<li>tidygraph</li>
+<li><code>igraph</code> and <code>ggraph</code></li>
+<li><code>graphlayouts</code></li>
+<li><code>networks</code> (does not play nicely with others)</li>
+<li><code>tidygraph</code></li>
 </ul>
 
 </article></slide><slide class=""><hgroup><h2>Sites</h2></hgroup><article  id="sites">
@@ -3287,9 +3300,9 @@ img {
 </article></slide><slide class=""><hgroup><h2>Examples</h2></hgroup><article  id="examples">
 
 <ul>
-<li><a href='https://github.com/mac-theobio/DataViz/blob/master/media.R' title=''>Locate and read media data</a></li>
-<li><a href='https://github.com/mac-theobio/DataViz/blob/master/imedia.R' title=''>Simple plots</a></li>
-<li><a href='https://github.com/mac-theobio/DataViz/blob/master/ggmedia.R' title=''>ggplots</a></li>
+<li><a href='../code/media.R' title=''>Locate and read media data</a></li>
+<li><a href='../code/imedia.R' title=''>Simple plots</a></li>
+<li><a href='../code/ggmedia.R' title=''>ggplots</a></li>
 </ul></article></slide>
 
 

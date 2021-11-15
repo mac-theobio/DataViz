@@ -78,14 +78,14 @@ recordings:
 start: # 3 Nov?
 topic: TBA
 reading:  
-notes: LECT_colour #  [Lecture](network.lect.html)
+notes: LECT_colour 
 scripts: 
 recordings:
 
 start: 
 topic: Group work
 reading:  
-notes: #  [colour lecture](colour.lect.html)
+notes:  LECT_network
 scripts: 
 recordings:
 

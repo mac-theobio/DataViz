@@ -1,9 +1,39 @@
+---
+title: Network visualization
+---
+<!-- .refs is style for reference page (small text) -->
+<style>
+.refs {
+   font-size: 16px;
+}
+h2 { 
+ color: #3399ff;		
+}
+h3 { 
+ color: #3399ff;		
+}
+.title-slide {
+   background-color: #55bbff;
+}
+</style>
+<!--    content: url(https://i.creativecommons.org/l/by-sa/4.0/88x31.png)
+>
+<!-- Limit image width and height -->
+<style type="text/css">
+img {     
+  max-height: 560px;     
+  max-width: 800px; 
+}
+</style>
 
-SEC Overview
+```{r setup,echo=FALSE,message=FALSE}
+library("knitr")
+opts_chunk$set(echo=FALSE,fig.width=4,fig.height=4,out.width=400)
+```
 
-----------------------------------------------------------------
+# Overview
 
-What is a network?
+## What is a network?
 
 A visualization centered on pairwise interactions:
 
@@ -14,9 +44,7 @@ A visualization centered on pairwise interactions:
 
 Interactors are generally indicated by _nodes_, and interactions by _edges_
 
-----------------------------------------------------------------
-
-How are these interactions characterized?
+## How are these interactions characterized?
 
 * _Weighted_ networks have different importance to the edges
 * In _directional_ networks, edges have direction
@@ -24,22 +52,16 @@ How are these interactions characterized?
 	* almost always bipartite
 * _Multimodal_ networks show different _types_ of links
 
-----------------------------------------------------------------
-
-What are we trying to show?
+## What are we trying to show?
 
 * Relationships between particular nodes
 * Patterns of clustering
 * Paths and distances (six degrees of separation)
 * Relationship between network structure and other variables
 
-----------------------------------------------------------------
+# Aesthetics
 
-SEC Aesthetics
-
-----------------------------------------------------------------
-
-Position
+## Position
 
 * May reflect the network structure
 	* Usually by using force-directed algorithms
@@ -49,9 +71,7 @@ Position
 * Or something else about the data
 	* most often physical location
 
-----------------------------------------------------------------
-
-Other node aesthetics
+## Other node aesthetics
 
 * Size can be used for importance (should have a scaleable, physical interpretation)
 	* Can be good for things about role in the network (e.g. betweenness, centrality)
@@ -62,9 +82,7 @@ Other node aesthetics
 * Shape can be used for qualitative attributes
 	* It is possible to be creative about shape; e.g., use png icons
 
-----------------------------------------------------------------
-
-Edge aesthetics
+## Edge aesthetics
 
 Strongly constrained; they're basically lines, and the nodes are drawn first
 
@@ -76,22 +94,16 @@ Strongly constrained; they're basically lines, and the nodes are drawn first
 
 * Curvature can be aesthetic (rarely) or can be used to get multi-modal edges out of each others' way
 
-----------------------------------------------------------------
+# Principles
 
-SEC Principles
-
-----------------------------------------------------------------
-
-Preserve information
+## Preserve information
 
 * Don't drop weights without a good reason
 	* it may be OK to scale weights for aesthetic reasons
 
 * Similarly for dropping specific edges
 
-----------------------------------------------------------------
-
-Size matters
+## Size matters
 
 * Level of detail and messages will change a lot depending on how many nodes you have
 	* Very big networks may show _only_ the pattern of node clustering
@@ -101,29 +113,21 @@ Size matters
 
 * Communicate clearly about rescaling
 
-----------------------------------------------------------------
+# Resources
 
-SEC Resources
+## Packages
 
-----------------------------------------------------------------
+* `igraph` and `ggraph`
+* `graphlayouts`
+* `networks` (does not play nicely with others)
+* `tidygraph`
 
-Packages
-
-* igraph and ggraph
-* graphlayouts
-* networks (does not play nicely with others)
-* tidygraph
-
-----------------------------------------------------------------
-
-Sites
+## Sites
 
 * https://kateto.net/network-visualization
-* [FlowingData examples](https://flowingdata.com/category/visualization/network-visualization/)
+* FlowingData examples: https://flowingdata.com/category/visualization/network-visualization/
 
-----------------------------------------------------------------
-
-Examples
+## Examples
 
 * [Locate and read media data](../code/media.R)
 * [Simple plots](../code/imedia.R)
