@@ -63,7 +63,8 @@ data/index.html ## Leave this here; it should be suppressed downstream
 
 
 
+
 ### Untracked files ###
 
-* data/wine.RData
 * data/wineClass.RData
+* data/wine.RData
