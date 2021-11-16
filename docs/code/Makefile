@@ -217,6 +217,19 @@ ramps.Rout: ramps.R
 
 ######################################################################
 
+## networks
+
+media.Rout: media.R
+	$(wrapR)
+
+imedia.Rout: imedia.R media.rda
+	$(wrapR)
+
+ggmedia.Rout: ggmedia.R media.rda
+	$(wrapR)
+
+
+######################################################################
 
 ### Makestuff
 
