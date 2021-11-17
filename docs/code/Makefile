@@ -228,6 +228,7 @@ imedia.Rout: imedia.R media.rda
 ggmedia.Rout: ggmedia.R media.rda
 	$(wrapR)
 
+newmedia.Rout: newmedia.R
 
 ######################################################################
 
