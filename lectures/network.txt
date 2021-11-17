@@ -9,8 +9,9 @@ A visualization centered on pairwise interactions:
 
 * A flight network
 * A network of cooperative interactions between dolphins
-* A network of aggressive interactions between chimpanzees
+* A network of aggressive interactions between fish
 * A network of proteins and biochemical pathways
+* A hierarchical diagram of relationships
 
 Interactors are generally indicated by _nodes_, and interactions by _edges_
 
@@ -39,16 +40,16 @@ SEC Aesthetics
 
 ----------------------------------------------------------------
 
-Position
+Layout
 
 * May reflect the network structure
-	* Usually by using force-directed algorithms
-	* Balance desired qualities by simulating a physical system
-	* Good layout is a hard problem
+	* Usually by using force-directed algorithms (hairball)
+	* Or hierarchical clustering (dendrogram)
 
 * Or something else about the data
 	* most often physical location
 	* Or a logical pattern
+	* or categories (hive plot)
 
 ----------------------------------------------------------------
 
@@ -101,7 +102,7 @@ SEC Principles
 Preserve information
 
 * Don't drop weights without a good reason
-	* it may be OK to scale weights for aesthetic reasons
+	* consider carefully how weights are scaled
 
 * Similarly for dropping specific edges
 
@@ -123,16 +124,21 @@ Layout matters
 
 	Layout is deep, and there is no one best answer
 
+	Try weights in your force-directed algorithm
+
+		Layout may better reflect data
+
+		Layout may look ugly
+
 ----------------------------------------------------------------------
 
 
 TSEC Resources
 
-* [Overview](https://igraph.org/r/html/1.2.7/aaa-igraph-package.html
+* [Overview](https://www.jessesadler.com/post/network-analysis-with-r/)
 * [igraph](https://igraph.org/r/html/1.2.7/aaa-igraph-package.html)
 * [tidygraph](https://www.data-imaginist.com/2017/introducing-tidygraph/) and [ggraph](https://ggraph.data-imaginist.com/articles/) are built on igraph, and may be a good starting point
 * [statnet](http://statnet.org/) offers a competing set of packages, including `network`
-* graphlayouts
 
 ----------------------------------------------------------------
 
@@ -143,9 +149,10 @@ Sites
 
 ----------------------------------------------------------------
 
-Old examples
+Examples
 
 * [Locate and read media data](../code/media.R)
 * [Simple plots](../code/imedia.R)
 * [ggplots](../code/ggmedia.R)
+* [tidygraph](../code/newmedia.R)
 
