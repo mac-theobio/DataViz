@@ -84,11 +84,11 @@ lect_r = cd lectures && $(MAKE) docs/$(notdir $@)
 lectures/docs/diagnostics.notes.html: lectures/diagnostics.rmd
 	$(lect_r)
 
-lectures/docs/network.slides.html: lectures/network.txt
-	$(lect_r)
-
 lectures/docs/network.notes.html: lectures/network.txt
 	cd lectures && $(MAKE) docs/$(notdir $@)
+lectures/docs/network.slides.html: lectures/network.txt
+	cd lectures && $(MAKE) docs/$(notdir $@)
+
 lectures/docs/colour.notes.html: lectures/colour.rmd
 	cd lectures && $(MAKE) docs/$(notdir $@)
 
