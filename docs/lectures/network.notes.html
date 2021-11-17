@@ -5,18 +5,70 @@
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
   <title>Network visualization</title>
-  <style>
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    span.underline{text-decoration: underline;}
-    div.column{display: inline-block; vertical-align: top; width: 50%;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    ul.task-list{list-style: none;}
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
   </style>
-  <link rel="stylesheet" href="data:text/css,%0Abody%20%7B%0Amargin%3A%20auto%3B%0Apadding%2Dright%3A%201em%3B%0Apadding%2Dleft%3A%201em%3B%0Amax%2Dwidth%3A%2066em%3B%20border%2Dleft%3A%201px%20solid%20black%3B%0Aborder%2Dright%3A%201px%20solid%20black%3B%0Acolor%3A%20black%3B%0Afont%2Dfamily%3A%20Verdana%2C%20sans%2Dserif%3B%0Afont%2Dsize%3A%20100%25%3B%0Aline%2Dheight%3A%20140%25%3B%0A%7D%0Apre%20%7B%0Aborder%3A%201px%20dotted%20gray%3B%0Abackground%2Dcolor%3A%20%23ececec%3B%0Acolor%3A%20%231111111%3B%0Apadding%3A%200%2E5em%3B%0A%7D%0Acode%20%7B%0Afont%2Dfamily%3A%20monospace%3B%0A%7D%0Ah1%2C%20h2%2C%20h3%2C%20h4%2C%20h5%20%7B%20font%2Dfamily%3A%20verdana%3B%0Afont%2Dweight%3A%20bold%3B%0Aborder%2Dbottom%3A%201px%20dotted%20black%3B%0Acolor%3A%20%23444400%3B%20%7D%0Ah1%20%7B%0Afont%2Dsize%3A%20150%25%3B%0Acolor%3A%20%230000DD%0A%7D%0Ah2%20%7B%0Afont%2Dsize%3A%20130%25%3B%0A%7D%0Ah3%20%7B%0Afont%2Dsize%3A%20110%25%3B%0A%7D%0Ah1%2Etitle%20%7B%0Afont%2Dsize%3A%20200%25%3B%0Afont%2Dweight%3A%20bold%3B%0Apadding%2Dtop%3A%200%2E2em%3B%0Apadding%2Dbottom%3A%200%2E2em%3B%0Atext%2Dalign%3A%20left%3B%0Aborder%3A%20none%3B%0Atext%2Dalign%3A%20center%3B%0A%7D%0Adt%20code%20%7B%0Afont%2Dweight%3A%20bold%3B%0A%7D%0Add%20p%20%7B%0Amargin%2Dtop%3A%200%3B%0A%7D%0A%23footer%20%7B%0Apadding%2Dtop%3A%201em%3B%0Afont%2Dsize%3A%20100%25%3B%0Acolor%3A%20gray%3B%0Atext%2Dalign%3A%20center%3B%0Amargin%2Dbottom%3A%202ex%3B%0A%7D%0A" />
-  <!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
-  <![endif]-->
+  <style type="text/css">
+body {
+margin: auto;
+padding-right: 1em;
+padding-left: 1em;
+max-width: 66em; border-left: 1px solid black;
+border-right: 1px solid black;
+color: black;
+font-family: Verdana, sans-serif;
+font-size: 100%;
+line-height: 140%;
+}
+pre {
+border: 1px dotted gray;
+background-color: #ececec;
+color: #1111111;
+padding: 0.5em;
+}
+code {
+font-family: monospace;
+}
+h1, h2, h3, h4, h5 { font-family: verdana;
+font-weight: bold;
+border-bottom: 1px dotted black;
+color: #444400; }
+h1 {
+font-size: 150%;
+color: #0000DD
+}
+h2 {
+font-size: 130%;
+}
+h3 {
+font-size: 110%;
+}
+h1.title {
+font-size: 200%;
+font-weight: bold;
+padding-top: 0.2em;
+padding-bottom: 0.2em;
+text-align: left;
+border: none;
+text-align: center;
+}
+dt code {
+font-weight: bold;
+}
+dd p {
+margin-top: 0;
+}
+#footer {
+padding-top: 1em;
+font-size: 100%;
+color: gray;
+text-align: center;
+margin-bottom: 2ex;
+}
+</style>
 </head>
 <body>
 <header class="site-header">
@@ -29,58 +81,10 @@
 	</div>
 </div>
 </header>
-
 <header id="title-block-header">
 <h1 class="title">Network visualization</h1>
+<p class="date">Nov 2021</p>
 </header>
-<!-- .refs is style for reference page (small text) -->
-<style>
-.refs {
-   font-size: 16px;
-}
-h2 { 
- color: #3399ff;        
-}
-h3 { 
- color: #3399ff;        
-}
-.title-slide {
-   background-color: #55bbff;
-}
-</style>
-<!--    content: url(https://i.creativecommons.org/l/by-sa/4.0/88x31.png)
->
-<!-- Limit image width and height -->
-<style type="text/css">
-img {     
-  max-height: 560px;     
-  max-width: 800px; 
-}
-</style>
-<!-- .refs is style for reference page (small text) -->
-<style>
-.refs {
-   font-size: 16px;
-}
-h2 { 
- color: #3399ff;        
-}
-h3 { 
- color: #3399ff;        
-}
-.title-slide {
-   background-color: #55bbff;
-}
-</style>
-<!--    content: url(https://i.creativecommons.org/l/by-sa/4.0/88x31.png)
->
-<!-- Limit image width and height -->
-<style type="text/css">
-img {     
-  max-height: 560px;     
-  max-width: 800px; 
-}
-</style>
 <h1 id="overview">Overview</h1>
 <h2 id="what-is-a-network">What is a network?</h2>
 <p>A visualization centered on pairwise interactions:</p>
@@ -99,7 +103,7 @@ img {
 <ul>
 <li>almost always bipartite</li>
 </ul></li>
-<li><em>Multimodal</em> networks show different <em>types</em> of links</li>
+<li><em>Multimodal</em> networks show different types of <em>links</em></li>
 </ul>
 <h2 id="what-are-we-trying-to-show">What are we trying to show?</h2>
 <ul>
@@ -120,6 +124,7 @@ img {
 <li>Or something else about the data
 <ul>
 <li>most often physical location</li>
+<li>Or a logical pattern</li>
 </ul></li>
 </ul>
 <h2 id="other-node-aesthetics">Other node aesthetics</h2>
@@ -143,7 +148,20 @@ img {
 <li><p>Use width to indicate edge “weight” (nothing else)</p></li>
 <li><p>Use color to indicate edge type for a multi-modal graph</p></li>
 <li><p>Use arrows to indicate direction on a directional graph</p></li>
-<li><p>Curvature can be aesthetic (rarely) or can be used to get multi-modal edges out of each others’ way</p></li>
+<li>Curvature can be used to show edges more clearly
+<ul>
+<li>Rarely, to carry information</li>
+</ul></li>
+</ul>
+<h2 id="labelling">Labelling</h2>
+<ul>
+<li><p>Nodes might be effectively interchangeable</p></li>
+<li><p>They may carry “type” information (male, female)</p></li>
+<li>We may be interested in specific names
+<ul>
+<li>These can be shown for smallish networks</li>
+<li>Or added with tooltips in dynamic graphics</li>
+</ul></li>
 </ul>
 <h1 id="principles">Principles</h1>
 <h2 id="preserve-information">Preserve information</h2>
@@ -166,20 +184,25 @@ img {
 </ul></li>
 <li>Communicate clearly about rescaling</li>
 </ul>
-<h1 id="resources">Resources</h1>
-<h2 id="packages">Packages</h2>
+<h2 id="layout-matters">Layout matters</h2>
 <ul>
-<li><code>igraph</code> and <code>ggraph</code></li>
-<li><code>graphlayouts</code></li>
-<li><code>networks</code> (does not play nicely with others)</li>
-<li><code>tidygraph</code></li>
+<li>Layout is deep, and there is no one best answer</li>
+</ul>
+<h1 id="resources">Resources</h1>
+<h2 id="resources-1">Resources</h2>
+<ul>
+<li><a href="#overview">Overview</a>(<a href="https://igraph.org/r/html/1.2.7/aaa-igraph-package.html" class="uri">https://igraph.org/r/html/1.2.7/aaa-igraph-package.html</a></li>
+<li><a href="https://igraph.org/r/html/1.2.7/aaa-igraph-package.html">igraph</a></li>
+<li><a href="https://www.data-imaginist.com/2017/introducing-tidygraph/">tidygraph</a> and <a href="https://ggraph.data-imaginist.com/articles/">ggraph</a> are built on igraph, and may be a good starting point</li>
+<li><a href="http://statnet.org/">statnet</a> offers a competing set of packages, including <code>network</code></li>
+<li>graphlayouts</li>
 </ul>
 <h2 id="sites">Sites</h2>
 <ul>
-<li><a href="https://kateto.net/network-visualization" class="uri">https://kateto.net/network-visualization</a></li>
-<li>FlowingData examples: <a href="https://flowingdata.com/category/visualization/network-visualization/" class="uri">https://flowingdata.com/category/visualization/network-visualization/</a></li>
+<li>[Visualization with R from Katya <a href="https://kateto.net/network-visualization" class="uri">https://kateto.net/network-visualization</a></li>
+<li><a href="https://flowingdata.com/category/visualization/network-visualization/">FlowingData examples</a></li>
 </ul>
-<h2 id="examples">Examples</h2>
+<h2 id="old-examples">Old examples</h2>
 <ul>
 <li><a href="../code/media.R">Locate and read media data</a></li>
 <li><a href="../code/imedia.R">Simple plots</a></li>
