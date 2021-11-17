@@ -91,8 +91,9 @@ margin-bottom: 2ex;
 <ul>
 <li>A flight network</li>
 <li>A network of cooperative interactions between dolphins</li>
-<li>A network of aggressive interactions between chimpanzees</li>
+<li>A network of aggressive interactions between fish</li>
 <li>A network of proteins and biochemical pathways</li>
+<li>A hierarchical diagram of relationships</li>
 </ul>
 <p>Interactors are generally indicated by <em>nodes</em>, and interactions by <em>edges</em></p>
 <h2 id="how-are-these-interactions-characterized">How are these interactions characterized?</h2>
@@ -113,18 +114,18 @@ margin-bottom: 2ex;
 <li>Relationship between network structure and other variables</li>
 </ul>
 <h1 id="aesthetics">Aesthetics</h1>
-<h2 id="position">Position</h2>
+<h2 id="layout">Layout</h2>
 <ul>
 <li>May reflect the network structure
 <ul>
-<li>Usually by using force-directed algorithms</li>
-<li>Balance desired qualities by simulating a physical system</li>
-<li>Good layout is a hard problem</li>
+<li>Usually by using force-directed algorithms (hairball)</li>
+<li>Or hierarchical clustering (dendrogram)</li>
 </ul></li>
 <li>Or something else about the data
 <ul>
 <li>most often physical location</li>
 <li>Or a logical pattern</li>
+<li>or categories (hive plot)</li>
 </ul></li>
 </ul>
 <h2 id="other-node-aesthetics">Other node aesthetics</h2>
@@ -168,7 +169,7 @@ margin-bottom: 2ex;
 <ul>
 <li>Don’t drop weights without a good reason
 <ul>
-<li>it may be OK to scale weights for aesthetic reasons</li>
+<li>consider carefully how weights are scaled</li>
 </ul></li>
 <li>Similarly for dropping specific edges</li>
 </ul>
@@ -186,27 +187,32 @@ margin-bottom: 2ex;
 </ul>
 <h2 id="layout-matters">Layout matters</h2>
 <ul>
-<li>Layout is deep, and there is no one best answer</li>
+<li><p>Layout is deep, and there is no one best answer</p></li>
+<li>Try weights in your force-directed algorithm
+<ul>
+<li>Layout may better reflect data</li>
+<li>Layout may look ugly</li>
+</ul></li>
 </ul>
 <h1 id="resources">Resources</h1>
 <h2 id="resources-1">Resources</h2>
 <ul>
-<li><a href="#overview">Overview</a>(<a href="https://igraph.org/r/html/1.2.7/aaa-igraph-package.html" class="uri">https://igraph.org/r/html/1.2.7/aaa-igraph-package.html</a></li>
+<li><a href="https://www.jessesadler.com/post/network-analysis-with-r/">Overview</a></li>
 <li><a href="https://igraph.org/r/html/1.2.7/aaa-igraph-package.html">igraph</a></li>
 <li><a href="https://www.data-imaginist.com/2017/introducing-tidygraph/">tidygraph</a> and <a href="https://ggraph.data-imaginist.com/articles/">ggraph</a> are built on igraph, and may be a good starting point</li>
 <li><a href="http://statnet.org/">statnet</a> offers a competing set of packages, including <code>network</code></li>
-<li>graphlayouts</li>
 </ul>
 <h2 id="sites">Sites</h2>
 <ul>
 <li>[Visualization with R from Katya <a href="https://kateto.net/network-visualization" class="uri">https://kateto.net/network-visualization</a></li>
 <li><a href="https://flowingdata.com/category/visualization/network-visualization/">FlowingData examples</a></li>
 </ul>
-<h2 id="old-examples">Old examples</h2>
+<h2 id="examples">Examples</h2>
 <ul>
 <li><a href="../code/media.R">Locate and read media data</a></li>
 <li><a href="../code/imedia.R">Simple plots</a></li>
 <li><a href="../code/ggmedia.R">ggplots</a></li>
+<li><a href="../code/newmedia.R">tidygraph</a></li>
 </ul>
 <div id="footer">
 	<div style="text-align:center">
