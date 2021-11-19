@@ -144,7 +144,7 @@ TSEC Resources
 
 Sites
 
-* [Visualization with R from Katya https://kateto.net/network-visualization
+* [Visualization with R from Katya](https://kateto.net/network-visualization)
 * [FlowingData examples](https://flowingdata.com/category/visualization/network-visualization/)
 
 ----------------------------------------------------------------
