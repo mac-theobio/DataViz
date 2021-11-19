@@ -41,10 +41,10 @@ print(hb
 	+ geom_node_text(aes(label=media), repel=TRUE)
 )
 
-## Hive plot -- good for cross-category links only
+## Hive plot; foreground node category
 
-print(ggraph(citen, layout="hive", axis=medium)
-	+ geom_edge_hive(aes(color=`link type`, width=weight)
+print(ggraph(citen, layout="hive", axis=medium, sort.by=audience.size)
+	+ geom_edge_arc(aes(color=`link type`, width=weight)
 		, arrow = arrow(length = unit(3, 'mm'))
 		, end_cap = circle(1.5, 'mm')
 		, alpha=0.8
