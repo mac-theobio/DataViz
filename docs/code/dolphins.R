@@ -3,7 +3,7 @@ library(ggraph)
 
 set.seed(2131)
 
-dolphin <- read_graph("dolphins.gml", format="gml")
+dolphin <- read_graph("../data/dolphins.gml", format="gml")
 
 print(ggraph(dolphin, layout="kk")
 	+ geom_edge_link()

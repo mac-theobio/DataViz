@@ -100,6 +100,9 @@ sunspots.Rout: sunspots.R
 
 ######################################################################
 
+celegansneural.Rout: celegansneural.R
+dolphins.Rout: dolphins.R
+
 ## Explore plots (smoking and other)
 
 ## Is smoking good for you?
