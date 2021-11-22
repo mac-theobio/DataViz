@@ -29,12 +29,13 @@ print(ggraph(elegans, layout="randomly")
 )
 
 
-print(ggraph(elegans, layout="stress")
-      + geom_edge_link(aes(width=value), alpha=0.05, colour="yellow4")
+print(ggraph(elegans, layout = "stress")
+      + geom_edge_link(aes(width = value), alpha = 0.03, colour = "wheat4")
       + geom_node_point(aes(colour = cpr, size = cpr))
+      + scale_size(range = c(3, 12))
       + scale_colour_continuous_sequential(
             palette = "heat",
             ## palette = "lajolla",
             trans = "log10") +
-      theme(panel.background = element_rect(fill = "lightgray"))
+      theme(panel.background = element_rect(fill = "#eeeeff"))
 )
