@@ -99,7 +99,7 @@ recordings:
 start: 6 December
 topic: Group presentations
 reading: 
-notes: 
+notes:  (Dec 6: McLean/Zarini; Agdeboye/Lim; Wang/Chen) Dec 8: Pekos/Freeman; Greenberg/Cai/Lee; Neal/Sowue)
 scripts: 
 recordings:
 
