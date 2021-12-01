@@ -65,11 +65,13 @@ data/index.html ## Leave this here; it should be suppressed downstream
 
 
 
+
+
 ### Untracked files ###
 
-* data/celegansneural.gml
-* data/wineClass.RData
-* data/wine.RData
 * data/celegansneural.txt
-* data/dolphins.gml
+* data/wine.RData
+* data/wineClass.RData
 * data/dolphins.txt
+* data/dolphins.gml
+* data/celegansneural.gml
