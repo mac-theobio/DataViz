@@ -78,6 +78,7 @@ cache/Minard.png:
 
 ## Tea talk graphic?
 
+Sources += tea.R
 tea.Rout: tea.R
 	$(pipeR)
 
