@@ -2,6 +2,7 @@
 
 A variety of links that we've run across; hopefully these will get incorporated in the primary course material eventually, but in the meantime enjoy browsing!
 
+- Lin, Chujun, and Mark Allen Thornton. “Fooled by Beautiful Data: Visualization Aesthetics Bias Trust in Science, News, and Social Media.” PsyArXiv, December 17, 2021. https://doi.org/10.31234/osf.io/dnr9s.
 - [What They Forgot to Teach You About R](https://rstats.wtf/index.html): tips on maintenance, workflows, etc..
 * https://twitter.com/MapesGeog/status/1448436559456440320
 * `rdeck` package: https://twitter.com/MilesMcBain/status/1448076055651053569
