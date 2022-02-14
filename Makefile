@@ -76,6 +76,13 @@ cache/Minard.png:
 
 ######################################################################
 
+## Tea talk graphic?
+
+tea.Rout: tea.R
+	$(pipeR)
+
+######################################################################
+
 ## Test outputs
 
 ## lectures/scales.dmdmk: lectures/scales.dmd makestuff/dmdmk.pl
