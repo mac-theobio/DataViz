@@ -5,20 +5,11 @@ Add scale_size_area stuff?
 
 PCA example?
 
-anchor line for coronavirus
-
-better years for Magazine
-
-Province size annotation
-
 Clean up Odds ratios
 
 Add log ratios
 
 Code and so forth
-
-
-
 
 ----------------------------------------------------------------------
 
