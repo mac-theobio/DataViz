@@ -94,6 +94,8 @@ lectures/docs/diagnostics.notes.html: lectures/diagnostics.rmd
 
 lectures/docs/tea.notes.html: lectures/tea.dmd
 	cd lectures && $(MAKE) docs/$(notdir $@)
+lectures/docs/tea.slides.html: lectures/tea.dmd
+	cd lectures && $(MAKE) docs/$(notdir $@)
 lectures/docs/network.slides.html: lectures/network.txt
 	cd lectures && $(MAKE) docs/$(notdir $@)
 
