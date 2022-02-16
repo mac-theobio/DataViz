@@ -47,6 +47,10 @@ date: "September 2021"
 
 ## Global temperature
 
+![](code/temppix.plain.png){width=80%}
+
+## Global temperature
+
 * [Data](https://datahub.io/core/global-temp/r/annual.csv)
 * Code: [clean](../code/temps.R); [plot](../code/temppix.R)
 
@@ -55,20 +59,20 @@ date: "September 2021"
 ## Area and volume
 
 * Where does area lie on Cleveland's scale?
-	* It depends how you use it?
+	* It depends how you use it
 	* Area can signal meaning
 
 ## Magazine circulation (advertisement)
 
-![](code/circulation-1.png){width=80%}
+![](code/circulation-1.png){width=70%}
 
-## Magazine circulation (absolute amount)
+## Magazine circulation (total)
 
-![](code/circulation-0.png){width=80%}
+![](code/circulation-0.png){width=70%}
 
 ## Magazine circulation (trend)
 
-![](code/circulation-2.png){width=80%}
+![](code/circulation-2.png){width=70%}
 * [Data](../data/circulation.csv)
 * [Code](../code/circulation.R)
 
