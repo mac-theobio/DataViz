@@ -76,6 +76,14 @@ cache/Minard.png:
 
 ######################################################################
 
+## Tea talk graphic
+
+Sources += tea.R
+tea.Rout: tea.R
+	$(pipeR)
+
+######################################################################
+
 ## Test outputs
 
 ## lectures/scales.dmdmk: lectures/scales.dmd makestuff/dmdmk.pl
@@ -84,7 +92,9 @@ lect_r = cd lectures && $(MAKE) docs/$(notdir $@)
 lectures/docs/diagnostics.notes.html: lectures/diagnostics.rmd
 	$(lect_r)
 
-lectures/docs/network.notes.html: lectures/network.txt
+lectures/docs/tea.notes.html: lectures/tea.dmd
+	cd lectures && $(MAKE) docs/$(notdir $@)
+lectures/docs/tea.slides.html: lectures/tea.dmd
 	cd lectures && $(MAKE) docs/$(notdir $@)
 lectures/docs/network.slides.html: lectures/network.txt
 	cd lectures && $(MAKE) docs/$(notdir $@)

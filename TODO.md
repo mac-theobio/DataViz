@@ -1,4 +1,18 @@
 
+TEA 2022 Feb 16
+
+Add scale_size_area stuff?
+
+PCA example?
+
+Clean up Odds ratios
+
+Add log ratios
+
+Code and so forth
+
+----------------------------------------------------------------------
+
 Remaining topics:
 
 networks:

@@ -1,5 +1,6 @@
 library(dplyr)
 library(shellpipes)
+rpcall("corona.Rout corona.R data/coronaCA.csv")
 
 dat <- csvRead()
 
