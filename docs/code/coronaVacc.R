@@ -2,6 +2,7 @@ library(ggplot2); theme_set(theme_bw(base_size=18))
 library(dplyr)
 library(tidyr)
 library(shellpipes) ## See lecture for link
+rpcall("coronaVacc.Rout coronaVacc.R data/canada_vaccines.tsv")
 
 height <- 5
 widthFactor <- 7e6

@@ -1,0 +1,197 @@
+---
+title: Scales
+author: Jonathan Dushoff
+date: "September 2021"
+---
+
+## Information processing
+
+![](pix/ClevelandHierarchyR.png "Cleveland's hierarchy from best to worst: Position along a common scale e.g. scatter plot; Position on identical but nonaligned scales e.g. multiple scatter plots; Length e.g. bar chart; Angle & Slope (tie) e.g. pie chart; Area e.g. bubbles; Volume, density, and color saturation (tie) e.g. heatmap; Color hue e.g. newsmap "){width="80%"}
+
+* Image downloaded from defunct post [This link no longer works ☹](http://sfew.websitetoolbox.com/post/clevelands-graphical-features-hierarchy-4598555)
+
+* [Some information from flowingdata](https://flowingdata.com/2010/03/20/graphical-perception-learn-the-fundamentals-first/)
+
+## Scales
+
+* The top of the hierarchy involves putting things on scales
+
+* But what scale do we use?
+	* Are our data anchored to zero?
+		* If so, are we interested in differences or ratios?
+	* Are they anchored somewhere else?
+
+# Anchors
+
+## Utter problem algae
+
+![](code/temppix.plain.png){width=80%}
+
+## Utter problem algae
+
+![](code/temppix.stretch.png){width=80%}
+
+## Utter problem algae
+
+![](code/temppix.dark.png){width=80%}
+
+## Global temperature 
+
+![](code/temppix.base.png){width=80%}
+
+## Global temperature
+
+![](code/temppix.anomaly.png){width=80%}
+
+## Global temperature
+
+* [Data](https://datahub.io/core/global-temp/r/annual.csv)
+* Code: [clean](../code/temps.R); [plot](../code/temppix.R)
+* Dushoff craziness! [shellpipes](https://dushoff.github.io/shellpipes/)
+
+## Magazine circulation (advertisement)
+
+![](code/circulation-1.png){width=80%}
+
+## Magazine circulation (absolute amount)
+
+![](code/circulation-0.png){width=80%}
+
+## Magazine circulation (trend)
+
+![](code/circulation-2.png){width=80%}
+
+## Magazine circulation (trend)
+
+![](code/circulation-2.png){width=80%}
+* [Data](../data/circulation.csv)
+* [Code](../code/circulation.R)
+
+## Area and volume
+
+![](pix/steel_production.png)
+
+From [How to Lie with Statistics](https://en.wikipedia.org/wiki/How_to_Lie_with_Statistics)
+
+## Advertisement lessons
+
+* Use area to indicate fair comparisons
+	* On a physical scale
+
+* Areas that can be compared linearly should be preferred 
+	* Depends on importance of feature
+
+* Avoid using (or hinting at) volume
+
+# Ratio scaling
+
+## Physical quantities
+
+* 1 is to 10 as 10 is to what?
+
+* The __log scale__ is often good for concrete quantities:
+	* When zero means zero
+	* When we are thinking about things that might be added together
+		* But _not_ when we actually want to add them together!
+
+## Provinces of Canada
+
+![](code/canadaPlots.lin.png){width=80%}
+
+## Provinces of Canada
+
+![](code/canadaPlots.log.png){width=80%}
+
+## Provinces of Canada
+
+![](code/canadaPlots.linbar.png){width=80%}
+
+## Provinces of Canada
+
+![](code/canadaPlots.log1bar.png){width=80%}
+
+## Provinces of Canada
+
+![](code/canadaPlots.logbar.png){width=80%}
+
+## Provinces of Canada
+
+* Code: [clean](../code/canada.R); [plot](../code/canadaPlots.R)
+* [Data](../data/canada.tsv)
+
+## Coronavirus incidence
+
+![](code/coronaPlots-0.png){width=80%}
+
+## Coronavirus incidence
+
+![](code/coronaPlots-1.png){width=80%}
+
+## Coronavirus incidence
+
+* Code: [clean](../code/corona.R); [plot](../code/coronaPlots.R)
+* [Data](../data/coronaCA.csv)
+
+# Odds-ratio scaling
+
+## Probabilities
+
+* 1% is to 10% as 10% is to what?
+
+* There is a simple, good answer
+	* No single answer will always be best
+
+## Example 
+
+* 20% of the adult population is unvaccinated, but they account for 60% of clinical diagnoses
+
+* How much greater is their risk?
+
+## Odds ratios
+
+* The _odds_ of an adult being unvaccinated is the ratio of the probabilities unvaccinated:vaccinated
+	* 0.2/0.8 = 1/4
+
+* The odds of a diagnosee being unvaccinated is 
+	* 0.6/0.4 = 1.5
+	* The odds _ratio_ is 6 – that's the correct measure of relative risk
+	* You can work this out the long way
+
+* Odds are a natural basis for doing calculations with probabilities
+	* These calculations are usually ratio-based
+
+* Therefore: a good scale for many probability questions is the log-odds (or _logit_) scale
+
+## Probabilities
+
+* 1% is to 10% as 10% is to ...
+
+* There is a simple, good answer
+	* No single answer will always be best
+
+* Odds scale: 1/99 is to 1/9 as 1/9 is to 11/9
+	* Probability scale ... 55%
+	* Has a concrete meaning, for example screening tests:
+	* if 1% prevalence implies 10% of positives are true, then:
+	* Has a concrete meaning; if 10% prevalence implies 55% of positives are true
+
+## Coronavirus vaccination
+
+![](code/coronaVacc-0.png){width=80%}
+
+## Coronavirus vaccination
+
+![](code/coronaVacc-1.png){width=80%}
+
+## Coronavirus vaccination
+
+* [Code](../code/coronaVacc.R)
+* [Data](../data/)
+
+## Transformation lessons
+
+* Transformations don't make your data less real
+
+* Different perspectives illuminate different questions
+
+* Use visual clues to suggest whether your scales are additive

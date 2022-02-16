@@ -76,7 +76,7 @@ cache/Minard.png:
 
 ######################################################################
 
-## Tea talk graphic?
+## Tea talk graphic
 
 Sources += tea.R
 tea.Rout: tea.R
@@ -92,7 +92,7 @@ lect_r = cd lectures && $(MAKE) docs/$(notdir $@)
 lectures/docs/diagnostics.notes.html: lectures/diagnostics.rmd
 	$(lect_r)
 
-lectures/docs/network.notes.html: lectures/network.txt
+lectures/docs/tea.notes.html: lectures/tea.dmd
 	cd lectures && $(MAKE) docs/$(notdir $@)
 lectures/docs/network.slides.html: lectures/network.txt
 	cd lectures && $(MAKE) docs/$(notdir $@)

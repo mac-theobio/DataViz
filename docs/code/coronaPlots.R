@@ -1,6 +1,7 @@
 library(ggplot2); theme_set(theme_bw(base_size=18))
 library(dplyr)
 library(shellpipes)
+rpcall("coronaPlots.Rout coronaPlots.R corona.rda")
 
 height <- 5
 startGraphics(height=height)

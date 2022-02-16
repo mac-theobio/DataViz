@@ -2,6 +2,7 @@ library(readr)
 library(dplyr)
 library(forcats)
 library(shellpipes)
+rpcall("canada.Rout canada.R data/canada.tsv")
 
 canada <- (tsvRead()
 	%>% transmute(NULL
