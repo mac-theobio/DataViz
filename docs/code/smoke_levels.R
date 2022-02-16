@@ -2,6 +2,7 @@ library(ggplot2); theme_set(theme_bw(base_size=18))
 library(magrittr); theme_set(theme_bw(base_size=18))
 
 library(shellpipes)
+rpcall("smoke_levels.Rout smoke_levels.R smoke.rds")
 
 height <- 5
 startGraphics(height=height)
