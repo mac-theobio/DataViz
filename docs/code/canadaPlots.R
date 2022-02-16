@@ -1,5 +1,6 @@
 library(ggplot2); theme_set(theme_bw(base_size=18))
 library(shellpipes)
+rpcall("canadaPlots.Rout canadaPlots.R canada.rds")
 library(dplyr)
 
 height <- 5
