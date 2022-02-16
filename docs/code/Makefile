@@ -59,7 +59,7 @@ pngDesc += temppix
 temppix.Rout: temppix.R temps.rda
 
 ## Magazine circulation and anchors
-circulation.Rout: circulation.R data/circulation.csv
+circulation.Rout: circulation.R data/newcirc.csv
 	$(wrapR)
 
 ## Orchard sprays; this is a weird data set and I may not use it much more
