@@ -55,9 +55,9 @@ img {
 
 </div>
 
-## Esquisse
+## Source code
 
-(demonstrate)
+<https://github.com/mac-theobio/DataViz/blob/main/lectures/rtea_principles.rmd>
 
 ## Packages
 
@@ -116,10 +116,9 @@ library(colorblindr) ## remotes::install_github("clauswilke/colorblindr")
 
 - functional, minimal graphics
 - maximize data-ink / minimize non-data-ink
-- don't lie (**lie factor**)
 - small multiples (= trellis/lattice, facets, panels)
 - "As for a picture, if it ain't worth 1000 words, the hell with it" - [Ad Reinhardt](https://aphelis.net/how-look-reinhardt/)
-- information at the point of need (legends etc.)
+- information at the point of need
 
 "Understand that Tufte’s ideas are a good starting point, not a religion"
 ([Robert Kosara](https://eagereyes.org/criticism/edward-tufte-one-day-course))
@@ -181,9 +180,10 @@ print(pg1)
 ## localize the most important contrasts
 
 ```{r contrasts, echo = FALSE, warning = FALSE, message=FALSE}
-g3 <- (ggplot(penguins) +
-       geom_boxplot(aes(y = bill_length_mm)) +
-       scale_fill_colorblind()
+g3 <- (ggplot(penguins)
+  + geom_boxplot(aes(y = bill_length_mm),
+                 position = position_dodge2(preserve="single"))
+  + scale_fill_colorblind()
 )
 pg3 <- (plot_grid(
     g3 +  aes(x = species, fill = sex) + ggtitle("sexes within species") +
@@ -194,14 +194,16 @@ pg3 <- (plot_grid(
 print(pg3)
 ``` 
  
-## and by island (with great power ...)
+## and by island (faceting)
 
 ```{r by_island, echo=FALSE, warning=FALSE, message=FALSE}
-print(g3 +  aes(x = species, fill = sex) 
-      + ggthemes::scale_fill_colorblind()
-      + facet_grid(.~island, scale = "free_x", space = "free",
-                   label = label_both) 
-      + zmargin
+print(
+    g3 
+    +  aes(x = species, fill = sex) 
+    + ggthemes::scale_fill_colorblind()
+    + facet_grid(.~island, scale = "free_x", space = "free",
+                 label = label_both) 
+    + zmargin
   )
 ```
 
@@ -291,22 +293,24 @@ plot_grid(
 )  
 ```
 
-## Likert data
+## Likert (ordered categorical) data 
 
-```{r likert, echo = FALSE, fig.width = 8, fig.height = 4}
+```{r likert, echo = FALSE, fig.width = 10, fig.height = 4}
+lp <- theme(legend.position = "bottom",
+            legend.text = element_text(size=8))
 g6A <- (ggplot(na.omit(penguins), aes(x=species, fill = lsize))
   ## https://stackoverflow.com/questions/38101512/the-same-width-of-the-bars-in-geom-barposition-dodge
   + geom_bar(position = position_dodge2(preserve="single", padding=0))
   + scale_fill_grey()
   + ggtitle("totals by size category")
-  + theme(legend.position = "bottom")
+  + lp
 )
 g6B <- (ggplot(na.omit(penguins), aes(x=species, fill = lsize))
   ## https://stackoverflow.com/questions/46984296/proportion-with-ggplot-geom-bar/47000113
   + geom_bar(position = "fill")
   + scale_fill_grey()
   + ggtitle("compositional view")
-  + theme(legend.position = "bottom")
+  + lp
 )
 g6C <- (ggplot(na.omit(penguins), aes(x=species, y = lsize))
   + stat_sum(alpha = 0.7)
@@ -319,7 +323,7 @@ g6C <- (ggplot(na.omit(penguins), aes(x=species, y = lsize))
                  pch = 3,
                  alpha = 0.8)
   + ggtitle("count = circle size")
-  + theme(legend.position = "bottom")
+  + lp
 )
 plot_grid(g6A, g6B, g6C, nrow = 1)
 ``` 
@@ -327,6 +331,10 @@ plot_grid(g6A, g6B, g6C, nrow = 1)
 ## ggplot extensions <https://exts.ggplot2.tidyverse.org>
 
 <img src = "pix/ggplot_exts.png" style="width:100%">
+
+## Esquisse
+
+(demonstrate)
 
 ## References {.refs}
 
