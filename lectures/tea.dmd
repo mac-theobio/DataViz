@@ -165,27 +165,10 @@ __BAD__
 
 ## Odds ratios
 
-* The _odds_ of an adult being unvaccinated is the ratio of the probabilities unvaccinated:vaccinated
-	* 0.2/0.8 = 1/4
-
-* The odds of a diagnosee being unvaccinated is 
-	* 0.6/0.4 = 1.5
-	* The odds _ratio_ is 6 – that's the correct measure of relative risk
-	* You can work this out the long way
-
 * Odds are a natural basis for doing calculations with probabilities
 	* These calculations are usually ratio-based
 
-* Therefore: a good scale for many probability questions is the log-odds (or _logit_) scale
-
-## Probabilities
-
 * 1% is to 10% as 10% is to ...
-
-* There is a simple, good answer
-	* No single answer will always be best
-
-* Odds scale: 1/99 is to 1/9 as 1/9 is to 11/9
 	* Probability scale ... 55%
 	* Has a concrete meaning, for example screening tests:
 	* if 1% prevalence implies 10% of positives are true, then:
@@ -204,6 +187,12 @@ __BAD__
 * [Code](../code/coronaVacc.R)
 * [Data](../data/)
 
+## Log ratios
+
+* What is the problem with proportional change?
+
+* Log ratios naturally extend the use of proportional change for small proportions
+
 ## Transformation lessons
 
 * Transformations show valid alternative perspectives
@@ -212,3 +201,25 @@ __BAD__
 * Different perspectives illuminate different questions
 
 * Use visual clues to suggest whether your scales are additive
+
+# More examples
+
+## More examples
+
+* Make plots quantitatively representative when you can
+
+## PCA plots scaled by component importance
+
+![](code/pcaScale-0.png){width=70%}
+
+## PCA plots scaled by component importance
+
+![](code/pcaScale-1.png){width=70%}
+
+## Area proportional to quantity represented
+
+![](code/smoke_plots.badarea.png){width=70%}
+
+## Area proportional to quantity represented
+
+![](code/smoke_plots.goodarea.png){width=70%}
