@@ -8,10 +8,6 @@ date: "September 2021"
 
 ![](pix/ClevelandHierarchyR.png "Cleveland's hierarchy from best to worst: Position along a common scale e.g. scatter plot; Position on identical but nonaligned scales e.g. multiple scatter plots; Length e.g. bar chart; Angle & Slope (tie) e.g. pie chart; Area e.g. bubbles; Volume, density, and color saturation (tie) e.g. heatmap; Color hue e.g. newsmap "){width="80%"}
 
-* Image downloaded from defunct post [This link no longer works ☹](http://sfew.websitetoolbox.com/post/clevelands-graphical-features-hierarchy-4598555)
-
-* [Some information from flowingdata](https://flowingdata.com/2010/03/20/graphical-perception-learn-the-fundamentals-first/)
-
 ## Scales
 
 * The top of the hierarchy involves putting things on scales
@@ -23,15 +19,21 @@ date: "September 2021"
 
 # Anchors
 
+## Anchors
+
+* Anchors matter
+
+* Your choice should be thoughtful and clear
+
 ## Utter problem algae
+
+![](code/temppix.algae.png){width=80%}
+
+## Global temperature
 
 ![](code/temppix.plain.png){width=80%}
 
-## Utter problem algae
-
-![](code/temppix.stretch.png){width=80%}
-
-## Utter problem algae
+## Global temperature
 
 ![](code/temppix.dark.png){width=80%}
 
@@ -47,7 +49,14 @@ date: "September 2021"
 
 * [Data](https://datahub.io/core/global-temp/r/annual.csv)
 * Code: [clean](../code/temps.R); [plot](../code/temppix.R)
-* Dushoff craziness! [shellpipes](https://dushoff.github.io/shellpipes/)
+
+# Area and volume
+
+## Area and volume
+
+* Where does area lie on Cleveland's scale?
+	* It depends how you use it?
+	* Area can signal meaning
 
 ## Magazine circulation (advertisement)
 
@@ -56,10 +65,6 @@ date: "September 2021"
 ## Magazine circulation (absolute amount)
 
 ![](code/circulation-0.png){width=80%}
-
-## Magazine circulation (trend)
-
-![](code/circulation-2.png){width=80%}
 
 ## Magazine circulation (trend)
 
@@ -83,7 +88,12 @@ From [How to Lie with Statistics](https://en.wikipedia.org/wiki/How_to_Lie_with_
 
 * Avoid using (or hinting at) volume
 
-# Ratio scaling
+# Other scales
+
+## Other scales
+
+* Log, log odds and log-ratio scales are often the most relevant
+* We need to work to understand them well and communicate them clearly
 
 ## Physical quantities
 
@@ -108,9 +118,13 @@ From [How to Lie with Statistics](https://en.wikipedia.org/wiki/How_to_Lie_with_
 
 ## Provinces of Canada
 
+__BAD__
+
 ![](code/canadaPlots.log1bar.png){width=80%}
 
 ## Provinces of Canada
+
+__BAD__
 
 ![](code/canadaPlots.logbar.png){width=80%}
 
@@ -131,8 +145,6 @@ From [How to Lie with Statistics](https://en.wikipedia.org/wiki/How_to_Lie_with_
 
 * Code: [clean](../code/corona.R); [plot](../code/coronaPlots.R)
 * [Data](../data/coronaCA.csv)
-
-# Odds-ratio scaling
 
 ## Probabilities
 
@@ -173,7 +185,7 @@ From [How to Lie with Statistics](https://en.wikipedia.org/wiki/How_to_Lie_with_
 	* Probability scale ... 55%
 	* Has a concrete meaning, for example screening tests:
 	* if 1% prevalence implies 10% of positives are true, then:
-	* Has a concrete meaning; if 10% prevalence implies 55% of positives are true
+		* 10% prevalence implies 55% of positives are true
 
 ## Coronavirus vaccination
 
@@ -190,7 +202,8 @@ From [How to Lie with Statistics](https://en.wikipedia.org/wiki/How_to_Lie_with_
 
 ## Transformation lessons
 
-* Transformations don't make your data less real
+* Transformations show valid alternative perspectives
+	* Use human-friendly values when possible
 
 * Different perspectives illuminate different questions
 
