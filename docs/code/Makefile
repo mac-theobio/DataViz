@@ -49,7 +49,6 @@ cache/temps.csv:
 	wget -O $@ https://datahub.io/core/global-temp/r/annual.csv
 
 temps.Rout: temps.R cache/temps.csv
-	$(wrapR)
 
 pngDesc += temppix
 
@@ -59,8 +58,7 @@ pngDesc += temppix
 temppix.Rout: temppix.R temps.rda
 
 ## Magazine circulation and anchors
-circulation.Rout: circulation.R data/newcirc.csv
-	$(wrapR)
+circulation.Rout: circulation.R data/circulation.csv
 
 ## Orchard sprays; this is a weird data set and I may not use it much more
 ## 2021 Sep 12 (Sun) (halfway desc-ed)
