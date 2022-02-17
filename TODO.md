@@ -5,6 +5,14 @@ Add scale_size_area stuff?
 
 PCA example?
 
+Clean up Odds ratios
+
+Add log ratios
+
+Code and so forth
+
+----------------------------------------------------------------------
+
 Remaining topics:
 
 networks:

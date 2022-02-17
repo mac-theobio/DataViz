@@ -13,9 +13,11 @@ old <- print(layout
 ## EDGE aesthetics: type,weight
 ## NODE media,media.type,type.label,audience.size
 
-print(layout
+l0 <- (layout
 	+ geom_edge_fan(aes(color=type, width=weight))
 	+ geom_node_point(aes(size=audience.size, color=type.label))
-	+ scale_size_area() ## Confirm DOES THIS WORK?
 	+ geom_node_text(aes(label=media), repel=TRUE)
 ) 
+
+print(l0)
+print(l0) + scale_size_area() ## Confirm DOES THIS WORK?
