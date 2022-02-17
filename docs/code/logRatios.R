@@ -10,9 +10,7 @@ between <- 0.4
 within <- 0.2
 
 geff <- rnorm(ng, sd=between)
-genotypes <- factor((1:ng))
-levels(genotypes) <- (1:ng)[order(geff)]
-print(genotypes)
+genotypes <- factor(1:ng) %>% reorder(geff, FUN = mean)
 
 nl <- list()
 for (i in 1:length(genotypes)){
