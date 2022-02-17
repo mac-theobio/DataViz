@@ -23,12 +23,12 @@ autopipeRcall = defined
 
 ## Use the main course cache
 
-## Ignore += cache
+Ignore += cache
 cache: dir = ../..
 cache: 
 	$(linkdir)
 
-Ignore += cache
+Ignore += data
 data/%: data ;
 data: dir = ..
 data: 
