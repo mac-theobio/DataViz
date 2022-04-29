@@ -2,10 +2,15 @@ library(ggplot2)
 theme_set(theme_bw(base_size=18))
 
 library(Hmisc)
+library(dplyr)
+library(shellpipes)
+rpcall("circulation.Rout circulation.R data/newcirc.csv")
 
-circ <- read.csv(input_files[[1]])
+circ <- (csvRead()
+	%>% mutate(Year = as.factor(Year))
+)
 
-base <- (ggplot(circ, aes(x=Year,y=Circulation))
+base <- (ggplot(circ, aes(x=Year,y=Circulation, group=1))
 	+ ylab("Circulation (thousands)")
 )
 

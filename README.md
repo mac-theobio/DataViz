@@ -49,7 +49,6 @@ Please edit `sched.txt` instead of `sched.tsv`; it's meant to be self-explanator
 
 - `syncup`: merge work, including rendered products, without doing unnecessary rendering
 - `update_all`: remake the whole site
-- `pushup`: remake the site; push main dir and all active subdirs (possibly with multiple commits)
 - `local_site`: remake the site; open a local-file-based version in the browser
 
 To add new subdirs to the machinery:

@@ -14,19 +14,21 @@ base <- (ggplot(gis, aes(Year, Temp))
 )
 teeGG(base, ext="png", desc="base", height=height)
 
-stretch <- base + ylim(c(0, 20)) + ylab("Problematicity")
+## Make it worse by stretching
+stretch <- base + ylim(c(0, 20))
 teeGG(stretch, ext="png", desc="stretch", height=height)
 
-dark <- stretch + theme(panel.grid.major = element_line(colour = "grey70"))
-teeGG(dark, ext="png", desc="dark", height=height)
-
+## Hide the default grid
 plain <- (stretch + theme(panel.grid = element_blank())) 
 teeGG(plain, ext="png", desc="plain", height=height)
 
-secret <- (plain + xlab("Time") + ylab("")
-	+ theme(axis.text.y = element_blank())
-)
-teeGG(secret, ext="png", desc="secret", height=height)
+## Humorously change the y axis
+teeGG(plain + ylab("Problematicity"), ext="png", desc="algae", height=height)
+stretch <- base + ylim(c(0, 20))
+
+## Dark grid lines
+dark <- stretch + theme(panel.grid.major = element_line(colour = "grey70"))
+teeGG(dark, ext="png", desc="dark", height=height)
 
 anomaly <- (ggplot(gis, aes(Year, Mean))
 	+ geom_point()

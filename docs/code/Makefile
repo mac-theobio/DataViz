@@ -23,12 +23,12 @@ autopipeRcall = defined
 
 ## Use the main course cache
 
-## Ignore += cache
+Ignore += cache
 cache: dir = ../..
 cache: 
 	$(linkdir)
 
-Ignore += cache
+Ignore += data
 data/%: data ;
 data: dir = ..
 data: 
@@ -49,7 +49,6 @@ cache/temps.csv:
 	wget -O $@ https://datahub.io/core/global-temp/r/annual.csv
 
 temps.Rout: temps.R cache/temps.csv
-	$(wrapR)
 
 pngDesc += temppix
 
@@ -59,8 +58,7 @@ pngDesc += temppix
 temppix.Rout: temppix.R temps.rda
 
 ## Magazine circulation and anchors
-circulation.Rout: circulation.R data/circulation.csv
-	$(wrapR)
+circulation.Rout: circulation.R data/newcirc.csv
 
 ## Orchard sprays; this is a weird data set and I may not use it much more
 ## 2021 Sep 12 (Sun) (halfway desc-ed)
@@ -80,6 +78,21 @@ coronaPlots.Rout: coronaPlots.R corona.rda
 
 ## Coronavirus vaccination
 coronaVacc.Rout: coronaVacc.R data/canada_vaccines.tsv
+
+######################################################################
+
+## Added for reproducibiliTea
+
+pcaScale.Rout: pcaScale.R data/wine.RData data/wineClass.RData
+	$(pipeR)
+
+logRatios.Rout: logRatios.R
+	$(pipeR)
+
+logRatiosPlot.Rout: logRatiosPlot.R logRatios.rds
+	$(pipeR)
+
+######################################################################
 
 Ignore += bikes.zip
 bikes.zip:

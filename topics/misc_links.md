@@ -1,8 +1,12 @@
-## Miscellaneous links
+---
+title: Miscellaneous links
+bibliography: "vis.bib"
+---
 
 A variety of links that we've run across; hopefully these will get incorporated in the primary course material eventually, but in the meantime enjoy browsing!
 
 - tweet about bad graphics: https://twitter.com/ASeatonSpatial/status/1520029030472462337
+- @bergstrom_why_2018
 - Lin, Chujun, and Mark Allen Thornton. “Fooled by Beautiful Data: Visualization Aesthetics Bias Trust in Science, News, and Social Media.” PsyArXiv, December 17, 2021. https://doi.org/10.31234/osf.io/dnr9s.
 - [What They Forgot to Teach You About R](https://rstats.wtf/index.html): tips on maintenance, workflows, etc..
 * https://twitter.com/MapesGeog/status/1448436559456440320
