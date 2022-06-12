@@ -5,6 +5,7 @@ bibliography: "vis.bib"
 
 A variety of links that we've run across; hopefully these will get incorporated in the primary course material eventually, but in the meantime enjoy browsing!
 
+- useful graphics cheat sheet: https://github.com/GraphicsPrinciples/CheatSheet/blob/master/NVSCheatSheet.pdf
 - Updated datasaurus/Anscombe: “Tools to Simulate Data Set to Teach Statical Models and ML Algorithms.” Accessed May 25, 2022. https://jkunst.com/klassets/.
 - tweet about bad graphics: https://twitter.com/ASeatonSpatial/status/1520029030472462337
 - @bergstrom_why_2018
