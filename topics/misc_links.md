@@ -5,6 +5,7 @@ bibliography: "vis.bib"
 
 A variety of links that we've run across; hopefully these will get incorporated in the primary course material eventually, but in the meantime enjoy browsing!
 
+- @rogers_visualizing_2020
 - @correll_rosschernoff_2018
 - https://www.reddit.com/r/shittydataisbeautiful/
 - useful graphics cheat sheet: https://github.com/GraphicsPrinciples/CheatSheet/blob/master/NVSCheatSheet.pdf
